@@ -74,7 +74,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "frame=leftline"
+\listings_params "frame=leftline,basicstyle={\ttfamily\footnotesize},breaklines=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
