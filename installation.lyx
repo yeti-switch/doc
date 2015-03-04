@@ -20,14 +20,25 @@
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
-\default_output_format default
+\default_output_format pdf2
 \output_sync 0
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\use_hyperref false
+\spacing single
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder true
+\pdf_colorlinks true
+\pdf_backref section
+\pdf_pdfusetitle true
+\pdf_quoted_options "linkcolor=black, urlcolor=black, citecolor=black"
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -44,13 +55,17 @@
 \use_bibtopic false
 \use_indices false
 \paperorientation portrait
-\suppress_date false
+\suppress_date true
 \justification true
 \use_refstyle 1
 \index Index
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 1cm
+\topmargin 2cm
+\rightmargin 1cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
@@ -59,6 +74,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
+\listings_params "frame=leftline"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -68,6 +84,10 @@
 
 \begin_body
 
+\begin_layout Title
+YETI installation manual
+\end_layout
+
 \begin_layout Standard
 \begin_inset CommandInset toc
 LatexCommand tableofcontents
@@ -75,23 +95,47 @@ LatexCommand tableofcontents
 \end_inset
 
 
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
-\begin_layout Part*
+\begin_layout Section
 Management interface installation
 \end_layout
 
 \begin_layout Standard
-Рекомендации: Мы рекомендуем использовать отдельную машину для веб интерфейса
- и базы данных маршрутизации.
- Все компоненты веб интерфейса устанавливаются на Debian 7 Wheezy с архитектурой
- amd64.
- Необходимо не менее 1Gb оперативной памяти для успешного функционирования
- интерфейса и базы данных маршрутов.
+we are recommend to use a separate host for web-interface and database
 \end_layout
 
 \begin_layout Standard
-Убедитесь что в систему добавлены следующие репозитории:
+(placing web interface at the same host with database will increase performance
+ by reducing network delay for database requests from web-interface)
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Server requirements:
+\end_layout
+
+\begin_layout Itemize
+OS Debian 7 Wheezy with architecture amd64
+\end_layout
+
+\begin_layout Itemize
+at least 1GB of RAM
+\end_layout
+
+\begin_layout Subsection
+Repositaries
+\end_layout
+
+\begin_layout Standard
+Make sure that following repositories added on your system:
 \end_layout
 
 \begin_layout Standard
@@ -136,54 +180,55 @@ deb http://deb.kamailio.org/kamailio wheezy main
 
 \end_inset
 
+System repositories can be changed by editing of file: /etc/apt/sources.list
+\end_layout
 
+\begin_layout Subsection
+Packages
 \end_layout
 
 \begin_layout Standard
-Изменить системные репозитории можно путем редактировани файла /etc/apt/sources.l
-ist
+Install the following packages:
 \end_layout
 
-\begin_layout Standard
-Установите следующие пакеты:
-\end_layout
-
-\begin_layout Standard
+\begin_layout Itemize
 yeti-web
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 postgresql-9.3
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 postgresql-9.3-prefix
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 postgresql-contrib-9.3
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 skytools3-ticker
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 skytools3
 \end_layout
 
-\begin_layout Standard
+\begin_layout Itemize
 postgresql-9.3-pgq3
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
 \begin_layout Plain Layout
+\align left
 
-root@yeti-main:~# aptitude update aptitude install yeti-web postgresql-9.3
+root@yeti-main:~# aptitude update && aptitude install yeti-web postgresql-9.3
  postgresql-9.3-prefix postgresql-contrib-9.3 skytools3-ticker skytools3 postgresq
 l-9.3-pgq3
 \end_layout
@@ -193,12 +238,21 @@ l-9.3-pgq3
 
 \end_layout
 
+\begin_layout Section
+Databases
+\end_layout
+
+\begin_layout Subsection
+Create Databases
+\end_layout
+
 \begin_layout Standard
-Создайте базу данных маршрутизации:
+Create routing database:
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -248,14 +302,15 @@ q
 \end_inset
 
 
-\end_layout
+\begin_inset VSpace smallskip
+\end_inset
 
-\begin_layout Standard
-Создайте базу данных для хранения CDR
+Create databse to store CDR:
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -292,23 +347,30 @@ q
 \end_layout
 
 \begin_layout Standard
-Рекомендуется указывать имена баз данных, пользователей и пароли, отличающихся
- от приведенных в данной инструкции.
- Для больших инсталляций рекомендуется размещать базу данных CDR на выделенном
- сервере.
+Note: It's recommended to specify values for databases names, usernames,
+ passwords differ from specified in this manual for security reasons.
 \end_layout
 
 \begin_layout Standard
-Настройка подключения к базам данных:
+For large installations is reasonable to place CDR database on dedicated
+ server
+\end_layout
+
+\begin_layout Subsection
+Configure Database Connection
 \end_layout
 
 \begin_layout Standard
-Конфигурирование осуществляется путем редактирования файла /home/yeti-web/config
-/database.yml Создайте этот файл с таким содержимым:
+To configure database connection edit file /home/yeti-web/config/database.yml
+\end_layout
+
+\begin_layout Standard
+Create database.yml file with the following content:
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -433,22 +495,29 @@ port: 5432
 \end_layout
 
 \begin_layout Standard
-Внимание: Необходимо указывать верные параметры подключения к базам данных;
+Warning: you should specify correct adresses and credentials using those
+ which you chose in previous section
+\end_layout
+
+\begin_layout Subsection
+Init databases data
 \end_layout
 
 \begin_layout Standard
-Проверка соединения к базам данных и загрузка схемы Для управления базами
- данных используется утилита yeti-db проверьте соединение с базами данных
- командами
-\end_layout
-
-\begin_layout Standard
-Загрузите схемы баз данных.
+To simplify work with databases use utility 
+\series bold
+yeti-db
+\series default
  
 \end_layout
 
 \begin_layout Standard
+To initialize empty databases:
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -459,7 +528,7 @@ root@yeti-main:~# yeti-db init
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db --cdr ini
+root@yeti-main:~# yeti-db --cdr init
 \end_layout
 
 \end_inset
@@ -468,11 +537,12 @@ root@yeti-main:~# yeti-db --cdr ini
 \end_layout
 
 \begin_layout Standard
-Обновите схемы до посленей версии: 
+To upgrade database to the lastest version: 
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -492,11 +562,12 @@ root@yeti-main:~# yeti-db --cdr apply_all
 \end_layout
 
 \begin_layout Standard
-Проверить версии можно командами: 
+You can check actual database versions:
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -516,25 +587,36 @@ root@yeti-main:~# yeti-db --cdr version
 \end_layout
 
 \begin_layout Standard
-Внимание: При обновлении системы работающей в продакшн режиме нельзя использоват
-ь команду aplly_all - эта команда предназначена для обновления до последней
- версии только на системе без трафика.
- Для обновления продакшн систем нужно применять команду apply, которая применяет
- только одно обновление за раз.
- После каждого обновления необходимо обновить конфиги и перезапустить все
- экземпляры коммутатора трафика, только после этого можно применять следующее
- обновление.
- Такой алгоритм обеспечивает zero-downtime процедуру обновления (без потери
- трафика и CDR).
+Attention: During upgrade of the system which working in production command
+ 
+\series bold
+apply_all
+\series default
+ should not be used because this command intended to upgrade to the last
+ version only for system without live traffic.
+ Systems in production must be upgraded using command 
+\series bold
+apply
+\series default
+ which applies just one update in a single run.
+ After each upgrade it is important to amend appropriate configuration files
+ and restart all traffic switch instances.
+ This approach provides zero-downtime upgrade procedure (without loss of
+ traffic and CDRs)
+\end_layout
+
+\begin_layout Section
+Launch web-interface and CDR processing daemons
 \end_layout
 
 \begin_layout Standard
-После успешной настройки баз данных можно запустить веб интерфейс и процесс
- обработки CDR.
+After successfull configuration of databases you finally can run software
+ using following commands:
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -558,19 +640,19 @@ root@yeti-main:~# /etc/init.d/yeti-delayed start
 
 \end_layout
 
-\begin_layout Part*
-Инсталляция Redis сервера
+\begin_layout Section
+DSS Storage installation (Redis)
 \end_layout
 
 \begin_layout Standard
-Redis хранилище используется для синхронизации данных между серверами коммутации.
- В Redis хранится информация о использованных ресурсах(например лимиты емкости
- шлюзов) для правильного их лимитирования в распределенных инсталляциях.
+Redis is used to synchronize data between traffic switch instances.
+ It stores information about used resources (e.g gateways capacity limits)
+ to provide correct limitation among all nodes for distributed installations.
 \end_layout
 
 \begin_layout Standard
-Редис сервер может быть установлен на одном сервере с коммутатором.
- Для инсталляции убедитесь что в систему добавлены следующие репозитории:
+Redis server must be installed at the same host with switch.
+ For installation make sure that your system have following repositories:
 \end_layout
 
 \begin_layout Standard
@@ -614,7 +696,18 @@ deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \end_layout
 
 \begin_layout Standard
-И установите пакет redis-server.
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Install package 
+\series bold
+redis-server
+\series default
+.
 \end_layout
 
 \begin_layout Standard
@@ -632,12 +725,16 @@ root@yeti-main:~# aptitude install redis-server
 
 \end_layout
 
-\begin_layout Part*
-Инсталляция сервера коммутации
+\begin_layout Section
+Traffic switch server installation
+\end_layout
+
+\begin_layout Subsection
+Install package
 \end_layout
 
 \begin_layout Standard
-Для инсталляции убедитесь что в систему добавлены следующие репозитории:
+For installation make sure that your system have following repositories:
 \end_layout
 
 \begin_layout Standard
@@ -681,21 +778,44 @@ deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \end_layout
 
 \begin_layout Standard
-Установите пакет sems-yeti.
- aptitude install sems-yeti
-\end_layout
+\begin_inset VSpace smallskip
+\end_inset
 
-\begin_layout Standard
-/etc/sems/sems.conf
-\end_layout
-
-\begin_layout Standard
-ЗАМЕНИТЕ <SIGNALLING_IP>, <MEDIA_IP> на значения соответствующие Вашей конфигура
-ции.
+Install package 
+\series bold
+sems-yeti
 \end_layout
 
 \begin_layout Standard
 \begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# aptitude install sems-yeti
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Configuration files
+\end_layout
+
+\begin_layout Subsubsection
+/etc/sems/sems.conf
+\end_layout
+
+\begin_layout Standard
+Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -732,12 +852,12 @@ plugin_path=/usr/lib/sems/plug-in/
 \begin_layout Plain Layout
 
 load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;sbc;session_timer;xmlrpc2di;uac_a
-uth;di_log;registrar_client;
+uth;di_log;registrar_client
 \end_layout
 
 \begin_layout Plain Layout
 
-application = sbc 
+application = sbc
 \end_layout
 
 \begin_layout Plain Layout
@@ -833,26 +953,23 @@ registrations_enabled=no
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
 \end_layout
 
+\begin_layout Subsubsection
+/etc/sems/etc/yeti.conf
+\end_layout
+
 \begin_layout Standard
-/etc/sems/etc/yeti.conf ЗАМЕНИТЕ <DB IP>, <DB username>, <DB name>, <DB password>
-, <CDR DB IP>, <CDR DB name>, <CDR DB username>, <CDR DB password> на значения
- соответствующие Вашей конфигурации.
- Так же если это необходимо для вашей конфигурации укажите параметры подключения
- к slave хостам 
+Replace <DB IP>, <DB username>, <DB name>, <DB password>, <CDR DB IP>, <CDR
+ DB name>, <CDR DB username>, <CDR DB password> with addresses and credentials
+ for configured databases.
+ Also if it needed for your configuration specify parameters for slave databases
+ 
 \begin_inset listings
+lstparams "breaklines=true"
 inline false
 status open
 
@@ -868,7 +985,15 @@ pop_id = 1
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 routing_schema = switch5
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -879,6 +1004,10 @@ msg_logger_dir = /var/spool/sems/dump
 \begin_layout Plain Layout
 
 reg_check_interval = 5000
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -924,6 +1053,10 @@ master_max_exceptions=0
 \begin_layout Plain Layout
 
 master_max_wait=125
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -983,7 +1116,15 @@ max_exceptions=0
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 routing_function = route_release 
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -994,6 +1135,10 @@ cdr_pool_size=4
 \begin_layout Plain Layout
 
 cdr_check_interval=5000 
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1023,6 +1168,15 @@ mastercdr_pass=<CDR DB password>
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
+cdr_failover_to_slave=0
+\end_layout
+
+\begin_layout Plain Layout
+
 slavecdr_host=127.0.0.1 
 \end_layout
 
@@ -1048,12 +1202,20 @@ slavecdr_pass=somepassword
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 writecdr_schema = switch 
 \end_layout
 
 \begin_layout Plain Layout
 
 writecdr_function = writecdr 
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1068,12 +1230,20 @@ failover_requeue = 1
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 cdr_dir = /var/spool/sems/cdrs 
 \end_layout
 
 \begin_layout Plain Layout
 
 cdr_completed_dir = /var/spool/sems/cdrs/completed 
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1089,6 +1259,10 @@ profiles_cache_check_interval = 60
 \begin_layout Plain Layout
 
 profiles_cache_buckets = 100000 
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \begin_layout Plain Layout
@@ -1113,6 +1287,10 @@ write_redis_timeout = 50
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 read_redis_host = 127.0.0.1
 \end_layout
 
@@ -1133,6 +1311,10 @@ read_redis_timeout = 50
 
 \begin_layout Plain Layout
 
+\end_layout
+
+\begin_layout Plain Layout
+
 reject_on_cache_error = 0 
 \end_layout
 
@@ -1146,8 +1328,12 @@ calls_show_limit = 1000
 
 \end_layout
 
+\begin_layout Subsubsection
+Other configuration files
+\end_layout
+
 \begin_layout Standard
-Скопируйте дефолтную конфигурацию для остальных файлов:
+Copy defaults for the rest of needed configuration files:
 \end_layout
 
 \begin_layout Standard
@@ -1166,6 +1352,7 @@ root@yeti-main:~# mv /etc/sems/etc/sbc.dist.conf /etc/sems/etc/sbc.conf
 \end_layout
 
 \begin_layout Plain Layout
+\align left
 
 root@yeti-main:~# mv /etc/sems/etc/oodprofile.yeti.dist.conf /etc/sems/etc/oodprofi
 le.yeti.conf 
@@ -1183,7 +1370,15 @@ root@yeti-main:~# mv /etc/sems/etc/xmlrpc2di.dist.conf /etc/sems/etc/xmlrpc2di.c
 \end_layout
 
 \begin_layout Standard
-Запустите коммутатор командой 
+Запустите коммутатор командой
+\end_layout
+
+\begin_layout Subsection
+Launch traffic switch
+\end_layout
+
+\begin_layout Standard
+Use following command to launch configured traffic switch instance
 \end_layout
 
 \begin_layout Standard
@@ -1202,16 +1397,21 @@ root@yeti-main:~# /etc/init.d/sems start
 \end_layout
 
 \begin_layout Standard
-В случае ошибки, найти проблему удобно командой sems -D 3 -E которая запустит
- демон без перевода его в фоновый режим
+In case of errors it's useful to use command 
+\series bold
+sems -E -D3
+\series default
+ which will launch daemon in foreground with debug logging level
 \end_layout
 
-\begin_layout Part*
-Инсталляция балансировщика нагрузки 
+\begin_layout Section
+Install load balancer
 \end_layout
 
 \begin_layout Standard
-Установите пакет yeti-lb
+Instal package 
+\series bold
+yeti-lb
 \end_layout
 
 \begin_layout Standard
@@ -1226,14 +1426,30 @@ root@yeti-main:~# yeti-lb aptitude install yeti-lb
 
 \end_inset
 
- В процесс инсталляции укажите адрес ранее установленной сигнальной ноды
- <SIGNALLING-IP>:5061 И адрес балансировщика.
- После инсталляции можно так же отредактировать эти параметры в файлах /etc/kama
-ilio/dispatcher.list и /etc/kamailio/lb.conf
+
 \end_layout
 
 \begin_layout Standard
-Запуск балансировщика осуществляется командой 
+Note: On package configuration stage you will be asked specify address of
+ previously installed signalling node and address for load balancer to listen.
+\end_layout
+
+\begin_layout Standard
+After installation you can change any parameters by editing files: 
+\shape italic
+/etc/kamailio/dispatcher.list
+\shape default
+ and 
+\shape italic
+/etc/kamailio/lb.conf
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+To launch load balancer:
 \end_layout
 
 \begin_layout Standard
@@ -1243,7 +1459,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~#фе/etc/init.d/kamailio start
+root@yeti-main:~# /etc/init.d/kamailio start
 \end_layout
 
 \end_inset
