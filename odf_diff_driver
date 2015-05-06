@@ -1,0 +1,4 @@
+just put the following lines to the .git/config
+
+[diff "odf"]
+        textconv=odt2txt
