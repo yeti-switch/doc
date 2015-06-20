@@ -699,15 +699,9 @@ deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \begin_inset VSpace smallskip
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 Install package 
 \series bold
 redis-server
-\series default
-.
 \end_layout
 
 \begin_layout Standard
@@ -723,6 +717,666 @@ root@yeti-main:~# aptitude install redis-server
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Management server installation
+\end_layout
+
+\begin_layout Standard
+Since version 1.6.3-175 we started to use central configuration server to
+ store yeti module configuration for all nodes in cluster.
+\end_layout
+
+\begin_layout Subsection
+Install package
+\end_layout
+
+\begin_layout Standard
+For installation make sure that your system have following repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+deb http://ftp.us.debian.org/debian/ wheezy main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://security.debian.org/ wheezy/updates main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://pkg.yeti-switch.org/debian wheezy/ 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://packages.dotdeb.org wheezy all 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+Install package 
+\series bold
+yeti-mgmt
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# aptitude install yeti-mgmt
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Configuration files
+\end_layout
+
+\begin_layout Subsubsection
+/etc/yeti/management.cfg
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:/etc/yeti/management.cfg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+This file contains configuration for management daemon.
+\begin_inset Newline newline
+\end_inset
+
+Set desired logging level and address to listen.
+\begin_inset Newline newline
+\end_inset
+
+You can set multiple addresses separated by comma to listen multiple addresses.
+\begin_inset Newline newline
+\end_inset
+
+Possible log_level values are: (1 - error, 2 - info, 3 - debug)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+daemon {
+\end_layout
+
+\begin_layout Plain Layout
+
+  listen = {
+\end_layout
+
+\begin_layout Plain Layout
+
+    "tcp://127.0.0.1:4444"
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  log_level = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+/etc/yeti/system.cfg
+\end_layout
+
+\begin_layout Standard
+This file contains configuration for all nodes.
+\begin_inset Newline newline
+\end_inset
+
+Each top-level section defines configuration for node of certain type (
+\shape italic
+signalling
+\shape default
+ is for traffic switch nodes).
+ All top-level sections contains mandatory section 
+\shape italic
+globals
+\shape default
+ which must have all possible values common for all nodes.
+\begin_inset Newline newline
+\end_inset
+
+Then there is named sections for each node_id which can contains overrides
+ of global parameters.
+\begin_inset Newline newline
+\end_inset
+
+Note: even if your node does not have any specific values you have to define
+ empty section for this node anyway, otherwise management node will not
+ return configuration for node with such id.
+\begin_inset VSpace smallskip
+\end_inset
+
+Example of minimal configuration file for node with id 0:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+signalling {
+\end_layout
+
+\begin_layout Plain Layout
+
+  globals {
+\end_layout
+
+\begin_layout Plain Layout
+
+    yeti {
+\end_layout
+
+\begin_layout Plain Layout
+
+      pop_id = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+      msg_logger_dir = /var/spool/sems/dump
+\end_layout
+
+\begin_layout Plain Layout
+
+      routing {
+\end_layout
+
+\begin_layout Plain Layout
+
+        schema = switch8
+\end_layout
+
+\begin_layout Plain Layout
+
+        function = route_release
+\end_layout
+
+\begin_layout Plain Layout
+
+        init = init
+\end_layout
+
+\begin_layout Plain Layout
+
+        master_pool {
+\end_layout
+
+\begin_layout Plain Layout
+
+          host = 127.0.0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+          port = 5432
+\end_layout
+
+\begin_layout Plain Layout
+
+          name = yeti
+\end_layout
+
+\begin_layout Plain Layout
+
+          user = yeti
+\end_layout
+
+\begin_layout Plain Layout
+
+          pass = yeti
+\end_layout
+
+\begin_layout Plain Layout
+
+          size = 4
+\end_layout
+
+\begin_layout Plain Layout
+
+          check_interval = 10
+\end_layout
+
+\begin_layout Plain Layout
+
+          max_exceptions = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+          statement_timeout=3000
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        failover_to_slave = false
+\end_layout
+
+\begin_layout Plain Layout
+
+        slave_pool {
+\end_layout
+
+\begin_layout Plain Layout
+
+          host = 127.0.0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+          port = 5432
+\end_layout
+
+\begin_layout Plain Layout
+
+          name = yeti
+\end_layout
+
+\begin_layout Plain Layout
+
+          user = yeti
+\end_layout
+
+\begin_layout Plain Layout
+
+          pass = yeti
+\end_layout
+
+\begin_layout Plain Layout
+
+          size = 4
+\end_layout
+
+\begin_layout Plain Layout
+
+          check_interval = 10
+\end_layout
+
+\begin_layout Plain Layout
+
+          max_exceptions = 0
+\end_layout
+
+\begin_layout Plain Layout
+
+          statement_timeout=3000
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+        cache {
+\end_layout
+
+\begin_layout Plain Layout
+
+          enabled = false
+\end_layout
+
+\begin_layout Plain Layout
+
+          check_interval = 60
+\end_layout
+
+\begin_layout Plain Layout
+
+          buckets = 100000
+\end_layout
+
+\begin_layout Plain Layout
+
+        }
+\end_layout
+
+\begin_layout Plain Layout
+
+      }
+\end_layout
+
+\begin_layout Plain Layout
+
+      cdr {
+\end_layout
+
+\begin_layout Plain Layout
+
+       dir = /var/spool/sems/cdrs
+\end_layout
+
+\begin_layout Plain Layout
+
+       completed_dir = /var/spool/sems/cdrs/completed
+\end_layout
+
+\begin_layout Plain Layout
+
+       pool_size = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+       schema = switch
+\end_layout
+
+\begin_layout Plain Layout
+
+       function = writecdr
+\end_layout
+
+\begin_layout Plain Layout
+
+       master {
+\end_layout
+
+\begin_layout Plain Layout
+
+         host = 127.0.0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+         port = 5433
+\end_layout
+
+\begin_layout Plain Layout
+
+         name = cdr
+\end_layout
+
+\begin_layout Plain Layout
+
+         user = cdr
+\end_layout
+
+\begin_layout Plain Layout
+
+         pass = cdr
+\end_layout
+
+\begin_layout Plain Layout
+
+       }
+\end_layout
+
+\begin_layout Plain Layout
+
+       failover_to_slave = false
+\end_layout
+
+\begin_layout Plain Layout
+
+       slave {
+\end_layout
+
+\begin_layout Plain Layout
+
+         host = 127.0.0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+         port = 5433
+\end_layout
+
+\begin_layout Plain Layout
+
+         name = cdr
+\end_layout
+
+\begin_layout Plain Layout
+
+         user = cdr
+\end_layout
+
+\begin_layout Plain Layout
+
+         pass = cdr
+\end_layout
+
+\begin_layout Plain Layout
+
+       }
+\end_layout
+
+\begin_layout Plain Layout
+
+       failover_requeue = true
+\end_layout
+
+\begin_layout Plain Layout
+
+       failover_to_file = false
+\end_layout
+
+\begin_layout Plain Layout
+
+     }
+\end_layout
+
+\begin_layout Plain Layout
+
+     resources {
+\end_layout
+
+\begin_layout Plain Layout
+
+       reject_on_error = false
+\end_layout
+
+\begin_layout Plain Layout
+
+       write {
+\end_layout
+
+\begin_layout Plain Layout
+
+         host = 127.0.0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+         port = 6379
+\end_layout
+
+\begin_layout Plain Layout
+
+         size = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+         timeout = 500
+\end_layout
+
+\begin_layout Plain Layout
+
+       }
+\end_layout
+
+\begin_layout Plain Layout
+
+       read {
+\end_layout
+
+\begin_layout Plain Layout
+
+         host = 127.0.0.1
+\end_layout
+
+\begin_layout Plain Layout
+
+         port = 6379
+\end_layout
+
+\begin_layout Plain Layout
+
+         size = 2
+\end_layout
+
+\begin_layout Plain Layout
+
+         timeout = 1000
+\end_layout
+
+\begin_layout Plain Layout
+
+       }
+\end_layout
+
+\begin_layout Plain Layout
+
+     }
+\end_layout
+
+\begin_layout Plain Layout
+
+     registrations {
+\end_layout
+
+\begin_layout Plain Layout
+
+       check_interval = 5000
+\end_layout
+
+\begin_layout Plain Layout
+
+     }
+\end_layout
+
+\begin_layout Plain Layout
+
+     rpc {
+\end_layout
+
+\begin_layout Plain Layout
+
+       calls_show_limit = 1000
+\end_layout
+
+\begin_layout Plain Layout
+
+     }
+\end_layout
+
+\begin_layout Plain Layout
+
+   }
+\end_layout
+
+\begin_layout Plain Layout
+
+  }
+\end_layout
+
+\begin_layout Plain Layout
+
+  node 0 { }
+\end_layout
+
+\begin_layout Plain Layout
+
+} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Launch management server
+\end_layout
+
+\begin_layout Standard
+Use following command to launch configured management server instance
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+root@yeti-main:~# /etc/init.d/yeti-mgmt start 
+\end_layout
+
+\end_inset
+
+Check file 
+\shape italic
+/var/log/yeti-mgmt.log
+\shape default
+ for daemon logs
 \end_layout
 
 \begin_layout Section
@@ -821,7 +1475,12 @@ status open
 
 \begin_layout Plain Layout
 
-interfaces=intern sip_ip_intern=<SIGNALLING_IP> 
+interfaces=intern
+\end_layout
+
+\begin_layout Plain Layout
+
+sip_ip_intern=<SIGNALLING_IP> 
 \end_layout
 
 \begin_layout Plain Layout
@@ -963,11 +1622,36 @@ registrations_enabled=no
 \end_layout
 
 \begin_layout Standard
-Replace <DB IP>, <DB username>, <DB name>, <DB password>, <CDR DB IP>, <CDR
- DB name>, <CDR DB username>, <CDR DB password> with addresses and credentials
- for configured databases.
+Set address of management server Replace <DB IP>, <DB username>, <DB name>,
+ <DB password>, <CDR DB IP>, <CDR DB name>, <CDR DB username>, <CDR DB password>
+ with addresses and credentials for configured databases.
  Also if it needed for your configuration specify parameters for slave databases
- 
+\end_layout
+
+\begin_layout Description
+node_id: unique signalling node id
+\end_layout
+
+\begin_layout Description
+cfg_timeout: timeout of waiting response from management node
+\end_layout
+
+\begin_layout Description
+cfg_urls: list of comma separated names for management node addresses
+\end_layout
+
+\begin_layout Description
+cfg_url_<name>: management node address to fetch configuration (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:/etc/yeti/management.cfg"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
 \begin_inset listings
 lstparams "breaklines=true"
 inline false
@@ -975,352 +1659,30 @@ status open
 
 \begin_layout Plain Layout
 
-node_id = 10
+node_id = 0
 \end_layout
 
 \begin_layout Plain Layout
 
-pop_id = 1
 \end_layout
 
 \begin_layout Plain Layout
 
+cfg_timeout = 1000
 \end_layout
 
 \begin_layout Plain Layout
 
-routing_schema = switch5
 \end_layout
 
 \begin_layout Plain Layout
 
+cfg_urls = main
 \end_layout
 
 \begin_layout Plain Layout
 
-msg_logger_dir = /var/spool/sems/dump
-\end_layout
-
-\begin_layout Plain Layout
-
-reg_check_interval = 5000
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-master_host=<DB IP> 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_port=5432 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_user=<DB username> 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_name=<DB name> 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_pass=<DB password> 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_pool_size=10 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_check_interval=25 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_max_exceptions=0 
-\end_layout
-
-\begin_layout Plain Layout
-
-master_max_wait=125
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-failover_to_slave=0
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_host=127.0.0.1
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_port=5432
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_user=yeti
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_name=yeti
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_pass=somepassword
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_pool_size=5
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_check_interval=25 
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_max_exceptions=0 
-\end_layout
-
-\begin_layout Plain Layout
-
-slave_max_wait=125 
-\end_layout
-
-\begin_layout Plain Layout
-
-max_exceptions=0 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-routing_function = route_release 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cdr_pool_size=4 
-\end_layout
-
-\begin_layout Plain Layout
-
-cdr_check_interval=5000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-mastercdr_host=<CDR DB IP> 
-\end_layout
-
-\begin_layout Plain Layout
-
-mastercdr_port=5432 
-\end_layout
-
-\begin_layout Plain Layout
-
-mastercdr_name=<CDR DB name> 
-\end_layout
-
-\begin_layout Plain Layout
-
-mastercdr_user=<CDR DB username> 
-\end_layout
-
-\begin_layout Plain Layout
-
-mastercdr_pass=<CDR DB password> 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cdr_failover_to_slave=0
-\end_layout
-
-\begin_layout Plain Layout
-
-slavecdr_host=127.0.0.1 
-\end_layout
-
-\begin_layout Plain Layout
-
-slavecdr_port=5432
-\end_layout
-
-\begin_layout Plain Layout
-
-slavecdr_name=cdr 
-\end_layout
-
-\begin_layout Plain Layout
-
-slavecdr_user=yeti 
-\end_layout
-
-\begin_layout Plain Layout
-
-slavecdr_pass=somepassword 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-writecdr_schema = switch 
-\end_layout
-
-\begin_layout Plain Layout
-
-writecdr_function = writecdr 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-failover_to_file=0 
-\end_layout
-
-\begin_layout Plain Layout
-
-failover_requeue = 1 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-cdr_dir = /var/spool/sems/cdrs 
-\end_layout
-
-\begin_layout Plain Layout
-
-cdr_completed_dir = /var/spool/sems/cdrs/completed 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-profiles_cache_enabled = 1 
-\end_layout
-
-\begin_layout Plain Layout
-
-profiles_cache_check_interval = 60 
-\end_layout
-
-\begin_layout Plain Layout
-
-profiles_cache_buckets = 100000 
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-write_redis_host = 127.0.0.1 
-\end_layout
-
-\begin_layout Plain Layout
-
-write_redis_port = 6379 
-\end_layout
-
-\begin_layout Plain Layout
-
-write_redis_size = 2 
-\end_layout
-
-\begin_layout Plain Layout
-
-write_redis_timeout = 50
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-read_redis_host = 127.0.0.1
-\end_layout
-
-\begin_layout Plain Layout
-
-read_redis_port = 6379 
-\end_layout
-
-\begin_layout Plain Layout
-
-read_redis_size = 2 
-\end_layout
-
-\begin_layout Plain Layout
-
-read_redis_timeout = 50
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\begin_layout Plain Layout
-
-reject_on_cache_error = 0 
-\end_layout
-
-\begin_layout Plain Layout
-
-calls_show_limit = 1000
+cfg_url_main = tcp://127.0.0.1:4444
 \end_layout
 
 \end_inset
@@ -1367,10 +1729,6 @@ root@yeti-main:~# mv /etc/sems/etc/xmlrpc2di.dist.conf /etc/sems/etc/xmlrpc2di.c
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Запустите коммутатор командой
 \end_layout
 
 \begin_layout Subsection
