@@ -1143,6 +1143,11 @@ signalling {
 
 \begin_layout Plain Layout
 
+      log_dir = /var/spool/sems/logdump
+\end_layout
+
+\begin_layout Plain Layout
+
       routing {
 \end_layout
 
