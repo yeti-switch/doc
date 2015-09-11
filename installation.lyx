@@ -247,11 +247,6 @@ deb http://pkg.yeti-switch.org/debian wheezy/
 
 \begin_layout Plain Layout
 
-deb http://packages.dotdeb.org wheezy all
-\end_layout
-
-\begin_layout Plain Layout
-
 deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main 
 \end_layout
 
