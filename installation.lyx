@@ -1571,14 +1571,14 @@ status open
 
 \begin_layout Plain Layout
 
-# /etc/init.d/yeti-mgmt start 
+# /etc/init.d/yeti-management start 
 \end_layout
 
 \end_inset
 
 Check file 
 \shape italic
-/var/log/yeti-mgmt.log
+/var/log/yeti-management.log
 \shape default
  for daemon logs
 \end_layout
