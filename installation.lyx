@@ -1578,7 +1578,7 @@ status open
 
 Check file 
 \shape italic
-/var/log/yeti-management.log
+/var/log/yeti/yeti-management.log
 \shape default
  for daemon logs
 \end_layout
