@@ -20,7 +20,7 @@
 \font_sf_scale 100
 \font_tt_scale 100
 \graphics default
-\default_output_format pdf2
+\default_output_format default
 \output_sync 0
 \bibtex_command default
 \index_command default
@@ -74,7 +74,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "frame=leftline,basicstyle={\ttfamily\footnotesize},breaklines=true"
+\listings_params "frame=none,basicstyle={\ttfamily\footnotesize},breaklines=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -102,36 +102,118 @@ LatexCommand tableofcontents
 \end_layout
 
 \begin_layout Section
-Management interface installation
+Overview
 \end_layout
 
 \begin_layout Standard
-we are recommend to use a separate host for web-interface and database
+Minimal system installation requires following compoments:
 \end_layout
 
-\begin_layout Standard
-(placing web interface at the same host with database will increase performance
- by reducing network delay for database requests from web-interface)
-\begin_inset VSpace smallskip
+\begin_layout Itemize
+Routing database (postgresql-9.3) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Databases-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+CDRs database (postgresql-9.3) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Databases-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Management interface (web interace written on RoR) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Management-interface-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+DSS storage (Redis) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:DSS-Storage-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Management server (configurations server) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Management-server-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Traffic switch (SBC based on SEMS) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Traffic-switch-server-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Load balancer (kamailio) see 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sec:Load-balancer-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Databases installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Databases-installation"
+
 \end_inset
 
 
 \end_layout
 
 \begin_layout Standard
-Server requirements:
+System requires two databases: one for routing and one for CDRs.
 \end_layout
 
-\begin_layout Itemize
-OS Debian 7 Wheezy with architecture amd64
-\end_layout
-
-\begin_layout Itemize
-at least 1GB of RAM
+\begin_layout Standard
+We recommend to place routing database at the same host with management
+ interface to reach best interface responsiveness by reducing network delay
+ for database requests from web-interface.
 \end_layout
 
 \begin_layout Subsection
-Repositaries
+Install packages
+\end_layout
+
+\begin_layout Standard
+both routing and CDRs databases requires similar sets of connected repositories
+ and installed packages.
 \end_layout
 
 \begin_layout Standard
@@ -165,7 +247,7 @@ deb http://pkg.yeti-switch.org/debian wheezy/
 
 \begin_layout Plain Layout
 
-deb http://packages.dotdeb.org wheezy all 
+deb http://packages.dotdeb.org wheezy all
 \end_layout
 
 \begin_layout Plain Layout
@@ -173,26 +255,13 @@ deb http://packages.dotdeb.org wheezy all
 deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main 
 \end_layout
 
-\begin_layout Plain Layout
-
-deb http://deb.kamailio.org/kamailio wheezy main
-\end_layout
-
 \end_inset
 
 System repositories can be changed by editing of file: /etc/apt/sources.list
-\end_layout
+\begin_inset VSpace smallskip
+\end_inset
 
-\begin_layout Subsection
-Packages
-\end_layout
-
-\begin_layout Standard
 Install the following packages:
-\end_layout
-
-\begin_layout Itemize
-yeti-web
 \end_layout
 
 \begin_layout Itemize
@@ -200,15 +269,19 @@ postgresql-9.3
 \end_layout
 
 \begin_layout Itemize
-postgresql-9.3-prefix
-\end_layout
-
-\begin_layout Itemize
 postgresql-contrib-9.3
 \end_layout
 
 \begin_layout Itemize
-skytools3-ticker
+postgresql-9.3-prefix
+\end_layout
+
+\begin_layout Itemize
+postgresql-9.3-pgq3
+\end_layout
+
+\begin_layout Itemize
+postgresql-9.3-yeti
 \end_layout
 
 \begin_layout Itemize
@@ -216,7 +289,7 @@ skytools3
 \end_layout
 
 \begin_layout Itemize
-postgresql-9.3-pgq3
+skytools3-ticker
 \end_layout
 
 \begin_layout Standard
@@ -228,9 +301,9 @@ status open
 \begin_layout Plain Layout
 \align left
 
-root@yeti-main:~# aptitude update && aptitude install yeti-web postgresql-9.3
- postgresql-9.3-prefix postgresql-contrib-9.3 skytools3-ticker skytools3 postgresq
-l-9.3-pgq3
+# aptitude update && aptitude install postgresql-9.3 postgresql-contrib-9.3
+ postgresql-9.3-prefix postgresql-9.3-pgq3 postgresql-9.3-yeti skytools3 skytools3-
+ticker
 \end_layout
 
 \end_inset
@@ -238,12 +311,8 @@ l-9.3-pgq3
 
 \end_layout
 
-\begin_layout Section
-Databases
-\end_layout
-
 \begin_layout Subsection
-Create Databases
+Create databases
 \end_layout
 
 \begin_layout Standard
@@ -258,7 +327,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# su - postgres
+# su - postgres
 \end_layout
 
 \begin_layout Plain Layout
@@ -305,7 +374,7 @@ q
 \begin_inset VSpace smallskip
 \end_inset
 
-Create databse to store CDR:
+Create database to store CDR:
 \end_layout
 
 \begin_layout Standard
@@ -316,7 +385,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# su - postgres
+# su - postgres
 \end_layout
 
 \begin_layout Plain Layout
@@ -357,7 +426,134 @@ For large installations is reasonable to place CDR database on dedicated
 \end_layout
 
 \begin_layout Subsection
-Configure Database Connection
+Init schema and data
+\end_layout
+
+\begin_layout Standard
+Look at 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Configure-Database-Connection"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "sub:Init-databases-data"
+
+\end_inset
+
+ for further databases initialization instructions.
+\end_layout
+
+\begin_layout Section
+Management interface installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Management-interface-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Server requirements:
+\end_layout
+
+\begin_layout Itemize
+OS Debian 7 Wheezy with architecture amd64
+\end_layout
+
+\begin_layout Itemize
+at least 1GB of RAM
+\end_layout
+
+\begin_layout Subsection
+Install packages
+\end_layout
+
+\begin_layout Standard
+Make sure that following repositories added on your system:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+deb http://ftp.us.debian.org/debian/ wheezy main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://security.debian.org/ wheezy/updates main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://pkg.yeti-switch.org/debian wheezy/ 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://packages.dotdeb.org wheezy all 
+\end_layout
+
+\end_inset
+
+System repositories can be changed by editing of file: /etc/apt/sources.list
+\end_layout
+
+\begin_layout Standard
+Install the following packages:
+\end_layout
+
+\begin_layout Itemize
+yeti-web
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+\align left
+
+# aptitude update && aptitude install yeti-web
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Configure database connection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Configure-Database-Connection"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -501,6 +697,13 @@ Warning: you should specify correct adresses and credentials using those
 
 \begin_layout Subsection
 Init databases data
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:Init-databases-data"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -523,12 +726,12 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db init 
+# yeti-db init 
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db --cdr init
+# yeti-db --cdr init
 \end_layout
 
 \end_inset
@@ -548,12 +751,12 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db apply_all 
+# yeti-db apply_all 
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db --cdr apply_all
+# yeti-db --cdr apply_all
 \end_layout
 
 \end_inset
@@ -573,12 +776,12 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db version
+# yeti-db version
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-db --cdr version
+# yeti-db --cdr version
 \end_layout
 
 \end_inset
@@ -605,8 +808,8 @@ apply
  traffic and CDRs)
 \end_layout
 
-\begin_layout Section
-Launch web-interface and CDR processing daemons
+\begin_layout Subsection
+Launch
 \end_layout
 
 \begin_layout Standard
@@ -622,17 +825,17 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# /etc/init.d/yeti-web start 
+# /etc/init.d/yeti-web start 
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# /etc/init.d/yeti-cdr-billing start
+# /etc/init.d/yeti-cdr-billing start
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# /etc/init.d/yeti-delayed start
+# /etc/init.d/yeti-delayed start
 \end_layout
 
 \end_inset
@@ -640,8 +843,19 @@ root@yeti-main:~# /etc/init.d/yeti-delayed start
 
 \end_layout
 
+\begin_layout Standard
+This will run web-interface and CDR processing daemons
+\end_layout
+
 \begin_layout Section
-DSS Storage installation (Redis)
+DSS Storage installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:DSS-Storage-installation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -650,9 +864,12 @@ Redis is used to synchronize data between traffic switch instances.
  to provide correct limitation among all nodes for distributed installations.
 \end_layout
 
+\begin_layout Subsection
+Install packages
+\end_layout
+
 \begin_layout Standard
-Redis server must be installed at the same host with switch.
- For installation make sure that your system have following repositories:
+For installation make sure that your system have following repositories:
 \end_layout
 
 \begin_layout Standard
@@ -673,21 +890,6 @@ deb http://security.debian.org/ wheezy/updates main
 \begin_layout Plain Layout
 
 deb http://ftp.us.debian.org/debian/ wheezy-updates main 
-\end_layout
-
-\begin_layout Plain Layout
-
-deb http://pkg.yeti-switch.org/debian wheezy/ 
-\end_layout
-
-\begin_layout Plain Layout
-
-deb http://packages.dotdeb.org wheezy all 
-\end_layout
-
-\begin_layout Plain Layout
-
-deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \end_layout
 
 \end_inset
@@ -711,7 +913,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# aptitude install redis-server
+# aptitude install redis-server
 \end_layout
 
 \end_inset
@@ -721,6 +923,13 @@ root@yeti-main:~# aptitude install redis-server
 
 \begin_layout Section
 Management server installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Management-server-installation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -729,7 +938,7 @@ Since version 1.6.3-175 we started to use central configuration server to
 \end_layout
 
 \begin_layout Subsection
-Install package
+Install packages
 \end_layout
 
 \begin_layout Standard
@@ -764,11 +973,6 @@ deb http://pkg.yeti-switch.org/debian wheezy/
 \begin_layout Plain Layout
 
 deb http://packages.dotdeb.org wheezy all 
-\end_layout
-
-\begin_layout Plain Layout
-
-deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \end_layout
 
 \end_inset
@@ -816,7 +1020,7 @@ name "sub:/etc/yeti/management.cfg"
 \end_layout
 
 \begin_layout Standard
-This file contains configuration for management daemon.
+This file contains configuation for management daemon.
 \begin_inset Newline newline
 \end_inset
 
@@ -1367,7 +1571,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# /etc/init.d/yeti-mgmt start 
+# /etc/init.d/yeti-mgmt start 
 \end_layout
 
 \end_inset
@@ -1381,10 +1585,17 @@ Check file
 
 \begin_layout Section
 Traffic switch server installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Traffic-switch-server-installation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
-Install package
+Install packages
 \end_layout
 
 \begin_layout Standard
@@ -1418,12 +1629,7 @@ deb http://pkg.yeti-switch.org/debian wheezy/
 
 \begin_layout Plain Layout
 
-deb http://packages.dotdeb.org wheezy all 
-\end_layout
-
-\begin_layout Plain Layout
-
-deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
+deb http://packages.dotdeb.org wheezy all
 \end_layout
 
 \end_inset
@@ -1705,25 +1911,24 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# cd /etc/sems/etc
+# cd /etc/sems/etc
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# mv /etc/sems/etc/sbc.dist.conf /etc/sems/etc/sbc.conf 
+# mv /etc/sems/etc/sbc.dist.conf /etc/sems/etc/sbc.conf 
 \end_layout
 
 \begin_layout Plain Layout
 \align left
 
-root@yeti-main:~# mv /etc/sems/etc/oodprofile.yeti.dist.conf /etc/sems/etc/oodprofi
-le.yeti.conf 
+# mv /etc/sems/etc/oodprofile.yeti.dist.conf /etc/sems/etc/oodprofile.yeti.conf
+ 
 \end_layout
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# mv /etc/sems/etc/xmlrpc2di.dist.conf /etc/sems/etc/xmlrpc2di.conf
- 
+# mv /etc/sems/etc/xmlrpc2di.dist.conf /etc/sems/etc/xmlrpc2di.conf 
 \end_layout
 
 \end_inset
@@ -1746,7 +1951,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# /etc/init.d/sems start 
+# /etc/init.d/sems start 
 \end_layout
 
 \end_inset
@@ -1763,10 +1968,68 @@ sems -E -D3
 \end_layout
 
 \begin_layout Section
-Install load balancer
+Load balancer installation
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Load-balancer-installation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Install packages
 \end_layout
 
 \begin_layout Standard
+For installation make sure that your system have following repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+deb http://ftp.us.debian.org/debian/ wheezy main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://security.debian.org/ wheezy/updates main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://pkg.yeti-switch.org/debian wheezy/ 
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://packages.dotdeb.org wheezy all
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://deb.kamailio.org/kamailio wheezy main
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
 Instal package 
 \series bold
 yeti-lb
@@ -1779,7 +2042,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# yeti-lb aptitude install yeti-lb
+# aptitude install yeti-lb
 \end_layout
 
 \end_inset
@@ -1806,6 +2069,10 @@ After installation you can change any parameters by editing files:
 
 \end_layout
 
+\begin_layout Subsection
+Launch
+\end_layout
+
 \begin_layout Standard
 To launch load balancer:
 \end_layout
@@ -1817,7 +2084,7 @@ status open
 
 \begin_layout Plain Layout
 
-root@yeti-main:~# /etc/init.d/kamailio start
+# /etc/init.d/kamailio start
 \end_layout
 
 \end_inset
