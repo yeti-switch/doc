@@ -986,7 +986,7 @@ deb http://packages.dotdeb.org wheezy all
 
 Install package 
 \series bold
-yeti-mgmt
+yeti-management
 \end_layout
 
 \begin_layout Standard
@@ -996,7 +996,7 @@ status open
 
 \begin_layout Plain Layout
 
-# aptitude install yeti-mgmt
+# aptitude install yeti-management
 \end_layout
 
 \end_inset
