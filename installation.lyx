@@ -74,7 +74,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\listings_params "frame=none,basicstyle={\ttfamily\footnotesize},breaklines=true"
+\listings_params "frame=shadowbox,basicstyle={\ttfamily\footnotesize},breaklines=true"
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -418,6 +418,117 @@ For large installations is reasonable to place CDR database on dedicated
 \end_layout
 
 \begin_layout Subsection
+Check
+\end_layout
+
+\begin_layout Standard
+Check databases created and accessible:
+\end_layout
+
+\begin_layout Standard
+\align left
+\begin_inset listings
+lstparams "breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+root@evial:/# psql -h 127.0.0.1 -U yeti -d yeti
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+Password for user yeti:  psql (9.3.9) SSL connection (cipher: DHE-RSA-AES256-GCM-S
+HA384, bits: 256) 
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+Type "help" for help.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+yeti=# 
+\backslash
+q
+\end_layout
+
+\begin_layout Plain Layout
+
+root@evial:/#
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+root@evial:/# psql -h 127.0.0.1 -U yeti -d cdr
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+Password for user yeti: 
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+psql (9.3.9) 
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+SSL connection (cipher: DHE-RSA-AES256-GCM-SHA384, bits: 256) 
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+Type "help" for help.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+cdr=# 
+\backslash
+q 
+\end_layout
+
+\begin_layout Plain Layout
+
+root@evial:/#q
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Don't forget to make changes in 
+\shape italic
+/etc/postgresql/9.3/main/pg_hba.conf 
+\shape default
+and apply them if you plan to access this databases from another hosts
+\end_layout
+
+\begin_layout Subsection
 Init schema and data
 \end_layout
 
@@ -484,27 +595,32 @@ status open
 
 \begin_layout Plain Layout
 
-deb http://ftp.us.debian.org/debian/ wheezy main 
+deb http://ftp.us.debian.org/debian/ wheezy main
 \end_layout
 
 \begin_layout Plain Layout
 
-deb http://security.debian.org/ wheezy/updates main 
+deb http://security.debian.org/ wheezy/updates main
 \end_layout
 
 \begin_layout Plain Layout
 
-deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+deb http://ftp.us.debian.org/debian/ wheezy-updates main
 \end_layout
 
 \begin_layout Plain Layout
 
-deb http://pkg.yeti-switch.org/debian wheezy/ 
+deb http://pkg.yeti-switch.org/debian wheezy/
 \end_layout
 
 \begin_layout Plain Layout
 
-deb http://packages.dotdeb.org wheezy all 
+deb http://packages.dotdeb.org wheezy all
+\end_layout
+
+\begin_layout Plain Layout
+
+deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main 
 \end_layout
 
 \end_inset
@@ -532,6 +648,11 @@ status open
 \begin_layout Plain Layout
 
 # apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 7FCC7D46ACCC4CF8
 \end_layout
 
 \end_inset
@@ -853,16 +974,96 @@ status open
 
 \begin_layout Plain Layout
 
-# /etc/init.d/yeti-delayed start
+# /etc/init.d/yeti-delayed-job start
 \end_layout
 
 \end_inset
 
+This will run web-interface and CDR processing daemons
+\end_layout
 
+\begin_layout Subsection
+Check
 \end_layout
 
 \begin_layout Standard
-This will run web-interface and CDR processing daemons
+check if uncorn listens socket:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# netstat -lpn | grep unicorn
+\end_layout
+
+\begin_layout Plain Layout
+
+unix 2 [ ACC ] STREAM LISTENING 2535145 24728/unicorn.rb -E /tmp/yeti-unicorn.sock
+\end_layout
+
+\end_inset
+
+check if nginx listens for appropriate sockets:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+lstparams "breaklines=true"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# netstat -lpn | grep nginx
+\end_layout
+
+\begin_layout Plain Layout
+
+tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN 23627/nginx
+\end_layout
+
+\begin_layout Plain Layout
+
+tcp 0 0 127.0.0.1:6666 0.0.0.0:* LISTEN 23627/nginx
+\end_layout
+
+\end_inset
+
+Log files to check for possible warnings/errors:
+\end_layout
+
+\begin_layout Itemize
+/var/log/yeti-admin.log
+\end_layout
+
+\begin_layout Itemize
+/var/log/yeti-cdr-billing.log
+\end_layout
+
+\begin_layout Itemize
+/home/yeti-web/log/unicorn.stdout.log
+\end_layout
+
+\begin_layout Itemize
+/home/yeti-web/log/unicorn.stderr.log
+\end_layout
+
+\begin_layout Standard
+Try to open management interface in your favorite browser and login with
+ default credentials:
+\end_layout
+
+\begin_layout Standard
+user: admin
+\end_layout
+
+\begin_layout Standard
+password: 111111
 \end_layout
 
 \begin_layout Section
@@ -930,6 +1131,45 @@ status open
 \begin_layout Plain Layout
 
 # aptitude install redis-server
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Check
+\end_layout
+
+\begin_layout Standard
+Try to enter redis console from traffic switch host (redis installed at
+ the same host with traffic switch in this example)
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# redis-cli
+\end_layout
+
+\begin_layout Plain Layout
+
+127.0.0.1:6379> ping
+\end_layout
+
+\begin_layout Plain Layout
+
+PONG
+\end_layout
+
+\begin_layout Plain Layout
+
+127.0.0.1:6379> quit
 \end_layout
 
 \end_inset
@@ -1093,7 +1333,7 @@ daemon {
 
 \begin_layout Plain Layout
 
-    "tcp://127.0.0.1:4444"
+    "tcp://0.0.0.0:4444"
 \end_layout
 
 \begin_layout Plain Layout
@@ -1607,7 +1847,7 @@ Launch management server
 \end_layout
 
 \begin_layout Standard
-Use following command to launch configured management server instance
+Launch configured management server instance
 \end_layout
 
 \begin_layout Standard
@@ -1622,11 +1862,69 @@ status open
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Subsection
+Check
+\end_layout
+
+\begin_layout Standard
 Check file 
 \shape italic
 /var/log/yeti/yeti-management.log
 \shape default
- for daemon logs
+ for daemon logs:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+\align left
+
+# tail -2 /var/log/yeti/yeti-management.log
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+Sep 12 12:54:47 evial yeti-management[25376]: [25376] info: server/src/yeti_mgmt
+_server.cpp:148: starting version 1.0.5
+\end_layout
+
+\begin_layout Plain Layout
+\align left
+
+Sep 12 12:54:47 evial yeti-management[25376]: [25376] info: server/src/mgmt_serv
+er.cpp:123: listen on tcp://0.0.0.0:4444
+\end_layout
+
+\end_inset
+
+Check listening port:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# netstat -lpn | grep
+\end_layout
+
+\begin_layout Plain Layout
+
+4444 tcp 0 0 0.0.0.0:4444 0.0.0.0:* LISTEN 25376/yeti_manageme
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2009,7 +2307,7 @@ Launch traffic switch
 \end_layout
 
 \begin_layout Standard
-Use following command to launch configured traffic switch instance
+Launch configured traffic switch instance:
 \end_layout
 
 \begin_layout Standard
@@ -2024,15 +2322,68 @@ status open
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 In case of errors it's useful to use command 
 \series bold
 sems -E -D3
 \series default
  which will launch daemon in foreground with debug logging level
+\end_layout
+
+\begin_layout Subsection
+Check
+\end_layout
+
+\begin_layout Standard
+Check if 
+\series bold
+sems
+\series default
+ process exists and signalling/media/rpc sockets are opened:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+\align left
+
+# pgrep sems
+\end_layout
+
+\begin_layout Plain Layout
+
+29749
+\end_layout
+
+\begin_layout Plain Layout
+
+# netstat -lpn | grep sems
+\end_layout
+
+\begin_layout Plain Layout
+
+tcp 0    0 127.0.0.1:8090 0.0.0.0:*  LISTEN 29749/sems
+\end_layout
+
+\begin_layout Plain Layout
+
+udp 0    0 127.0.0.1:5061 0.0.0.0:*         29749/sems
+\end_layout
+
+\begin_layout Plain Layout
+
+raw 2688 0 0.0.0.0:17     0.0.0.0:*  7      29749/sems
+\end_layout
+
+\end_inset
+
+Check logfile 
+\shape italic
+/var/log/sems/sems-main.log
+\shape default
+ for possible error
 \end_layout
 
 \begin_layout Section
@@ -2169,7 +2520,7 @@ Launch
 \end_layout
 
 \begin_layout Standard
-To launch load balancer:
+Launch load balancer:
 \end_layout
 
 \begin_layout Standard
@@ -2180,6 +2531,97 @@ status open
 \begin_layout Plain Layout
 
 # /etc/init.d/kamailio start
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Check
+\end_layout
+
+\begin_layout Standard
+Check kamailio running and listening desired sockets:
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# pgrep kamailio
+\end_layout
+
+\begin_layout Plain Layout
+
+30853
+\end_layout
+
+\begin_layout Plain Layout
+
+30854
+\end_layout
+
+\begin_layout Plain Layout
+
+30855
+\end_layout
+
+\begin_layout Plain Layout
+
+30856
+\end_layout
+
+\begin_layout Plain Layout
+
+30857
+\end_layout
+
+\begin_layout Plain Layout
+
+# netstat -lpn | grep kamailio
+\end_layout
+
+\begin_layout Plain Layout
+
+tcp 0 0 127.0.0.1:5060 0.0.0.0:* LISTEN 30857/kamailio 
+\end_layout
+
+\begin_layout Plain Layout
+
+udp 0 0 127.0.0.1:5060 0.0.0.0:* 30853/kamailio
+\end_layout
+
+\begin_layout Plain Layout
+
+raw 0 0 0.0.0.0:255 0.0.0.0:* 7 30853/kamailio
+\end_layout
+
+\begin_layout Plain Layout
+
+unix 2 [ ACC ] STREAM LISTENING 2673337 30856/kamailio /var/run/kamailio//kamail
+io_ctl
+\end_layout
+
+\end_inset
+
+Check for /var/log/syslog on possible errors.
+\end_layout
+
+\begin_layout Standard
+Also you can run daemon in foreground with logging to stderr for debugging
+ purposes:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# kamailio -eED /etc/kamailio/kamailio.cfg
 \end_layout
 
 \end_inset
