@@ -286,35 +286,7 @@ status open
 \begin_inset VSpace smallskip
 \end_inset
 
-Install the following packages:
-\end_layout
-
-\begin_layout Itemize
-postgresql-9.3
-\end_layout
-
-\begin_layout Itemize
-postgresql-contrib-9.3
-\end_layout
-
-\begin_layout Itemize
-postgresql-9.3-prefix
-\end_layout
-
-\begin_layout Itemize
-postgresql-9.3-pgq3
-\end_layout
-
-\begin_layout Itemize
-postgresql-9.3-yeti
-\end_layout
-
-\begin_layout Itemize
-skytools3
-\end_layout
-
-\begin_layout Itemize
-skytools3-ticker
+Install packages:
 \end_layout
 
 \begin_layout Standard
@@ -357,12 +329,7 @@ status open
 
 \begin_layout Plain Layout
 
-$ psql 
-\end_layout
-
-\begin_layout Plain Layout
-
-psql (9.3.5) 
+$ psql
 \end_layout
 
 \begin_layout Plain Layout
@@ -576,11 +543,7 @@ status open
 \begin_inset VSpace smallskip
 \end_inset
 
-Install the following packages:
-\end_layout
-
-\begin_layout Itemize
-yeti-web
+Install packages:
 \end_layout
 
 \begin_layout Standard
@@ -956,9 +919,7 @@ deb http://ftp.us.debian.org/debian/ wheezy-updates main
 \begin_inset VSpace smallskip
 \end_inset
 
-Install package 
-\series bold
-redis-server
+Install package:
 \end_layout
 
 \begin_layout Standard
@@ -1066,9 +1027,7 @@ status open
 \begin_inset VSpace smallskip
 \end_inset
 
-Install package 
-\series bold
-yeti-management
+Install package:
 \end_layout
 
 \begin_layout Standard
@@ -1752,9 +1711,7 @@ status open
 \begin_inset VSpace smallskip
 \end_inset
 
-Install package 
-\series bold
-sems-yeti
+Install package:
 \end_layout
 
 \begin_layout Standard
@@ -2170,9 +2127,7 @@ status open
 \begin_inset VSpace smallskip
 \end_inset
 
-Instal package 
-\series bold
-yeti-lb
+Instal package:
 \end_layout
 
 \begin_layout Standard
