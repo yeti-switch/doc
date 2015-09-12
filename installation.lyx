@@ -9,11 +9,11 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman cmr
-\font_sans default
+\font_roman default
+\font_sans helvet
 \font_typewriter default
 \font_math auto
-\font_default_family rmdefault
+\font_default_family sfdefault
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
@@ -253,6 +253,33 @@ deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \end_inset
 
 System repositories can be changed by editing of file: /etc/apt/sources.list
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+import public keys for repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 7FCC7D46ACCC4CF8
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -519,6 +546,36 @@ System repositories can be changed by editing of file: /etc/apt/sources.list
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+import public keys for repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
 Install the following packages:
 \end_layout
 
@@ -971,6 +1028,33 @@ deb http://pkg.yeti-switch.org/debian wheezy/
 \begin_layout Plain Layout
 
 deb http://packages.dotdeb.org wheezy all 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+import public keys for repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
 \end_layout
 
 \end_inset
@@ -1644,6 +1728,30 @@ deb http://packages.dotdeb.org wheezy all
 \begin_inset VSpace smallskip
 \end_inset
 
+import public keys for repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
+\end_layout
+
+\end_inset
+
+
+\begin_inset VSpace smallskip
+\end_inset
+
 Install package 
 \series bold
 sems-yeti
@@ -2030,6 +2138,35 @@ deb http://deb.kamailio.org/kamailio wheezy main
 \end_layout
 
 \begin_layout Standard
+\begin_inset VSpace smallskip
+\end_inset
+
+import public keys for repositories:
+\end_layout
+
+\begin_layout Standard
+\begin_inset listings
+inline false
+status open
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
+\end_layout
+
+\begin_layout Plain Layout
+
+# apt-key adv --keyserver keys.gnupg.net --recv-key FB40D3E6508EA4C8
+\end_layout
+
+\end_inset
+
+
 \begin_inset VSpace smallskip
 \end_inset
 
