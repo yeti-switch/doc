@@ -9,11 +9,11 @@
 \language_package default
 \inputencoding auto
 \fontencoding global
-\font_roman default
+\font_roman cmr
 \font_sans default
 \font_typewriter default
 \font_math auto
-\font_default_family default
+\font_default_family rmdefault
 \use_non_tex_fonts false
 \font_sc false
 \font_osf false
@@ -24,7 +24,7 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize default
+\paperfontsize 12
 \spacing single
 \use_hyperref true
 \pdf_bookmarks true
@@ -253,6 +253,9 @@ deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 \end_inset
 
 System repositories can be changed by editing of file: /etc/apt/sources.list
+\end_layout
+
+\begin_layout Standard
 \begin_inset VSpace smallskip
 \end_inset
 
@@ -327,7 +330,7 @@ status open
 
 \begin_layout Plain Layout
 
-postgres@yeti-main:~$ psql 
+$ psql 
 \end_layout
 
 \begin_layout Plain Layout
@@ -385,7 +388,7 @@ status open
 
 \begin_layout Plain Layout
 
-postgres@yeti-main:~$ psql
+$ psql
 \end_layout
 
 \begin_layout Plain Layout
