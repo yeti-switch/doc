@@ -2194,10 +2194,13 @@ registrations_enabled=no
 \end_layout
 
 \begin_layout Standard
-Set address of management server Replace <DB IP>, <DB username>, <DB name>,
- <DB password>, <CDR DB IP>, <CDR DB name>, <CDR DB username>, <CDR DB password>
- with addresses and credentials for configured databases.
- Also if it needed for your configuration specify parameters for slave databases
+Add new node to the routing database using web interface [ System -> Nodes
+ -> New Node ].
+ Use id of newly created node as value for 
+\series bold
+node_id 
+\series default
+parameter
 \end_layout
 
 \begin_layout Description
@@ -2231,7 +2234,7 @@ status open
 
 \begin_layout Plain Layout
 
-node_id = 0
+node_id = <id of created node>
 \end_layout
 
 \begin_layout Plain Layout
