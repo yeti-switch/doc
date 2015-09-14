@@ -1,7 +1,7 @@
 %PDF-1.4
 %“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
 1 0 obj
-<< /F1 2 0 R /F2 3 0 R /F3 30 0 R >>
+<< /F1 2 0 R /F2 3 0 R /F3 45 0 R >>
 endobj
 2 0 obj
 << /BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font >>
@@ -13,161 +13,219 @@ endobj
 << /A << /S /URI /Type /Action /URI (mailto:m.furmur@gmail.com) >> /Border [ 0 0 0 ] /Rect [ 231.8023 704.0236 327.5123 716.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 5 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 29 0 R /XYZ 62.69291 434.0236 0 ] /Rect [ 62.69291 647.0236 121.0629 659.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 44 0 R /XYZ 62.69291 362.0236 0 ] /Rect [ 62.69291 647.0236 121.0629 659.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 6 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 29 0 R /XYZ 62.69291 434.0236 0 ] /Rect [ 527.0227 647.7736 532.5827 659.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 44 0 R /XYZ 62.69291 362.0236 0 ] /Rect [ 527.0227 647.7736 532.5827 659.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 7 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 29 0 R /XYZ 62.69291 257.0236 0 ] /Rect [ 62.69291 629.0236 182.1829 641.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 44 0 R /XYZ 62.69291 185.0236 0 ] /Rect [ 62.69291 629.0236 182.1829 641.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 8 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 29 0 R /XYZ 62.69291 257.0236 0 ] /Rect [ 527.0227 629.7736 532.5827 641.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 44 0 R /XYZ 62.69291 185.0236 0 ] /Rect [ 527.0227 629.7736 532.5827 641.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 9 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 29 0 R /XYZ 62.69291 176.0236 0 ] /Rect [ 82.69291 611.0236 176.6329 623.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 46 0 R /XYZ 62.69291 765.0236 0 ] /Rect [ 82.69291 611.0236 176.6329 623.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 10 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 29 0 R /XYZ 62.69291 176.0236 0 ] /Rect [ 527.0227 611.7736 532.5827 623.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 46 0 R /XYZ 62.69291 765.0236 0 ] /Rect [ 527.0227 611.7736 532.5827 623.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 11 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 31 0 R /XYZ 62.69291 459.4236 0 ] /Rect [ 82.69291 593.0236 183.8629 605.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 46 0 R /XYZ 62.69291 397.4236 0 ] /Rect [ 82.69291 593.0236 183.8629 605.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 12 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 31 0 R /XYZ 62.69291 459.4236 0 ] /Rect [ 527.0227 593.7736 532.5827 605.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 46 0 R /XYZ 62.69291 397.4236 0 ] /Rect [ 527.0227 593.7736 532.5827 605.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 13 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 31 0 R /XYZ 62.69291 155.0236 0 ] /Rect [ 82.69291 575.0236 133.2729 587.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 765.0236 0 ] /Rect [ 82.69291 575.0236 133.2729 587.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 14 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 31 0 R /XYZ 62.69291 155.0236 0 ] /Rect [ 527.0227 575.7736 532.5827 587.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 765.0236 0 ] /Rect [ 527.0227 575.7736 532.5827 587.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 15 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 34 0 R /XYZ 62.69291 527.8236 0 ] /Rect [ 82.69291 557.0236 197.7629 569.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 483.8236 0 ] /Rect [ 82.69291 557.0236 197.7629 569.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 16 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 34 0 R /XYZ 62.69291 527.8236 0 ] /Rect [ 527.0227 557.7736 532.5827 569.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 483.8236 0 ] /Rect [ 527.0227 557.7736 532.5827 569.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 17 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 34 0 R /XYZ 62.69291 467.8236 0 ] /Rect [ 62.69291 539.0236 237.7429 551.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 423.8236 0 ] /Rect [ 62.69291 539.0236 237.7429 551.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 18 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 34 0 R /XYZ 62.69291 467.8236 0 ] /Rect [ 527.0227 539.7736 532.5827 551.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 423.8236 0 ] /Rect [ 527.0227 539.7736 532.5827 551.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 19 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 34 0 R /XYZ 62.69291 380.8236 0 ] /Rect [ 82.69291 521.0236 176.6329 533.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 336.8236 0 ] /Rect [ 82.69291 521.0236 176.6329 533.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 20 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 34 0 R /XYZ 62.69291 380.8236 0 ] /Rect [ 527.0227 521.7736 532.5827 533.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 336.8236 0 ] /Rect [ 527.0227 521.7736 532.5827 533.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 21 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 35 0 R /XYZ 62.69291 765.0236 0 ] /Rect [ 82.69291 503.0236 243.3429 515.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 50 0 R /XYZ 62.69291 727.8236 0 ] /Rect [ 82.69291 503.0236 243.3429 515.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 22 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 35 0 R /XYZ 62.69291 765.0236 0 ] /Rect [ 527.0227 503.7736 532.5827 515.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 50 0 R /XYZ 62.69291 727.8236 0 ] /Rect [ 527.0227 503.7736 532.5827 515.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 23 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 35 0 R /XYZ 62.69291 339.8236 0 ] /Rect [ 82.69291 485.0236 189.4329 497.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 50 0 R /XYZ 62.69291 302.6236 0 ] /Rect [ 82.69291 485.0236 189.4329 497.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 24 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 35 0 R /XYZ 62.69291 339.8236 0 ] /Rect [ 527.0227 485.7736 532.5827 497.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 50 0 R /XYZ 62.69291 302.6236 0 ] /Rect [ 527.0227 485.7736 532.5827 497.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 25 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 36 0 R /XYZ 62.69291 729.0236 0 ] /Rect [ 82.69291 467.0236 137.7329 479.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 693.0236 0 ] /Rect [ 82.69291 467.0236 137.7329 479.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 26 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 36 0 R /XYZ 62.69291 729.0236 0 ] /Rect [ 527.0227 467.7736 532.5827 479.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 693.0236 0 ] /Rect [ 527.0227 467.7736 532.5827 479.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 27 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 36 0 R /XYZ 62.69291 603.8236 0 ] /Rect [ 82.69291 449.0236 133.2729 461.0236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 567.8236 0 ] /Rect [ 82.69291 449.0236 133.2729 461.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 28 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 36 0 R /XYZ 62.69291 603.8236 0 ] /Rect [ 527.0227 449.7736 532.5827 461.7736 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 567.8236 0 ] /Rect [ 527.0227 449.7736 532.5827 461.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 29 0 obj
-<< /Annots [ 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 
-  14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 
-  24 0 R 25 0 R 26 0 R 27 0 R 28 0 R ] /Contents 53 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 52 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 
-  /Trans <<  >> /Type /Page >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 251.4236 0 ] /Rect [ 62.69291 431.0236 192.7329 443.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 30 0 obj
-<< /BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 251.4236 0 ] /Rect [ 527.0227 431.7736 532.5827 443.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 31 0 obj
-<< /Contents 54 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 52 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
-  /Type /Page >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 218.4236 0 ] /Rect [ 62.69291 413.0236 226.0829 425.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 32 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 35 0 R /XYZ 62.69291 768.0236 0 ] /Rect [ 104.8812 491.8236 253.2036 503.8236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 218.4236 0 ] /Rect [ 527.0227 413.7736 532.5827 425.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 33 0 obj
-<< /Border [ 0 0 0 ] /Contents () /Dest [ 35 0 R /XYZ 62.69291 342.8236 0 ] /Rect [ 278.7478 491.8236 373.1602 503.8236 ] /Subtype /Link /Type /Annot >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 185.4236 0 ] /Rect [ 62.69291 395.0236 229.4229 407.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 34 0 obj
-<< /Annots [ 32 0 R 33 0 R ] /Contents 55 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 52 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 
-  /Trans <<  >> /Type /Page >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 185.4236 0 ] /Rect [ 527.0227 395.7736 532.5827 407.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 35 0 obj
-<< /Contents 56 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 52 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
-  /Type /Page >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 152.4236 0 ] /Rect [ 62.69291 377.0236 199.9629 389.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 36 0 obj
-<< /Contents 57 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 52 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
-  /Type /Page >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 152.4236 0 ] /Rect [ 527.0227 377.7736 532.5827 389.7736 ] /Subtype /Link /Type /Annot >>
 endobj
 37 0 obj
-<< /Outlines 39 0 R /PageLabels 58 0 R /PageMode /UseNone /Pages 52 0 R /Type /Catalog >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 44 0 R /XYZ 62.69291 188.5236 0 ] /Rect [ 258.5529 302.0236 356.3729 314.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 38 0 obj
-<< /Author (Michael Furmur <m.furmur@gmail.com>) /CreationDate (D:20150914182453-02'00') /Creator (\(unspecified\)) /Keywords () /Producer (ReportLab PDF Library - www.reportlab.com) /Subject (\(unspecified\)) 
-  /Title (YETI installation manual) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 44 0 R /XYZ 62.69291 188.5236 0 ] /Rect [ 250.7529 284.0236 348.5729 296.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 39 0 obj
-<< /Count 14 /First 40 0 R /Last 46 0 R /Type /Outlines >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 49 0 R /XYZ 62.69291 427.3236 0 ] /Rect [ 341.9029 266.0236 491.4129 278.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 40 0 obj
-<< /Dest [ 29 0 R /XYZ 62.69291 434.0236 0 ] /Next 41 0 R /Parent 39 0 R /Title (\376\377\0001\000\240\000\240\000\240\000O\000v\000e\000r\000v\000i\000e\000w) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 254.9236 0 ] /Rect [ 199.0629 248.0236 307.4429 260.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 41 0 obj
-<< /Count 4 /Dest [ 29 0 R /XYZ 62.69291 257.0236 0 ] /First 42 0 R /Last 45 0 R /Next 46 0 R /Parent 39 0 R 
-  /Prev 40 0 R /Title (\376\377\0002\000\240\000\240\000\240\000D\000a\000t\000a\000b\000a\000s\000e\000s\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 221.9236 0 ] /Rect [ 298.5429 230.0236 437.4829 242.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 42 0 obj
-<< /Dest [ 29 0 R /XYZ 62.69291 176.0236 0 ] /Next 43 0 R /Parent 41 0 R /Title (\376\377\0002\000.\0001\000\240\000\240\000\240\000I\000n\000s\000t\000a\000l\000l\000 \000p\000a\000c\000k\000a\000g\000e\000s) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 188.9236 0 ] /Rect [ 270.7529 212.0236 409.6729 224.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 43 0 obj
-<< /Dest [ 31 0 R /XYZ 62.69291 459.4236 0 ] /Next 44 0 R /Parent 41 0 R /Prev 42 0 R /Title (\376\377\0002\000.\0002\000\240\000\240\000\240\000C\000r\000e\000a\000t\000e\000 \000d\000a\000t\000a\000b\000a\000s\000e\000s) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 51 0 R /XYZ 62.69291 155.9236 0 ] /Rect [ 216.8529 194.0236 330.2429 206.0236 ] /Subtype /Link /Type /Annot >>
 endobj
 44 0 obj
-<< /Dest [ 31 0 R /XYZ 62.69291 155.0236 0 ] /Next 45 0 R /Parent 41 0 R /Prev 43 0 R /Title (\376\377\0002\000.\0003\000\240\000\240\000\240\000C\000h\000e\000c\000k) >>
+<< /Annots [ 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R 13 0 R 
+  14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 
+  24 0 R 25 0 R 26 0 R 27 0 R 28 0 R 29 0 R 30 0 R 31 0 R 32 0 R 33 0 R 
+  34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 40 0 R 41 0 R 42 0 R 43 0 R ] /Contents 72 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 71 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 
+  /Trans <<  >> /Type /Page >>
 endobj
 45 0 obj
-<< /Dest [ 34 0 R /XYZ 62.69291 527.8236 0 ] /Parent 41 0 R /Prev 44 0 R /Title (\376\377\0002\000.\0004\000\240\000\240\000\240\000I\000n\000i\000t\000 \000s\000c\000h\000e\000m\000a\000 \000a\000n\000d\000 \000d\000a\000t\000a) >>
+<< /BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font >>
 endobj
 46 0 obj
-<< /Count 5 /Dest [ 34 0 R /XYZ 62.69291 467.8236 0 ] /First 47 0 R /Last 51 0 R /Parent 39 0 R /Prev 41 0 R 
-  /Title (\376\377\0003\000\240\000\240\000\240\000M\000a\000n\000a\000g\000e\000m\000e\000n\000t\000 \000i\000n\000t\000e\000r\000f\000a\000c\000e\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+<< /Contents 73 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 71 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
 endobj
 47 0 obj
-<< /Dest [ 34 0 R /XYZ 62.69291 380.8236 0 ] /Next 48 0 R /Parent 46 0 R /Title (\376\377\0003\000.\0001\000\240\000\240\000\240\000I\000n\000s\000t\000a\000l\000l\000 \000p\000a\000c\000k\000a\000g\000e\000s) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 50 0 R /XYZ 62.69291 730.8236 0 ] /Rect [ 104.8812 447.8236 253.2036 459.8236 ] /Subtype /Link /Type /Annot >>
 endobj
 48 0 obj
-<< /Dest [ 35 0 R /XYZ 62.69291 765.0236 0 ] /Next 49 0 R /Parent 46 0 R /Prev 47 0 R /Title (\376\377\0003\000.\0002\000\240\000\240\000\240\000C\000o\000n\000f\000i\000g\000u\000r\000e\000 \000d\000a\000t\000a\000b\000a\000s\000e\000 \000c\000o\000n\000n\000e\000c\000t\000i\000o\000n) >>
+<< /Border [ 0 0 0 ] /Contents () /Dest [ 50 0 R /XYZ 62.69291 305.6236 0 ] /Rect [ 278.7478 447.8236 373.1602 459.8236 ] /Subtype /Link /Type /Annot >>
 endobj
 49 0 obj
-<< /Dest [ 35 0 R /XYZ 62.69291 339.8236 0 ] /Next 50 0 R /Parent 46 0 R /Prev 48 0 R /Title (\376\377\0003\000.\0003\000\240\000\240\000\240\000I\000n\000i\000t\000 \000d\000a\000t\000a\000b\000a\000s\000e\000s\000 \000d\000a\000t\000a) >>
+<< /Annots [ 47 0 R 48 0 R ] /Contents 74 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 71 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 
+  /Trans <<  >> /Type /Page >>
 endobj
 50 0 obj
-<< /Dest [ 36 0 R /XYZ 62.69291 729.0236 0 ] /Next 51 0 R /Parent 46 0 R /Prev 49 0 R /Title (\376\377\0003\000.\0004\000\240\000\240\000\240\000L\000a\000u\000n\000c\000h) >>
+<< /Contents 75 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 71 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
 endobj
 51 0 obj
-<< /Dest [ 36 0 R /XYZ 62.69291 603.8236 0 ] /Parent 46 0 R /Prev 50 0 R /Title (\376\377\0003\000.\0005\000\240\000\240\000\240\000C\000h\000e\000c\000k) >>
+<< /Contents 76 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 71 0 R /Resources << /Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ] >> /Rotate 0 /Trans <<  >> 
+  /Type /Page >>
 endobj
 52 0 obj
-<< /Count 5 /Kids [ 29 0 R 31 0 R 34 0 R 35 0 R 36 0 R ] /Type /Pages >>
+<< /Outlines 54 0 R /PageLabels 77 0 R /PageMode /UseNone /Pages 71 0 R /Type /Catalog >>
 endobj
 53 0 obj
-<< /Length 8178 >>
+<< /Author (Michael Furmur <m.furmur@gmail.com>) /CreationDate (D:20150914183407-02'00') /Creator (\(unspecified\)) /Keywords () /Producer (ReportLab PDF Library - www.reportlab.com) /Subject (\(unspecified\)) 
+  /Title (YETI installation manual) >>
+endobj
+54 0 obj
+<< /Count 18 /First 55 0 R /Last 70 0 R /Type /Outlines >>
+endobj
+55 0 obj
+<< /Dest [ 44 0 R /XYZ 62.69291 362.0236 0 ] /Next 56 0 R /Parent 54 0 R /Title (\376\377\0001\000\240\000\240\000\240\000O\000v\000e\000r\000v\000i\000e\000w) >>
+endobj
+56 0 obj
+<< /Count 4 /Dest [ 44 0 R /XYZ 62.69291 185.0236 0 ] /First 57 0 R /Last 60 0 R /Next 61 0 R /Parent 54 0 R 
+  /Prev 55 0 R /Title (\376\377\0002\000\240\000\240\000\240\000D\000a\000t\000a\000b\000a\000s\000e\000s\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+endobj
+57 0 obj
+<< /Dest [ 46 0 R /XYZ 62.69291 765.0236 0 ] /Next 58 0 R /Parent 56 0 R /Title (\376\377\0002\000.\0001\000\240\000\240\000\240\000I\000n\000s\000t\000a\000l\000l\000 \000p\000a\000c\000k\000a\000g\000e\000s) >>
+endobj
+58 0 obj
+<< /Dest [ 46 0 R /XYZ 62.69291 397.4236 0 ] /Next 59 0 R /Parent 56 0 R /Prev 57 0 R /Title (\376\377\0002\000.\0002\000\240\000\240\000\240\000C\000r\000e\000a\000t\000e\000 \000d\000a\000t\000a\000b\000a\000s\000e\000s) >>
+endobj
+59 0 obj
+<< /Dest [ 49 0 R /XYZ 62.69291 765.0236 0 ] /Next 60 0 R /Parent 56 0 R /Prev 58 0 R /Title (\376\377\0002\000.\0003\000\240\000\240\000\240\000C\000h\000e\000c\000k) >>
+endobj
+60 0 obj
+<< /Dest [ 49 0 R /XYZ 62.69291 483.8236 0 ] /Parent 56 0 R /Prev 59 0 R /Title (\376\377\0002\000.\0004\000\240\000\240\000\240\000I\000n\000i\000t\000 \000s\000c\000h\000e\000m\000a\000 \000a\000n\000d\000 \000d\000a\000t\000a) >>
+endobj
+61 0 obj
+<< /Count 5 /Dest [ 49 0 R /XYZ 62.69291 423.8236 0 ] /First 62 0 R /Last 66 0 R /Next 67 0 R /Parent 54 0 R 
+  /Prev 56 0 R /Title (\376\377\0003\000\240\000\240\000\240\000M\000a\000n\000a\000g\000e\000m\000e\000n\000t\000 \000i\000n\000t\000e\000r\000f\000a\000c\000e\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+endobj
+62 0 obj
+<< /Dest [ 49 0 R /XYZ 62.69291 336.8236 0 ] /Next 63 0 R /Parent 61 0 R /Title (\376\377\0003\000.\0001\000\240\000\240\000\240\000I\000n\000s\000t\000a\000l\000l\000 \000p\000a\000c\000k\000a\000g\000e\000s) >>
+endobj
+63 0 obj
+<< /Dest [ 50 0 R /XYZ 62.69291 727.8236 0 ] /Next 64 0 R /Parent 61 0 R /Prev 62 0 R /Title (\376\377\0003\000.\0002\000\240\000\240\000\240\000C\000o\000n\000f\000i\000g\000u\000r\000e\000 \000d\000a\000t\000a\000b\000a\000s\000e\000 \000c\000o\000n\000n\000e\000c\000t\000i\000o\000n) >>
+endobj
+64 0 obj
+<< /Dest [ 50 0 R /XYZ 62.69291 302.6236 0 ] /Next 65 0 R /Parent 61 0 R /Prev 63 0 R /Title (\376\377\0003\000.\0003\000\240\000\240\000\240\000I\000n\000i\000t\000 \000d\000a\000t\000a\000b\000a\000s\000e\000s\000 \000d\000a\000t\000a) >>
+endobj
+65 0 obj
+<< /Dest [ 51 0 R /XYZ 62.69291 693.0236 0 ] /Next 66 0 R /Parent 61 0 R /Prev 64 0 R /Title (\376\377\0003\000.\0004\000\240\000\240\000\240\000L\000a\000u\000n\000c\000h) >>
+endobj
+66 0 obj
+<< /Dest [ 51 0 R /XYZ 62.69291 567.8236 0 ] /Parent 61 0 R /Prev 65 0 R /Title (\376\377\0003\000.\0005\000\240\000\240\000\240\000C\000h\000e\000c\000k) >>
+endobj
+67 0 obj
+<< /Dest [ 51 0 R /XYZ 62.69291 251.4236 0 ] /Next 68 0 R /Parent 54 0 R /Prev 61 0 R /Title (\376\377\0004\000\240\000\240\000\240\000D\000S\000S\000 \000S\000t\000o\000r\000a\000g\000e\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+endobj
+68 0 obj
+<< /Dest [ 51 0 R /XYZ 62.69291 218.4236 0 ] /Next 69 0 R /Parent 54 0 R /Prev 67 0 R /Title (\376\377\0005\000\240\000\240\000\240\000M\000a\000n\000a\000g\000e\000m\000e\000n\000t\000 \000s\000e\000r\000v\000e\000r\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+endobj
+69 0 obj
+<< /Dest [ 51 0 R /XYZ 62.69291 185.4236 0 ] /Next 70 0 R /Parent 54 0 R /Prev 68 0 R /Title (\376\377\0006\000\240\000\240\000\240\000T\000r\000a\000f\000f\000i\000c\000 \000s\000w\000i\000t\000c\000h\000 \000s\000e\000r\000v\000e\000r\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+endobj
+70 0 obj
+<< /Dest [ 51 0 R /XYZ 62.69291 152.4236 0 ] /Parent 54 0 R /Prev 69 0 R /Title (\376\377\0007\000\240\000\240\000\240\000L\000o\000a\000d\000 \000b\000a\000l\000a\000n\000c\000e\000r\000 \000i\000n\000s\000t\000a\000l\000l\000a\000t\000i\000o\000n) >>
+endobj
+71 0 obj
+<< /Count 5 /Kids [ 44 0 R 46 0 R 49 0 R 50 0 R 51 0 R ] /Type /Pages >>
+endobj
+72 0 obj
+<< /Length 8854 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -225,13 +283,69 @@ BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Contents) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 446.0236 cm
+1 0 0 1 62.69291 374.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 0 201 cm
+1 0 0 1 0 273 cm
 q
 BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (1   Overview) Tj T* ET
+Q
+Q
+q
+1 0 0 1 397.8898 273 cm
+q
+0 0 .501961 rg
+0 0 .501961 RG
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (1) Tj T* -66.44 0 Td ET
+Q
+Q
+q
+1 0 0 1 0 255 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (2   Databases installation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 397.8898 255 cm
+q
+0 0 .501961 rg
+0 0 .501961 RG
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (1) Tj T* -66.44 0 Td ET
+Q
+Q
+q
+1 0 0 1 0 237 cm
+q
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.1   Install packages) Tj T* ET
+Q
+Q
+q
+1 0 0 1 397.8898 237 cm
+q
+0 0 .501961 rg
+0 0 .501961 RG
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (2) Tj T* -66.44 0 Td ET
+Q
+Q
+q
+1 0 0 1 0 219 cm
+q
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.2   Create databases) Tj T* ET
+Q
+Q
+q
+1 0 0 1 397.8898 219 cm
+q
+0 0 .501961 rg
+0 0 .501961 RG
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (2) Tj T* -66.44 0 Td ET
+Q
+Q
+q
+1 0 0 1 0 201 cm
+q
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.3   Check) Tj T* ET
 Q
 Q
 q
@@ -239,13 +353,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (1) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 183 cm
 q
-BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (2   Databases installation) Tj T* ET
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.4   Init schema and data) Tj T* ET
 Q
 Q
 q
@@ -253,13 +367,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (1) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 165 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.1   Install packages) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (3   Management interface installation) Tj T* ET
 Q
 Q
 q
@@ -267,13 +381,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (1) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 147 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.2   Create databases) Tj T* ET
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.1   Install packages) Tj T* ET
 Q
 Q
 q
@@ -281,13 +395,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (2) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 129 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.3   Check) Tj T* ET
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.2   Configure database connection) Tj T* ET
 Q
 Q
 q
@@ -295,13 +409,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (2) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (4) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 111 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (2.4   Init schema and data) Tj T* ET
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.3   Init databases data) Tj T* ET
 Q
 Q
 q
@@ -309,13 +423,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (4) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 93 cm
 q
-BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (3   Management interface installation) Tj T* ET
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.4   Launch) Tj T* ET
 Q
 Q
 q
@@ -323,13 +437,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 75 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.1   Install packages) Tj T* ET
+BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.5   Check) Tj T* ET
 Q
 Q
 q
@@ -337,13 +451,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (3) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 57 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.2   Configure database connection) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (4   DSS Storage installation) Tj T* ET
 Q
 Q
 q
@@ -351,13 +465,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (4) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 39 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.3   Init databases data) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (5   Management server installation) Tj T* ET
 Q
 Q
 q
@@ -365,13 +479,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (4) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 21 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.4   Launch) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (6   Traffic switch server installation) Tj T* ET
 Q
 Q
 q
@@ -379,13 +493,13 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 1 0 0 1 0 3 cm
 q
-BT 1 0 0 1 20 2 Tm 12 TL /F1 10 Tf 0 0 .501961 rg (3.5   Check) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F2 10 Tf 0 0 .501961 rg (7   Load balancer installation) Tj T* ET
 Q
 Q
 q
@@ -393,123 +507,27 @@ q
 q
 0 0 .501961 rg
 0 0 .501961 RG
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 66.44 0 Td (5) Tj T* -66.44 0 Td ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 413.0236 cm
+1 0 0 1 62.69291 341.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (1   Overview) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 395.0236 cm
+1 0 0 1 62.69291 323.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Minimal system installation requires following compoments:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 389.0236 cm
-Q
-q
-1 0 0 1 62.69291 389.0236 cm
-Q
-q
-1 0 0 1 62.69291 377.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Routing database \(postgresql-9.3\) see [sec:Databases-installation]) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 371.0236 cm
-Q
-q
-1 0 0 1 62.69291 359.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (CDRs database \(postgresql-9.3\) see [sec:Databases-installation]) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 353.0236 cm
-Q
-q
-1 0 0 1 62.69291 341.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Management interface \(web interace written on RoR\) see [sec:Management-interface-installation]) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 335.0236 cm
-Q
-q
-1 0 0 1 62.69291 323.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (DSS storage \(Redis\) see [sec:DSS-Storage-installation]) Tj T* ET
-Q
-Q
-q
-Q
+1 0 0 1 62.69291 317.0236 cm
 Q
 q
 1 0 0 1 62.69291 317.0236 cm
@@ -528,8 +546,7 @@ Q
 q
 1 0 0 1 23 -3 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Management server \(configurations server\) see [sec:Management-server-installation]) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Routing database \(postgresql-9.3\) see ) Tj 0 0 .501961 rg (Databases installation) Tj T* ET
 Q
 Q
 q
@@ -552,8 +569,7 @@ Q
 q
 1 0 0 1 23 -3 cm
 q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Traffic switch \(SBC based on SEMS\) see [sec:Traffic-switch-server-installation]) Tj T* ET
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (CDRs database \(postgresql-9.3\) see ) Tj 0 0 .501961 rg (Databases installation) Tj T* ET
 Q
 Q
 q
@@ -576,65 +592,156 @@ Q
 q
 1 0 0 1 23 -3 cm
 q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Management interface \(web interace written on RoR\) see ) Tj 0 0 .501961 rg (Management interface installation) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 263.0236 cm
+Q
+q
+1 0 0 1 62.69291 251.0236 cm
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Load balancer \(kamailio\) see [sec:Load-balancer-installation]) Tj T* ET
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (DSS storage \(Redis\) see ) Tj 0 0 .501961 rg (DSS Storage installation) Tj T* ET
 Q
 Q
 q
 Q
 Q
 q
-1 0 0 1 62.69291 269.0236 cm
+1 0 0 1 62.69291 245.0236 cm
 Q
 q
-1 0 0 1 62.69291 236.0236 cm
+1 0 0 1 62.69291 233.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Management server \(configurations server\) see ) Tj 0 0 .501961 rg (Management server installation) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 227.0236 cm
+Q
+q
+1 0 0 1 62.69291 215.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Traffic switch \(SBC based on SEMS\) see ) Tj 0 0 .501961 rg (Traffic switch server installation) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 209.0236 cm
+Q
+q
+1 0 0 1 62.69291 197.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Load balancer \(kamailio\) see ) Tj 0 0 .501961 rg (Load balancer installation) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 197.0236 cm
+Q
+q
+1 0 0 1 62.69291 164.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (2   Databases installation) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 218.0236 cm
+1 0 0 1 62.69291 146.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (System requires two databases: one for routing and one for CDRs.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 188.0236 cm
+1 0 0 1 62.69291 116.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.607984 Tw (We recommend to place routing database at the same host with management interface to reach best) Tj T* 0 Tw (interface responsiveness by reducing network delay for database requests from web-interface.) Tj T* ET
 Q
 Q
+ 
+endstream
+endobj
+73 0 obj
+<< /Length 4083 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 158.0236 cm
+1 0 0 1 62.69291 747.0236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (2.1   Install packages) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 140.0236 cm
+1 0 0 1 62.69291 729.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (both routing and CDRs databases requires similar sets of connected repositories and installed packages.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 122.0236 cm
+1 0 0 1 62.69291 711.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Make sure that following repositories added on your system:) Tj T* ET
 Q
 Q
- 
-endstream
-endobj
-54 0 obj
-<< /Length 3850 >>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 691.8236 cm
+1 0 0 1 62.69291 629.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -655,21 +762,21 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 671.8236 cm
+1 0 0 1 62.69291 609.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (System repositories can be changed by editing of file: /etc/apt/sources.list) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 653.8236 cm
+1 0 0 1 62.69291 591.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (import public keys for repositories:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 608.6236 cm
+1 0 0 1 62.69291 546.6236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -690,14 +797,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 588.6236 cm
+1 0 0 1 62.69291 526.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Install packages:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 471.4236 cm
+1 0 0 1 62.69291 409.4236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -717,20 +824,20 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 441.4236 cm
+1 0 0 1 62.69291 379.4236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (2.2   Create databases) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 423.4236 cm
+1 0 0 1 62.69291 361.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Create routing database:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 318.2236 cm
+1 0 0 1 62.69291 256.2236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -751,14 +858,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 298.2236 cm
+1 0 0 1 62.69291 236.2236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Create database to store CDR:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 217.0236 cm
+1 0 0 1 62.69291 155.0236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -779,41 +886,41 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 185.0236 cm
+1 0 0 1 62.69291 123.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.919147 Tw (Note: It's recommended to specify values for databases names, usernames, passwords differ from) Tj T* 0 Tw (specified in this manual for security reasons.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 167.0236 cm
+1 0 0 1 62.69291 105.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (For large installations is reasonable to place CDR database on dedicated server) Tj T* ET
 Q
 Q
+ 
+endstream
+endobj
+74 0 obj
+<< /Length 4507 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 137.0236 cm
+1 0 0 1 62.69291 747.0236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (2.3   Check) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 119.0236 cm
+1 0 0 1 62.69291 729.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Check databases created and accessible:) Tj T* ET
 Q
 Q
- 
-endstream
-endobj
-55 0 obj
-<< /Length 4571 >>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 571.8236 cm
+1 0 0 1 62.69291 527.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -834,45 +941,45 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 539.8236 cm
+1 0 0 1 62.69291 495.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 2.433059 Tw (Don't forget to make changes in /etc/postgresql/9.3/main/pg_hba.conf and apply them if you plan to) Tj T* 0 Tw (access this databases from another hosts) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 509.8236 cm
+1 0 0 1 62.69291 465.8236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (2.4   Init schema and data) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 479.8236 cm
+1 0 0 1 62.69291 435.8236 cm
 q
 BT 1 0 0 1 0 14 Tm 3.304147 Tw 12 TL /F1 10 Tf 0 0 0 rg (Look at ) Tj 0 0 .501961 rg (Configure database connection ) Tj 0 0 0 rg (and ) Tj 0 0 .501961 rg (Init databases data ) Tj 0 0 0 rg (for further databases initialization) Tj T* 0 Tw (instructions.) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 446.8236 cm
+1 0 0 1 62.69291 402.8236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (3   Management interface installation) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 428.8236 cm
+1 0 0 1 62.69291 384.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Server requirements:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 422.8236 cm
+1 0 0 1 62.69291 378.8236 cm
 Q
 q
-1 0 0 1 62.69291 422.8236 cm
+1 0 0 1 62.69291 378.8236 cm
 Q
 q
-1 0 0 1 62.69291 410.8236 cm
+1 0 0 1 62.69291 366.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -893,10 +1000,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 404.8236 cm
+1 0 0 1 62.69291 360.8236 cm
 Q
 q
-1 0 0 1 62.69291 392.8236 cm
+1 0 0 1 62.69291 348.8236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -917,23 +1024,23 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 392.8236 cm
+1 0 0 1 62.69291 348.8236 cm
 Q
 q
-1 0 0 1 62.69291 362.8236 cm
+1 0 0 1 62.69291 318.8236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (3.1   Install packages) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 344.8236 cm
+1 0 0 1 62.69291 300.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Make sure that following repositories added on your system:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 251.6236 cm
+1 0 0 1 62.69291 207.6236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -954,21 +1061,21 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 231.6236 cm
+1 0 0 1 62.69291 187.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (System repositories can be changed by editing of file: /etc/apt/sources.list) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 213.6236 cm
+1 0 0 1 62.69291 169.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (import public keys for repositories:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 156.4236 cm
+1 0 0 1 62.69291 112.4236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -989,14 +1096,21 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 136.4236 cm
+1 0 0 1 62.69291 92.42362 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Install packages:) Tj T* ET
 Q
 Q
+ 
+endstream
+endobj
+75 0 obj
+<< /Length 3370 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 103.2236 cm
+1 0 0 1 62.69291 739.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1015,28 +1129,21 @@ Q
 Q
 Q
 Q
- 
-endstream
-endobj
-56 0 obj
-<< /Length 3528 >>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 747.0236 cm
+1 0 0 1 62.69291 709.8236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (3.2   Configure database connection) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 717.0236 cm
+1 0 0 1 62.69291 679.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.322196 Tw (To configure database connection edit file /home/yeti-web/config/database.yml Create database.yml file) Tj T* 0 Tw (with the following content:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 383.8236 cm
+1 0 0 1 62.69291 346.6236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1056,27 +1163,27 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 351.8236 cm
+1 0 0 1 62.69291 314.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.129269 Tw (Warning: you should specify correct adresses and credentials using those which you chose in previous) Tj T* 0 Tw (section) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 321.8236 cm
+1 0 0 1 62.69291 284.6236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (3.3   Init databases data) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 303.8236 cm
+1 0 0 1 62.69291 266.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (To simplify work with databases use utility yeti-db To initialize empty databases:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 258.6236 cm
+1 0 0 1 62.69291 221.4236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1097,14 +1204,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 238.6236 cm
+1 0 0 1 62.69291 201.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (To upgrade databases to the lastest version:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 193.4236 cm
+1 0 0 1 62.69291 156.2236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1125,14 +1232,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 173.4236 cm
+1 0 0 1 62.69291 136.2236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (You can check actual database versions:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 128.2236 cm
+1 0 0 1 62.69291 91.02362 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1152,42 +1259,35 @@ Q
 Q
 Q
 Q
-q
-1 0 0 1 62.69291 84.22362 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 1.16784 Tw (Attention: During upgrade of the system which working in production command apply_all should not be) Tj T* 0 Tw 1.091235 Tw (used because this command intended to upgrade to the last version only for system without live traffic.) Tj T* 0 Tw .396235 Tw (Systems in production must be upgraded using command apply which applies just one update in a single) Tj T* 0 Tw ET
-Q
-Q
  
 endstream
 endobj
-57 0 obj
-<< /Length 4748 >>
+76 0 obj
+<< /Length 5664 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 741.0236 cm
+1 0 0 1 62.69291 705.0236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .188735 Tw (run. After each upgrade it is important to amend appropriate configuration files and restart all traffic switch) Tj T* 0 Tw (instances. This approach provides zero-downtime upgrade procedure \(without loss of traffic and CDRs\)) Tj T* ET
+BT 1 0 0 1 0 50 Tm /F1 10 Tf 12 TL 1.16784 Tw (Attention: During upgrade of the system which working in production command apply_all should not be) Tj T* 0 Tw 1.091235 Tw (used because this command intended to upgrade to the last version only for system without live traffic.) Tj T* 0 Tw .396235 Tw (Systems in production must be upgraded using command apply which applies just one update in a single) Tj T* 0 Tw .188735 Tw (run. After each upgrade it is important to amend appropriate configuration files and restart all traffic switch) Tj T* 0 Tw (instances. This approach provides zero-downtime upgrade procedure \(without loss of traffic and CDRs\)) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 711.0236 cm
+1 0 0 1 62.69291 675.0236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (3.4   Launch) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 693.0236 cm
+1 0 0 1 62.69291 657.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (After successfull configuration of databases you finally can run software using following commands:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 635.8236 cm
+1 0 0 1 62.69291 599.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1208,27 +1308,27 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 615.8236 cm
+1 0 0 1 62.69291 579.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (This will run web-interface and CDR processing workers) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 585.8236 cm
+1 0 0 1 62.69291 549.8236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (3.5   Check) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 567.8236 cm
+1 0 0 1 62.69291 531.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (check if uncorn listens socket:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 522.6236 cm
+1 0 0 1 62.69291 486.6236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1249,14 +1349,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 502.6236 cm
+1 0 0 1 62.69291 466.6236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (check if nginx listens for appropriate sockets:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 445.4236 cm
+1 0 0 1 62.69291 409.4236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1277,62 +1377,14 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 425.4236 cm
+1 0 0 1 62.69291 389.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Log files to check for possible warnings/errors :) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 419.4236 cm
-Q
-q
-1 0 0 1 62.69291 419.4236 cm
-Q
-q
-1 0 0 1 62.69291 407.4236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/var/log/yeti-admin.log) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 401.4236 cm
-Q
-q
-1 0 0 1 62.69291 389.4236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/var/log/yeti-cdr-billing.log) Tj T* ET
-Q
-Q
-q
-Q
+1 0 0 1 62.69291 383.4236 cm
 Q
 q
 1 0 0 1 62.69291 383.4236 cm
@@ -1352,7 +1404,7 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/home/yeti-web/log/unicorn.stdout.log) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/var/log/yeti-admin.log) Tj T* ET
 Q
 Q
 q
@@ -1376,6 +1428,54 @@ q
 1 0 0 1 23 -3 cm
 q
 0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/var/log/yeti-cdr-billing.log) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 347.4236 cm
+Q
+q
+1 0 0 1 62.69291 335.4236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/home/yeti-web/log/unicorn.stdout.log) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 329.4236 cm
+Q
+q
+1 0 0 1 62.69291 317.4236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (/home/yeti-web/log/unicorn.stderr.log) Tj T* ET
 Q
 Q
@@ -1383,20 +1483,20 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 353.4236 cm
+1 0 0 1 62.69291 317.4236 cm
 Q
 q
-1 0 0 1 62.69291 335.4236 cm
+1 0 0 1 62.69291 299.4236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Try to open management interface in your favorite browser and login with default credentials:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 329.4236 cm
+1 0 0 1 62.69291 293.4236 cm
 Q
 q
-1 0 0 1 62.69291 314.4236 cm
+1 0 0 1 62.69291 278.4236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1417,7 +1517,7 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 299.4236 cm
+1 0 0 1 62.69291 263.4236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1437,29 +1537,53 @@ Q
 q
 Q
 Q
+q
+1 0 0 1 62.69291 230.4236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (4   DSS Storage installation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 197.4236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (5   Management server installation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 164.4236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (6   Traffic switch server installation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 131.4236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (7   Load balancer installation) Tj T* ET
+Q
+Q
  
 endstream
 endobj
-58 0 obj
-<< /Nums [ 0 59 0 R 1 60 0 R 2 61 0 R 3 62 0 R 4 63 0 R ] >>
+77 0 obj
+<< /Nums [ 0 78 0 R 1 79 0 R 2 80 0 R 3 81 0 R 4 82 0 R ] >>
 endobj
-59 0 obj
+78 0 obj
 << /S /D /St 1 >>
 endobj
-60 0 obj
+79 0 obj
 << /S /D /St 2 >>
 endobj
-61 0 obj
+80 0 obj
 << /S /D /St 3 >>
 endobj
-62 0 obj
+81 0 obj
 << /S /D /St 4 >>
 endobj
-63 0 obj
+82 0 obj
 << /S /D /St 5 >>
 endobj
 xref
-0 64
+0 83
 0000000000 65535 f
 0000000075 00000 n
 0000000130 00000 n
@@ -1490,45 +1614,64 @@ xref
 0000004314 00000 n
 0000004486 00000 n
 0000004658 00000 n
-0000005057 00000 n
-0000005166 00000 n
-0000005376 00000 n
-0000005548 00000 n
-0000005720 00000 n
-0000005956 00000 n
-0000006166 00000 n
-0000006376 00000 n
-0000006485 00000 n
-0000006755 00000 n
-0000006833 00000 n
-0000007015 00000 n
-0000007320 00000 n
-0000007552 00000 n
-0000007797 00000 n
-0000007987 00000 n
-0000008239 00000 n
-0000008586 00000 n
-0000008818 00000 n
-0000009128 00000 n
-0000009388 00000 n
-0000009583 00000 n
-0000009760 00000 n
-0000009852 00000 n
-0000018087 00000 n
-0000021994 00000 n
-0000026622 00000 n
-0000030207 00000 n
-0000035012 00000 n
-0000035092 00000 n
-0000035129 00000 n
-0000035166 00000 n
-0000035203 00000 n
-0000035240 00000 n
+0000004830 00000 n
+0000005002 00000 n
+0000005174 00000 n
+0000005346 00000 n
+0000005518 00000 n
+0000005690 00000 n
+0000005862 00000 n
+0000006034 00000 n
+0000006206 00000 n
+0000006378 00000 n
+0000006550 00000 n
+0000006722 00000 n
+0000006894 00000 n
+0000007066 00000 n
+0000007238 00000 n
+0000007746 00000 n
+0000007855 00000 n
+0000008065 00000 n
+0000008237 00000 n
+0000008409 00000 n
+0000008645 00000 n
+0000008855 00000 n
+0000009065 00000 n
+0000009174 00000 n
+0000009444 00000 n
+0000009522 00000 n
+0000009704 00000 n
+0000010009 00000 n
+0000010241 00000 n
+0000010486 00000 n
+0000010676 00000 n
+0000010928 00000 n
+0000011288 00000 n
+0000011520 00000 n
+0000011830 00000 n
+0000012090 00000 n
+0000012285 00000 n
+0000012462 00000 n
+0000012737 00000 n
+0000013042 00000 n
+0000013367 00000 n
+0000013639 00000 n
+0000013731 00000 n
+0000022642 00000 n
+0000026782 00000 n
+0000031346 00000 n
+0000034773 00000 n
+0000040494 00000 n
+0000040574 00000 n
+0000040611 00000 n
+0000040648 00000 n
+0000040685 00000 n
+0000040722 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com)
- [(W-\367\240\011T%Y\007\007*\316U\366+-) (W-\367\240\011T%Y\007\007*\316U\366+-)]
- /Info 38 0 R /Root 37 0 R /Size 64 >>
+ [(\037\256\001>O<\370<\027\320\202T\032\315o\315) (\037\256\001>O<\370<\027\320\202T\032\315o\315)]
+ /Info 53 0 R /Root 52 0 R /Size 83 >>
 startxref
-35277
+40759
 %%EOF

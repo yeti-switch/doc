@@ -14,19 +14,19 @@ Overview
 
 Minimal system installation requires following compoments:
 
-- Routing database (postgresql-9.3) see [sec:Databases-installation]
+- Routing database (postgresql-9.3) see `Databases installation`_
 
-- CDRs database (postgresql-9.3) see [sec:Databases-installation]
+- CDRs database (postgresql-9.3) see `Databases installation`_
 
-- Management interface (web interace written on RoR) see [sec:Management-interface-installation]
+- Management interface (web interace written on RoR) see `Management interface installation`_
 
-- DSS storage (Redis) see [sec:DSS-Storage-installation]
+- DSS storage (Redis) see `DSS Storage installation`_
 
-- Management server (configurations server) see [sec:Management-server-installation]
+- Management server (configurations server) see `Management server installation`_
 
-- Traffic switch (SBC based on SEMS) see [sec:Traffic-switch-server-installation]
+- Traffic switch (SBC based on SEMS) see `Traffic switch server installation`_
 
-- Load balancer (kamailio) see [sec:Load-balancer-installation]
+- Load balancer (kamailio) see `Load balancer installation`_
 
 
 Databases installation
@@ -249,3 +249,14 @@ Try to open management interface in your favorite browser and login with default
 :user: admin
 :password: 111111
 
+DSS Storage installation
+========================
+
+Management server installation
+==============================
+
+Traffic switch server installation
+==================================
+
+Load balancer installation
+==========================
