@@ -6,6 +6,8 @@ YETI installation manual
 :Author: Michael Furmur <m.furmur@gmail.com>
 :Site: https://yeti-switch.org/
 
+.. image:: https://yeti-switch.org/img/logo.png
+
 .. contents::
 
 .. sectnum::
