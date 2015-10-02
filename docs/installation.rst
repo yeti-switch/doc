@@ -20,7 +20,7 @@ YETI installation manual
 Overview
 ========
 
-Minimal system installation requires following compoments:
+Minimal system installation requires following components:
 
 - Routing database (postgresql-9.3)
   see `Databases installation`_
