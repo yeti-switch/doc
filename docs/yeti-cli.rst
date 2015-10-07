@@ -49,3 +49,4 @@ Configuration file is /etc/yeti/yeti-cli.yml::
 * **default_node** - default node, to which we connect on start
 * **prompt_system_name** - Promt string
 
+You can override default config location via enviroment variable YETI_CMD_CFG_PATH
