@@ -3,9 +3,9 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-=======================
-YETI operational manual
-=======================
+========================
+YETI General information
+========================
 
 :Site: https://yeti-switch.org/
 
