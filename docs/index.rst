@@ -14,6 +14,7 @@ Contents:
    general
    installation
    ldap
+   yeti-cli
 
 
 
