@@ -23,7 +23,7 @@ RTP
 ASR
     Answer seizure ratio  [ http://www.itu.int/rec/T-REC-E.411/en ] 3.6.3
 ACD
-    Automatic call distributor [TODO: find formal definition origin]
+    Average call duration
 DST prefix
     Destination prefix TODO: explain term
 SRC prefix
