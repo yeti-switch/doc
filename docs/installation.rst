@@ -185,31 +185,31 @@ edit file /home/yeti-web/config/database.yml
 Create database.yml file with the following content::
 
     production: 
-    adapter: postgresql
-    encoding: unicode 
-    database: yeti 
-    pool: 5 
-    username: yeti 
-    password: somepassword 
-    host: 127.0.0.1 
-    schema_search_path: >
-      gui,public,switch,
-      billing,class4,runtime_stats,
-      sys,logs,data_import
-    port: 5432 
-    #min_messages: warning 
+      adapter: postgresql
+      encoding: unicode
+      database: yeti
+      pool: 5
+      username: yeti
+      password: somepassword
+      host: 127.0.0.1
+      schema_search_path: >
+        gui, public, switch,
+        billing, class4, runtime_stats,
+        sys, logs, data_import
+      port: 5432
+      #min_messages: warning
     
     production_cdr: 
-    adapter: postgresql 
-    encoding: unicode 
-    database: cdr 
-    pool: 5 
-    username: yeti 
-    password: somepassword 
-    host: 127.0.0.1 
-    schema_search_path: 'cdr,reports,billing' 
-    port: 5432 
-    #min_messages: warning
+      adapter: postgresql
+      encoding: unicode
+      database: cdr
+      pool: 5
+      username: yeti
+      password: somepassword
+      host: 127.0.0.1
+      schema_search_path: 'cdr, reports, billing'
+      port: 5432
+      #min_messages: warning
 
 Warning: you should specify correct adresses and credentials using
 those which you chose in previous section
