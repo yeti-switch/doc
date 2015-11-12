@@ -1,66 +1,88 @@
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+    :maxdepth: 3
 
-========================================
+==================
 YETI WEB interface
-========================================
+==================
 
 :Site: https://yeti-switch.org/
-.. note:: После инсталляции ПО, на веб интерфейс можно попасть используя адрес https://<server_ip> Default login: **admin**, default password: **111111**
 
+.. note::
 
-Объекты конфигурации
-====================
+    Default credentials to login on web-interface after software installation:
+
+    - *login*: **admin**, 
+    - *password*: **111111**
+
+Configuration Objects
+=====================
 
 Dashboard
 ---------
-На главной панели отображаются различные показатели состояния системы -  график активных звонков, прибыльности и длительности звонков. 
-Кроме этого отображается состояние биллинга и состояние репликации системы.
+Displays different various indicators of the system state:
 
+- active calls graph
+- profitability and duration of the calls
+- billing status
+- state of the system replication
 
 Billing. Contractors
 --------------------
-Contractor - компания с которой будет взаимодействовать система. Контрактор может выступать кастомером, то есть пользоваться предоставляемым сервисом, и поставщиком - то есть предоставлять сервис терминации.
-Один и тот же контратор может выступать кастомером и поставщиком одновременно. Contractor имеет следующие атрибуты:
+Contractor:
+    company wich will interact with the system.
+Contractor may act as:
 
+    Customer
+        use provided call termination service
+    Supplier
+        provide call termination service
 
-Name
-    уникальное имя Contractor, поле должно быть заполнено. Не допускается создание нескольких Contractor с одинаковым именем.
-Enabled
-    Флаг, обозначающий работоспособное состояние Contractors. Если флаг выключен, Contractor не может использоваться при маршрутизации и биллинге.
-Vendor
-    Флаг, обозначающий, что Contractors выступает в роли Vendor. В случае, если флаг включен, Contractors может выступать поставщиком, и на него могут терминироваться звонки.
-Customer
-    Флаг, обозначающий работу системы как Customer. Может оригинировать звонки со своих гейтвеев.
-Description
-    опциональное описание Contractors: 
-Adress
-    опциональный адрес контрактора
-Phones
-    телефоны, опциональный список телефонов для связи с Contractors.
-Smtp Connection
-    соединение к почтовому серверу, которое будет использоваться для отправки Contractors писем, инвойсов или других уведомлений. Smtp Connection настраиваются отдельно в пункте меню System SMTP connections.
+One contractor can be either customer and supplier.
 
+**Contractor** has the following attributes:
 
-Поля **Description**, **Adress**, **Phones** являются информационным и не используется в бизнес логике маршрутизации и биллинга
+    Name
+        unique contractor name. mandatory field.
+        creation of different contractors with the same name is not allowed
+    Enabled
+        self-descriptive.
+        if flag is off (contractor disabled) this contractor will not be used for routing and billing
+    Vendor
+        if enabled contractor can act as supplier and system may terminate calls to it
+    Customer
+        if enabled contractor can act as customer and originate calls to the system
+    Description
+        optional description of the contractor
+    Adress
+        optional contractor address
+    Phones
+        list of phone numbers to contact with contractor
+    Smtp Connection
+        connection to the mail server which will be used to send mails, invoices and notifications
+        (SMTP connection must be configured previously in *System->SMTP connections*)
+
+.. note:: Fields **Description**, **Adress**, **Phones** are informational and not used in routing or billing logic
 
 Billing. Contacts
 -----------------
-Контакт - адресная информация о контракторе или операторе системы(Контакт принадлежит либо контратору, либо оператору системы). Все операции отсылки почтовых уведомлений и отчетов используют только адреса добавленные в качестве контактов.
-Контакт содержит следующие атрибуты:
+Contact:
+    address information about contractor or system operator (contact belongs to the contractor or to the system operator).
+All email notification and reports use only addressed which were added to the contacts
 
-Contractors
-    Выберите Contractors в случае, если контакт принадлежит Contractors.
-Admin user
-    административный пользователь, которому может принадлежать контакт. Необходимо ввести либо имя Contractors либо имя Admin user.
-E-mail
-    адрес, на который будут отсылаться уведомления, инвойсы и прочие письма.
-Nodes
-    опциональное поле, служащее для дополнительных замечаний.
+**Contact** has the following attributes:
 
-    
+    Contractors:
+        choose Contractors if this contact belongs to them
+    Admin user:
+        administrative user which may own contact
+        must be entered Contractors name or Admin user name
+    E-mail:
+        address for notifications, invoices and other emails
+    Notes:
+        optional notes
+
 Billing. Accounts
 -----------------
 
