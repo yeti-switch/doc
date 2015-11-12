@@ -1,15 +1,10 @@
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. :maxdepth: 2
 
 ========================================
 YETI CLI utility
 ========================================
 
 :Site: https://yeti-switch.org/
-
-.. image:: https://yeti-switch.org/img/logo.png
 
 Information
 ===========

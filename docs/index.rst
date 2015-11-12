@@ -16,6 +16,7 @@ Contents:
    yeti-ui
    ldap
    yeti-cli
+   disconnect-codes
 
 
 
