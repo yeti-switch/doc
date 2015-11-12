@@ -36,7 +36,7 @@ and edit it::
 * **host** - address of LDAP server
 * **port** - port of LDAP server
 * **ssl** - enable/disable SSL
-* **attribute** - name of attribute wich contains user login
+* **attribute** - name of attribute which contains user login
 * **base** - base DN where YETI will try find users
 * **group_base** - base DN where YETI will try find groups
 * **required_groups** - array of groups where user must present
