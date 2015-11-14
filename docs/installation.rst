@@ -25,7 +25,7 @@ Minimal system installation requires following components:
 - CDRs database (postgresql-9.3)
   see `Databases installation`_
 
-- Management interface (web interace written on RoR)
+- Management interface (web interface written on RoR)
   see `Management interface installation`_
 
 - DSS storage (Redis)
@@ -208,7 +208,7 @@ Create database.yml file with the following content::
       port: 5432
       #min_messages: warning
 
-Warning: you should specify correct adresses and credentials using
+Warning: you should specify correct addresses and credentials using
 those which you chose in previous section
 
 Init databases data
@@ -220,7 +220,7 @@ To initialize empty databases::
     # yeti-db init 
     # yeti-db --cdr init
 
-To upgrade databases to the lastest version::
+To upgrade databases to the latest version::
 
     # yeti-db apply_all 
     # yeti-db --cdr apply_all
@@ -239,7 +239,7 @@ This approach provides zero-downtime upgrade procedure (without loss of traffic 
 Launch
 ------
 
-After successfull configuration of databases you finally can run software using following commands::
+After successful configuration of databases you finally can run software using following commands::
 
     # /etc/init.d/yeti-web start 
     # /etc/init.d/yeti-cdr-billing start
@@ -250,7 +250,7 @@ This will run web-interface and CDR processing workers
 Check
 -----
 
-check if uncorn listens socket::
+check if unicorn listens socket::
 
     # netstat -lpn | grep unicorn
     unix 2 [ ACC ] STREAM LISTENING 2535145 24728/unicorn.rb -E /tmp/yeti-unicorn.sock
@@ -338,7 +338,7 @@ Configuration files
 /etc/yeti/management.cfg
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-This file contains configuation for management daemon.
+This file contains configuration for management daemon.
 
 Set desired logging level and address to listen.
 
@@ -361,7 +361,7 @@ Possible log_level values are: (1 - error, 2 - info, 3 - debug)
 
 This file contains configuration for all nodes.
 Each top-level section defines configuration for node of certain type
-(signalling is for traffic switch nodes).
+(signaling is for traffic switch nodes).
 All top-level sections contains mandatory section globals
 which must have all possible values common for all nodes.
 Then there is named sections for each node_id which can contains
@@ -555,7 +555,7 @@ Add new node to the routing database using web interface
 Use id of newly created node as value for **node_id** parameter
 
 node_id
-    unique signalling node id
+    unique signaling node id
 cfg_timeout
     timeout of waiting response from management node
 cfg_urls
@@ -594,7 +594,7 @@ which will launch daemon in foreground with debug logging level
 Check
 -----
 
-Check if **sems** process exists and signalling/media/rpc sockets are opened::
+Check if **sems** process exists and signaling/media/rpc sockets are opened::
 
     # pgrep sems
     29749
@@ -632,7 +632,7 @@ Install package::
 
 Note: On package configuration stage
 you will be asked specify address of previously installed
-signalling node and address for load balancer to listen.
+signaling node and address for load balancer to listen.
 
 After installation you can change any parameters by editing files:
 /etc/kamailio/dispatcher.list and /etc/kamailio/lb.conf
