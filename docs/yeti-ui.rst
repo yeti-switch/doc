@@ -31,7 +31,7 @@ Displays different various indicators of the system state:
 Billing. Contractors
 --------------------
 Contractor:
-    company wich will interact with the system.
+    company which will interact with the system.
 
 Contractor may act as:
 
@@ -55,7 +55,7 @@ One contractor can be either customer and supplier.
         If enabled contractor can act as customer and originate calls to the system.
     Description
         Optional description of the contractor.
-    Adress
+    Address
         Optional contractor address.
     Phones
         list of phone numbers to contact with contractor.
@@ -63,7 +63,7 @@ One contractor can be either customer and supplier.
         connection to the mail server which will be used to send mails, invoices and notifications
         (SMTP connection must be configured previously in *System->SMTP connections*)
 
-.. note:: Fields **Description**, **Adress**, **Phones** are informational and not used in routing or billing logic.
+.. note:: Fields **Description**, **Address**, **Phones** are informational and not used in routing or billing logic.
 
 Billing. Contacts
 -----------------
@@ -86,7 +86,7 @@ Contact:
 Billing. Accounts
 -----------------
 
-**Acccount** attributes:
+**Account** attributes:
 
     Name
         unique account name
@@ -140,7 +140,7 @@ Equipment. Gateways
     Gateway group 
         gateways can be grouped.
         Choose group from the list to add gateway to the group.
-        Gateways groups can be managed at *Billing->Gatewat Groups*
+        Gateways groups can be managed at *Billing->Gateway Groups*
     Priority
         Gateway priority in the group.
         In case of termination to the group, gateways will be arranged according to this priority.
@@ -153,7 +153,7 @@ Equipment. Gateways
     Allow termination
         Specifies if gateway allowed to accept calls from YETI
     Sst enabled
-        Force to use SIP Session Timers, otherwise SST usage will be controled by signalling of the remote gateway.
+        Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
     Capacity
         Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.
     Acd limit
@@ -169,14 +169,14 @@ Equipment. Gateways
     Sensor level
         Traffic mirroring mode. Possible values:
 
-            - Singnaling
+            - Signaling
             - RTP
             - Signaling + RTP
     Host
-        IP address or DNS name of remote gateway to send SIP signalling.
+        IP address or DNS name of remote gateway to send SIP signaling.
         (only for usage for termination)
     Port
-        Port of remote gateway  to send SIP signalling.
+        Port of remote gateway  to send SIP signaling.
         Leave it empty to enable DNS SRV resolving of name in **Host**
     Resolve ruri
         Indicates necessity to rewrite RURI domain part with resolved IP
@@ -217,7 +217,7 @@ Equipment. Gateways
     Term use outbound proxy
         use outbound proxy for termination
     Term force outbound proxy
-        force usage of outbound proxy for terminaton
+        force usage of outbound proxy for termination
     Term outbound proxy
         outbound proxy address
     Term next hop for replies
@@ -236,7 +236,7 @@ Equipment. Gateways
     .. _gateway_ringing_timeout:
 
     Ringing timeout
-        Timeout between `18x` and `200 OK` respones. 
+        Timeout between `18x` and `200 OK` responses. 
 
         In case of timeout: routing attempt will be canceled
         and further processing (attempt to reroute or give up) depends from disconnect policy.
@@ -317,7 +317,7 @@ Equipment. Gateways
     Rtp relay timestamp aligning
         Normalize timestamp for RTP packets on RTP relay.
         Useful for cases on RTP relay when remote side changes RTP streams
-        without appropriate signalling (RTP mark or/and re-INVITE)
+        without appropriate signaling (RTP mark or/and re-INVITE)
         and destination equipment is not ready to process such behavior correctly
     Rtp force relay CN
         If enabled, YETI will relay CN packets on even if they were not negotiated in SDP
@@ -371,7 +371,7 @@ YETI allows to use outgoing SIP registrations on remote supplier or customer equ
     Expire
         Registration expiration time
     Force expire
-        Force reregistration after **Expire** interval even is server set another value in response
+        Force re-registration after **Expire** interval even is server set another value in response
 
 Equipment. Codec groups
 -----------------------
@@ -396,18 +396,18 @@ Equipment. Codec groups
 System. Sensors
 ---------------
 
-System supports mirroring of signalling and media traffic.
+System supports mirroring of signaling and media traffic.
 This functionality can be used for Lawful Interception.
-Currently system supports two incapsulation methods:
+Currently system supports two encapsulation methods:
 
     - IP-IP tunnel
-        Original packets will be incapsulated into additional IP-IP tunnel header.
+        Original packets will be encapsulated into additional IP-IP tunnel header.
         This mode allows to route mirrored traffic,
         it's especially useful when destination equipment not available in the same broadcast domain.
     - IP over Ethernet
-        In this mode original packets will be incapsulated directly into ethernet frame using raw sockets.
+        In this mode original packets will be encapsulated directly into Ethernet frame using raw sockets.
         Intended to use for cases when destination equipment is in the same L2 domain.
 
-Sensor and logging level can be choosen in gateway settings.
+Sensor and logging level can be chosen in gateway settings.
 Sensor configuration is separate for A and B leg,
 thus for both legs mirroring - sensors must be configured for both termination and origination gateway.

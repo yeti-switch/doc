@@ -55,7 +55,7 @@ Traffic Switch disconnect codes
 -------------------------------
 
 Internal Error $code
-    Node generated internal error and there is no appropiate entry in database.
+    Node generated internal error and there is no appropriate entry in database.
     In other words: internal error were not resolved.
     It's a bug or versions mismatch between node and database.
 Ringing timeout
@@ -105,7 +105,7 @@ read from tuple failed
 empty response from database
     Database returned 0 rows. Bug in management layer.
 no such prepared query
-    It's definitely a bug. Prepared queries differs from tried to invocate.
+    It's definitely a bug. Prepared queries differs from tried to invoke.
     Please, collect logs and contact with developers.
 cant parse Contact in req
     Failed to parse `Contact` header in initial INVITE request. Check traces and node logs for details.
