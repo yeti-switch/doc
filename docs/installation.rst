@@ -540,8 +540,6 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server ::
     shutdown_mode_reply="508 Node in shutdown mode"
     options_session_limit="900;503;Warning, server soon overloaded"
     # cps_limit="100;503;Server overload"
-    use_default_signature=no
-    signature="YETI SBC node"
     use_raw_sockets=yes 
     sip_timer_B = 8000 
     default_bl_ttl=0
