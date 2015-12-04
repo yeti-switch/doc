@@ -131,6 +131,21 @@ Payments intended to change account balance.
 
 All payment attributes are self-descriptive (destination account, amount, description and date of payment)
 
+
+Billing. Invoices
+-----------------
+Инвойс предоставляет возможность подсчета биллинг информации для взаиморасчетов с кастомерами и поставщиками.
+Генерация инвойса может происходить вручную, а так же автоматически, если для аккаунта выбран период автогенерации инвойсов.
+Новые инвойсы создаются со статусом Pending. После выполнения Approve инвойс считается подтвержденным и отсылается на почту контрагента(указанную в аккаунте)
+Если для аккаунта задан темплейт инвойса, создается так же PDF документ.
+
+Billing. Invoive Templates
+--------------------------
+Шаблоны PDF документа которые будут использоваться для генерации инвойса. Шаблон представляетс собой файл формата .odt, содержащий специальные плейсхолдеры.
+При генерации PDF докуменат плейсхолдеры заменяются на акутальные данные.
+Система может хранить множество различных шаблонов. Для каждого аккаунта может быть использован свой шаблон
+
+
 Equipment. Gateways
 -------------------
 
@@ -392,6 +407,37 @@ Equipment. Codec groups
                 Payload type override. (allowed only values from dynamic range)
             Format parameters
                 Non-standard value for fmt param SDP attribute.
+                
+Equipment. LNP database
+-----------------------
+see https://en.wikipedia.org/wiki/Local_number_portability
+
+Yeti поддерживает работу с LNP базами данных по протоколам SIP и HTTP REST. Протоколы могут быть реализованы по запросу.
+
+
+Name
+    Имя базы данных. Уникальное поле
+Driver*
+    Драйвер который будет использоваться. Возможные значения
+        UDP SIP 301/302 redirect
+        thinQ RESR LRN driver
+        In-memory hash
+    
+Host
+    Адрес базы данных(не применимо для In-memory hash)
+Port￼
+    Порт базы данных
+Timeout￼
+    Если не получено ответа в течении таймаута, запрос считается неуспешным
+Thinq username￼
+    username для авторизации в thinQ API
+Thinq token￼
+    токен для авторизации в thinQ API
+Csv file
+    Путь к файлу с LNP информацией(только для In-memory hash)
+
+    
+
 
 System. Sensors
 ---------------

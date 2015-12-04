@@ -29,7 +29,7 @@ and edit it::
       ssl: false
       attribute: uid
       base: ou=employees,dc=yeti,dc=com
-      group_base: ou=groups,dc=didww,dc=com
+      group_base: ou=groups,dc=yeti,dc=com
       required_groups:
         - ["member", "cn=yeti,ou=groups,dc=yeti,dc=com"]
     
