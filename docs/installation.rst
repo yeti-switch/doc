@@ -32,6 +32,24 @@ Minimal system installation requires following components:
 
 - Load balancer (kamailio)
   see `Load balancer installation`_
+  
+  
+Repositories configuration
+==========================
+
+All servers can use same repositories set::
+
+    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+    deb http://ftp.us.debian.org/debian/ jessie-updates main
+    deb http://security.debian.org/ jessie/updates main
+    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    
+
+System repositories can be changed by editing of file: /etc/apt/sources.list
+
+import public keys for repositories::
+
+    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
 
 
 Databases installation
@@ -46,24 +64,9 @@ delay for database requests from web-interface.
 Install packages
 ----------------
 
-both routing and CDRs databases requires similar sets of connected
-repositories and installed packages.
+both routing and CDRs databases requires similar sets packages.
 
-Make sure that following repositories added on your system::
-
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
-System repositories can be changed by editing of file: /etc/apt/sources.list
-
-import public keys for repositories::
-
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 7FCC7D46ACCC4CF8
-
-Install packages::
+::
 
     # aptitude update && \
       aptitude install postgresql-9.4 \
@@ -95,8 +98,7 @@ Create database to store CDR::
     CREATE DATABASE
     postgres=# \q
 
-Note: It's recommended to specify values for databases names, usernames,
-passwords differ from specified in this manual for security reasons.
+.. warning:: It's recommended to specify values for databases names, usernames, passwords differ from specified in this manual for security reasons.
 
 For large installations is reasonable to place CDR database
 on dedicated server
@@ -123,7 +125,7 @@ Check databases created and accessible::
     cdr=# \q 
     root@evial:/#
 
-Don't forget to make changes in /etc/postgresql/9.3/main/pg_hba.conf
+Don't forget to make changes in /etc/postgresql/9.4/main/pg_hba.conf
 and apply them if you plan to access this databases from another hosts
 
 Init schema and data
@@ -143,24 +145,7 @@ Server requirements:
 Install packages
 ----------------
 
-Make sure that following repositories added on your system::
-
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
-
-System repositories can be changed
-by editing of file: /etc/apt/sources.list
-
-import public keys for repositories::
-
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
-    # apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 7FCC7D46ACCC4CF8
-
-Install packages::
+::
 
     # aptitude update && aptitude install yeti-web
 
@@ -274,14 +259,7 @@ to provide correct limitation among all nodes for distributed installations.
 Install packages
 ----------------
 
-For installation make sure that your system have following repositories::
-
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
-Install package::
+::
 
     # aptitude install redis-server
 
@@ -306,20 +284,7 @@ to store yeti module configuration for all nodes in cluster.
 Install packages
 ----------------
 
-For installation make sure that
-your system have following repositories::
-
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
-import public keys for repositories::
-
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
-    # apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
-
-Install package::
+::
 
     # aptitude install yeti-management
 
@@ -484,19 +449,7 @@ Traffic switch server installation
 Install packages
 ----------------
 
-For installation make sure that your system have following repositories::
-
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
-import public keys for repositories::
-
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
-    # apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
-
-Install package::
+::
 
     # aptitude install sems-yeti
 
@@ -599,23 +552,10 @@ Load balancer installation
 Install packages
 ----------------
 
-For installation make sure that your system have following repositories::
-
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
-import public keys for repositories::
-
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
-    # apt-key adv --keyserver keys.gnupg.net --recv-key E9C74FEEA2098A6E
-    # apt-key adv --keyserver keys.gnupg.net --recv-key FB40D3E6508EA4C8
-
-Install package::
+::
 
     # aptitude install yeti-lb
-
+    
 Note: On package configuration stage
 you will be asked specify address of previously installed
 signaling node and address for load balancer to listen.
