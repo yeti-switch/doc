@@ -1,10 +1,17 @@
 .. :maxdepth: 2
 
 
+
+
 =====================================
-YETI installation manual for Debian 8
+YETI installation manual for Debian 7
 =====================================
 
+:Date: 14-09-2015
+:Author: Michael Furmur <m.furmur@gmail.com>
+:Site: https://yeti-switch.org/
+
+.. image:: https://yeti-switch.org/img/logo.png
 
 
 Overview
@@ -12,10 +19,10 @@ Overview
 
 Minimal system installation requires following components:
 
-- Routing database (postgresql-9.4)
+- Routing database (postgresql-9.3)
   see `Databases installation`_
 
-- CDRs database (postgresql-9.4)
+- CDRs database (postgresql-9.3)
   see `Databases installation`_
 
 - Management interface (web interface written on RoR)
@@ -51,10 +58,11 @@ repositories and installed packages.
 
 Make sure that following repositories added on your system::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    deb http://ftp.us.debian.org/debian/ wheezy main 
+    deb http://security.debian.org/ wheezy/updates main 
+    deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+    deb http://pkg-old.yeti-switch.org/debian wheezy/ 
+    deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main 
 
 System repositories can be changed by editing of file: /etc/apt/sources.list
 
@@ -66,11 +74,11 @@ import public keys for repositories::
 Install packages::
 
     # aptitude update && \
-      aptitude install postgresql-9.4 \
-      postgresql-contrib-9.4 \
-      postgresql-9.4-prefix \
-      postgresql-9.4-pgq3 \
-      postgresql-9.4-yeti \
+      aptitude install postgresql-9.3 \
+      postgresql-contrib-9.3 \
+      postgresql-9.3-prefix \
+      postgresql-9.3-pgq3 \
+      postgresql-9.3-yeti \
       skytools3 \
       skytools3-ticker
 
@@ -107,7 +115,7 @@ Check
 Check databases created and accessible::
 
     root@evial:/# psql -h 127.0.0.1 -U yeti -d yeti
-    Password for user yeti:  psql (9.4.5) SSL connection
+    Password for user yeti:  psql (9.3.9) SSL connection
     (cipher: DHE-RSA-AES256-GCM-SHA384, bits: 256) 
     Type "help" for help.
 
@@ -116,7 +124,7 @@ Check databases created and accessible::
 
     root@evial:/# psql -h 127.0.0.1 -U yeti -d cdr
     Password for user yeti: 
-    psql (9.4.5) 
+    psql (9.3.9) 
     SSL connection (cipher: DHE-RSA-AES256-GCM-SHA384, bits: 256) 
     Type "help" for help.
 
@@ -137,7 +145,7 @@ Management interface installation
 
 Server requirements:
 
-- OS Debian 8 Wheezy with architecture amd64
+- OS Debian 7 Wheezy with architecture amd64
 - at least 1GB of RAM
 
 Install packages
@@ -145,11 +153,12 @@ Install packages
 
 Make sure that following repositories added on your system::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
-
+    deb http://ftp.us.debian.org/debian/ wheezy main
+    deb http://security.debian.org/ wheezy/updates main
+    deb http://ftp.us.debian.org/debian/ wheezy-updates main
+    deb http://pkg-old.yeti-switch.org/debian wheezy/
+    deb http://packages.dotdeb.org wheezy all
+    deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main
 
 System repositories can be changed
 by editing of file: /etc/apt/sources.list
@@ -276,10 +285,9 @@ Install packages
 
 For installation make sure that your system have following repositories::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    deb http://ftp.us.debian.org/debian/ wheezy main 
+    deb http://security.debian.org/ wheezy/updates main 
+    deb http://ftp.us.debian.org/debian/ wheezy-updates main
 
 Install package::
 
@@ -309,10 +317,11 @@ Install packages
 For installation make sure that
 your system have following repositories::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    deb http://ftp.us.debian.org/debian/ wheezy main 
+    deb http://security.debian.org/ wheezy/updates main 
+    deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+    deb http://pkg-old.yeti-switch.org/debian wheezy/ 
+    deb http://packages.dotdeb.org wheezy all
 
 import public keys for repositories::
 
@@ -486,10 +495,11 @@ Install packages
 
 For installation make sure that your system have following repositories::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    deb http://ftp.us.debian.org/debian/ wheezy main 
+    deb http://security.debian.org/ wheezy/updates main 
+    deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+    deb http://pkg-old.yeti-switch.org/debian wheezy/ 
+    deb http://packages.dotdeb.org wheezy all
 
 import public keys for repositories::
 
@@ -601,10 +611,12 @@ Install packages
 
 For installation make sure that your system have following repositories::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
-    deb http://ftp.us.debian.org/debian/ jessie-updates main
-    deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    deb http://ftp.us.debian.org/debian/ wheezy main 
+    deb http://security.debian.org/ wheezy/updates main 
+    deb http://ftp.us.debian.org/debian/ wheezy-updates main 
+    deb http://pkg-old.yeti-switch.org/debian wheezy/ 
+    deb http://packages.dotdeb.org wheezy all
+    deb http://deb.kamailio.org/kamailio wheezy main
 
 import public keys for repositories::
 
