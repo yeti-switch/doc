@@ -42,7 +42,7 @@ All servers can use same repositories set::
     deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
     deb http://ftp.us.debian.org/debian/ jessie-updates main
     deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-swith.org/debian/jessie stable main ext
+    deb http://pkg.yeti-switch.org/debian/jessie stable main ext
     
 
 System repositories can be changed by editing of file: /etc/apt/sources.list
