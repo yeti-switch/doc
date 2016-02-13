@@ -419,7 +419,7 @@ We welcome requests to implement additional protocols or LNP database specific f
 
 Name
     Database name. Unique field.
-Driver*
+Driver
     Driver which will be used. Available options:
         UDP SIP 301/302 redirect
         thinQ RESR LRN driver
@@ -427,14 +427,14 @@ Driver*
 
 Host
     Database host (will be ignored by In-memory hash driver)
-Port￼
+Port
     Database port
-Timeout￼
+Timeout
     Maximum time to wait for response from database.
     Request will fail with appropriate code and reason.
-Thinq username￼
+Thinq username
     Authorization username for thinQ API
-Thinq token￼
+Thinq token
     Authorization token for thinQ API
 Csv file
     Path to file with data to preload (for In-memory hash driver only)
