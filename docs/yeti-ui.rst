@@ -134,17 +134,19 @@ All payment attributes are self-descriptive (destination account, amount, descri
 
 Billing. Invoices
 -----------------
-Инвойс предоставляет возможность подсчета биллинг информации для взаиморасчетов с кастомерами и поставщиками.
-Генерация инвойса может происходить вручную, а так же автоматически, если для аккаунта выбран период автогенерации инвойсов.
-Новые инвойсы создаются со статусом Pending. После выполнения Approve инвойс считается подтвержденным и отсылается на почту контрагента(указанную в аккаунте)
-Если для аккаунта задан темплейт инвойса, создается так же PDF документ.
+Invoice provides possibility to summarize billing information for mutual settlements with customers and suppliers.
+Generation of the invoice can be performed manually or automatically,
+if invoices autogeneration period for account was choosen.
+New invoices are created with status *Pending*.
+After the *Approve* invoice considered confirmed and is sent to the contragent email (configured in account settings).
+If account has invoice template, system also will generate PDF document.
 
-Billing. Invoive Templates
+Billing. Invoice Templates
 --------------------------
-Шаблоны PDF документа которые будут использоваться для генерации инвойса. Шаблон представляетс собой файл формата .odt, содержащий специальные плейсхолдеры.
-При генерации PDF докуменат плейсхолдеры заменяются на акутальные данные.
-Система может хранить множество различных шаблонов. Для каждого аккаунта может быть использован свой шаблон
-
+PDF document templates which will be used to generate invoice.
+Template is the file in .odt format with special placeholders.
+Placeholders will be replaced with actual data during PDF document generation.
+System can store many different templates and you can choose desired template for each account independently
 
 Equipment. Gateways
 -------------------
@@ -412,32 +414,30 @@ Equipment. LNP database
 -----------------------
 see https://en.wikipedia.org/wiki/Local_number_portability
 
-Yeti поддерживает работу с LNP базами данных по протоколам SIP и HTTP REST. Протоколы могут быть реализованы по запросу.
-
+Yeti supports interaction with LNP databases by SIP and HTTP REST protocols.
+We welcome requests to implement additional protocols or LNP database specific formats.
 
 Name
-    Имя базы данных. Уникальное поле
+    Database name. Unique field.
 Driver*
-    Драйвер который будет использоваться. Возможные значения
+    Driver which will be used. Available options:
         UDP SIP 301/302 redirect
         thinQ RESR LRN driver
         In-memory hash
-    
+
 Host
-    Адрес базы данных(не применимо для In-memory hash)
+    Database host (will be ignored by In-memory hash driver)
 Port￼
-    Порт базы данных
+    Database port
 Timeout￼
-    Если не получено ответа в течении таймаута, запрос считается неуспешным
+    Maximum time to wait for response from database.
+    Request will fail with appropriate code and reason.
 Thinq username￼
-    username для авторизации в thinQ API
+    Authorization username for thinQ API
 Thinq token￼
-    токен для авторизации в thinQ API
+    Authorization token for thinQ API
 Csv file
-    Путь к файлу с LNP информацией(только для In-memory hash)
-
-    
-
+    Path to file with data to preload (for In-memory hash driver only)
 
 System. Sensors
 ---------------
