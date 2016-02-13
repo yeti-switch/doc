@@ -420,11 +420,11 @@ We welcome requests to implement additional protocols or LNP database specific f
 Name
     Database name. Unique field.
 Driver
-    Driver which will be used. Available options:
-        UDP SIP 301/302 redirect
-        thinQ RESR LRN driver
-        In-memory hash
+    Driver which will be used. Available options
 
+        - UDP SIP 301/302 redirect
+        - thinQ RESR LRN driver
+        - In-memory hash
 Host
     Database host (will be ignored by In-memory hash driver)
 Port
