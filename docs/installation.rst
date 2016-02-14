@@ -440,7 +440,7 @@ Check file /var/log/yeti/yeti-management.log for daemon logs::
 
 Check listening port::
 
-    # netstat -lpn | grep
+    # netstat -lpn | grep yeti_management
     4444 tcp 0 0 0.0.0.0:4444 0.0.0.0:* LISTEN 25376/yeti_manageme
 
 Traffic switch server installation
@@ -468,8 +468,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server ::
     rtp_low_port_intern=20000 
     rtp_high_port_intern=50000
     plugin_path=/usr/lib/sems/plug-in/ 
-    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;sbc;session_timer;
-     xmlrpc2di;uac_auth;di_log;registrar_client
+    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;sbc;session_timer;xmlrpc2di;uac_auth;di_log;registrar_client
     application = sbc
     plugin_config_path=/etc/sems/etc/
     fork=yes
