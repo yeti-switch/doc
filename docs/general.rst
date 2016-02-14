@@ -6,74 +6,29 @@ YETI General information
 
 :Site: https://yeti-switch.org/
 
-.. image:: https://yeti-switch.org/img/logo.png
 
-Terms and abbreviations used in document
-========================================
-
-SIP
-    Session initiation protocol [ https://tools.ietf.org/html/rfc3261 ]
-SDP
-    Session description protocol [ https://tools.ietf.org/html/rfc4566 ]
-RTP
-    Real-time transport protocol [ https://www.ietf.org/rfc/rfc3550.txt ]
-ASR
-    Answer seizure ratio  [ http://www.itu.int/rec/T-REC-E.411/en ] 3.6.3
-ACD
-    Average call duration
-DST prefix
-    Destination prefix TODO: explain term
-SRC prefix
-    Source prefix TODO: explain term
-LCR
-    Least-cost routing (routing based on cost. Uses cheaper paths)
-CDR
-    Call detail record (data record used for calls billing and debugging)
-DTMF
-    | Dual tone multi-frequency encoding [ http://www.itu.int/rec/T-REC-Q.23/en ]
-    | also may refer to any transmission of signals associated with the keys 0-9, * and #
-    | using any of the following methods:
-
-    - inbound dtmf (inside audio stream)
-    - RTP telephone-event [ http://www.ietf.org/rfc/rfc4733.txt ]
-    - SIP/INFO application/dtmf-relay or application/dtmf
-
-      [ https://tools.ietf.org/html/draft-kaplan-dispatch-info-dtmf-package-00 ]
-
-
-Features and techincal characteristics
+Features and technical characteristics
 ======================================
 
 YETI — class4 SIP softswitch with integrated billing and intelligent routing subsystem.
-
-Solution is intended to act as SBC on the networks of the service providers which are working using protocol SIP.
-
+Solution is intended to act as distributed SBC on the networks of the service providers which are working using protocol SIP.
 System supports a variety of intelligent routing algorythms.
 
-Softswitch handles SIP signalization and RTP traffic.
-
-Supports transcoding, detailed CDRs (more than 100 fields) allows to save all parameters which are needed for billing, debugging and analytic reports.
-
-Yeti supports intelligent LCR/ASR/ACD routing by various criteria.
-
-Below is short list of supported features:
+Softswitch handles SIP signalization and RTP traffic.Supports transcoding, detailed CDRs (more than 100 fields) allows to save all parameters which are needed for billing, debugging and analytic reports.
+Yeti supports intelligent LCR/ASR/ACD routing by various criteria. Below is short list of supported features.
 
 Signalling and RTP processing
 -------------------------------
-
 - SIP v.2.0.
-- sending/receiving DTMF
-  (SIP INFO application/dtmf, SIP INFO application/dtmf-relay, RTP telephone-event)
-      with ability to transcode between them in any combination.
+- sending/receiving DTMF (SIP INFO application/dtmf, SIP INFO application/dtmf-relay, RTP telephone-event) with ability to transcode between them in any combination.
 - Automatic call disconnect on RTP timeout configurable per gateway
-- SIP session timers
-- UPDATE method
-- flexible configuration for NAT traversal (various symmetric RTP modes, RTP ping)
+- SIP Session timers
+- SIP UPDATE method
+- Flexible configuration for NAT traversal (various symmetric RTP modes, RTP ping)
 - DNS SRV failover.
 - disconnect codes rewriting for replies from vendor to customer.
 - RTP transcoding.
-- Smart codecs negotiation
-  (SDP sorting, non-audio streams filtering, normalization of the connection line location, e.t.c).
+- Smart codecs negotiation - SDP sorting, non-audio streams filtering, normalization of the connection line location, e.t.c
 - RTP streams normalization (sequence and timestamp aligning).
 - in-dialog OPTIONS/ UPDATE/re-INVITE/PRACK local processing or relay.
 - Special settings to work with systems which use non-standard SIP implementations.
@@ -83,15 +38,15 @@ Signalling and RTP processing
 Supported Codecs
 ----------------
 
-- g711 alaw
-- g711 ulaw
+- g711 alaw/ulaw
 - g722
-- g723
+- g723.1
 - g729
 - iLBC
 - speex
 - gsm
 - adpcm
+- OPUS
 
 Proxying modes
 --------------
@@ -109,6 +64,7 @@ Authorization
 - SIP R-URI domain
 - Custom SIP header
 - Geolocation of the signalling node
+- External RADIUS server
 
 Routing
 -------
@@ -181,14 +137,16 @@ Components
 Yeti consists of the following components:
 
 - Traffic routing server (SEMS + YETI module)
+- Management daemon - used as configuration storage across cluster
 - Incoming traffic balancer (Kamailio)
 - Outgoing traffic balancer (Kernel module + iptables) [optional]
 - Routing database (Postgresql)
 - CDR database (Postgresql)
+- Realtime data storage(Redis)
 - Web-interface (RoR, ruby)
 - CLI interface (python) [optional]
-- CDRs billing and statistics calculation performers (FIXME: what is correct word for those ?) based on pgq
+- CDRs billing and statistics calculation daemons based on PGQ
 
-All components may reside on the one server, as well as on the different hosts to increase performance.
-Supported OS is Debian GNU/Linux 7.7, the only supported architecture is amd64
+YETI designed as cluster system, but you can run all components  on the one server, as well as on the different hosts.
+Supported OS is **Debian GNU/Linux 8**, the only supported architecture is **amd64**
 

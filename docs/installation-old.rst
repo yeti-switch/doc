@@ -7,11 +7,7 @@
 YETI installation manual for Debian 7
 =====================================
 
-:Date: 14-09-2015
-:Author: Michael Furmur <m.furmur@gmail.com>
 :Site: https://yeti-switch.org/
-
-.. image:: https://yeti-switch.org/img/logo.png
 
 
 Overview

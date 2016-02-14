@@ -6,8 +6,6 @@ YETI LDAP Authentification configuration
 
 :Site: https://yeti-switch.org/
 
-.. image:: https://yeti-switch.org/img/logo.png
-
 Information
 ===========
 

@@ -113,3 +113,14 @@ cant parse To in req
     Failed to parse `To` header in initial INVITE request. Check traces and node logs for details.
 cant parse From in req
     Failed to parse `From` header in initial INVITE request. Check traces and node logs for details.
+Radius response timeout
+    No response received from RADIUS server
+Radius request error
+    YETI can't send request(socket error, etc)
+Invalid radius profile
+    Invalid radius profile configured
+Invalid radius response
+    RADIUS responce has unexpected format
+Radius reject
+    RADIUS servers send Access-Reject
+    
