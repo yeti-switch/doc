@@ -526,7 +526,7 @@ Launch traffic switch
 
 Launch configured traffic switch instance::
 
-    # /etc/init.d/sems start
+    # service sems start
 
 In case of errors it's useful to use command **sems -E -D3**
 which will launch daemon in foreground with debug logging level
