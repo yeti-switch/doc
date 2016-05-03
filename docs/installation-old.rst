@@ -190,7 +190,7 @@ Create database.yml file with the following content::
         billing, class4, runtime_stats,
         sys, logs, data_import
       port: 5432
-      #min_messages: warning
+      min_messages: notice
     
     production_cdr: 
       adapter: postgresql
@@ -202,7 +202,7 @@ Create database.yml file with the following content::
       host: 127.0.0.1
       schema_search_path: 'cdr, reports, billing'
       port: 5432
-      #min_messages: warning
+      min_messages: notice
 
 Warning: you should specify correct addresses and credentials using
 those which you chose in previous section
