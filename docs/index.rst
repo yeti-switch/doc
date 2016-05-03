@@ -19,7 +19,7 @@ Contents:
    yeti-cli
    yeti-cli-commands
    disconnect-codes
-
+   headers-filtering
 
 
 Indices and tables

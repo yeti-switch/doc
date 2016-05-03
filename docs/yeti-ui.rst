@@ -265,6 +265,14 @@ Equipment. Gateways
         Transparent relay of In-dialog re-INVITE with hold/unhold requests between call legs
     Relay prack
         Transparent relay of In-dialog PRACK between call legs
+    Relay UPDATE
+        Прозрачная передача SIP UPDATE сообщений на другу ногу.
+    Suppress early media
+        Отсылка 180 Ringing сообщений без SDP на LegA при получении 180/183 с SDP от LegB гейтвея.
+    Transit headers from origination
+        Список заголовков SIP запросов, которые будут приниматься от оригинатора звонка. Подробнее в приложении :ref:`headers filtering <headers_fitering>`
+    Transit headers from termination
+        Список заголовков SIP запросов, которые будут отсылаться к терминационной стороне. Подробнее в приложении :ref:`headers filtering <headers_fitering>`
     Allow 1xx without to tag
         allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
     Sip timer B
