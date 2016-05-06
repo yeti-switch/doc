@@ -1,8 +1,14 @@
-all: en ru
+langs=en ru
 
-en:
-	make -C en html
-ru:
-	make -C ru html
+all: $(langs)
 
-.PHONY: en ru
+$(langs:=-clean):
+	make -C $(@:-clean=) clean
+
+$(langs):
+	make -C $@ html
+
+clean: $(langs:=-clean)
+	make -C $@ clean
+
+.PHONY: $(langs) $(langs:=-clean)
