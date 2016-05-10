@@ -10,4 +10,7 @@ $(langs):
 
 clean: $(langs:=-clean)
 
+dep:
+	aptitude install fonts-font-awesome fonts-lato libjs-modernizr
+
 .PHONY: $(langs) $(langs:=-clean)
