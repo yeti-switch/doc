@@ -266,15 +266,15 @@ Equipment. Gateways
     Relay prack
         Transparent relay of In-dialog PRACK between call legs
     Relay UPDATE
-        Прозрачная передача SIP UPDATE сообщений на другу ногу.
+        Transparent relay of SIP UPDATE between call legs.
     Suppress early media
-        Отсылка 180 Ringing сообщений без SDP на LegA при получении 180/183 с SDP от LegB гейтвея.
+	    Allows to send 180 Ringing message without SDP to LegA when recieved 180/183 with SDP from LegB of gateway.
     Transit headers from origination
-        Фильтр заголовков SIP запросов, который будет применяться при фильтрации заголовков, отправленных оригинатором звонка. Подробнее в приложении :ref:`headers filtering <headers_fitering>`
+	    Filter of headers in SIP requests which applies to origited calls. Look at :ref:`headers filtering <headers_fitering>`
     Transit headers from termination
-        Фильтр заголовков SIP запросов, который будет применяться при фильтрации заголовков, отправленных терминационной стороной. Подробнее в приложении :ref:`headers filtering <headers_fitering>`
+	    Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`
     Allow 1xx without to tag
-        allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
+        Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
     Sip timer B
         SIP timer B (transaction timeout) override. must be less than 
         Call can be rerouted if this allowed by disconnect policy configuration.
@@ -449,24 +449,54 @@ Csv file
     
 Equipment. RADIUS Auth Profiles
 -------------------------------
-Yeti поддерживает дополнительную авторизацию входящего звонка на внешнем RADIUS сервере. RADIUS Auth Profile описывает взаимодействие с таким сервером.
+Yeti supports additional authorization of incoming call on externa RADIUS server. RADIUS Auth Profile describes communication with that server.
 
+**RADIUS Auth Profiles** attributes:
 
 Name
-    Название профайла. Используется только как информационное поле и не влияет на работу системы. Название профайла должно быть уникально.
+    Unique name of Auth profile.
+    Uses for informational purposes and doesn't affect system behaviour.
 Server
-    IP адрес или Hostname внешнего RADIUS сервера
+    IP address or hostname of external RADIUS server.
 Port
-    Номер UDP порта, на котором RADIUS сервер ожидает запросы
+    UDP port on which RADIUS server wait for requests.
 Secret
-    Пароль для авторизации RADIUS сервера.
+    Password for Authorization procedure on external RADIUS server.
 Reject on error
-    Если флаг установлен в true то при ошибке взаимодействия с радиус сервером(таймаут, неверный формат ответа), звонок будет считаться авторизованым и YETI будет выполнять дальнейшую его маршрутизацию. Если флаг установлен в false - при ошибке звонок будет разъединяться с соответствующим кодом разъединения
+    If enabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be considered as authorized and YETI will do further routing procedure.
+    If disabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be discarded with appropriate code.
 Timeout
-    Таймаут, по истечении заданного кол-ва миллисекунд будет выполняться повтор радиус запроса
+    Timeout of request after which a request will be repeated (millisecond).
 Attempts
-    Максимальное количество повторов запросов для каждого звонка
+    Maximum amount of of requests for every call.
 
+Equipment. RADIUS Accounting Profiles
+-------------------------------------
+Yeti supports additional accounting of calls on externa RADIUS server. RADIUS Accounting Profile describes communication with that server.
+
+**RADIUS Accounting Profiles** attributes:
+
+Name
+    Unique name of Accounting profile.
+    Uses for informational purposes and doesn't affect system behaviour.
+Server
+    IP address or hostname of external RADIUS server.
+Port
+    UDP port on which RADIUS server wait for requests.
+Secret
+    Password for Authorization procedure on external RADIUS server.
+Timeout
+    Timeout of request after which a request will be repeated (millisecond).
+Attempts
+    Maximum amount of of requests for every call.
+Enable start accounting
+    If enabled, YETI will send Start-accounting packets to external RADIUS server.
+Enable interim accounting
+    If enabled, YETI will send Interim-accounting packets to external RADIUS server.
+Interim accounting interval
+    Send Interim packets to external RADIUS server every **interval** seconds.
+Enable stop accounting
+    If enabled, YETI will send Stop-accounting packets to external RADIUS server.
 
 
 System. Sensors
