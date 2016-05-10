@@ -285,9 +285,9 @@ texinfo_documents = [
 #texinfo_no_detailmenu = False
 
 html_context = {
-    'current_language': 'russian',
+    'current_language': u'Русский',
     'languages': [
-        ('english','../../en/html/index.html'),
-        ('russian','../../ru/html/index.html')
+        ('English','../en'),
+        (u'Русский','../ru')
     ]
 }
