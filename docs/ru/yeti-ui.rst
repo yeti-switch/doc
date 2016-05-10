@@ -4,239 +4,234 @@ Contents:
     :maxdepth: 3
 
 ==================
-YETI WEB interface
+Веб-интерфейс YETI
 ==================
 
-:Site: https://yeti-switch.org/
+:Сайт: https://yeti-switch.org/
+В связи с тем, что веб-интерфейс в данный момент не переведен на русский язык, названия параметров приведены на английском языке, а определения на русском.
 
-.. note::
+.. Примечание::
 
-    Default credentials to login on web-interface after software installation:
+    Данные авторизации по-умолчанию для входа в веб-интерфейс послеу установки приложения:
 
-    - *login*: **admin**, 
-    - *password*: **111111**
+    - *логин*: **admin**, 
+    - *пароль*: **111111**
 
-Configuration Objects
+Объекты конфигурации
 =====================
 
-Dashboard
+Панель мониторинга
 ---------
-Displays different various indicators of the system state:
+Отображает различные индикаторы состояния системы, такие как:
 
-- active calls graph
-- profitability and duration of the calls
-- billing status
-- state of the system replication
+- график активных звонков
+- прибыльность и продолжительность звонков
+- статус биллинга
+- состояние репликации базы данных
 
 Billing. Contractors
 --------------------
-Contractor:
-    company which will interact with the system.
+Contractor(Контрагент):
+    Компания, которая взаимодействует с системой
 
-Contractor may act as:
+Контрагент может выступать в ролях:
 
-    Customer
-        Use provided call termination service.
-    Supplier
-        Provide call termination service.
+    Customer (Покупатель)
+        Использует предоставляемый сервис по терминации звнков.
+    Supplier (Поставщик)
+        Предоставляет сервис по терминации звонков.
 
-One contractor can be either customer and supplier.
+Конрагент может являться Покупателем и/или Поставщиком
 
-**Contractor** has the following attributes:
+**Contractor** имеет следующие атрибуты:
 
     Name
-        Unique contractor name.
+        Уникальный идентификатор имени.
     Enabled
-        Self-descriptive.
-        If flag is off (contractor disabled) this contractor will not be used for routing and billing.
+        Если флаг снят (контрагент отключен), этот контрагент не будет использоваться при роутинге и биллинге.
     Vendor
-        If enabled contractor can act as supplier and system may terminate calls to it.
+        Если активировано, то данный Контрагент выступает в роли Поставщика и система может терминировать звонки через него.
     Customer
-        If enabled contractor can act as customer and originate calls to the system.
+        Если активировано, то Контрагент выступает в роли Покупателя и оригинирует звонки в систему.
     Description
-        Optional description of the contractor.
+        Дополнительное описание Контрагента.
     Address
-        Optional contractor address.
+        Произвольный адрес Контрагента.
     Phones
-        list of phone numbers to contact with contractor.
+        Список номеров для связи с Контрагентом.
     Smtp Connection
-        connection to the mail server which will be used to send mails, invoices and notifications
-        (SMTP connection must be configured previously in *System->SMTP connections*)
+        Соединение с сервером электронной почты, используемое для отправки писем, счетов и уведомлений.
+        (SMTP соединение предварительно должно быть настроено в *System->SMTP connections*)
 
-.. note:: Fields **Description**, **Address**, **Phones** are informational and not used in routing or billing logic.
+.. Примечание:: Поля **Description**, **Address**, **Phones** информационные и не используются на этапе роутинга или биллинга.
 
 Billing. Contacts
 -----------------
 Contact:
-    Address information about contractor or system operator (contact belongs to the contractor or to the system operator).
-    All email notification and reports use only addresses which were added to the contacts.
-
-**Contact** has the following attributes:
+    Адресная информация о Контрагенте или операторе системы (контакт может быть отнесен к Контрагенту или оператору системы)
+	Все уведомления и отчеты используют только те адреса, которые добавлены в контакты.
+	
+**Contact** имеет следующие атрибуты:
 
     Contractors:
-        Choose Contractors if this contact belongs to them
+        Список выбора Контрагентов, к которым может быть отнесен контакт.
     Admin user:
-        Administrative user which may own contact.
-        Contractors names or admin user name must be entered 
+        Администратор системы, которому может быть присвоен контакт.
+		Названия Контрагентов или имя Администратора системы должно быть введено.		
     E-mail:
-        Address for notifications, invoices and other emails
+        Адрес электронной почты для отправки уведомлений, счетов и прочих писем.
     Notes:
-        Optional notes
+        Произвольные заметки
 
 Billing. Accounts
 -----------------
 
-**Account** attributes:
+**Account** атрибуты:
 
     Name
-        unique account name
+        Уникальное название Счета
     Contractors
-        Contractors who own this account.
+        Контрагенты которомы принадлежит данный Счет.
     Min balance
-        If account balance become less than this limit, then traffic for this account will be blocked.
+        Если баланс Счета становится ниже чем данный лимит, то трафик через данный Счет будет заблокирован.
     Max balance
-        If account balance become greater than this limit, then routes, which are belongs to this account, will not be used for calls termination.
+        Если баланс Счета станет выше чем данный лимит, то маршруты относящиеся к данному Счету не будут использованы для терминации звонков.
     Origination capacity
-        Maximum capacity which can be originated for this account.
-        If incoming calls number exceed origination capacity, then traffic will be blocked.
+        Ёмкость оригинации - количество одновременных звонков, которое может быть оригинировано для данного Счета.
+        Если количество входящих звонков превысит данную ёмкость, то трафик будет заблокирован.
     Termination capacity
-        Maximum capacity which can be terminated for this account.
-        If outgoing calls number exceed origination capacity, then routes, which are belongs to this account, will not be used for new calls.
+        Ёмкость терминации - количество одновременных звонков, которое может быть терминировано для данного Счета.
+        Если количество исходящих звонков превысит данную ёмкость, то трафик будет заблокирован.
     Vendor invoice period
-        Automatic invoices generation period in case when account acts as supplier.
+        Период автоматической генерации счетов, в случае, если Счет выступает в роли счета Поставщика.
     Customer invoice period
-        Automatic invoices generation period in case when account acts as customer.
+	    Период автоматической генерации счетов, в случае, если Счет выступает в роли счета Покупателя.
     Vendor invoice template
-        Template for generation of PDF invoices for vendor.
-        (Templates can be configured at *Billing->Invoice templates*)
+	    Шаблон для генерации счетов в формате PDF для Поставщика.
+        (Шаблоны предварительно должны быть настроены в *Billing->Invoice templates*)
     Customer invoice template
-        Template for generation of PDF invoices for customer.
-        (Templates can be configured at *Billing->Invoice templates*)
+	    Шаблон для генерации счетов в формате PDF для Покупателя.
+        (Шаблоны предварительно должны быть настроены в *Billing->Invoice templates*)
     Sent invoices to
-        Contacts list to send generated invoices
+        Список Контактов, для отправки счетов.
     Timezone
-        Timezone which will be used for invoices generation and statistics for this account
+        Временная зона, которая будет использована при генерации счетов и статистики для данного Счета.
 
-Initial balance for newly created account is always zero.
-Balance can be changed as result of calls billing or new payments.
+Исходный баланс для вновь созданного Счета всегда нулевой.
+Баланс может быть изменен, как результат обсчета звонков или при зачислении новых платежей.
 
-For each call:
-account balance will be **decreased** on call cost if it uses account for **origination** (customer)
-and **increased** if it uses account for **termination** (vendor)
+Для каждого звонка:
+баланс Счета будет **уменьшен** на величину стоимости звонка, если он использует Счет для **оригинации** (Покупатель)
+и **увеличен** если он использует Сче для **терминации** (Поставщик)
 
 Billing. Payments
 -----------------
 
-Payments intended to change account balance.
-
-All payment attributes are self-descriptive (destination account, amount, description and date of payment)
-
+Платежи предназначены для изменения баланса Счета.
+Все атрибуты Платежей самоописательные и не требуют детальных разъяснений (Счет для зачисления Платежа, сумма, описание и дата Платежа).
 
 Billing. Invoices
 -----------------
-Invoice provides possibility to summarize billing information for mutual settlements with customers and suppliers.
-Generation of the invoice can be performed manually or automatically,
-if invoices autogeneration period for account was choosen.
-New invoices are created with status *Pending*.
-After the *Approve* invoice considered confirmed and is sent to the contragent email (configured in account settings).
-If account has invoice template, system also will generate PDF document.
+Счета на оплату обеспечивают возможность ссумировать биллинговую информацию о взаиморасчетах с Покупателями и Поставщиками.
+Генерация Счетов на оплату может производиться в ручном или автоматическом режиме, если период авторегенерации для Счета был выбран.
+Новые счета на оплату создаются со статусом *В ожидании (Pending)*
+После *Одобрения* Cчет на оплату считается подтвержденным и отправленным Контрагенту на электронную почту (настраиваетя в параметрах Счета).
+Если Счет имеет Шаблон Счета на оплату, система также сгенерирует PDF документ.
 
 Billing. Invoice Templates
 --------------------------
-PDF document templates which will be used to generate invoice.
-Template is the file in .odt format with special placeholders.
-Placeholders will be replaced with actual data during PDF document generation.
-System can store many different templates and you can choose desired template for each account independently
+Шаблоны PDF документов могут быть использованы для генерации Счетов на оплату.
+Шаблон представляет собой файл в формате .odt, который содержит специальные макросы для вставки значений.
+Макросы заменяются на актуальные значение на этапе генерации PDF документа.
+Система может хранить различные Шаблоны, и пользователь может выбирать необходимый для каждого Счета независимо.
 
 Equipment. Gateways
 -------------------
 
-**Gateway** attributes:
+**Gateway** атрибуты:
     Enabled
-        disabled gateways will be ignored
-    Gateway group 
-        gateways can be grouped.
-        Choose group from the list to add gateway to the group.
-        Gateways groups can be managed at *Billing->Gateway Groups*
+        Отключенный Гейтвей будет игнороваться 
+    Gateway group
+	    Гейтвеи могут быть сгруппированы.
+		Выберите заранее созданную группу в списке, для того чтобы назначить в неё Гейтвей.
+        Управление Группами гейтвеев осуществляется в *Billing->Gateway Groups*
     Priority
-        Gateway priority in the group.
-        In case of termination to the group, gateways will be arranged according to this priority.
+	    Приоритет Гейтвея в группе.
+		В случае терминации на Группу гейтвеев, Гейтвеи будут выстроены в оередь по данному приоритету.
     Pop
-        Point of presence of the gateway
+        Точка присутствия Гейтвея
     Contractor
-        Gateway owner
+	    Контрагент, которому принадлежит данный Гейтвей.
     Allow origination
-        Specifies if gateway allowed to originate calls
+	    Указывает, разрешена ли оригинация для данного Гейтвея
     Allow termination
-        Specifies if gateway allowed to accept calls from YETI
+	    Указывает, разрешена ли терминация для данного Гейтвея с YETI
     Sst enabled
-        Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
+	    Принудительное использование таймеров сессии SIP, в противном случае таймеры будут контролироваться сигнализацией удаленной стороны.
     Capacity
-        Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.
+	    Ёмкость терминации для данного Гейтвея. В случае, если Гейтвей используется для оригинации, данный арибут игнорируется.
     Acd limit
-        ACD threshold. if ACD for gateway traffic will drop below threshold,
-        then dialpeers, which are use this gateway,
-        will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+	    Пороговое значение ACD. Если ACD для трафика Гейтвея будет ниже порога, то Диалпиры, которые используются этим Гейтвеем,
+		будут исключены из роутинга, в случае, если выбран режим **ACD&ASR control** для Плана маршрутизации.
     Asr limit
-        ASR threshold. if ASR for gateway traffic will drop below threshold,
-        then dialpeers, which are use this gateway,
-        will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+	    Пороговое значение ASR. Если ASR для трафика Гейтвея будет ниже порога, то Диалпиры, которые используются этим Гейтвеем,
+		будут исключены из роутинга, в случае, если выбран режим **ACD&ASR control** для Плана маршрутизации.
     Sensor
-        Sensor to mirror traffic. Mirroring disabled if not set.
+        Сенсор для зеркалирования трафика. Зеркалирование отключено, если ничего не установлено.
     Sensor level
-        Traffic mirroring mode. Possible values:
+	    Режим зеркалирования трафика. Возможные значения:
 
-            - Signaling
+            - Signaling (Сигнализация)
             - RTP
             - Signaling + RTP
     Host
-        IP address or DNS name of remote gateway to send SIP signaling.
-        (only for usage for termination)
+        IP-адрес или DNS-имя удаленного Гейтвея для отправки на него SIP сигнализации.
+        (используется только для терминации)
     Port
-        Port of remote gateway  to send SIP signaling.
-        Leave it empty to enable DNS SRV resolving of name in **Host**
+	    Порт удаленного Гейтвея для отправки на него SIP сигнализации.
+        Оставьте его пустым для активации режима определения имени по записям DNS SRV в **Host**
     Resolve ruri
-        Indicates necessity to rewrite RURI domain part with resolved IP
+	    Активирует определение RURI.
+		Определяет необходимость в изменении доменной части RURI на определенный IP-адрес
+       
+        например: `domain.com` имеет IP 1.1.1.1 и вы устанавливаете значение **Host** в `domain.com`:
 
-        for example: `domain.com` has IP 1.1.1.1 and you set **Host** to `domain.com`:
-
-            - resolve ruri enabled => RURI will be `user@1.1.1.1`
-            - resolve ruri disabled => RURI will be `user@domain.com`
+            - resolve ruri активирована => RURI будет `user@1.1.1.1`
+            - resolve ruri выключена => RURI будет `user@domain.com`
     Diversion policy
-        Policy to process Diversion header
-        
+	    Политика обработки заголовка Diversion в SIP-сигнализации        
     Diversion rewrite rule
-        regular expression pattern for Diversion
+	    Шаблон регулярного выражения для поиска соответствия в поле Diversion
     Diversion rewrite result
-        regular expression replacement for Diversion
+	    Регулярное выражение замены для поля Diversion
     Src name rewrite rule
-        regular expression pattern for From display-name part
+	    Шаблон регулярного выражения для поиска в части display-name поля From
     Src name rewrite result
-        regular expression replacement for From display-name part
+	    Регулярное выражение замены в части display-name поля From
     Src rewrite rule
-        regular expression pattern for From user part
+	    Шаблон регулярного выражения для поиска в части user поля From
     Src rewrite result
-        regular expression replacement for From user part
+	    Регулярное выражение замены в части user поля From
     Dst rewrite rule
-        regular expression pattern for To and RURI user part
+	    Шаблон регулярного выражения для поиска в части user поля To и RURI
     Dst rewrite result
-        regular expression replacement for To and RURI user part
+	    Регулярное выражение замены в части user поля To и RURI
     Auth enabled
-        enable authorization for outgoing calls
+	    Активация авторизации для исходящих звонков
     Auth user
-        auth username
+	    Пользователь авторизации
     Auth password
-        auth password
+	    Пароль для авторизации
     Auth from user
-        From user-part for auth
+	    Часть user поля From для проведения авторизации
     Auth from domain
-        From domain-part for auth
+	    Часть domain поля From для проведения авторизации
     Term use outbound proxy
-        use outbound proxy for termination
+	    Использовать исходящий прокси для терминации
     Term force outbound proxy
-        force usage of outbound proxy for termination
+	    Принудительное использование исходящего прокси для терминации
     Term outbound proxy
-        outbound proxy address
+	    Адрес исходящего прокси
     Term next hop for replies
         ..
     Term next hop
@@ -244,213 +239,215 @@ Equipment. Gateways
     Term disconnect policy
         ..
     Term append headers req
-        headers list to append to the INITIAL invite
+	    Список полей, которые будут добавлены в **НАЧАЛЬНЫЙ** INVITE
     Sdp alines filter type
-        Filter type to process alines in SDP. possible values: Transparent, Blacklist, Whitelist
+	    Тип фильтра для обработки А-линий в SDP. Возможные значения: Transparent, Blacklist, Whitelist
     Sdp alines filter list
-        SDP alines comma-separated list
+        Список А-линий в SDP, разделенных запятыми.
 
     .. _gateway_ringing_timeout:
 
     Ringing timeout
-        Timeout between `18x` and `200 OK` responses. 
+        Таймаут между ответами `18x` и `200 OK`. 
 
-        In case of timeout: routing attempt will be canceled
-        and further processing (attempt to reroute or give up) depends from disconnect policy.
+        В случае таймаута: попытка роутинга будет отменена
+        и дальнейшая обработка (пытаться перероутиться или больше не пытаться) зависит от политики отбоя (disconnect policy).
     Relay options
-        Transparent relay of In-dialog OPTIONS between call legs
+	    Прозрачно пересылать внутридиалоговые (In-dialog) пакеты OPTIONS между легами звонка.
     Relay reinvite
-        Transparent relay of In-dialog re-INVITE between call legs
+	    Прозрачно пересылать внудридиалоговые (In-dialog) сообщения re-INVITE между легами звонка.
     Relay hold
-        Transparent relay of In-dialog re-INVITE with hold/unhold requests between call legs
+	    Прозрачно пересылать внутридиалоговые (In-dialog) сообщения re-INVITE с запросами на удержанием/снятие удержания между легами звонка.
     Relay prack
-        Transparent relay of In-dialog PRACK between call legs
+	    Прозрачно пересылать внудридиалоговые (In-dialog) сообщения PRACK между легами звонка.
     Relay UPDATE
-        Прозрачная передача SIP UPDATE сообщений на другу ногу.
+	    Прозрачно пересылать сообщения UPDATE между легами звонка.
     Suppress early media
-        Отсылка 180 Ringing сообщений без SDP на LegA при получении 180/183 с SDP от LegB гейтвея.
+	    Подавление раннего медиа.
+        Отсылать 180 Ringing сообщения без SDP на LegA при получении 180/183 с SDP от LegB гейтвея.
     Transit headers from origination
         Фильтр заголовков SIP запросов, который будет применяться при фильтрации заголовков, отправленных оригинатором звонка. Подробнее в приложении :ref:`headers filtering <headers_fitering>`
     Transit headers from termination
         Фильтр заголовков SIP запросов, который будет применяться при фильтрации заголовков, отправленных терминационной стороной. Подробнее в приложении :ref:`headers filtering <headers_fitering>`
     Allow 1xx without to tag
-        allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
+	    Позволяет пропускать ответы с кодом 1хх без To-tag (однако данное поведение нарушает RFC).
     Sip timer B
-        SIP timer B (transaction timeout) override. must be less than 
-        Call can be rerouted if this allowed by disconnect policy configuration.
+	    Перезаписывает значение SIP timer B (таймаут транзакции).
+		Звонок может быть повторно перероучен, если это позволяется политикой отбоя конфигурации.
     Dns srv failover timer
-        SIP timer M (INVITE retransmit) override. Must have value less than timer B.
-        Call can be rerouted if this allowed by disconnect policy configuration.
+	    Перезаписывает значение SIP timer M (повторная отправка INVITE). Значение должно быть меньше значения **SIP timer B**.
+        Звонок может быть повторно перероучен, если это позволяется политикой отбоя конфигурации.
     Sdp c location
-        Location of connection-line in SDP payloads which are generated by YETI.
-        Possible values:
+	    Положение connection-line в теле SDP, которое генерируется YETI.
+        Возможные значения:
 
-            - On media level
-            - On session level
-            - On session and media level
+            - На уровне медиа (On media level)
+            - На уровне сессии (On session level)
+            - На уровне медиа и сессии (On session and media level)
     Codec group
-        Codecs group which will be used to interact with this gateway.
+	    Группа кодеков, которая будет использована при взаимодействии с данным гейтвеем.
     Anonymize sdp
-        Anonymize client's SDP session data ( session name, uri, origin user )
+		Анонимизировать данные клиентской SDP сессии (session name, uri, origin user)
     Proxy media
-        Determines RTP processing mode. Must be enabled to have possibility of transcoding.
+		Определять режим обработки RTP. Должно быть активировано для возможностей транскодирования.
     Single codec in 200ok
-        If enabled, YETI will leave only once codec in responses with SDP
-        (exception is only telephone-event.
-        it will be added anyway if received in SDP offer
-        and present in codecs group for this gateway)
+		Если активировано, YETI оставит только один кодек в ответах с SDP (исключая telephone-event
+        который все равно будет добавлен, если получен в предложении SDP и присутствует в кодек-группе
+        для этого гейтвея).
     Transparent seqno
-        Transparent transmission of the RTP SEQ number on RTP relay
+		Прозрачная пересылка номера RTP SEQ при передаче RTP.
     Transparent ssrc
-        Transparent transmission of the RTP SSRC number on RTP relay
+	    Прозрачная пересылка номера RTP SSRC при передаче RTP.
     Force symmetric rtp
-        Ignore remote address negotiated in SDP.
-        Use address gained from first received RTP/RTCP packet.
+		Игнорировать удаленный адрес указанный в SDP.
+		Вместо этого использовать адрес, с которого получен первый RTP/RTCP пакет.
     Symmetric rtp nonstop
-        By default, YETI allows to change address by symmetric RTP only one time.
-        This option allows to disable this limitation.
-        If enabled, YETI will change destination address every time when receives RTP/RTCP packet from another source.
+	    По-умолчанию, YETI позволяет изменять адрес для симметричного RTP только один раз.
+		Эта опция позволяет снять данное ограничение.
+		Если она активна, YETI будет изменять адрес назначение каждый раз, когда получае RTP/RTCP пакет с другого источника.
     Symmetric rtp ignore rtcp
-        Disable symmetric RTP for RTCP packets
+		Отключает симметричный RTP для RTCP пакетов.
     Force dtmf relay
-        Don't process telephone-event (RFC2833) packets and relay them 'as is'.
+		Не обрабатывать telephone-event (RFC2833) пакеты и пересылать их "как есть".
     Dtmf send mode
-        The way to send dtmf to remote gateway. possible values:
+		Режим отправки DTMF на удаленный гейтвей. Возможные значения:
 
-            - Disable sending
+            - Отключить отправку (Disable sending)
             - RFC 2833 (telephone-event)
             - SIP INFO application/dtmf-relay
             - SIP INFO application/dtmf
     Dtmf receive mode
-        Allowed ways to receive DTMF from remote gateway. If the way is not allowed it will be ignored.
-        Possible values:
+		Разрешенные методы получения DTMF-сигналов с удаленного гейтвея. В случае, если это запрещено, они будут игнорироваться.
+        Возможные значения:
 
             - RFC 2833 (telephone-event)
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
     Rtp ping
-        Useful for cases: when gateways with enabled symmetric RTP wait for first packet before start sending,
-        but gateway on other side doing the same.
-        If enabled, YETI will send fake RTP packet to the gateway right after stream initialization.
+		Полезная опция для следующего случая: когда гейтвеи со включенным симметричным RTP ожидают первого пакета, прежде чем начинать передачу,
+		но гейтвей на удаленно стороне делает тоже самое,
+		Если опция активирована, YETI отправляет фиктивный RTP пакет на удаленный гейтвей сразу же после инициализации потока.
     Rtp timeout
-        If set, call will be dropped with appropriate disconnect reason in CDR if no RTP arrived during this interval
+	    Если активирована, звонок будет сброшен с соответствующим кодом в CDR, если никакой RTP не поступил в течение указанного интервала.
     Filter noaudio streams
-        Cut all streams except of 'audio' from SDP in INVITE to the termination gateway.
-        Appropriate non-audio streams will be automatically inserted as disabled (port set to zero)
-        into responses to the gateway which sent offer to comply with RFC.
-        Useful for gateways which processes multiple streams in SDP incorrectly or/and rejects INVITES with non-audio streams.
+	    Исключать все потоки кроме 'audio' из SDP в INVITE для терминационного гейтвея.
+		Данные не-аудио потоки будут автоматически вставлены как отключенные (порт установлен в ноль)
+		в ответы гейтвею, который отправил предложение для соответствия RFC.
+		Полезно для гейтвеев, которые обрабатывают множественные потоки в SDP некорректно и/или отклюняют INVITEs с не-аудио потоками.
     Rtp relay timestamp aligning
-        Normalize timestamp for RTP packets on RTP relay.
-        Useful for cases on RTP relay when remote side changes RTP streams
-        without appropriate signaling (RTP mark or/and re-INVITE)
-        and destination equipment is not ready to process such behavior correctly
+		Нормализация временных меток для RTP-пакетов при передаче RTP.
+		Полезно в случаях, когда при передаче RTP удаленная сторона изменяет RTP-потоки
+		без соответствующей сигнализации (отметка RTP и/или re-INVITE) и оборудование
+		не готово обрабатывать такое поведение корректно. 
     Rtp force relay CN
-        If enabled, YETI will relay CN packets on even if they were not negotiated in SDP
+		Если активирована, YETI будет пересылать CN-пакеты, даже если они не были согласованы в SDP.
 
 Equipment. Gateway groups
 -------------------------
-Gateway group allows to use multiple gateways for traffic termination to the same vendor
-if this gateways have similar billing configuration.
+Группы гейтвеев позволяют использовать множество гейтвеев терминации трафика для одного Поставщика,
+если данные гейтвеи имеют общую конфигурацию биллинга.
 
-**Gateway group** attributes:
+**Gateway group** атрибуты:
 
     Name
-        Unique gateways group name
+		Уникальное название группы
     Vendor
-        Gateway group owner
+	    Поставщик, к которому относится данная группа
     Prefer same pop
-        If enabled, firstly use termination gateways with the same POP as origination traffic has
+		Если активирована, первоначально использовать терминационные гейтвеи с той же самой POP, что и входящий трафик.
 
 Equipment. Disconnect policies
 ------------------------------
-
-Disconnect policy allows to configure rules for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
+Политика отбоя позволяет настраивать правила для каждого SIP-кода разъединения для гейтвея (рероутинг, перезапись кодов/причин).
 
 Equipment. Registrations
 ------------------------
+YETI предоставляет возможность регистрировать на внешних SIP-серверах.
 
-YETI allows to use outgoing SIP registrations on remote supplier or customer equipment.
-
-**Registration** attributes:
+**Registration** атрибуты:
 
     Enabled
-        disabled registrations will be ignored
+	    Активирует регистрацию. Отключенные регистрации игнорируются.
     Pop
-        Point of presence for registration requests
+		Точка присутствия (PoP) для запросов на регистрацию. Из данной точки будут отправляться запросы REGISTER.
     Node
-        Node which will hold registration
+		Нода, которая обслуживает регистрацию.
     Domain
-        RURI,From domain part
+		Доменная часть поля From в RURI.
     Username
-        RURI,From user part
+	    Пользовательская часть поля From в RURI.
     Display username
-        From display name part
+		Отображаемое имя в поле From.
     Auth user
-        Authorization username
+		Имя пользователя для авторизации.
     Auth password
-        Authorization password
+		Пароль для авторизации.
     Proxy
-        SIP Proxy to use for registration
+		SIP-прокси используемый для регистрации.
     Contact
-        Contact header
+		Заголовок Contact в запросе.
     Expire
-        Registration expiration time
+		Время истечения регистрации.
     Force expire
-        Force re-registration after **Expire** interval even is server set another value in response
+		Принудительная перерегистрация после истечения интервавала **Expire**, даже если сервер установил иное значение в ответе.
 
 Equipment. Codec groups
 -----------------------
+Группы кодеков позволяют создавать произвольные наборы медиа-кодеков и применять их к гейтвеям. Группы могут различаться по составу кодеков,
+их приоритету и кодам нагрузки, что позволяет обрабаывать различные сценарии при обработке звонков.
 
-**Codec group** attributes:
+**Codec group** атрибуты:
 
     Name
-        Codec group name.
+		Название Группы кодеков
     List of codecs
-        Each codec has the following attributes:
+		Каждый кодек имеет следующие атрибуты:
 
             Codec
-                Codec name. All available codecs are presented in drop-down list
+				Название кодека. Все доступные кодеки представлены в выпадающем списке
             Priority
-                Codec priority in SDP. Less value means higher priority.
-                Must be unique within group.
+				Приоритет кодека в SDP. Меньшее значение означает более высокий приоритет.
+				Должен быть уникален в пределах группы.
             Dynamic payload type
-                Payload type override. (allowed only values from dynamic range)
+			    Перезапись типа нагрузки (разрешены значения из динамического диапазона)
             Format parameters
-                Non-standard value for fmt param SDP attribute.
+				Нестандартное значение для параметра **fmt** в атрибуте SDP.
                 
 Equipment. LNP database
 -----------------------
-see https://en.wikipedia.org/wiki/Local_number_portability
+Смотри https://en.wikipedia.org/wiki/Local_number_portability
 
-Yeti supports interaction with LNP databases by SIP and HTTP REST protocols.
-We welcome requests to implement additional protocols or LNP database specific formats.
+YETI поддерживает взаимодействие с базами данных LNP по протоколам SIP и HTTP REST.
+Команда YETI приветствует запросы на реализацию дополнительных протоколов или баз данных иных форматов!
 
 Name
-    Database name. Unique field.
+	Название базы данных (Уникальное поле)
 Driver
-    Driver which will be used. Available options
+	Драйвер, который будет использоваться. 
+	Возможные варианты:
 
         - UDP SIP 301/302 redirect
         - thinQ RESR LRN driver
         - In-memory hash
 Host
-    Database host (will be ignored by In-memory hash driver)
+	Адрес базы данных (будет проигнорирован при использовании драйвера In-memory hash).
 Port
-    Database port
+	Порт базы данных.
 Timeout
-    Maximum time to wait for response from database.
-    Request will fail with appropriate code and reason.
+	Максимальное время ожидания ответа от базы даннных.
+	Запрос будет признан неуспешным с соответствующим кодом и причиной.
 Thinq username
-    Authorization username for thinQ API
+	Имя пользователя для авторизации в thinQ API.
 Thinq token
-    Authorization token for thinQ API
+	Токен авторизации в thinQ API.
 Csv file
-    Path to file with data to preload (for In-memory hash driver only)
+	Путь к файлу с предзагруженными данными (при использовании драйвера In-memory hash)
     
 Equipment. RADIUS Auth Profiles
 -------------------------------
-Yeti поддерживает дополнительную авторизацию входящего звонка на внешнем RADIUS сервере. RADIUS Auth Profile описывает взаимодействие с таким сервером.
+YETI поддерживает дополнительную авторизацию входящего звонка на внешнем RADIUS сервере. RADIUS Auth Profile описывает взаимодействие с таким сервером.
 
+**RADIUS Auth Profiles** атрибуты:
 
 Name
     Название профайла. Используется только как информационное поле и не влияет на работу системы. Название профайла должно быть уникально.
@@ -466,24 +463,47 @@ Timeout
     Таймаут, по истечении заданного кол-ва миллисекунд будет выполняться повтор радиус запроса
 Attempts
     Максимальное количество повторов запросов для каждого звонка
+	
+Equipment. RADIUS Accounting Profiles
+-------------------------------
+YETI поддерживает аккаунтинг входящих и исходящих звонков на внешнем RADIUS сервере. RADIUS Accounting Profile описывает взаимодействие с таким сервером.
 
+**RADIUS Accounting Profile** атрибуты:
 
+Name
+    Название профайла. Используется только как информационное поле и не влияет на работу системы. Название профайла должно быть уникально.
+Server
+    IP адрес или Hostname внешнего RADIUS сервера.
+Port
+    Номер UDP порта, на котором RADIUS сервер ожидает запросы.
+Secret
+    Пароль для авторизации RADIUS сервера.
+Timeout
+    Таймаут, по истечении заданного кол-ва миллисекунд будет выполняться повтор радиус запроса.
+Attempts
+    Максимальное количество повторов запросов для каждого звонка
+Enable start accounting
+	Если активна, то YETI будет отправлять Start-accounting пакеты на удаленный сервер.
+Enable interim accounting
+	Если активна, YETI будет отправлять Interim-accounting пакеты на удаленный сервер.
+Interim accounting interval
+	Значение шага отправки Interim-пакетов на удаленный сервер (секунды).
+Enable stop accounting
+	Если активна, YETI будет отправлять Stop-accounting пакеты на удаленный сервер.
 
 System. Sensors
 ---------------
-
-System supports mirroring of signaling and media traffic.
-This functionality can be used for Lawful Interception.
-Currently system supports two encapsulation methods:
+Система поддерживает зеркалирование данных сигнализации и медиа.
+Этот функционал может быть использован для законного перехвата.
+В настоящее время система поддерживает два метода инкапсуляции:
 
     - IP-IP tunnel
-        Original packets will be encapsulated into additional IP-IP tunnel header.
-        This mode allows to route mirrored traffic,
-        it's especially useful when destination equipment not available in the same broadcast domain.
+		Оригинальный пакет будет инкапсулирован в дополнительный заголовок туннелирования IP-IP.
+		Этот режим позволяет маршрутизировать зеркалируемый трафик, что особенно полезно, когда
+		оборудование в точке назначения не находится в том же широковещательном домене.
     - IP over Ethernet
-        In this mode original packets will be encapsulated directly into Ethernet frame using raw sockets.
-        Intended to use for cases when destination equipment is in the same L2 domain.
+		В данном режиме оригинальные пакеты будут инкапсулированы напряму в Ethernet фрейм с помощью raw-сокета.
+		Используется в случаях, когда оборудование в точке назначение находится в том же самом L2 домене.
 
-Sensor and logging level can be chosen in gateway settings.
-Sensor configuration is separate for A and B leg,
-thus for both legs mirroring - sensors must be configured for both termination and origination gateway.
+Сенсор и уровень его лога может быть выбран в настройках Гейтвея. Настройки Сенсора индивидуальны для легов A и B,
+поэтому для зеркалирования обоих легов, Сенсоры должны быть настроены для Гейтвея терминации и оригинации.
