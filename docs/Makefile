@@ -9,6 +9,5 @@ $(langs):
 	make -C $@ html
 
 clean: $(langs:=-clean)
-	make -C $@ clean
 
 .PHONY: $(langs) $(langs:=-clean)
