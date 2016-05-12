@@ -13,6 +13,7 @@ Contents:
 
    yeti-ui
    headers-filtering
+   yeti-cli
    yeti-cli-commands
 
 
