@@ -503,6 +503,7 @@ System. Global configuration
 The page contains global parameters of YETI.
 
 **Global configuration** attributes:
+
 ROWS PER PAGE
     This option affords to change drop-down 'Per page' element, which is exists on every list-type page in YETI.
     You can add additional values to that drop-down list if default values '30,50,100' are not sufficient.
