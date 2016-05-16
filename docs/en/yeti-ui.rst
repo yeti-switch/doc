@@ -498,6 +498,57 @@ Interim accounting interval
 Enable stop accounting
     If enabled, YETI will send Stop-accounting packets to external RADIUS server.
 
+System. Global configuration
+----------------------------
+The page contains global parameters of YETI.
+
+**Global configuration** attributes:
+
+ROWS PER PAGE
+    This option affords to change drop-down 'Per page' element, which is exists on every list-type page in YETI.
+    You can add additional values to that drop-down list if default values '30,50,100' are not sufficient.
+CDR UNLOAD DIR
+    Directory where YETI unload CDR tables on the *CDR -> Tables* page.
+CDR UNLOAD URI
+    URL for external CDR viewer program. YETI redirects to that program from *CDR -> Tables* page when user press **Unloaded files** button.
+CDR ARCHIVE DELAY
+    Move CDRs to archive table after **N** months.
+CDR REMOVE DELAY
+    Remove archived tables after **N** months.
+MAX RECORDS
+    Maximum amount of records which YETI can save to CSV file on every list-type page (*Download: CSV* button at the bottom of page).
+IMPORT MAX THREADS
+    Number of threads for import from CSV proccess.
+IMPORT HELPERS DIR
+    Helper directory where YETI saves temporary files durring import from CSV process.
+ACTIVE CALLS REQUIRE FILTER
+    Requre any filter on the *RT data -> Active Calls* page.
+REGISTRATIONS REQUIRE FILTER
+    Require any filter on the *RT data -> Outgoing Registrations* page.
+ACTIVE CALLS SHOW CHART
+    If **true** YETI shows chart of active calls on the *RT data -> Active Calls* page.
+ACTIVE CALLS AUTOREFRESH ENABLE
+    If **true** YETI will refresh *RT data -> Active Calls* page every 20 seconds.
+MAX CALL DURATION
+    Global parameter of maximum call duration (seconds).
+RANDOM DISCONNECT ENABLE
+    If **true** YETI will randomly disconnect calls whose duration more than **RANDOM DISCONNECT LENGTH** by sendind BYE message to parties.
+RANDOM DISCONNECT LENGTH
+    Duration of calls (seconds) which YETI will disconnect if **RANDOM DISCONNECT ENABLE** enabled.
+DROP CALL IF LNP FAIL
+    If **true** YETI drops calls if request to LNP database is not successfull.
+LNP CACHE TTL
+    Time to life of LNP cache (seconds).
+LNP E2E TIMEOUT
+    Timeout for requests to LNP database (seconds). YETI will drop calls if **DROP CALL IF LNP FAIL** enabled and timeout expired or bad response returned.
+SHORT CALL LENGTH
+    User may decide which calls are 'short' by this settings (seconds). It involves **Short Calls** filter button on the *CDR -> CDR History* page.
+TERMINATION STATS WINDOW
+    Interval (hours) for generating of stats for gateway or dialpeer (*Short Window Stats* panel on page of every gateway or dialpeer).
+QUALITY CONTROL MIN CALLS
+    Minimum number of calls for building **Quality Control** statistics.
+QUALITY CONTROL MIN DURATION
+    Total duration of calls for building **Quality Control** statistics.
 
 System. Sensors
 ---------------
