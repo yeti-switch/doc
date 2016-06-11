@@ -568,3 +568,27 @@ Currently system supports two encapsulation methods:
 Sensor and logging level can be chosen in gateway settings.
 Sensor configuration is separate for A and B leg,
 thus for both legs mirroring - sensors must be configured for both termination and origination gateway.
+
+System. SMTP connections
+------------------------
+
+It is necessary to have an SMTP connection in order to YETI can send invoices and alerts to customers. Then user can choose SMTP connection for Customer.
+
+**SMTP connections** attributes:
+
+Name
+    Unique name of SMTP connection.
+    Uses for informational purposes and doesn't affect system behaviour.
+Host
+    IP address or hostname of SMTP server.
+Port
+    TCP port on which SMTP server wait for requests (*default value: 25*).
+From address
+    E-mail address of sender.
+Auth user
+	Username for Authorization procedure on external SMTP server.
+Auth password
+    Password for Authorization procedure on external SMTP server.
+Global
+	Set as global for all customers.
+
