@@ -47,10 +47,9 @@ All servers can use same repositories set::
 
 System repositories can be changed by editing of file: /etc/apt/sources.list
 
-import public keys for repositories::
+.. code-block:: console
 
-    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
-
+	root@evial:/# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
 
 Databases installation
 ======================
@@ -68,22 +67,21 @@ both routing and CDRs databases requires similar sets packages.
 
 ::
 
-    # aptitude update && \
-      aptitude install postgresql-9.4 \
-      postgresql-contrib-9.4 \
-      postgresql-9.4-prefix \
-      postgresql-9.4-pgq3 \
-      postgresql-9.4-yeti \
-      skytools3 \
-      skytools3-ticker
+    # aptitude update && aptitude install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-yeti skytools3 skytools3-ticker
 
 Create databases
 ----------------
 
-Create routing database::
+Create routing database
+
+.. code-block:: console
 
     # su - postgres
     $ psql
+
+
+.. code-block:: psql
+
     postgres=# create user yeti encrypted password 'somepassword' superuser; 
     CREATE ROLE 
     postgres=# create database yeti owner yeti; 
@@ -155,7 +153,9 @@ Configure database connection
 To configure database connection
 edit file /home/yeti-web/config/database.yml
 
-Create database.yml file with the following content::
+Create database.yml file with the following content:
+
+.. code-block:: yaml
 
     production: 
       adapter: postgresql
@@ -165,10 +165,7 @@ Create database.yml file with the following content::
       username: yeti
       password: somepassword
       host: 127.0.0.1
-      schema_search_path: >
-        gui, public, switch,
-        billing, class4, runtime_stats,
-        sys, logs, data_import
+      schema_search_path: gui, public, switch, billing, class4, runtime_stats, sys, logs, data_import
       port: 5432
       min_messages: notice
     
@@ -303,7 +300,7 @@ to listen multiple addresses.
 
 Possible log_level values are: (1 - error, 2 - info, 3 - debug)
 
-::
+.. code-block:: nginx
 
     daemon {
       listen = {
@@ -451,8 +448,8 @@ Install packages
 
 ::
 
-    # aptitude install sems-yeti
-
+    # aptitude install sems sems-modules-yeti
+    
 Configuration files
 -------------------
 
@@ -468,12 +465,12 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server ::
     rtp_low_port_intern=20000 
     rtp_high_port_intern=50000
     plugin_path=/usr/lib/sems/plug-in/ 
-    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;sbc;session_timer;xmlrpc2di;uac_auth;di_log;registrar_client
-    application = sbc
+    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;yeti;session_timer;xmlrpc2di;uac_auth;di_log;registrar_client
+    application = yeti
     plugin_config_path=/etc/sems/etc/
     fork=yes
     stderr=no
-    loglevel=2
+    syslog_loglevel=2
     max_shutdown_time = 10
 
     session_processor_threads=20
@@ -511,15 +508,15 @@ cfg_url_<name>
     
     cfg_urls = main
     cfg_url_main = tcp://127.0.0.1:4444
+    core_options_handling=yes
+    
 
 Other configuration files
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Copy defaults for the rest of needed configuration files::
 
-    # mv /etc/sems/etc/sbc.dist.conf /etc/sems/etc/sbc.conf 
-    # mv /etc/sems/etc/oodprofile.yeti.dist.conf /etc/sems/etc/oodprofile.yeti.conf 
-    # mv /etc/sems/etc/xmlrpc2di.dist.conf /etc/sems/etc/xmlrpc2di.conf 
+    # mv /etc/sems/etc/jsonrpc.conf.dist /etc/sems/etc/jsonrpc.conf
 
 Launch traffic switch
 ---------------------
