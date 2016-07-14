@@ -550,6 +550,16 @@ Quality Control Min Calls
 Quality Control Min Duration
     Total duration of calls for building **Quality Control** statistics.
 
+Network Prefixes
+----------------
+Catalog of phone prefixes, which contains:
+
+    - Prefix
+    - Operator network name
+    - Country this prefix belongs to
+
+Yeti database contains preloaded data of prefixes. User could edit them or add another.
+
 System. Sensors
 ---------------
 
