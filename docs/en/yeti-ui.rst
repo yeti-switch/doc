@@ -268,11 +268,15 @@ Equipment. Gateways
     Relay UPDATE
         Transparent relay of SIP UPDATE between call legs.
     Suppress early media
-	    Allows to send 180 Ringing message without SDP to LegA when recieved 180/183 with SDP from LegB of gateway.
+	Allows to send 180 Ringing message without SDP to LegA when recieved 180/183 with SDP from LegB of gateway.
+    Fake 180 timer
+        Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
     Transit headers from origination
 	    Filter of headers in SIP requests which applies to origited calls. Look at :ref:`headers filtering <headers_fitering>`
     Transit headers from termination
 	    Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`
+    Sip interface name
+            The name of network interface which SEMS is listening on. It might be useful if it is necessary to route SIP-traffic from different IP-addresses.
     Allow 1xx without to tag
         Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
     Sip timer B
