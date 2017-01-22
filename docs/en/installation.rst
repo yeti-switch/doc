@@ -300,7 +300,7 @@ to listen multiple addresses.
 
 Possible log_level values are: (1 - error, 2 - info, 3 - debug)
 
-.. code-block:: nginx
+.. code-block:: c
 
     daemon {
       listen = {
