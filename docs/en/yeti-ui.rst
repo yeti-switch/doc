@@ -271,7 +271,7 @@ Equipment. Gateways
     Relay UPDATE
         Transparent relay of SIP UPDATE between call legs.
     Suppress early media
-	Allows to send 180 Ringing message without SDP to LegA when recieved 180/183 with SDP from LegB of gateway.
+	Allows to send 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of gateway.
     Fake 180 timer
         Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
     Transit headers from origination
@@ -407,9 +407,9 @@ YETI allows to use outgoing SIP registrations on remote supplier or customer equ
     Force expire
         Force re-registration after **Expire** interval even is server set another value in response
     Retry delay *
-	Set the delay before sending a new REGISTER request to a registrar, when recieved error code or timeout occured.
+	Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occured.
     Max attempts
-	Maximum amount of attempts for sending a REGISTER request, when an error code recieved from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
+	Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
 
 
 Equipment. Codec groups
