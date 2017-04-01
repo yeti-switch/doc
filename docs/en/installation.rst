@@ -39,7 +39,7 @@ Repositories configuration
 
 All servers can use same repositories set::
 
-    deb http://ftp.us.debian.org/debian/ wheezy main contrib non-free
+    deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
     deb http://ftp.us.debian.org/debian/ jessie-updates main
     deb http://security.debian.org/ jessie/updates main
     deb http://pkg.yeti-switch.org/debian/jessie stable main ext
@@ -54,23 +54,21 @@ System repositories can be changed by editing of file: /etc/apt/sources.list
 Databases installation
 ======================
 
-System requires two databases: one for routing and one for CDRs.
+System requires two databases: one for routing and one for CDRs. Setting up different PostgreSQL instances is highly recommended to make replication possible.
 
-We recommend to place routing database at the same host with management
-interface to reach best interface responsiveness by reducing network
-delay for database requests from web-interface.
+We recommend placing routing database on the same host with management interface to reduce network latency and response times for best performance and web interface responsiveness. 
 
-Install packages
-----------------
+Packages installation
+---------------------
 
-both routing and CDRs databases requires similar sets packages.
+both routing and CDRs databases require similar set of packages.
 
 ::
 
     # aptitude update && aptitude install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-yeti skytools3 skytools3-ticker
 
-Create databases
-----------------
+Databases creation
+------------------
 
 Create routing database
 
@@ -96,15 +94,14 @@ Create database to store CDR::
     CREATE DATABASE
     postgres=# \q
 
-.. warning:: It's recommended to specify values for databases names, usernames, passwords differ from specified in this manual for security reasons.
+.. warning:: It's recommended to choose databases names, usernames and passwords different from specified in this manual for security reasons.
 
-For large installations is reasonable to place CDR database
-on dedicated server
+For large installations it's recommended to place CDR database on dedicated server.
 
-Check
------
+Checks
+------
 
-Check databases created and accessible::
+Check if databases were successfully created and are accessible::
 
     root@evial:/# psql -h 127.0.0.1 -U yeti -d yeti
     Password for user yeti:  psql (9.4.5) SSL connection
@@ -124,12 +121,12 @@ Check databases created and accessible::
     root@evial:/#
 
 Don't forget to make changes in /etc/postgresql/9.4/main/pg_hba.conf
-and apply them if you plan to access this databases from another hosts
+and apply them if you plan to access this databases from other hosts and/or set up database replication
 
-Init schema and data
---------------------
+Schema creation and database initialization
+-------------------------------------------
 
-Look at `Configure database connection`_ and `Init databases data`_ 
+Look at `Databases connection configuration`_ and `Databases data initialization`_ 
 for further databases initialization instructions.
 
 Management interface installation
@@ -137,21 +134,20 @@ Management interface installation
 
 Server requirements:
 
-- OS Debian 8 Wheezy with architecture amd64
+- OS Debian 8 Wheezy with amd64 architecture
 - at least 1GB of RAM
 
-Install packages
-----------------
+Packages installation
+---------------------
 
 ::
 
     # aptitude update && aptitude install yeti-web
 
-Configure database connection
------------------------------
+Databases connection configuration
+----------------------------------
 
-To configure database connection
-edit file /home/yeti-web/config/database.yml
+To configure databases connection parameters edit /home/yeti-web/config/database.yml file
 
 Create database.yml file with the following content:
 
@@ -181,11 +177,10 @@ Create database.yml file with the following content:
       port: 5432
       min_messages: notice
 
-Warning: you should specify correct addresses and credentials using
-those which you chose in previous section
+Warning: you should specify correct addresses and credentials that were used in previous section
 
-Init databases data
--------------------
+Databases data initialization
+-----------------------------
 
 To simplify work with databases use utility yeti-db
 To initialize empty databases::
@@ -203,32 +198,32 @@ You can check actual database versions::
     # yeti-db version
     # yeti-db --cdr version
 
-Attention: During upgrade of the system which working in production command apply_all should not be used
-because this command intended to upgrade to the last version only for system without live traffic.
-Systems in production must be upgraded using command apply which applies just one update in a single run.
-After each upgrade it is important to amend appropriate configuration files and restart all traffic switch instances.
-This approach provides zero-downtime upgrade procedure (without loss of traffic and CDRs)
+Attention: During system upgrade on production systems **apply_all** command should not be used
+because this command is intended to upgrade database schemas and content to the latest version only for systems without live traffic.
+Production systems must be upgraded using **apply** command which applies just one update at a single run.
+After each upgrade it is important to change appropriate configuration files and restart all traffic switch instances.
+This approach allows zero-downtime upgrades (without loss of traffic and CDRs)
 
 Launch
 ------
 
 After successful configuration of databases you finally can run software using following commands::
 
-    # /etc/init.d/yeti-web start 
-    # /etc/init.d/yeti-cdr-billing start
-    # /etc/init.d/yeti-delayed-job start
+    # service yeti-web start 
+    # service yeti-cdr-billing start
+    # service yeti-delayed-job start
 
 This will run web-interface and CDR processing workers
 
-Check
------
+Checks
+------
 
-check if unicorn listens socket::
+check if unicorn listens on local socket::
 
     # netstat -lpn | grep unicorn
     unix 2 [ ACC ] STREAM LISTENING 2535145 24728/unicorn.rb -E /tmp/yeti-unicorn.sock
 
-check if nginx listens for appropriate sockets::
+check if nginx listens on correct TCP/IP addresses and ports::
 
     # netstat -lpn | grep nginx
     tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN 23627/nginx
@@ -260,8 +255,8 @@ Install packages
 
     # aptitude install redis-server
 
-Check
------
+Checks
+------
 
 Try to enter redis console from traffic switch host
 (redis installed at the same host
@@ -278,8 +273,8 @@ Management server installation
 Since version 1.6.3-175 we started to use central configuration server
 to store yeti module configuration for all nodes in cluster.
 
-Install packages
-----------------
+Packages installation
+---------------------
 
 ::
 
@@ -295,12 +290,11 @@ This file contains configuration for management daemon.
 
 Set desired logging level and address to listen.
 
-You can set multiple addresses separated by comma
-to listen multiple addresses.
+You can set multiple addresses separated by comma to listen on multiple interfaces.
 
 Possible log_level values are: (1 - error, 2 - info, 3 - debug)
 
-.. code-block:: nginx
+.. code-block:: c
 
     daemon {
       listen = {
@@ -317,13 +311,13 @@ Each top-level section defines configuration for node of certain type
 (signaling is for traffic switch nodes).
 All top-level sections contains mandatory section globals
 which must have all possible values common for all nodes.
-Then there is named sections for each node_id which can contains
-overrides of global parameters.
+Then there is named sections for each node_id which may contain
+values overriding ones set in global section.
 
 Note: even if your node does not have
 any specific values you have to define empty section
 for this node anyway, otherwise management node
-will not return configuration for node with such id.
+will not provide configuration for node with this id.
 
 Example of minimal configuration file for node with id 0::
 
@@ -334,7 +328,7 @@ Example of minimal configuration file for node with id 0::
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
           routing {
-            schema = switch8
+            schema = switch11
             function = route_release
             init = init
             master_pool {
@@ -417,15 +411,15 @@ Example of minimal configuration file for node with id 0::
       node 0 { }
     } 
 
-Launch management server
+Management server launch
 ------------------------
 
 Launch configured management server instance::
 
-    # /etc/init.d/yeti-management start
+    # service yeti-management start
 
-Check
------
+Checks
+------
 
 Check file /var/log/yeti/yeti-management.log for daemon logs::
 
@@ -465,7 +459,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server ::
     rtp_low_port_intern=20000 
     rtp_high_port_intern=50000
     plugin_path=/usr/lib/sems/plug-in/ 
-    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;yeti;session_timer;xmlrpc2di;uac_auth;di_log;registrar_client
+    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;yeti;session_timer;xmlrpc2di;uac_auth;di_log;registrar_client;jsonrpc
     application = yeti
     plugin_config_path=/etc/sems/etc/
     fork=yes
@@ -518,6 +512,8 @@ Copy defaults for the rest of needed configuration files::
 
     # mv /etc/sems/etc/jsonrpc.conf.dist /etc/sems/etc/jsonrpc.conf
 
+Edit this file to change listenging address if you are going to build a multi-node system
+
 Launch traffic switch
 ---------------------
 
@@ -525,11 +521,11 @@ Launch configured traffic switch instance::
 
     # service sems start
 
-In case of errors it's useful to use command **sems -E -D3**
+In case of errors it's useful to use **sems -E -D3** command
 which will launch daemon in foreground with debug logging level
 
-Check
------
+Checks
+------
 
 Check if **sems** process exists and signaling/media/rpc sockets are opened::
 
@@ -540,21 +536,21 @@ Check if **sems** process exists and signaling/media/rpc sockets are opened::
     udp 0    0 127.0.0.1:5061 0.0.0.0:*         29749/sems
     raw 2688 0 0.0.0.0:17     0.0.0.0:*  7      29749/sems
 
-Check logfile /var/log/sems/sems-main.log for possible error
+Check logfile /var/log/sems/sems-main.log for possible errors
 
 Load balancer installation
 ==========================
 
-Install packages
-----------------
+Packages installation
+---------------------
 
 ::
 
     # aptitude install yeti-lb
     
 Note: On package configuration stage
-you will be asked specify address of previously installed
-signaling node and address for load balancer to listen.
+you will be asked to specify address of previously installed
+signaling node and address for load balancer to listen on.
 
 After installation you can change any parameters by editing files:
 /etc/kamailio/dispatcher.list and /etc/kamailio/lb.conf
@@ -564,10 +560,10 @@ Launch
 
 Launch load balancer::
 
-    # /etc/init.d/kamailio start
+    # service kamailio start
 
-Check
------
+Checks
+------
 
 Check kamailio running and listening desired sockets::
 
