@@ -31,19 +31,26 @@ Displays different various indicators of the system state:
 - billing status
 - state of the system replication
 
-Billing. Contractors
---------------------
+Billing
+-------
+This section describes billing and accounting entities
+
+----
+
+Contractors
+~~~~~~~~~~~
+
 Contractor:
-    company which will interact with the system.
+    company which will interact with the system
 
 Contractor may act as:
 
     Customer
-        Use provided call termination service.
+        Use provided call termination service
     Supplier
-        Provide call termination service.
+        Provide call termination service
 
-One contractor can be either customer and supplier.
+One contractor can be either customer and supplier
 
 **Contractor** has the following attributes:
 
@@ -68,8 +75,11 @@ One contractor can be either customer and supplier.
 
 .. note:: Fields **Description**, **Address**, **Phones** are informational and not used in routing or billing logic.
 
-Billing. Contacts
------------------
+----
+
+Contacts
+~~~~~~~~
+
 Contact:
     Address information about contractor or system operator (contact belongs to the contractor or to the system operator).
     All email notification and reports use only addresses which were added to the contacts.
@@ -86,8 +96,10 @@ Contact:
     Notes:
         Optional notes
 
-Billing. Accounts
------------------
+----
+
+Accounts
+~~~~~~~~
 
 **Account** attributes:
 
@@ -127,16 +139,20 @@ For each call:
 account balance will be **decreased** on call cost if it uses account for **origination** (customer)
 and **increased** if it uses account for **termination** (vendor)
 
+----
+
 Billing. Payments
------------------
+~~~~~~~~~~~~~~~~~
 
 Payments intended to change account balance.
 
 All payment attributes are self-descriptive (destination account, amount, description and date of payment)
 
+----
 
-Billing. Invoices
------------------
+Invoices
+~~~~~~~~
+
 Invoice provides possibility to summarize billing information for mutual settlements with customers and suppliers.
 Generation of the invoice can be performed manually or automatically,
 if invoices autogeneration period for account was choosen.
@@ -144,15 +160,21 @@ New invoices are created with status *Pending*.
 After the *Approve* invoice considered confirmed and is sent to the contragent email (configured in account settings).
 If account has invoice template, system also will generate PDF document.
 
-Billing. Invoice Templates
---------------------------
+Invoice Templates
+~~~~~~~~~~~~~~~~~
+
 PDF document templates which will be used to generate invoice.
 Template is the file in .odt format with special placeholders.
 Placeholders will be replaced with actual data during PDF document generation.
 System can store many different templates and you can choose desired template for each account independently
 
-Equipment. Gateways
--------------------
+----
+
+Equipment
+---------
+
+Gateways
+~~~~~~~~
 
 **Gateway** attributes:
     Enabled
@@ -354,8 +376,11 @@ Equipment. Gateways
     Rtp force relay CN
         If enabled, YETI will relay CN packets on even if they were not negotiated in SDP
 
-Equipment. Gateway groups
--------------------------
+----
+
+Gateway groups
+~~~~~~~~~~~~~~
+
 Gateway group allows to use multiple gateways for traffic termination to the same vendor
 if this gateways have similar billing configuration.
 
@@ -368,13 +393,17 @@ if this gateways have similar billing configuration.
     Prefer same pop
         If enabled, firstly use termination gateways with the same POP as origination traffic has
 
-Equipment. Disconnect policies
-------------------------------
+----
+
+Disconnect policies
+~~~~~~~~~~~~~~~~~~~
 
 Disconnect policy allows to configure rules for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
 
-Equipment. Registrations
-------------------------
+----
+
+Registrations
+~~~~~~~~~~~~~
 
 YETI allows to use outgoing SIP registrations on remote supplier or customer equipment.
 
@@ -411,9 +440,10 @@ YETI allows to use outgoing SIP registrations on remote supplier or customer equ
     Max attempts
 	Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
 
+----
 
-Equipment. Codec groups
------------------------
+Codec groups
+~~~~~~~~~~~~
 
 **Codec group** attributes:
 
@@ -432,8 +462,10 @@ Equipment. Codec groups
             Format parameters
                 Non-standard value for fmt param SDP attribute.
                 
-Equipment. LNP database
------------------------
+----
+
+LNP database
+~~~~~~~~~~~~
 see https://en.wikipedia.org/wiki/Local_number_portability
 
 Yeti supports interaction with LNP databases by SIP and HTTP REST protocols.
@@ -461,8 +493,11 @@ Thinq token
 Csv file
     Path to file with data to preload (for In-memory hash driver only)
     
-Equipment. RADIUS Auth Profiles
--------------------------------
+----
+
+RADIUS Auth Profiles
+~~~~~~~~~~~~~~~~~~~~
+
 Yeti supports additional authorization of incoming call on externa RADIUS server. RADIUS Auth Profile describes communication with that server.
 
 **RADIUS Auth Profiles** attributes:
@@ -484,8 +519,11 @@ Timeout
 Attempts
     Maximum amount of of requests for every call.
 
-Equipment. RADIUS Accounting Profiles
--------------------------------------
+----
+
+RADIUS Accounting Profiles
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 Yeti supports additional accounting of calls on externa RADIUS server. RADIUS Accounting Profile describes communication with that server.
 
 **RADIUS Accounting Profiles** attributes:
@@ -512,8 +550,14 @@ Interim accounting interval
 Enable stop accounting
     If enabled, YETI will send Stop-accounting packets to external RADIUS server.
 
-System. Global configuration
-----------------------------
+----
+
+System
+------
+
+Global configuration
+~~~~~~~~~~~~~~~~~~~~
+
 The page contains global parameters of YETI.
 
 **Global configuration** attributes:
@@ -564,8 +608,11 @@ Quality Control Min Calls
 Quality Control Min Duration
     Total duration of calls for building **Quality Control** statistics.
 
+----
+
 Nodes
------
+~~~~~
+
 List of YETI nodes connected to current cluster.
 Every node represents independent installation of YETI-SEMS, which communicate to management interface via RPC protocol.
 
@@ -593,13 +640,18 @@ Active Calls Chart
 Comments
         Comments of user for current node.
 
+----
 
 Networks
 ~~~~~~~~
+
 Catalogue of carriers. It contains names of carriers and uses in **Network prefixes** then.
 
+----
+
 Network Prefixes
-----------------
+~~~~~~~~~~~~~~~~
+
 Catalogue of phone prefixes, which contains:
 
     - Prefix
@@ -608,8 +660,10 @@ Catalogue of phone prefixes, which contains:
 
 Yeti database contains preloaded data of prefixes. User could edit them or add another.
 
-System. Sensors
----------------
+----
+
+Sensors
+~~~~~~~
 
 System supports mirroring of signaling and media traffic.
 This functionality can be used for Lawful Interception.
@@ -627,8 +681,10 @@ Sensor and logging level can be chosen in gateway settings.
 Sensor configuration is separate for A and B leg,
 thus for both legs mirroring - sensors must be configured for both termination and origination gateway.
 
-System. SMTP connections
-------------------------
+----
+
+SMTP connections
+~~~~~~~~~~~~~~~~
 
 It is necessary to have an SMTP connection in order to YETI can send invoices and alerts to customers. Then user can choose SMTP connection for Customer.
 
@@ -649,4 +705,5 @@ Auth password
     Password for Authorization procedure on external SMTP server.
 Global
 	Set as global for all customers.
+
 
