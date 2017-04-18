@@ -13,7 +13,6 @@ Contents:
 
    general
    installation
-   installation-old
    yeti-ui
    ldap
    yeti-cli

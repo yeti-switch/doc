@@ -459,7 +459,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server ::
     rtp_low_port_intern=20000 
     rtp_high_port_intern=50000
     plugin_path=/usr/lib/sems/plug-in/ 
-    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;yeti;session_timer;xmlrpc2di;uac_auth;di_log;registrar_client;jsonrpc
+    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;yeti;session_timer;uac_auth;di_log;registrar_client;jsonrpc
     application = yeti
     plugin_config_path=/etc/sems/etc/
     fork=yes
