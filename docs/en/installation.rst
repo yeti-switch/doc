@@ -585,3 +585,32 @@ Also you can run daemon in foreground
 with logging to stderr for debugging purposes::
 
     # kamailio -eED /etc/kamailio/kamailio.cfg
+
+Extra packages
+==============
+
+Invoice PDF generation
+----------------------
+
+If you need to generate invoices in PDF format, you have to install additional packages. 
+It is accomplished via LibreOffice software, so our package just a wrapper for a LibreOffice installation.
+
+.. warning::
+    This operation will install a lot of packages in your system!
+
+::
+
+    # aptitude install yeti-libreoffice-headless
+
+Make sure, that service is enabled for autostart
+
+::
+
+    # systemctl enable yeti-libreoffice-headless
+
+Run it
+
+::
+
+    # systemctl start yeti-libreoffice-headless
+
