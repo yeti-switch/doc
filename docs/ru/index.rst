@@ -11,6 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   installation
    yeti-ui
    headers-filtering
    yeti-cli
