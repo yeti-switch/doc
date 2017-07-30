@@ -679,6 +679,337 @@ Dst number radius rewrite result
 Radius accounting profile
     Must be specified if the radius accounting is required
 
+Rateplans
+~~~~~~~~~
+    **TODO**
+
+**Rateplan** attributes:
+
+Name
+    Unique name for the Rateplan.
+Profit control mode
+    **TODO**
+Send quality alarms to
+    **TODO**
+
+Destinations
+~~~~~~~~~~~~
+    **TODO**
+
+**Destination** attributes:
+
+    Prefix
+        **TODO**
+    Country
+        **TODO**
+    Network
+        **TODO**
+    Reject Calls
+        **TODO**
+    Quality Alarm
+        **TODO**
+    Rateplan
+        **TODO**
+    Routing Tag
+        **TODO**
+    Valid From
+        **TODO**
+    Valid Till
+        **TODO**
+    Rate Policy
+        **TODO**
+    Initial Interval
+        **TODO**
+    Next Interval
+        **TODO**
+    Use Dp Intervals
+        **TODO**
+    External Id
+        **TODO**
+    Initial Rate
+        **TODO**
+    Next Rate
+        **TODO**
+    Connect Fee
+        **TODO**
+    Profit Control Mode
+        **TODO**
+    Dp Margin Fixed
+        **TODO**
+    Dp Margin Percent
+        **TODO**
+    Asr Limit
+        **TODO**
+    Acd Limit
+        **TODO**
+    Short Calls Limit
+        **TODO**
+
+Routing groups
+~~~~~~~~~~~~~~
+    **TODO**
+
+**Routing group** attributes:
+
+    Name
+        **TODO**
+
+Dialpeers
+~~~~~~~~~
+    **TODO**
+
+**Dialpeer** attributes:
+
+    Prefix
+        **TODO**
+    Country
+        **TODO**
+    Network
+        **TODO**
+    Enabled
+        **TODO**
+    Locked
+        **TODO**
+    Routing Group
+        **TODO**
+    Routing Tag
+        **TODO**
+    Vendor
+        **TODO**
+    Account
+        **TODO**
+    Priority
+        **TODO**
+    Force Hit Rate
+        **TODO**
+    Exclusive Route
+        **TODO**
+    Initial Interval
+        **TODO**
+    Initial Rate
+        **TODO**
+    Next Interval
+        **TODO**
+    Next Rate
+        **TODO**
+    Lcr Rate Multiplier
+        **TODO**
+    Connect Fee
+        **TODO**
+    Gateway
+        **TODO**
+    Gateway Group
+        **TODO**
+    Valid From
+        **TODO**
+    Valid Till
+        **TODO**
+    Capacity
+        **TODO**
+    Src Name Rewrite Rule
+        **TODO**
+    Src Name Rewrite Result
+        **TODO**
+    Src Rewrite Rule
+        **TODO**
+    Src Rewrite Result
+        **TODO**
+    Dst Rewrite Rule
+        **TODO**
+    Dst Rewrite Result
+        **TODO**
+    Acd Limit
+        **TODO**
+    Asr Limit
+        **TODO**
+    Short Calls Limit
+        **TODO**
+    Created At
+        **TODO**
+    External
+        **TODO**
+    Current Rate
+        **TODO**
+
+Routing plans
+~~~~~~~~~~~~~
+    **TODO**
+
+**Routing plan** atributes:
+
+    Name
+        **TODO**
+    Sorting
+        **TODO**
+    Use Lnp
+        **TODO**
+    Rate Delta Max
+        **TODO**
+    Routing Groups
+        **TODO**
+
+Routing plan static routes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Static route** attributes:
+
+    Routing Plan
+        **TODO**
+    Prefix
+        **TODO**
+    Country
+        **TODO**
+    Network
+        **TODO**
+    Priority
+        **TODO**
+    Vendor
+        **TODO**
+
+Routing plan LNP rules
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**LNP routing plan rule** attributes:
+
+Routing plan
+    **TODO**
+Dst prefix
+    **TODO**
+Req dst rewrite rule
+    **TODO**
+Req dst rewrite result
+    **TODO**
+Database
+    **TODO**
+Lrn rewrite rule
+    **TODO**
+Lrn rewrite result
+    **TODO**
+
+LNP cache
+~~~~~~~~~
+    **TODO**
+
+Numberlists
+~~~~~~~~~~~
+    **TODO**
+
+**Numberlist** attributes:
+
+    Name
+        **TODO**
+    Mode
+        **TODO**
+    Default Action
+        **TODO**
+    Default Src Rewrite Rule
+        **TODO**
+    Default Src Rewrite Result
+        **TODO**
+    Default Dst Rewrite Rule
+        **TODO**
+    Default Dst Rewrite Result
+        **TODO**
+    Created At
+        **TODO**
+    Updated At
+        **TODO**
+
+Numberlist Items
+~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Numberlist item** attributes:
+
+    Numberlist
+        **TODO**
+    Key
+        **TODO**
+    Action
+        **TODO**
+    Src Rewrite Rule
+        **TODO**
+    Src Rewrite Result
+        **TODO**
+    Dst Rewrite Rule
+        **TODO**
+    Dst Rewrite Result
+        **TODO**
+    Createa At
+        **TODO**
+    Updated At
+        **TODO**
+
+Routing tags
+~~~~~~~~~~~~
+    **TODO**
+
+**Routing tag** attributes:
+
+Name
+    **TODO**
+
+Areas
+~~~~~
+    **TODO**
+
+**Area** attributes:
+
+    Name
+        **TODO**
+
+Area prefixes
+~~~~~~~~~~~~~
+    **TODO**
+
+**Area prefix** attributes:
+
+    Prefix
+        **TODO**
+    Area
+        **TODO**
+
+Routing tags detection
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Routing tag detection rule** attributes:
+
+    Src Area
+        **TODO**
+    Dst Area
+        **TODO**
+    Routing Tag
+        **TODO**
+
+Routing tags detection
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Routing simulation form** attributes:
+
+    Transport protocol
+        **TODO**
+    Remote ip*
+        **TODO**
+    Remote port*
+        **TODO**
+    Pop
+        **TODO**
+    Src number*
+        **TODO**
+    Dst number*
+        **TODO**
+    Uri domain
+        **TODO**
+    From domain
+        **TODO**
+    To domain
+        **TODO**
+    X yeti auth
+        **TODO**
 
 System
 ------
