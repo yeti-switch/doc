@@ -566,118 +566,128 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
 *General* tab
 `````````````
 
-Name
-    Unique name of Accounting profile.
-    Uses for informational purposes and doesn't affect system behaviour.
-Enabled
-    IP address or hostname of external RADIUS server.
-Customer
-    Customer, who this Customer Auth belongs to
-Account
-    Accout of Customer, which this Customer Auth belongs to
-Gateway
-    Gateway which related to this Customer Auth. That gateway(its parameters),
-    will be used for media handling on the A-leg of a call.
-Rateplan
-    Rateplan, which this Customer Auth belongs to
-Routing Plan
-    Routing Plan, which this Customer Auth belongs to
-Dst Numberlist
-    You may apply Dst Numberlist (Destination) and check B-numbers, by prefix or
-    full-match, then reject it or allow.
-Src Numberlist
-    You may apply Src Numberlist (Source) and check B-numbers, by prefix or
-    full-match, then reject it or allow.
-Dump Level
-    It is possible to capture calls to PCAP files, using this option.
-    You may choose what kind of information should be captured.
+    Name
+        Unique name of Accounting profile.
+        Uses for informational purposes and doesn't affect system behaviour.
+    Enabled
+        IP address or hostname of external RADIUS server.
+    Customer
+        Customer, who this Customer Auth belongs to
+    Account
+        Accout of Customer, which this Customer Auth belongs to
+    Gateway
+        Gateway which related to this Customer Auth. That gateway(its parameters),
+        will be used for media handling on the A-leg of a call.
+    Rateplan
+        Rateplan, which this Customer Auth belongs to
+    Routing Plan
+        Routing Plan, which this Customer Auth belongs to
+    Dst Numberlist
+        You may apply Dst Numberlist (Destination) and check B-numbers, by prefix or
+        full-match, then reject it or allow.
+    Src Numberlist
+        You may apply Src Numberlist (Source) and check B-numbers, by prefix or
+        full-match, then reject it or allow.
+    Dump Level
+        It is possible to capture calls to PCAP files, using this option.
+        You may choose what kind of information should be captured.
 
-    Possible values are:
-        - Capture nothing
-        - Capture all traffic
-        - Capture RTP traffic
-        - Capture signalling traffic
-Enable Audio Recording
-    If checked, the media for calls passing through this Customer Auth will be stored
-    in WAV files.
-Capacity
-    The capacity of the Customer Auth, i.e. how many calls it accepts at the moment.
-Allow Receive Rate Limit
-    A Customer may send special SIP-header in which he send the price for this call he wants to pay.
-    And YETI will rely on this price on the routing stage if we allow such a behaviour.
-Send Billing Information
-    If enabled, YETI adds the special SIP-header into 200 SIP-message, which contains
-    current price for calls, in order to a Customer should be informed.
+        Possible values are:
+            - Capture nothing
+            - Capture all traffic
+            - Capture RTP traffic
+            - Capture signalling traffic
+    Enable Audio Recording
+        If checked, the media for calls passing through this Customer Auth will be stored
+        in WAV files.
+    Capacity
+        The capacity of the Customer Auth, i.e. how many calls it accepts at the moment.
+    Allow Receive Rate Limit
+        A Customer may send special SIP-header in which he send the price for this call he wants to pay.
+        And YETI will rely on this price on the routing stage if we allow such a behaviour.
+    Send Billing Information
+        If enabled, YETI adds the special SIP-header into 200 SIP-message, which contains
+        current price for calls, in order to a Customer should be informed.
 
 Match condition options
 ```````````````````````
-This part is crucial for authentication process of incoming calls. You should note that a one
-customer may have many of Customer Auth with almost the same parameters, so pay
-attention to parameters besides Ip address.
+    This part is crucial for authentication process of incoming calls. You should note that a one
+    customer may have many of Customer Auth with almost the same parameters, so pay
+    attention to parameters besides Ip address.
 
-Transport Protocol
-    **TODO**
-Ip
-    **TODO**
-Pop
-    **TODO**
-Src Prefix
-    **TODO**
-Dst Prefix
-    **TODO**
-Uri Domain
-    **TODO**
-From Domain
-    **TODO**
-To Domain
-    **TODO**
-X Yeti Auth
-    **TODO**
+    Transport Protocol
+        Transport protocol TCP/UDP, which the customer uses for sending calls to YETI.
+    Ip
+        IP address of the originator(customer).
+    Pop
+        Point of precense, which recieves calls from the customer. If a call will come
+        on the different PoP (a node which recieves calls belongs to different a PoP), such calls
+        will be dropped.
+    Src Prefix
+        You can define a prefix which necessarily should be presented in a Src-number for every
+        call from the customer. If not - a call will be dropped. Just a prefix must be used here, not a
+        regular expression.
+    Dst Prefix
+        You can define a prefix which necessarily should be presented in a Dst-number for every
+        call from the customer. If not - a call will be dropped. Just a prefix must be used here, not a
+        regular expression.
+    Uri Domain
+        If specified, YETI checks the domain part of the URI for every call, and drop calls
+        if the domain part is not the same as specified.
+    From Domain
+        If specified, YETI checks the domain part of the URI in the From header for every call, and drop calls
+        if presented domain mismatches.
+    To Domain
+        If specified, YETI checks the domain part of the URI in the To header for every call, and drop calls
+        if presented domain mismatches.
+    X Yeti Auth
+        It's possible to define the custom SIP-header **X-Yeti-Auth** for the customer's calls and specify its value in
+        YETI. In case they match, YETI passes such calls through.
 
 *Number translation* tab
 ````````````````````````
 
-Diversion policy
-    Defines what to do with Diversion header within SIP-signalization.
-    Default value is "Clear header", so this header will be deleted.
-Diversion rewrite rule
-    This option should contain a regular expression for changing a Diversion header
-Diversion rewrite result
-    The result of changing a Diversion header, using the Rewrite Rule above
-Src name rewrite rule
-    This field should contain a regular expression for changing the Name field in the
-    Source-number within SIP-signalization
-Src name rewrite result
-    The result of changing the Name field in the Source-number, using the
-    Src name rewrite rule above
-Src rewrite rule
-    This field should contain a regular expression for changing the Source-number
-    within SIP-signalization
-Src rewrite result
-    The result of changing the Name field in the Source-number, using the Src rewrite rule above
-Dst rewrite rule
-    This field should contain a regular expression for changing the Destination-number
-    within SIP-signalization
-Dst rewrite result
-    The result of changing the Name field in the Source-number, using the Dst rewrite rule above
+    Diversion policy
+        Defines what to do with Diversion header within SIP-signalization.
+        Default value is "Clear header", so this header will be deleted.
+    Diversion rewrite rule
+        This option should contain a regular expression for changing a Diversion header
+    Diversion rewrite result
+        The result of changing a Diversion header, using the Rewrite Rule above
+    Src name rewrite rule
+        This field should contain a regular expression for changing the Name field in the
+        Source-number within SIP-signalization
+    Src name rewrite result
+        The result of changing the Name field in the Source-number, using the
+        Src name rewrite rule above
+    Src rewrite rule
+        This field should contain a regular expression for changing the Source-number
+        within SIP-signalization
+    Src rewrite result
+        The result of changing the Name field in the Source-number, using the Src rewrite rule above
+    Dst rewrite rule
+        This field should contain a regular expression for changing the Destination-number
+        within SIP-signalization
+    Dst rewrite result
+        The result of changing the Name field in the Source-number, using the Dst rewrite rule above
 
 *Radius* tab
 ````````````
 
-Radius auth profile
-    Must be specified if the additional radius authentication is required
-Src number radius rewrite rule
-    Should contain regular expression for changing Source-number which will be sent
-    to Radius-server if it's required
-Src number radius rewrite result
-    The result of applying the Src number radius rewrite rule to Source-number
-Dst number radius rewrite rule
-    Should contain regular expression for changing Destination-number which will be sent
-    to Radius-server if it's required
-Dst number radius rewrite result
-    The result of applying the Dst number radius rewrite rule to Destination-number
-Radius accounting profile
-    Must be specified if the radius accounting is required
+    Radius auth profile
+        Must be specified if the additional radius authentication is required
+    Src number radius rewrite rule
+        Should contain regular expression for changing Source-number which will be sent
+        to Radius-server if it's required
+    Src number radius rewrite result
+        The result of applying the Src number radius rewrite rule to Source-number
+    Dst number radius rewrite rule
+        Should contain regular expression for changing Destination-number which will be sent
+        to Radius-server if it's required
+    Dst number radius rewrite result
+        The result of applying the Dst number radius rewrite rule to Destination-number
+    Radius accounting profile
+        Must be specified if the radius accounting is required
 
 
 System
