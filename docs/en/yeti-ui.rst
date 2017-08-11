@@ -41,9 +41,9 @@ Contractors
 ~~~~~~~~~~~
 
 Contractor:
-    company which will interact with the system
+    a company which will interact with the system
 
-Contractor may act as:
+A Contractor may act as:
 
     Customer
         Use provided call termination service
@@ -58,17 +58,17 @@ One contractor can be either customer and supplier
         Unique contractor name.
     Enabled
         Self-descriptive.
-        If flag is off (contractor disabled) this contractor will not be used for routing and billing.
+        If the flag is off (contractor disabled) this contractor will not be used for routing and billing.
     Vendor
         If enabled contractor can act as supplier and system may terminate calls to it.
     Customer
-        If enabled contractor can act as customer and originate calls to the system.
+        If enabled contractor can act as a customer and originate calls to the system.
     Description
         Optional description of the contractor.
     Address
         Optional contractor address.
     Phones
-        list of phone numbers to contact with contractor.
+        list of phone numbers to contact a contractor.
     Smtp Connection
         connection to the mail server which will be used to send mails, invoices and notifications
         (SMTP connection must be configured previously in *System->SMTP connections*)
@@ -89,7 +89,7 @@ Contact:
     Contractors:
         Choose Contractors if this contact belongs to them
     Admin user:
-        Administrative user which may own contact.
+        An Administrative user which may own contact.
         Contractors names or admin user name must be entered
     E-mail:
         Address for notifications, invoices and other emails
@@ -108,35 +108,35 @@ Accounts
     Contractors
         Contractors who own this account.
     Min balance
-        If account balance become less than this limit, then traffic for this account will be blocked.
+        If account balance becomes less than this limit, then traffic for this account will be blocked.
     Max balance
-        If account balance become greater than this limit, then routes, which are belongs to this account, will not be used for calls termination.
+        If account balance becomes greater than this limit, then routes, which belong to this account, will not be used for calls termination.
     Origination capacity
         Maximum capacity which can be originated for this account.
         If incoming calls number exceed origination capacity, then traffic will be blocked.
     Termination capacity
-        Maximum capacity which can be terminated for this account.
-        If outgoing calls number exceed origination capacity, then routes, which are belongs to this account, will not be used for new calls.
+        Maximum capacity which can be terminated on this account.
+        If outgoing calls number exceed origination capacity, then routes, which belong to this account, will not be used for new calls.
     Vendor invoice period
-        Automatic invoices generation period in case when account acts as supplier.
+        Automatic invoices generation period in the case when the account acts as a supplier.
     Customer invoice period
-        Automatic invoices generation period in case when account acts as customer.
+        Automatic invoices generation period in the case when account acts as a customer.
     Vendor invoice template
-        Template for generation of PDF invoices for vendor.
+        Template for generation of PDF invoices for a vendor.
         (Templates can be configured at *Billing->Invoice templates*)
     Customer invoice template
-        Template for generation of PDF invoices for customer.
+        Template for generation of PDF invoices for a customer.
         (Templates can be configured at *Billing->Invoice templates*)
     Sent invoices to
         Contacts list to send generated invoices
     Timezone
         Timezone which will be used for invoices generation and statistics for this account
 
-Initial balance for newly created account is always zero.
+Initial balance for the newly created account is always zero.
 Balance can be changed as result of calls billing or new payments.
 
 For each call:
-account balance will be **decreased** on call cost if it uses account for **origination** (customer)
+account balance will be **decreased** on call cost if it uses an account for **origination** (customer)
 and **increased** if it uses account for **termination** (vendor)
 
 ----
@@ -153,20 +153,20 @@ All payment attributes are self-descriptive (destination account, amount, descri
 Invoices
 ~~~~~~~~
 
-Invoice provides possibility to summarize billing information for mutual settlements with customers and suppliers.
+Invoice provides the possibility to summarize billing information for mutual settlements with customers and suppliers.
 Generation of the invoice can be performed manually or automatically,
-if invoices autogeneration period for account was choosen.
+if invoices auto-generation period for an account was chosen.
 New invoices are created with status *Pending*.
-After the *Approve* invoice considered confirmed and is sent to the contragent email (configured in account settings).
-If account has invoice template, system also will generate PDF document.
+After the *Approve* invoice considered confirmed and is sent to the customer's email (configured in account settings).
+If an account has invoice template, the system also will generate PDF document.
 
 Invoice Templates
 ~~~~~~~~~~~~~~~~~
 
-PDF document templates which will be used to generate invoice.
-Template is the file in .odt format with special placeholders.
+PDF document templates which will be used to generate invoices.
+The Template is the file in the .odt format with special placeholders.
 Placeholders will be replaced with actual data during PDF document generation.
-System can store many different templates and you can choose desired template for each account independently
+System can store many different templates and you can choose the desired template for each account independently
 
 ----
 
@@ -181,11 +181,11 @@ Gateways
         disabled gateways will be ignored
     Gateway group
         gateways can be grouped.
-        Choose group from the list to add gateway to the group.
+        Choose a group from the list to add the gateway to the group.
         Gateways groups can be managed at *Billing->Gateway Groups*
     Priority
         Gateway priority in the group.
-        In case of termination to the group, gateways will be arranged according to this priority.
+        In the case of termination to the group, gateways will be arranged according to this priority.
     Pop
         Point of presence of the gateway
     Contractor
@@ -195,15 +195,15 @@ Gateways
     Allow termination
         Specifies if gateway allowed to accept calls from YETI
     Sst enabled
-        Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
+        Force to use SIP Session Timers, otherwise, SST usage will be controlled by signaling of the remote gateway.
     Capacity
-        Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.
+        Termination capacity limit for this gateway. In a case of gateway usage for origination, this attribute will be ignored.
     Acd limit
-        ACD threshold. if ACD for gateway traffic will drop below threshold,
+        ACD threshold. if ACD for gateway traffic will drop below the threshold,
         then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
     Asr limit
-        ASR threshold. if ASR for gateway traffic will drop below threshold,
+        ASR threshold. if ASR for gateway traffic will drop below the threshold,
         then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
     Sensor
@@ -215,10 +215,10 @@ Gateways
             - RTP
             - Signaling + RTP
     Host
-        IP address or DNS name of remote gateway to send SIP signaling.
-        (only for usage for termination)
+        IP address or DNS name of a remote gateway to send SIP signaling.
+        (only using for termination)
     Port
-        Port of remote gateway  to send SIP signaling.
+        Port of a remote gateway to send SIP signaling.
         Leave it empty to enable DNS SRV resolving of name in **Host**
     Resolve ruri
         Indicates necessity to rewrite RURI domain part with resolved IP
@@ -257,7 +257,7 @@ Gateways
     Auth from domain
         From domain-part for auth
     Term use outbound proxy
-        use outbound proxy for termination
+        use an outbound proxy for termination
     Term force outbound proxy
         force usage of outbound proxy for termination
     Term outbound proxy
@@ -293,23 +293,23 @@ Gateways
     Relay UPDATE
         Transparent relay of SIP UPDATE between call legs.
     Suppress early media
-	Allows to send 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of gateway.
+        Allows sending 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of a gateway.
     Fake 180 timer
-        Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
+        Allows to set up a timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forcibly.
     Transit headers from origination
-	    Filter of headers in SIP requests which applies to origited calls. Look at :ref:`headers filtering <headers_fitering>`
+        The Filter of headers in SIP requests which applies to originated calls. Look at :ref:`headers filtering <headers_fitering>`
     Transit headers from termination
-	    Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`
+        The Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`
     Sip interface name
-            The name of network interface which SEMS is listening on. It might be useful if it is necessary to route SIP-traffic from different IP-addresses.
+            The name of the network interface which SEMS is listening on. It might be useful if it is necessary to route SIP-traffic from different IP-addresses.
     Allow 1xx without to tag
         Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
     Sip timer B
         SIP timer B (transaction timeout) override. must be less than
-        Call can be rerouted if this allowed by disconnect policy configuration.
+        A Call can be rerouted if this allowed by disconnect policy configuration.
     Dns srv failover timer
-        SIP timer M (INVITE retransmit) override. Must have value less than timer B.
-        Call can be rerouted if this allowed by disconnect policy configuration.
+        SIP timer M (INVITE retransmit) override. Must have the value less than timer B.
+        A Call can be rerouted if this allowed by disconnect policy configuration.
     Sdp c location
         Location of connection-line in SDP payloads which are generated by YETI.
         Possible values:
@@ -322,7 +322,7 @@ Gateways
     Anonymize sdp
         Anonymize client's SDP session data ( session name, uri, origin user )
     Proxy media
-        Determines RTP processing mode. Must be enabled to have possibility of transcoding.
+        Determines RTP processing mode. Must be enabled to have the possibility of transcoding.
     Single codec in 200ok
         If enabled, YETI will leave only once codec in responses with SDP
         (exception is only telephone-event.
@@ -336,8 +336,8 @@ Gateways
         Ignore remote address negotiated in SDP.
         Use address gained from first received RTP/RTCP packet.
     Symmetric rtp nonstop
-        By default, YETI allows to change address by symmetric RTP only one time.
-        This option allows to disable this limitation.
+        By default, YETI allows changing the address by symmetric RTP only one time.
+        This option allows disabling this limitation.
         If enabled, YETI will change destination address every time when receives RTP/RTCP packet from another source.
     Symmetric rtp ignore rtcp
         Disable symmetric RTP for RTCP packets
@@ -358,18 +358,18 @@ Gateways
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
     Rtp ping
-        Useful for cases: when gateways with enabled symmetric RTP wait for first packet before start sending,
+        Useful for cases: when gateways with enabled symmetric RTP wait for the first packet before start sending,
         but gateway on other side doing the same.
         If enabled, YETI will send fake RTP packet to the gateway right after stream initialization.
     Rtp timeout
         If set, call will be dropped with appropriate disconnect reason in CDR if no RTP arrived during this interval
-    Filter noaudio streams
-        Cut all streams except of 'audio' from SDP in INVITE to the termination gateway.
+    Filter no audio streams
+        Cut all streams except 'audio' from SDP in INVITE to the termination gateway.
         Appropriate non-audio streams will be automatically inserted as disabled (port set to zero)
-        into responses to the gateway which sent offer to comply with RFC.
-        Useful for gateways which processes multiple streams in SDP incorrectly or/and rejects INVITES with non-audio streams.
+        into responses to the gateway which sent an offer to comply with RFC.
+        Useful for gateways which process multiple streams in SDP incorrectly or/and rejects INVITES with non-audio streams.
     Rtp relay timestamp aligning
-        Normalize timestamp for RTP packets on RTP relay.
+        Normalize a timestamp for RTP packets on RTP relay.
         Useful for cases on RTP relay when remote side changes RTP streams
         without appropriate signaling (RTP mark or/and re-INVITE)
         and destination equipment is not ready to process such behavior correctly
@@ -381,8 +381,8 @@ Gateways
 Gateway groups
 ~~~~~~~~~~~~~~
 
-Gateway group allows to use multiple gateways for traffic termination to the same vendor
-if this gateways have similar billing configuration.
+Gateway group allows using multiple gateways for traffic termination to the same vendor
+if these gateways have similar billing configuration.
 
 **Gateway group** attributes:
 
@@ -398,23 +398,23 @@ if this gateways have similar billing configuration.
 Disconnect policies
 ~~~~~~~~~~~~~~~~~~~
 
-Disconnect policy allows to configure rules for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
+Disconnect policy allows configuring rules for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
 
 ----
 
 Registrations
 ~~~~~~~~~~~~~
 
-YETI allows to use outgoing SIP registrations on remote supplier or customer equipment.
+YETI allows using outgoing SIP registrations on a remote supplier or customer equipment.
 
 **Registration** attributes:
 
     Enabled
         disabled registrations will be ignored.
     Name*
-	Name of this registration.
+        The Name of this registration.
     Pop
-        Point of presence for registration requests.
+        The Point of presence for registration requests.
     Node
         Node which will hold registration
     Domain*
@@ -436,9 +436,9 @@ YETI allows to use outgoing SIP registrations on remote supplier or customer equ
     Force expire
         Force re-registration after **Expire** interval even is server set another value in response
     Retry delay *
-	Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occured.
+        Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occurred.
     Max attempts
-	Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
+        The Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occurred. In order to re-enable attempts of registration, you should disable the registration and then enable again.
 
 ----
 
@@ -456,7 +456,7 @@ Codec groups
                 Codec name. All available codecs are presented in drop-down list
             Priority
                 Codec priority in SDP. Less value means higher priority.
-                Must be unique within group.
+                Must be unique within the group.
             Dynamic payload type
                 Payload type override. (allowed only values from dynamic range)
             Format parameters
@@ -484,8 +484,8 @@ Host
 Port
     Database port
 Timeout
-    Maximum time to wait for response from database.
-    Request will fail with appropriate code and reason.
+    Maximum time to wait for a response from database.
+    A Request will fail with appropriate code and reason.
 Thinq username
     Authorization username for thinQ API
 Thinq token
@@ -498,13 +498,13 @@ Csv file
 RADIUS Auth Profiles
 ~~~~~~~~~~~~~~~~~~~~
 
-Yeti supports additional authorization of incoming call on externa RADIUS server. RADIUS Auth Profile describes communication with that server.
+Yeti supports the additional authorization of incoming call on external RADIUS server. RADIUS Auth Profile describes communication with that server.
 
 **RADIUS Auth Profiles** attributes:
 
 Name
-    Unique name of Auth profile.
-    Uses for informational purposes and doesn't affect system behaviour.
+    The unique name of Auth profile.
+    Uses for informational purposes and doesn't affect system behavior.
 Server
     IP address or hostname of external RADIUS server.
 Port
@@ -512,25 +512,25 @@ Port
 Secret
     Password for Authorization procedure on external RADIUS server.
 Reject on error
-    If enabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be considered as authorized and YETI will do further routing procedure.
-    If disabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be discarded with appropriate code.
+    If enabled, in a case of error in communication with external RADIUS server (timeout, a bad format of a response, etc) a call will be considered as authorized and YETI will do further routing procedure.
+    If disabled, in a case of error in communication with external RADIUS server (timeout, a bad format of a response, etc) a call will be discarded with the appropriate code.
 Timeout
-    Timeout of request after which a request will be repeated (millisecond).
+    A timeout of a request after which a request will be repeated (millisecond).
 Attempts
-    Maximum amount of of requests for every call.
+    The maximum amount of requests for every call.
 
 ----
 
 RADIUS Accounting Profiles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Yeti supports additional accounting of calls on externa RADIUS server. RADIUS Accounting Profile describes communication with that server.
+Yeti supports additional accounting of calls on external RADIUS server. RADIUS Accounting Profile describes communication with that server.
 
 **RADIUS Accounting Profiles** attributes:
 
 Name
-    Unique name of Accounting profile.
-    Uses for informational purposes and doesn't affect system behaviour.
+    The unique name of Accounting profile.
+    Uses for informational purposes and doesn't affect system behavior.
 Server
     IP address or hostname of external RADIUS server.
 Port
@@ -538,17 +538,17 @@ Port
 Secret
     Password for Authorization procedure on external RADIUS server.
 Timeout
-    Timeout of request after which a request will be repeated (millisecond).
+    A timeout of the request after which a request will be repeated (millisecond).
 Attempts
-    Maximum amount of of requests for every call.
+   The maximum amount of requests for every call.
 Enable start accounting
-    If enabled, YETI will send Start-accounting packets to external RADIUS server.
+    If enabled, YETI will send Start-accounting packets to the external RADIUS server.
 Enable interim accounting
-    If enabled, YETI will send Interim-accounting packets to external RADIUS server.
+    If enabled, YETI will send Interim-accounting packets to the external RADIUS server.
 Interim accounting interval
     Send Interim packets to external RADIUS server every **interval** seconds.
 Enable stop accounting
-    If enabled, YETI will send Stop-accounting packets to external RADIUS server.
+    If enabled, YETI will send Stop-accounting packets to the external RADIUS server.
 
 ----
 
@@ -561,27 +561,27 @@ Customer Auth
 This entity authenticates calls from customers or gateways, applies them to
 routing table and has some useful filters and options.
 
-Customer Auth form is splitted to 3 tabs and each one is described below.
+Customer Auth form is split into 3 tabs and each one is described below.
 
 *General* tab
 `````````````
 
     Name
-        Unique name of Accounting profile.
-        Uses for informational purposes and doesn't affect system behaviour.
+        The unique name of Accounting profile.
+        Uses for informational purposes and doesn't affect system behavior.
     Enabled
         IP address or hostname of external RADIUS server.
     Customer
         Customer, who this Customer Auth belongs to
     Account
-        Accout of Customer, which this Customer Auth belongs to
+        Account of Customer, which this Customer Auth belongs to
     Gateway
-        Gateway which related to this Customer Auth. That gateway(its parameters),
+        The gateway which related to this Customer Auth. That gateway(its parameters),
         will be used for media handling on the A-leg of a call.
     Rateplan
-        Rateplan, which this Customer Auth belongs to
+        The Rateplan, which this Customer Auth belongs to
     Routing Plan
-        Routing Plan, which this Customer Auth belongs to
+        The Routing Plan, which this Customer Auth belongs to
     Dst Numberlist
         You may apply Dst Numberlist (Destination) and check B-numbers, by prefix or
         full-match, then reject it or allow.
@@ -603,11 +603,11 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
     Capacity
         The capacity of the Customer Auth, i.e. how many calls it accepts at the moment.
     Allow Receive Rate Limit
-        A Customer may send special SIP-header in which he send the price for this call he wants to pay.
-        And YETI will rely on this price on the routing stage if we allow such a behaviour.
+        A Customer may send special SIP-header in which he sends the price for this call he wants to pay.
+        And YETI will rely on this price on the routing stage if we allow such a behavior.
     Send Billing Information
         If enabled, YETI adds the special SIP-header into 200 SIP-message, which contains
-        current price for calls, in order to a Customer should be informed.
+        current price for calls, in order to a Customer, should be informed.
 
 Match condition options
 ```````````````````````
@@ -620,8 +620,8 @@ Match condition options
     Ip
         IP address of the originator(customer).
     Pop
-        Point of precense, which recieves calls from the customer. If a call will come
-        on the different PoP (a node which recieves calls belongs to different a PoP), such calls
+        The Point of presence, which receives calls from the customer. If a call will come
+        on the different PoP (a node which receives calls belongs to different a PoP), such calls
         will be dropped.
     Src Prefix
         You can define a prefix which necessarily should be presented in a Src-number for every
@@ -649,7 +649,7 @@ Match condition options
 
     Diversion policy
         Defines what to do with Diversion header within SIP-signalization.
-        Default value is "Clear header", so this header will be deleted.
+        The default value is "Clear header", so this header will be deleted.
     Diversion rewrite rule
         This option should contain a regular expression for changing a Diversion header
     Diversion rewrite result
@@ -689,6 +689,1028 @@ Match condition options
     Radius accounting profile
         Must be specified if the radius accounting is required
 
+Rateplans
+~~~~~~~~~
+    **TODO**
+
+**Rateplan** attributes:
+
+Name
+    Unique name for the Rateplan.
+Profit control mode
+    **TODO**
+Send quality alarms to
+    **TODO**
+
+Destinations
+~~~~~~~~~~~~
+    **TODO**
+
+**Destination** attributes:
+
+    Prefix
+        **TODO**
+    Country
+        **TODO**
+    Network
+        **TODO**
+    Reject Calls
+        **TODO**
+    Quality Alarm
+        **TODO**
+    Rateplan
+        **TODO**
+    Routing Tag
+        **TODO**
+    Valid From
+        **TODO**
+    Valid Till
+        **TODO**
+    Rate Policy
+        **TODO**
+    Initial Interval
+        **TODO**
+    Next Interval
+        **TODO**
+    Use Dp Intervals
+        **TODO**
+    External Id
+        **TODO**
+    Initial Rate
+        **TODO**
+    Next Rate
+        **TODO**
+    Connect Fee
+        **TODO**
+    Profit Control Mode
+        **TODO**
+    Dp Margin Fixed
+        **TODO**
+    Dp Margin Percent
+        **TODO**
+    Asr Limit
+        **TODO**
+    Acd Limit
+        **TODO**
+    Short Calls Limit
+        **TODO**
+
+Routing groups
+~~~~~~~~~~~~~~
+    **TODO**
+
+**Routing group** attributes:
+
+    Name
+        **TODO**
+
+Dialpeers
+~~~~~~~~~
+    **TODO**
+
+**Dialpeer** attributes:
+
+    Prefix
+        **TODO**
+    Country
+        **TODO**
+    Network
+        **TODO**
+    Enabled
+        **TODO**
+    Locked
+        **TODO**
+    Routing Group
+        **TODO**
+    Routing Tag
+        **TODO**
+    Vendor
+        **TODO**
+    Account
+        **TODO**
+    Priority
+        **TODO**
+    Force Hit Rate
+        **TODO**
+    Exclusive Route
+        **TODO**
+    Initial Interval
+        **TODO**
+    Initial Rate
+        **TODO**
+    Next Interval
+        **TODO**
+    Next Rate
+        **TODO**
+    Lcr Rate Multiplier
+        **TODO**
+    Connect Fee
+        **TODO**
+    Gateway
+        **TODO**
+    Gateway Group
+        **TODO**
+    Valid From
+        **TODO**
+    Valid Till
+        **TODO**
+    Capacity
+        **TODO**
+    Src Name Rewrite Rule
+        **TODO**
+    Src Name Rewrite Result
+        **TODO**
+    Src Rewrite Rule
+        **TODO**
+    Src Rewrite Result
+        **TODO**
+    Dst Rewrite Rule
+        **TODO**
+    Dst Rewrite Result
+        **TODO**
+    Acd Limit
+        **TODO**
+    Asr Limit
+        **TODO**
+    Short Calls Limit
+        **TODO**
+    Created At
+        **TODO**
+    External
+        **TODO**
+    Current Rate
+        **TODO**
+
+Routing plans
+~~~~~~~~~~~~~
+    **TODO**
+
+**Routing plan** atributes:
+
+    Name
+        **TODO**
+    Sorting
+        **TODO**
+    Use Lnp
+        **TODO**
+    Rate Delta Max
+        **TODO**
+    Routing Groups
+        **TODO**
+
+Routing plan static routes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Static route** attributes:
+
+    Routing Plan
+        **TODO**
+    Prefix
+        **TODO**
+    Country
+        **TODO**
+    Network
+        **TODO**
+    Priority
+        **TODO**
+    Vendor
+        **TODO**
+
+Routing plan LNP rules
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**LNP routing plan rule** attributes:
+
+Routing plan
+    **TODO**
+Dst prefix
+    **TODO**
+Req dst rewrite rule
+    **TODO**
+Req dst rewrite result
+    **TODO**
+Database
+    **TODO**
+Lrn rewrite rule
+    **TODO**
+Lrn rewrite result
+    **TODO**
+
+LNP cache
+~~~~~~~~~
+    **TODO**
+
+Numberlists
+~~~~~~~~~~~
+    **TODO**
+
+**Numberlist** attributes:
+
+    Name
+        **TODO**
+    Mode
+        **TODO**
+    Default Action
+        **TODO**
+    Default Src Rewrite Rule
+        **TODO**
+    Default Src Rewrite Result
+        **TODO**
+    Default Dst Rewrite Rule
+        **TODO**
+    Default Dst Rewrite Result
+        **TODO**
+    Created At
+        **TODO**
+    Updated At
+        **TODO**
+
+Numberlist Items
+~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Numberlist item** attributes:
+
+    Numberlist
+        **TODO**
+    Key
+        **TODO**
+    Action
+        **TODO**
+    Src Rewrite Rule
+        **TODO**
+    Src Rewrite Result
+        **TODO**
+    Dst Rewrite Rule
+        **TODO**
+    Dst Rewrite Result
+        **TODO**
+    Createa At
+        **TODO**
+    Updated At
+        **TODO**
+
+Routing tags
+~~~~~~~~~~~~
+    **TODO**
+
+**Routing tag** attributes:
+
+Name
+    **TODO**
+
+Areas
+~~~~~
+    **TODO**
+
+**Area** attributes:
+
+    Name
+        **TODO**
+
+Area prefixes
+~~~~~~~~~~~~~
+    **TODO**
+
+**Area prefix** attributes:
+
+    Prefix
+        **TODO**
+    Area
+        **TODO**
+
+Routing tags detection
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Routing tag detection rule** attributes:
+
+    Src Area
+        **TODO**
+    Dst Area
+        **TODO**
+    Routing Tag
+        **TODO**
+
+Routing tags detection
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Routing simulation form** attributes:
+
+    Transport protocol
+        **TODO**
+    Remote ip*
+        **TODO**
+    Remote port*
+        **TODO**
+    Pop
+        **TODO**
+    Src number*
+        **TODO**
+    Dst number*
+        **TODO**
+    Uri domain
+        **TODO**
+    From domain
+        **TODO**
+    To domain
+        **TODO**
+    X yeti auth
+        **TODO**
+
+Routing simulation
+~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Call simulation** attributes:
+
+    Transport protocol
+        **TODO**
+    Remote ip*
+        **TODO**
+    Remote port*
+        **TODO**
+    Pop
+        **TODO**
+    Src number*
+        **TODO**
+    Dst number*
+        **TODO**
+    Uri domain
+        **TODO**
+    From domain
+        **TODO**
+    To domain
+        **TODO**
+    X yeti auth
+        **TODO**
+    Release mode
+        **TODO**
+
+Cdr
+---
+
+Tables
+~~~~~~
+**TODO**
+
+**Cdr Table Details** attributes:
+
+    ID
+        **TODO**
+    NAME
+        **TODO**
+    READABLE
+        **TODO**
+    WRITABLE
+        **TODO**
+    DATE START
+        **TODO**
+    DATE STOP
+        **TODO**
+    ACTIVE
+        **TODO**
+
+CDR History
+~~~~~~~~~~~
+    **TODO**
+
+*General Information* tab
+`````````````````````````
+    ID
+        **TODO**
+    TIME START
+        **TODO**
+    TIME CONNECT
+        **TODO**
+    TIME END
+        **TODO**
+    DURATION
+        **TODO**
+    STATUS	FAILURE
+        **TODO**
+    DISCONNECT INITIATOR
+        **TODO**
+    LEGA DISCONNECT CODE
+        **TODO**
+    LEGA DISCONNECT REASON
+        **TODO**
+    INTERNAL DISCONNECT CODE
+        **TODO**
+    INTERNAL DISCONNECT REASON
+        **TODO**
+    LEGB DISCONNECT CODE
+        **TODO**
+    LEGB DISCONNECT REASON
+        **TODO**
+    ROUTING ATTEMPT
+        **TODO**
+    IS LAST CDR
+        **TODO**
+    SRC NAME IN
+        **TODO**
+    SRC PREFIX IN
+        **TODO**
+    FROM DOMAIN
+        **TODO**
+    DST PREFIX IN
+        **TODO**
+    TO DOMAIN
+        **TODO**
+    RURI DOMAIN
+        **TODO**
+    SRC PREFIX ROUTING
+        **TODO**
+    SRC AREA
+        **TODO**
+    DST PREFIX ROUTING
+        **TODO**
+    DST AREA
+        **TODO**
+    LRN
+        **TODO**
+    LNP DATABASE
+        **TODO**
+    SRC NAME OUT
+        **TODO**
+    SRC PREFIX OUT
+        **TODO**
+    DST PREFIX OUT
+        **TODO**
+    DIVERSION IN
+        **TODO**
+    DIVERSION OUT
+        **TODO**
+    DST COUNTRY
+        **TODO**
+    DST NETWORK
+        **TODO**
+    NODE
+        **TODO**
+    POP
+        **TODO**
+    CUSTOMER
+        **TODO**
+    VENDOR
+        **TODO**
+    CUSTOMER ACC
+        **TODO**
+    VENDOR ACC
+        **TODO**
+    CUSTOMER AUTH
+        **TODO**
+    ORIG GW
+        **TODO**
+    TERM GW
+        **TODO**
+
+*Protocol Details* tab
+``````````````````````
+    **TODO**
+
+    ORIG CALL
+        **TODO**
+    TERM CALL
+        **TODO**
+    SIGN ORIG TRANSPORT PROTOCOL
+        **TODO**
+    SIGN ORIG IP
+        **TODO**
+    SIGN ORIG LOCAL IP
+        **TODO**
+    AUTH ORIG TRANSPORT PROTOCOL
+        **TODO**
+    AUTH ORIG IP
+        **TODO**
+    SIGN TERM TRANSPORT PROTOCOL
+        **TODO**
+    SIGN TERM IP
+        **TODO**
+    SIGN TERM LOCAL IP
+        **TODO**
+    LOCAL TAG
+        **TODO**
+    ROUTING DELAY
+        **TODO**
+    PDD
+        **TODO**
+    RTT
+        **TODO**
+    EARLY MEDIA PRESENT
+        **TODO**
+    LEGA RX PAYLOADS
+        **TODO**
+    LEGA TX PAYLOADS
+        **TODO**
+    LEGB RX PAYLOADS
+        **TODO**
+    LEGB TX PAYLOADS
+        **TODO**
+    LEGA RX BYTES
+        **TODO**
+    LEGA TX BYTES
+        **TODO**
+    LEGA RX DECODE ERRS
+        **TODO**
+    LEGA RX NO BUF ERRS
+        **TODO**
+    LEGA RX PARSE ERRS
+        **TODO**
+    LEGB RX BYTES
+        **TODO**
+    LEGB TX BYTES
+        **TODO**
+    LEGB RX DECODE ERRS
+        **TODO**
+    LEGB RX NO BUF ERRS
+        **TODO**
+    LEGB RX PARSE ERRS
+        **TODO**
+    CORE VERSION
+        **TODO**
+    YETI VERSION
+        **TODO**
+    LEGA USER AGENT
+        **TODO**
+    LEGB USER AGENT
+        **TODO**
+
+*Routing&Billing information* tab
+`````````````````````````````````
+    **TODO**
+
+    CUSTOMER PRICE
+        **TODO**
+    VENDOR PRICE
+        **TODO**
+    PROFIT
+        **TODO**
+    RATEPLAN
+        **TODO**
+    DESTINATION
+        **TODO**
+    DESTINATION RATE POLICY
+        **TODO**
+    DESTINATION FEE
+        **TODO**
+    DESTINATION INITIAL INTERVAL
+        **TODO**
+    DESTINATION INITIAL RATE
+        **TODO**
+    DESTINATION NEXT INTERVAL
+        **TODO**
+    DESTINATION NEXT RATE
+        **TODO**
+    ROUTING PLAN
+        **TODO**
+    ROUTING GROUP
+        **TODO**
+    ROUTING TAG
+        **TODO**
+    DIALPEER
+        **TODO**
+    DIALPEER FEE
+        **TODO**
+    DIALPEER INITIAL INTERVAL
+        **TODO**
+    DIALPEER INITIAL RATE
+        **TODO**
+    DIALPEER NEXT INTERVAL
+        **TODO**
+    DIALPEER NEXT RATE
+        **TODO**
+    TIME LIMIT
+        **TODO**
+    CUSTOMER INVOICE
+        **TODO**
+    VENDOR INVOICE
+        **TODO**
+
+CDR Archive
+~~~~~~~~~~~
+
+Reports
+-------
+    **TODO**
+
+Custom Cdrs report
+~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Custom Cdrs** атрибуты:
+
+    Date start
+        **TODO**
+    Date end
+        **TODO**
+    Customer
+        **TODO**
+    Filter
+        **TODO**
+    Group by*
+        **TODO**
+    Send to
+        **TODO**
+
+**Custom Cdr Scheduler** атрибуты:
+
+    Period*
+        **TODO**
+    Customer
+        **TODO**
+    Filter
+        **TODO**
+    Group by*
+        **TODO**
+    Send to
+        **TODO**
+
+Customer Traffic
+~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Customer Traffic** атрибуты:
+
+    Date start*
+        **TODO**
+    Date end*
+        **TODO**
+    Customer
+        **TODO**
+    Send to
+        **TODO**
+
+**Customer Traffic Scheduler** атрибуты:
+
+    Period*
+        **TODO**
+    Customer*
+        **TODO**
+    Send to
+        **TODO**
+
+Vendor Traffic
+~~~~~~~~~~~~~~
+    **TODO**
+
+**Vendor Traffic** атрибуты:
+
+    Date start*
+        **TODO**
+    Date end*
+        **TODO**
+    Vendor
+        **TODO**
+    Send to
+        **TODO**
+
+**Vendor Traffic Scheduler** атрибуты:
+
+    Period*
+        **TODO**
+    Vendor*
+        **TODO**
+    Send to
+        **TODO**
+
+Interval Cdr report
+~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Report Interval Cdr** атрибуты:
+
+    Date start*
+        **TODO**
+    Date end*
+        **TODO**
+    Interval length*
+        **TODO**
+    Aggregation function*
+        **TODO**
+    Aggregate by*
+        **TODO**
+    Filter
+        **TODO**
+    Group by fields
+        **TODO**
+    Send to
+        **TODO**
+
+**Interval Cdr Scheduler** атрибуты:
+
+Period*
+    **TODO**
+Interval length*
+    **TODO**
+Aggregation function*
+    **TODO**
+Aggregate by*
+    **TODO**
+Filter
+    **TODO**
+Group by
+    **TODO**
+Send to
+    **TODO**
+
+Termination Distributions
+~~~~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Report Realtime Termination Distributions** таблица:
+
+Vendor
+    **TODO**
+Originated Calls Count
+    **TODO**
+Rerouted Calls Count
+    **TODO**
+Rerouted Calls Percent
+    **TODO**
+Termination Attempts Count
+    **TODO**
+Calls Duration
+    **TODO**
+Acd
+    **TODO**
+Origination Asr
+    **TODO**
+Termination Asr
+    **TODO**
+Profit
+    **TODO**
+Customer Price
+    **TODO**
+Vendor Price
+    **TODO**
+
+Origination Performances
+~~~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Report Realtime Origination Performances** таблица:
+
+    Customer Auth
+        **TODO**
+    Cps
+        **TODO**
+    Offered load(Erlang)
+        **TODO**
+    Routing Delay
+        **TODO**
+    Calls Duration
+        **TODO**
+    Calls Count
+        **TODO**
+    Termination Attempts Count
+        **TODO**
+    Acd
+        **TODO**
+    Asr
+        **TODO**
+
+Bad Routings
+~~~~~~~~~~~~
+    **TODO**
+
+**Report Realtime Bad Routings** таблица:
+
+    Customer
+        **TODO**
+    Customer Auth
+        **TODO**
+    Rateplan
+        **TODO**
+    Routing Plan
+        **TODO**
+    Internal Disconnect Code
+        **TODO**
+    Internal Disconnect Reason
+        **TODO**
+    Calls Count
+        **TODO**
+
+Not Authenticateds attempts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Report Realtime Not Authenticateds** таблица:
+
+Auth Orig Ip
+    **TODO**
+Auth Orig Port
+    **TODO**
+Attempts Count
+    **TODO**
+Internal Disconnect Code
+    **TODO**
+Internal Disconnect Reason
+    **TODO**
+
+Realtime Data
+-------------
+
+Active Calls
+~~~~~~~~~~~~
+    **TODO**
+
+**Active Calls** таблица:
+
+Actions
+    **TODO**
+Customer
+    **TODO**
+Vendor
+    **TODO**
+Duration
+    **TODO**
+Dst Number
+    **TODO**
+Dst Network
+    **TODO**
+Origination Rate
+    **TODO**
+Termination Rate
+    **TODO**
+
+Nodes
+~~~~~
+    **TODO**
+
+**Realtime Data Active Nodes** таблица:
+
+    Id
+        **TODO**
+    Name
+        **TODO**
+    Active Calls Count
+        **TODO**
+    Version
+        **TODO**
+    Shutdown Req Time
+        **TODO**
+    Sessions Num
+        **TODO**
+    Uptime
+        **TODO**
+
+Outgoing Registrations
+~~~~~~~~~~~~~~~~~~~~~~
+    **TODO**
+
+**Outgoing Registrations** таблица:
+
+    Id
+        **TODO**
+    User
+        **TODO**
+    Domain
+        **TODO**
+    State
+        **TODO**
+    Auth User
+        **TODO**
+    Display Name
+        **TODO**
+    Contact	Proxy
+        **TODO**
+    Expires
+        **TODO**
+    Expires Left
+        **TODO**
+    Node
+        **TODO**
+    Last Error Code
+        **TODO**
+    Last Error Initiator
+        **TODO**
+    Last Error Reason
+        **TODO**
+    Last Request Time
+        **TODO**
+    Last Succ Reg Time
+        **TODO**
+    Attempt
+        **TODO**
+    Max Attempts
+        **TODO**
+    Retry
+        **TODO**
+    Delay
+        **TODO**
+
+Logs
+----
+
+Api Logs
+~~~~~~~~
+    **TODO**
+
+**Api Log Details**
+
+    ID
+            **TODO**
+    CREATED AT
+            **TODO**
+    STATUS
+            **TODO**
+    METHOD
+            **TODO**
+    PATH
+            **TODO**
+    CONTROLLER
+            **TODO**
+    ACTION
+            **TODO**
+    PAGE DURATION
+            **TODO**
+    DB DURATION
+            **TODO**
+    PARAMS
+            **TODO**
+    REQUEST HEADERS
+            **TODO**
+    REQUEST BODY
+            **TODO**
+    RESPONSE HEADERS
+            **TODO**
+    RESPONSE BODY
+            **TODO**
+
+Audit Log
+~~~~~~~~~
+    **TODO**
+
+**Audit Log Item Details**
+
+    ID
+        **TODO**
+    ITEM TYPE
+        **TODO**
+    ITEM
+        **TODO**
+    EVENT
+        **TODO**
+    WHODUNNIT
+        **TODO**
+    DATE
+        **TODO**
+    TXID
+        **TODO**
+    IP
+        **TODO**
+
+Logic Logs
+~~~~~~~~~~
+    **TODO**
+
+**Logic Log Details**
+
+
+ID
+    **TODO**
+TIMESTAMP
+    **TODO**
+TXID
+    **TODO**
+LEVEL
+    **TODO**
+SOURCE
+    **TODO**
+MSG
+    **TODO**
+
+Email Logs
+~~~~~~~~~~
+    **TODO**
+
+**Log Email Log Details**
+
+ID
+    **TODO**
+CREATED AT
+    **TODO**
+SENT AT	EMPTY
+    **TODO**
+CONTACT
+    **TODO**
+SMTP CONNECTION
+    **TODO**
+MAIL FROM
+    **TODO**
+MAIL TO
+    **TODO**
+SUBJECT
+    **TODO**
+MSG
+    **TODO**
+
+Events
+~~~~~~
+    **TODO**
 
 System
 ------
@@ -701,10 +1723,10 @@ The page contains global parameters of YETI.
 **Global configuration** attributes:
 
 Rows Per Page
-    This option affords to change drop-down 'Per page' element, which is exists on every list-type page in YETI.
+    This option affords to change drop-down 'Per page' element, which exist on every list-type page in YETI.
     You can add additional values to that drop-down list if default values '30,50,100' are not sufficient.
 CDR Unload Dir
-    Directory where YETI unload CDR tables on the *CDR -> Tables* page.
+    A directory where YETI unload CDR tables on the *CDR -> Tables* page.
 CDR Unload URI
     URL for external CDR viewer program. YETI redirects to that program from *CDR -> Tables* page when user press **Unloaded files** button.
 CDR Archive Delay
@@ -712,13 +1734,13 @@ CDR Archive Delay
 CDR Remove Delay
     Remove archived tables after **N** months.
 Max Records
-    Maximum amount of records which YETI can save to CSV file on every list-type page (*Download: CSV* button at the bottom of page).
+    The maximum amount of records which YETI can save to CSV file on every list-type page (*Download: CSV* button at the bottom of page).
 Import Max Threads
-    Number of threads for import from CSV proccess.
+    The number of threads for import from CSV process.
 Import Helpers Dir
-    Helper directory where YETI saves temporary files durring import from CSV process.
+    Helper directory where YETI saves temporary files during import from CSV process.
 Active Calls Require Filter
-    Requre any filter on the *RT data -> Active Calls* page.
+    Require any filter on the *RT data -> Active Calls* page.
 Registrations Require Filter
     Require any filter on the *RT data -> Outgoing Registrations* page.
 Active Calls Show Chart
@@ -726,32 +1748,32 @@ Active Calls Show Chart
 Active Calls Autorefresh Enable
     If **true** YETI will refresh *RT data -> Active Calls* page every 20 seconds.
 Max Call Duration
-    Global parameter of maximum call duration (seconds).
+    The global parameter of maximum call duration (seconds).
 Random Disconnect Enable
-    If **true** YETI will randomly disconnect calls whose duration more than **Random Disconnect Length** by sendind BYE message to parties.
+    If **true** YETI will randomly disconnect calls whose duration more than **Random Disconnect Length** by sending BYE message to parties.
 Random Disconnect Length
     Duration of calls (seconds) which YETI will disconnect if **Random Disconnect Enable** enabled.
 Drop Call If LNP Fail
-    If **true** YETI drops calls if request to LNP database is not successfull.
+    If **true** YETI drops calls if a request to LNP database is not successful.
 LNP Cache TTL
-    Time to life of LNP cache (seconds).
+    Time to the life of LNP cache (seconds).
 LNP E2E Timeout
     Timeout for requests to LNP database (seconds). YETI will drop calls if **Drop Call If LNP Fail** enabled and timeout expired or bad response returned.
 Short Call Length
-    User may decide which calls are 'short' by this settings (seconds). It involves **Short Calls** filter button on the *CDR -> CDR History* page.
+    A User may decide which calls are 'short' by this setting(seconds). It involves **Short Calls** filter button on the *CDR -> CDR History* page.
 Termination Stats Window
-    Interval (hours) for generating of stats for gateway or dialpeer (*Short Window Stats* panel on page of every gateway or dialpeer).
+    Interval (hours) for generating of stats for gateway or dialpeer (*Short Window Stats* panel on the page of every gateway or dialpeer).
 Quality Control Min Calls
-    Minimum number of calls for building **Quality Control** statistics.
+    The minimum number of calls for building **Quality Control** statistics.
 Quality Control Min Duration
-    Total duration of calls for building **Quality Control** statistics.
+    The total duration of calls for building **Quality Control** statistics.
 
 ----
 
 Nodes
 ~~~~~
 
-List of YETI nodes connected to current cluster.
+List of YETI nodes connected to the current cluster.
 Every node represents independent installation of YETI-SEMS, which communicate to management interface via RPC protocol.
 
 Attributes:
@@ -759,60 +1781,60 @@ Attributes:
 Name
         Node name.
 Pop
-        Point of presence. Might be useful for logic grupping of nodes (different data-centers, as example).
+        The Point of presence. Might be useful for logic grouping of nodes (different data-centers, for example).
 Signalling ip
-        IP address of node.
+        IP address of the node.
 Signaling port
-        Network port for sending SIP-packets (dafault value 5060).
+        Network port for sending SIP-packets (default value 5060).
 Rpc endpoint
         IP address and port on which YETI-SEMS is waiting for RPC connections.
 
-In view mode user can use next tabs:
+In view mode a user can use next tabs:
 
 Details
-        Common information about node.
+        Common information about a node.
 Active Calls Chart
         Show the next graphs:
         - Active calls for 24 hours.
-        - Calls count for month.
+        - Calls count for the month.
 Comments
-        Comments of user for current node.
+        Comments of a user for the current node.
 
 ----
 
 Networks
 ~~~~~~~~
 
-Catalogue of carriers. It contains names of carriers and uses in **Network prefixes** then.
+Catalog of carriers. It contains names of carriers and uses in **Network prefixes** then.
 
 ----
 
 Network Prefixes
 ~~~~~~~~~~~~~~~~
 
-Catalogue of phone prefixes, which contains:
+Catalog of phone prefixes, which contains:
 
     - Prefix
     - Operator network name
     - Country this prefix belongs to
 
-Yeti database contains preloaded data of prefixes. User could edit them or add another.
+Yeti database contains preloaded data of prefixes. A User could edit them or add another.
 
 ----
 
 Sensors
 ~~~~~~~
 
-System supports mirroring of signaling and media traffic.
+The System supports mirroring of signaling and media traffic.
 This functionality can be used for Lawful Interception.
-Currently system supports two encapsulation methods:
+Currently, the system supports two encapsulation methods:
 
     - IP-IP tunnel
         Original packets will be encapsulated into additional IP-IP tunnel header.
         This mode allows to route mirrored traffic,
         it's especially useful when destination equipment not available in the same broadcast domain.
     - IP over Ethernet
-        In this mode original packets will be encapsulated directly into Ethernet frame using raw sockets.
+        In this mode, original packets will be encapsulated directly into Ethernet frame using raw sockets.
         Intended to use for cases when destination equipment is in the same L2 domain.
 
 Sensor and logging level can be chosen in gateway settings.
@@ -824,22 +1846,22 @@ thus for both legs mirroring - sensors must be configured for both termination a
 SMTP connections
 ~~~~~~~~~~~~~~~~
 
-It is necessary to have an SMTP connection in order to YETI can send invoices and alerts to customers. Then user can choose SMTP connection for Customer.
+It is necessary to have an SMTP connection in order to YETI can send invoices and alerts to customers. A User can choose SMTP connection for Customer.
 
 **SMTP connections** attributes:
 
 Name
-    Unique name of SMTP connection.
-    Uses for informational purposes and doesn't affect system behaviour.
+    The unique name of SMTP connection.
+    Uses for informational purposes and doesn't affect system behavior.
 Host
     IP address or hostname of SMTP server.
 Port
     TCP port on which SMTP server wait for requests (*default value: 25*).
 From address
-    E-mail address of sender.
+    E-mail address of the sender.
 Auth user
-	Username for Authorization procedure on external SMTP server.
+    Username for Authorization procedure on external SMTP server.
 Auth password
     Password for Authorization procedure on external SMTP server.
 Global
-	Set as global for all customers.
+    Set as global for all customers.
