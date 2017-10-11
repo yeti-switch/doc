@@ -40,17 +40,9 @@ This section describes billing and accounting entities
 Contractors
 ~~~~~~~~~~~
 
-Contractor:
-    company which will interact with the system
+Contractor is a company which will interact with the system.
 
-Contractor may act as:
-
-    Customer
-        Use provided call termination service
-    Supplier
-        Provide call termination service
-
-One contractor can be either customer and supplier
+Contractor may act as **Customer** - Use provided call termination service and **Supplier** - Provide call termination service. Same contractor can be either customer and supplier.
 
 **Contractor** has the following attributes:
 
@@ -86,7 +78,7 @@ Contact:
 
 **Contact** has the following attributes:
 
-    Contractors:
+    Contractor:
         Choose Contractors if this contact belongs to them
     Admin user:
         Administrative user which may own contact.
@@ -105,8 +97,10 @@ Accounts
 
     Name
         unique account name
-    Contractors
-        Contractors who own this account.
+    Contractor
+        Contractor who own this account.
+    Balance
+        Current account balance
     Min balance
         If account balance become less than this limit, then traffic for this account will be blocked.
     Max balance
@@ -141,8 +135,8 @@ and **increased** if it uses account for **termination** (vendor)
 
 ----
 
-Billing. Payments
-~~~~~~~~~~~~~~~~~
+Payments
+~~~~~~~~
 
 Payments intended to change account balance.
 
@@ -177,6 +171,8 @@ Gateways
 ~~~~~~~~
 
 **Gateway** attributes:
+    Name
+        Friendly name of gateway
     Enabled
         disabled gateways will be ignored
     Gateway group
@@ -184,20 +180,20 @@ Gateways
         Choose group from the list to add gateway to the group.
         Gateways groups can be managed at *Billing->Gateway Groups*
     Priority
-        Gateway priority in the group.
-        In case of termination to the group, gateways will be arranged according to this priority.
+        Gateway priority in the gateway group.
+        In case of termination to the group, gateways will be arranged according to this priority. If few gateways has same priority, calls will balanced between them.
     Pop
-        Point of presence of the gateway
+        Point of presence of the gateway. It used to force prioritization when :ref:`prefer same POP <gateway_group_prefer_same_pop>` option enabled for gateway group.
     Contractor
         Gateway owner
     Allow origination
         Specifies if gateway allowed to originate calls
     Allow termination
-        Specifies if gateway allowed to accept calls from YETI
-    Sst enabled
-        Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
-    Capacity
-        Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.
+        Specifies if gateway allowed to accept calls from YETI       
+    Origination capacity
+        Origination capacity limit for this gateway. In case of gateway usage for termination this attribute will be ignored.
+    Termination capacity
+        Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.       
     Acd limit
         ACD threshold. if ACD for gateway traffic will drop below threshold,
         then dialpeers, which are use this gateway,
@@ -206,6 +202,22 @@ Gateways
         ASR threshold. if ASR for gateway traffic will drop below threshold,
         then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+    Short Calls limit
+        TODO
+        then dialpeers, which are use this gateway,
+        will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+    SST Enabled
+        Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
+    SST Session Expires
+        Default value of Expires header for SIP session timers mechanish
+    SST Minimum timer
+        TODO
+    SST Maximum timer 
+        TODO
+    Session refresh
+        TODO
+    SST ACCEPT501
+        TODO
     Sensor
         Sensor to mirror traffic. Mirroring disabled if not set.
     Sensor level
@@ -227,9 +239,19 @@ Gateways
 
             - resolve ruri enabled => RURI will be `user@1.1.1.1`
             - resolve ruri disabled => RURI will be `user@domain.com`
+    Auth enabled
+        enable authorization for outgoing calls
+    Auth user
+        auth username
+    Auth password
+        auth password
+    Auth from user
+        From user-part for auth
+    Auth from domain
+        From domain-part for auth      
+        
     Diversion policy
         Policy to process Diversion header
-
     Diversion rewrite rule
         regular expression pattern for Diversion
     Diversion rewrite result
@@ -390,6 +412,9 @@ if this gateways have similar billing configuration.
         Unique gateways group name
     Vendor
         Gateway group owner
+
+    .. _gateway_group_prefer_same_pop:
+    
     Prefer same pop
         If enabled, firstly use termination gateways with the same POP as origination traffic has
 
@@ -398,7 +423,7 @@ if this gateways have similar billing configuration.
 Disconnect policies
 ~~~~~~~~~~~~~~~~~~~
 
-Disconnect policy allows to configure rules for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
+Disconnect policy allows to override system default actions for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
 
 ----
 
@@ -417,6 +442,8 @@ YETI allows to use outgoing SIP registrations on remote supplier or customer equ
         Point of presence for registration requests.
     Node
         Node which will hold registration
+    Transport protocol
+        SIP transport protocol which will used for send request
     Domain*
         RURI,From domain part.
     Username*
@@ -429,6 +456,8 @@ YETI allows to use outgoing SIP registrations on remote supplier or customer equ
         Authorization password
     Proxy
         SIP Proxy to use for registration
+    Proxy transport protocol
+        SIP transport protocol which will used for interaction with proxy
     Contact
         Contact header. Should be in a SIP-URI format.
     Expire
@@ -498,7 +527,9 @@ Csv file
 RADIUS Auth Profiles
 ~~~~~~~~~~~~~~~~~~~~
 
-Yeti supports additional authorization of incoming call on externa RADIUS server. RADIUS Auth Profile describes communication with that server.
+Yeti supports additional authorization of incoming call on external RADIUS server. RADIUS Auth Profile describes communication with that server.
+
+.. note:: module **radius_client** should be loaded to use such feature
 
 **RADIUS Auth Profiles** attributes:
 
@@ -518,13 +549,17 @@ Timeout
     Timeout of request after which a request will be repeated (millisecond).
 Attempts
     Maximum amount of of requests for every call.
+    
+To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object. 
+
+.. note:: YETI don't support interaction with external routing engines via RADIUS protocol
 
 ----
 
 RADIUS Accounting Profiles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Yeti supports additional accounting of calls on externa RADIUS server. RADIUS Accounting Profile describes communication with that server.
+Yeti supports additional accounting of calls on external RADIUS server. RADIUS Accounting Profile describes communication with that server.
 
 **RADIUS Accounting Profiles** attributes:
 
@@ -555,8 +590,8 @@ Enable stop accounting
 Routing
 -------
 
-Customer Auth
-~~~~~~~~~~~~~
+Customers Auth
+~~~~~~~~~~~~~~
 
 This entity authenticates calls from customers or gateways, applies them to
 routing table and has some useful filters and options.
@@ -565,12 +600,11 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
 
 *General* tab
 `````````````
-
     Name
         Unique name of Accounting profile.
         Uses for informational purposes and doesn't affect system behaviour.
     Enabled
-        IP address or hostname of external RADIUS server.
+        Disabled records will be ignored
     Customer
         Customer, who this Customer Auth belongs to
     Account
@@ -591,12 +625,13 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
     Dump Level
         It is possible to capture calls to PCAP files, using this option.
         You may choose what kind of information should be captured.
-
         Possible values are:
+        
             - Capture nothing
-            - Capture all traffic
-            - Capture RTP traffic
             - Capture signalling traffic
+            - Capture RTP traffic
+            - Capture all traffic
+            
     Enable Audio Recording
         If checked, the media for calls passing through this Customer Auth will be stored
         in WAV files.
@@ -688,7 +723,273 @@ Match condition options
         The result of applying the Dst number radius rewrite rule to Destination-number
     Radius accounting profile
         Must be specified if the radius accounting is required
+    
+----
 
+..
+
+Rateplan
+~~~~~~~~
+
+Name
+    A-Z-Plan
+Profit Control Mode
+    No Control
+Send Quality Alarms To
+    TODO
+    
+----
+
+Destination
+~~~~~~~~~~~
+
+Enabled
+Prefix
+Country
+Network
+Reject Calls
+Quality Alarm
+Rateplan
+Routing Tag
+Valid From
+Valid Till
+Rate Policy
+Initial Interval
+Next Interval
+Use Dp Intervals
+External Id
+
+
+Initial Rate
+Next Rate
+Connect Fee
+Profit Control Mode
+
+Dp Margin Fixed
+Dp Margin Percent
+
+Asr Limit
+Acd Limit
+Short Calls Limit
+
+Routing Group
+~~~~~~~~~~~~~
+
+Name
+    Friendly name of object
+
+    
+----
+
+Dialpeer
+~~~~~~~~
+
+Prefix
+Country
+Network
+Enabled
+Locked
+Routing Group
+Routing Tag
+Vendor
+Account
+Priority
+Force Hit Rate
+Exclusive Route
+Initial Interval
+Initial Rate
+Next Interval
+Next Rate
+Lcr Rate Multiplier
+Connect Fee
+Gateway
+Gateway Group
+Valid From
+Valid Till
+Capacity
+Src Name Rewrite Rule
+Src Name Rewrite Result
+Src Rewrite Rule
+Src Rewrite Result
+Dst Rewrite Rule
+Dst Rewrite Result
+Acd Limit
+Asr Limit
+Short Calls Limit
+Created At
+External
+Current Rate
+
+----
+
+
+Routing Plan
+~~~~~~~~~~~~
+
+Name
+Sorting
+Use Lnp
+Rate Delta Max
+Routing Groups
+
+----
+
+Routing plan static routes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Routing Plan
+Prefix
+Country
+Network
+Priority
+Vendor
+
+----
+
+Routing Plan LNP rules
+~~~~~~~~~~~~~~~~~~~~~~
+
+Routing plan
+Dst prefix￼
+Req dst rewrite rule￼
+Req dst rewrite result￼
+Database
+Lrn rewrite rule￼
+Lrn rewrite result￼
+
+----
+
+LNP Cache
+~~~~~~~~~
+
+TODO
+
+----
+
+Numberlist
+~~~~~~~~~~
+
+TODO
+
+----
+
+Numberlist item
+~~~~~~~~~~~~~~~
+
+TODO
+
+----
+
+Routing Tag
+~~~~~~~~~~~
+
+TODO
+
+----
+
+
+Area
+~~~~
+
+TODO
+
+----
+
+Area prefixes
+~~~~~~~~~~~~~
+
+TODO
+
+----
+
+Routing Tags detection
+~~~~~~~~~~~~~~~~~~~~~~
+
+TODO
+
+----
+
+Routing Simulation
+~~~~~~~~~~~~~~~~~~
+
+TODO
+
+----
+
+
+CDR
+---
+
+Tables
+~~~~~~
+
+CDR History
+~~~~~~~~~~~
+
+CDR Archive
+~~~~~~~~~~~
+
+Reports
+-------
+
+Custom CDR report
+~~~~~~~~~~~~~~~~~
+
+
+Customer traffic
+~~~~~~~~~~~~~~~~
+
+Vendor traffic
+~~~~~~~~~~~~~~
+
+Interval CDR report
+~~~~~~~~~~~~~~~~~~~
+
+Termination Distribution
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Origination performance
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Bad routing
+~~~~~~~~~~~
+
+Not authentificated attempts
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Realtime Data
+-------------
+
+Active calls
+~~~~~~~~~~~~
+
+Nodes
+~~~~~
+
+Outgoing Registrations
+~~~~~~~~~~~~~~~~~~~~~~
+
+
+Logs
+----
+
+API Log
+~~~~~~~
+
+Audit Log
+~~~~~~~~~
+
+Logic Log
+~~~~~~~~~
+
+Email Log
+~~~~~~~~~
+
+Events
+~~~~~~
+
+        
 
 System
 ------
