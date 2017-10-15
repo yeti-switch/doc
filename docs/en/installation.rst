@@ -165,17 +165,18 @@ Create database.yml file with the following content:
       port: 5432
       min_messages: notice
     
-    production_cdr: 
-      adapter: postgresql
-      encoding: unicode
-      database: cdr
-      pool: 5
-      username: yeti
-      password: somepassword
-      host: 127.0.0.1
-      schema_search_path: 'cdr, reports, billing'
-      port: 5432
-      min_messages: notice
+    secondbase:
+      production:
+        adapter: postgresql
+        encoding: unicode
+        database: cdr
+        pool: 5
+        username: yeti
+        password: somepassword
+        host: 127.0.0.1
+        schema_search_path: 'cdr, reports, billing'
+        port: 5432
+        min_messages: notice
 
 Warning: you should specify correct addresses and credentials that were used in previous section
 
@@ -185,24 +186,18 @@ Databases data initialization
 To simplify work with databases use utility yeti-db
 To initialize empty databases::
 
-    # yeti-db init 
-    # yeti-db --cdr init
-
+    # cd /home/yeti-web 
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:create db:structure:load db:migrate
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:create db:second_base:structure:load db:second_base:migrate
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:seed
+ 
+    
 To upgrade databases to the latest version::
 
-    # yeti-db apply_all 
-    # yeti-db --cdr apply_all
-
-You can check actual database versions::
-
-    # yeti-db version
-    # yeti-db --cdr version
-
-Attention: During system upgrade on production systems **apply_all** command should not be used
-because this command is intended to upgrade database schemas and content to the latest version only for systems without live traffic.
-Production systems must be upgraded using **apply** command which applies just one update at a single run.
-After each upgrade it is important to change appropriate configuration files and restart all traffic switch instances.
-This approach allows zero-downtime upgrades (without loss of traffic and CDRs)
+    # cd /home/yeti-web 
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+    
 
 Launch
 ------
