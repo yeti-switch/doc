@@ -335,7 +335,7 @@ Redis используется для синхронизации данных м
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
           routing {
-            schema = switch11
+            schema = switch13
             function = route_release
             init = init
             master_pool {
