@@ -16,6 +16,7 @@ Contents:
    headers-filtering
    yeti-cli
    yeti-cli-commands
+   upgrade-to-1.4
 
 
 Indices and tables
