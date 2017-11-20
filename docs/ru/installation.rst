@@ -149,7 +149,7 @@
 
 ::
 
-    # aptitude update && aptitude install yeti-web
+    # aptitude update && aptitude install yeti-web nginx
 
 Настройка подключения к базам данных
 ------------------------------------
@@ -207,6 +207,19 @@
     # cd /home/yeti-web 
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+
+
+Конфигурирование NGINX
+----------------------
+
+Для минимальной конфигурации достаточно удалить дефолную конфигурацию nginx и скопировать пример конфига::
+
+    # rm /etc/nginx/sites-enabled/default
+    # cp /home/yeti-web/config/yeti-web.dist.nginx /etc/nginx/sites-enabled/yeti
+    # nginx -t
+    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+    nginx: configuration file /etc/nginx/nginx.conf test is successful
+    # service nginx restart
     
 
 Запуск
@@ -216,7 +229,7 @@
 используя следующие команды::
 
     # service yeti-web start 
-    # service yeti-cdr-billing start
+    # service yeti-cdr-billing@cdr_billing start
     # service yeti-delayed-job start
 
 Эти команды запустят веб-интерфейс и обработчики CDR
