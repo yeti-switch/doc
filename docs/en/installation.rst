@@ -249,6 +249,30 @@ Try to open management interface in your favorite browser and login with default
 :user: admin
 :password: 111111
 
+CDR billing and PGQ ticker
+==========================
+
+After initialization of CDR database you should run skytools pgq ticker daemon on server with CDR database.
+
+Create configuration file /etc/skytools/pgqd.ini 
+
+.. code-block:: ini
+    
+    [pgqd]
+    base_connstr = host=127.0.0.1 port=5432 dbname=cdr user=yeti password=somepassword
+    initial_database = cdr
+    database_list = cdr
+    script = /usr/bin/pgqd
+    pidfile = /var/run/skytools/pgqd.pid
+    ticker_max_count=1
+    ticker_max_lag=3
+    ticker_idle_period=360
+
+Then you can start ticker::
+
+    # service skytools3 start   
+
+
 DSS Storage installation
 ========================
 

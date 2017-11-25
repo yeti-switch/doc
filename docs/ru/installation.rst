@@ -262,6 +262,30 @@
 :user: admin
 :password: 111111
 
+CDR биллинг и PGQ ticker
+==========================
+
+После инициализации баз данных необходимо запустить pgq tiсker демон на сервере с базой данных CDR.
+
+Создайте файл конфигурации /etc/skytools/pgqd.ini с таким содержимым:
+
+.. code-block:: ini
+    
+    [pgqd]
+    base_connstr = host=127.0.0.1 port=5432 dbname=cdr user=yeti password=somepassword
+    initial_database = cdr
+    database_list = cdr
+    script = /usr/bin/pgqd
+    pidfile = /var/run/skytools/pgqd.pid
+    ticker_max_count=1
+    ticker_max_lag=3
+    ticker_idle_period=360
+
+Теперь можно запускать демон::
+
+    # service skytools3 start   
+
+
 
 Установка хранилища DSS
 =======================
