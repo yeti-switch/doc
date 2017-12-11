@@ -14,6 +14,7 @@ Contents:
    general
    installation
    yeti-ui
+   routing-logic
    ldap
    yeti-cli
    yeti-cli-commands
