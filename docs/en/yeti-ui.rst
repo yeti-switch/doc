@@ -45,7 +45,8 @@ Contractor is a company which will interact with the system.
 Contractor may act as **Customer** - Use provided call termination service and **Supplier** - Provide call termination service. Same contractor can be either customer and supplier.
 
 **Contractor** has the following attributes:
-
+    Id
+        Unique contractor id.
     Name
         Unique contractor name.
     Enabled
@@ -60,9 +61,9 @@ Contractor may act as **Customer** - Use provided call termination service and *
     Address
         Optional contractor address.
     Phones
-        list of phone numbers to contact with contractor.
+        List of phone numbers to contact with contractor.
     Smtp Connection
-        connection to the mail server which will be used to send mails, invoices and notifications
+        Connection to the mail server which will be used to send mails, invoices and notifications
         (SMTP connection must be configured previously in *System->SMTP connections*)
 
 .. note:: Fields **Description**, **Address**, **Phones** are informational and not used in routing or billing logic.
@@ -77,16 +78,17 @@ Contact:
     All email notification and reports use only addresses which were added to the contacts.
 
 **Contact** has the following attributes:
-
-    Contractor:
-        Choose Contractors if this contact belongs to them
-    Admin user:
+    Id
+        Unique contract id.
+    Contractor
+        Choose Contractors if this contact belongs to them.
+    Admin user
         Administrative user which may own contact.
-        Contractors names or admin user name must be entered
-    E-mail:
-        Address for notifications, invoices and other emails
-    Notes:
-        Optional notes
+        Contractors names or admin user name must be entered.
+    E-mail
+        Address for notifications, invoices and other emails.
+    Notes
+        Optional notes.
 
 ----
 
@@ -94,24 +96,29 @@ Accounts
 ~~~~~~~~
 
 **Account** attributes:
-
+    Id
+        Unique account id.
     Name
-        unique account name
+        Unique account name.
     Contractor
         Contractor who own this account.
     Balance
-        Current account balance
+        Current account balance.
     Min balance
         If account balance become less than this limit, then traffic for this account will be blocked.
     Max balance
         If account balance become greater than this limit, then routes, which are belongs to this account, will not be used for calls termination.
+    Balance low threshold
+        ****TODO****
+    Balance high threshold    
+        ****TODO****
     Origination capacity
         Maximum capacity which can be originated for this account.
         If incoming calls number exceed origination capacity, then traffic will be blocked.
     Termination capacity
         Maximum capacity which can be terminated for this account.
         If outgoing calls number exceed origination capacity, then routes, which are belongs to this account, will not be used for new calls.
-    Vendor invoice period
+    Vendor invoice period ****TODO**** Vendor?? or Supplier
         Automatic invoices generation period in case when account acts as supplier.
     Customer invoice period
         Automatic invoices generation period in case when account acts as customer.
@@ -122,9 +129,9 @@ Accounts
         Template for generation of PDF invoices for customer.
         (Templates can be configured at *Billing->Invoice templates*)
     Sent invoices to
-        Contacts list to send generated invoices
+        Contacts list to send invoices that were generated.
     Timezone
-        Timezone which will be used for invoices generation and statistics for this account
+        Timezone which will be used for invoices generation and statistics for this account.
 
 Initial balance for newly created account is always zero.
 Balance can be changed as result of calls billing or new payments.
@@ -140,70 +147,148 @@ Payments
 
 Payments intended to change account balance.
 
-All payment attributes are self-descriptive (destination account, amount, description and date of payment)
-
+**Payment** attributes:
+    Id
+        Unique payment id.
+    Amount
+        ****TODO****
+    Notes            
+        ****TODO****
+    Created at
+        ****TODO****    
 ----
 
 Invoices
 ~~~~~~~~
-
+        ****TODO**** Poor English
 Invoice provides possibility to summarize billing information for mutual settlements with customers and suppliers.
-Generation of the invoice can be performed manually or automatically,
-if invoices autogeneration period for account was choosen.
+Generation of the invoice can be performed manually or automatically, if invoices autogeneration period for account was choosen.
 New invoices are created with status *Pending*.
 After the *Approve* invoice considered confirmed and is sent to the contragent email (configured in account settings).
 If account has invoice template, system also will generate PDF document.
 
+**Invoice** attributes:
+    Id
+        Unique invoice id.
+    Contractor
+        Contractor that is related to this invoice. ****TODO****
+    Account
+        Account that is related to this invoice. ****TODO****
+    State
+        ****TODO****
+    Start date
+        ****TODO****    
+    End date
+        ****TODO****    
+    Amount
+        ****TODO****    
+    Calls count
+        ****TODO****          
+    Successful calls count
+        ****TODO****    
+    Calls duration
+        ****TODO****        
+    Type
+        ****TODO****    
+    Direction
+        ****TODO****    
+    Created at
+        ****TODO****    
+    First call at
+        ****TODO****        
+    Last call at
+        ****TODO****        
+    First successful call at
+        ****TODO****        
+    Last successful call at
+        ****TODO****    
+            
 Invoice Templates
 ~~~~~~~~~~~~~~~~~
 
 PDF document templates which will be used to generate invoice.
 Template is the file in .odt format with special placeholders.
 Placeholders will be replaced with actual data during PDF document generation.
-System can store many different templates and you can choose desired template for each account independently
+System can store many different templates and you can choose desired template for each account independently.
 
+**Invoice Template** attributes:
+    Id
+        Unique invoice temlpate id.
+    Name
+        Unique invoice template name.
+    Filename 
+        Name of file in .odt format with invoice template.
+    Sha1
+        ****TODO****             
+    Created at
+        ****TODO****    
+
+.. note:: ****TODO****    Placeholders description [ACC_NAME] - Account name, [ACC_BALANCE] - Account balance...
+    
 ----
 
 Equipment
 ---------
 
+Gateway groups
+~~~~~~~~~~~~~~
+
+Gateway group allows to use multiple gateways for traffic termination to the same vendor if this gateways have similar billing configuration.
+
+**Gateway group** attributes:
+    Id
+        Unique gateway group id.
+    Name
+        Unique gateways group name.
+    Vendor
+        Gateway group owner.
+
+    .. _gateway_group_prefer_same_pop:
+    
+    Prefer same pop
+        If enabled, firstly use termination gateways with the same POP as origination traffic has.
+
+----
+
 Gateways
 ~~~~~~~~
 
 **Gateway** attributes:
+    Id
+        Unique gateway id.
     Name
-        Friendly name of gateway
+        Friendly name of gateway.
     Enabled
-        disabled gateways will be ignored
+        Disabled gateways will be ignored.
+    Contractor
+        Gateway's owner.        
+    Is shared       
+        Allows gateway to be used as origination equipment for any customer.
     Gateway group
         gateways can be grouped.
         Choose group from the list to add gateway to the group.
-        Gateways groups can be managed at *Billing->Gateway Groups*
+        Gateways groups can be managed at *Billing->Gateway Groups*.            
     Priority
         Gateway priority in the gateway group.
-        In case of termination to the group, gateways will be arranged according to this priority. If few gateways has same priority, calls will balanced between them.
+        In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
     Pop
-        Point of presence of the gateway. It used to force prioritization when :ref:`prefer same POP <gateway_group_prefer_same_pop>` option enabled for gateway group.
-    Contractor
-        Gateway owner
+        Point of Presence of the gateway. It used to force prioritization when :ref:`prefer same POP <gateway_group_prefer_same_pop>` option enabled for gateway group.
     Allow origination
-        Specifies if gateway allowed to originate calls
+        Specifies if gateway allowed to originate calls.
     Allow termination
-        Specifies if gateway allowed to accept calls from YETI       
+        Specifies if gateway allowed to accept calls from YETI.
     Origination capacity
         Origination capacity limit for this gateway. In case of gateway usage for termination this attribute will be ignored.
     Termination capacity
         Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.       
-    Acd limit
-        ACD threshold. if ACD for gateway traffic will drop below threshold,
-        then dialpeers, which are use this gateway,
+    Acd limit  ****TODO**** Poor English
+        ACD threshold. If ACD for gateway traffic will drop below threshold, then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
-    Asr limit
-        ASR threshold. if ASR for gateway traffic will drop below threshold,
-        then dialpeers, which are use this gateway,
+    Asr limit ****TODO**** Poor English
+        ASR threshold. If ASR for gateway traffic will drop below threshold, then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
     Short Calls limit
-        TODO
+        ****TODO**** 
         then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
     SST Enabled
@@ -211,13 +296,13 @@ Gateways
     SST Session Expires
         Default value of Expires header for SIP session timers mechanish
     SST Minimum timer
-        TODO
+        ****TODO****
     SST Maximum timer 
-        TODO
-    Session refresh
-        TODO
+        ****TODO****
+    Session refresh method
+        ****TODO****
     SST ACCEPT501
-        TODO
+        ****TODO****
     Sensor
         Sensor to mirror traffic. Mirroring disabled if not set.
     Sensor level
@@ -397,26 +482,6 @@ Gateways
         and destination equipment is not ready to process such behavior correctly
     Rtp force relay CN
         If enabled, YETI will relay CN packets on even if they were not negotiated in SDP
-
-----
-
-Gateway groups
-~~~~~~~~~~~~~~
-
-Gateway group allows to use multiple gateways for traffic termination to the same vendor
-if this gateways have similar billing configuration.
-
-**Gateway group** attributes:
-
-    Name
-        Unique gateways group name
-    Vendor
-        Gateway group owner
-
-    .. _gateway_group_prefer_same_pop:
-    
-    Prefer same pop
-        If enabled, firstly use termination gateways with the same POP as origination traffic has
 
 ----
 
