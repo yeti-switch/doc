@@ -149,7 +149,7 @@
 
 ::
 
-    # aptitude update && aptitude install yeti-web
+    # aptitude update && aptitude install yeti-web nginx
 
 Настройка подключения к базам данных
 ------------------------------------
@@ -207,6 +207,19 @@
     # cd /home/yeti-web 
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+
+
+Конфигурирование NGINX
+----------------------
+
+Для минимальной конфигурации достаточно удалить дефолную конфигурацию nginx и скопировать пример конфига::
+
+    # rm /etc/nginx/sites-enabled/default
+    # cp /home/yeti-web/config/yeti-web.dist.nginx /etc/nginx/sites-enabled/yeti
+    # nginx -t
+    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+    nginx: configuration file /etc/nginx/nginx.conf test is successful
+    # service nginx restart
     
 
 Запуск
@@ -216,7 +229,7 @@
 используя следующие команды::
 
     # service yeti-web start 
-    # service yeti-cdr-billing start
+    # service yeti-cdr-billing@cdr_billing start
     # service yeti-delayed-job start
 
 Эти команды запустят веб-интерфейс и обработчики CDR
@@ -248,6 +261,30 @@
 
 :user: admin
 :password: 111111
+
+CDR биллинг и PGQ ticker
+==========================
+
+После инициализации баз данных необходимо запустить pgq tiсker демон на сервере с базой данных CDR.
+
+Создайте файл конфигурации /etc/skytools/pgqd.ini с таким содержимым:
+
+.. code-block:: ini
+    
+    [pgqd]
+    base_connstr = host=127.0.0.1 port=5432 dbname=cdr user=yeti password=somepassword
+    initial_database = cdr
+    database_list = cdr
+    script = /usr/bin/pgqd
+    pidfile = /var/run/skytools/pgqd.pid
+    ticker_max_count=1
+    ticker_max_lag=3
+    ticker_idle_period=360
+
+Теперь можно запускать демон::
+
+    # service skytools3 start   
+
 
 
 Установка хранилища DSS

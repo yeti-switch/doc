@@ -65,7 +65,7 @@ Apply new migrations in new way
 
 .. code-block:: console
 
-	root@yeti:/# cdr /home/yeti-web
+	root@yeti:/# cd /home/yeti-web
 	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
 	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
 

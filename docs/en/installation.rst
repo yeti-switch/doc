@@ -142,7 +142,7 @@ Packages installation
 
 ::
 
-    # aptitude update && aptitude install yeti-web
+    # aptitude update && aptitude install yeti-web nginx
 
 Databases connection configuration
 ----------------------------------
@@ -198,6 +198,19 @@ To upgrade databases to the latest version::
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
     
+    
+Nginx configuration
+-------------------
+
+For basic configuration remove default config and copy yeti-web.dist.nginx::
+
+    # rm /etc/nginx/sites-enabled/default
+    # cp /home/yeti-web/config/yeti-web.dist.nginx /etc/nginx/sites-enabled/yeti
+    # nginx -t
+    nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+    nginx: configuration file /etc/nginx/nginx.conf test is successful
+    # service nginx restart
+    
 
 Launch
 ------
@@ -205,7 +218,7 @@ Launch
 After successful configuration of databases you finally can run software using following commands::
 
     # service yeti-web start 
-    # service yeti-cdr-billing start
+    # service yeti-cdr-billing@cdr_billing start
     # service yeti-delayed-job start
 
 This will run web-interface and CDR processing workers
@@ -235,6 +248,30 @@ Try to open management interface in your favorite browser and login with default
 
 :user: admin
 :password: 111111
+
+CDR billing and PGQ ticker
+==========================
+
+After initialization of CDR database you should run skytools pgq ticker daemon on server with CDR database.
+
+Create configuration file /etc/skytools/pgqd.ini 
+
+.. code-block:: ini
+    
+    [pgqd]
+    base_connstr = host=127.0.0.1 port=5432 dbname=cdr user=yeti password=somepassword
+    initial_database = cdr
+    database_list = cdr
+    script = /usr/bin/pgqd
+    pidfile = /var/run/skytools/pgqd.pid
+    ticker_max_count=1
+    ticker_max_lag=3
+    ticker_idle_period=360
+
+Then you can start ticker::
+
+    # service skytools3 start   
+
 
 DSS Storage installation
 ========================
