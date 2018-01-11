@@ -253,7 +253,8 @@ Gateway group allows to use multiple gateways for traffic termination to the sam
 Gateways
 ~~~~~~~~
 
-**Gateway** attributes:
+General **Gateway** attributes:
+
     Id
         Unique gateway id.
     Name
@@ -291,6 +292,8 @@ Gateways
         ****TODO**** 
         then dialpeers, which are use this gateway,
         will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+
+SST **Gateway** attributes:
     SST Enabled
         Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
     SST Session Expires
@@ -303,20 +306,60 @@ Gateways
         ****TODO****
     SST ACCEPT501
         ****TODO****
-    Sensor
-        Sensor to mirror traffic. Mirroring disabled if not set.
+
+Sensor **Gateway** attributes:
     Sensor level
         Traffic mirroring mode. Possible values:
-
             - Signaling
             - RTP
             - Signaling + RTP
+    Sensor
+        Sensor to mirror traffic. Mirroring is disabled if not set.
+
+Signaling **Gateway** attributes:
+    Relay options
+        Transparent relay of In-dialog OPTIONS between call legs.
+    Relay reinvite
+        Transparent relay of In-dialog re-INVITE between call legs.
+    Relay hold
+        Transparent relay of In-dialog re-INVITE with hold/unhold requests between call legs.
+    Relay prack
+        Transparent relay of In-dialog PRACK between call legs
+    Rel100 mode
+        ****TODO****
+    Relay UPDATE
+        Transparent relay of SIP UPDATE between call legs.
+    Transit headers from origination
+	    Filter of headers in SIP requests which applies to origited calls. Look at :ref:`headers filtering <headers_fitering>`.
+    Transit headers from termination
+	    Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`.
+    Sip interface name
+        The name of network interface which SEMS is listening on. It might be useful if it is necessary to route SIP-traffic from different IP-addresses.
+    Orig next hop
+        ****TODO****
+    Orig append headers req
+        ****TODO****
+    Orig use outbound proxy
+        ****TODO****
+    Orig force outbound proxy
+        ****TODO****
+    Orig proxy transport protocol
+        ****TODO****
+    Orig outbound proxy
+        ****TODO****
+    Transparent dialog
+        ****TODO****
+    Dialog nat handling
+        ****TODO****
+    Orig disconnect policy
+        ****TODO****
+    Transport protocol
+        ****TODO****
     Host
-        IP address or DNS name of remote gateway to send SIP signaling.
-        (only for usage for termination)
+        IP address or DNS name of remote gateway to send SIP signaling (only for termination).
     Port
-        Port of remote gateway  to send SIP signaling.
-        Leave it empty to enable DNS SRV resolving of name in **Host**
+        Port of remote gateway to send SIP signaling.
+        Leave it empty to enable DNS SRV resolving of name in **Host**.
     Resolve ruri
         Indicates necessity to rewrite RURI domain part with resolved IP
 
@@ -324,99 +367,84 @@ Gateways
 
             - resolve ruri enabled => RURI will be `user@1.1.1.1`
             - resolve ruri disabled => RURI will be `user@domain.com`
+    Incoming auth username
+        ****TODO****
+    Incoming auth password
+        ****TODO****
     Auth enabled
-        enable authorization for outgoing calls
+        Enable authorization for outgoing calls.
     Auth user
-        auth username
+        Auth username.
     Auth password
-        auth password
+        Auth password.
     Auth from user
-        From user-part for auth
+        From user-part for auth.
     Auth from domain
-        From domain-part for auth      
-        
-    Diversion policy
-        Policy to process Diversion header
-    Diversion rewrite rule
-        regular expression pattern for Diversion
-    Diversion rewrite result
-        regular expression replacement for Diversion
-    Src name rewrite rule
-        regular expression pattern for From display-name part
-    Src name rewrite result
-        regular expression replacement for From display-name part
-    Src rewrite rule
-        regular expression pattern for From user part
-    Src rewrite result
-        regular expression replacement for From user part
-    Dst rewrite rule
-        regular expression pattern for To and RURI user part
-    Dst rewrite result
-        regular expression replacement for To and RURI user part
-    Auth enabled
-        enable authorization for outgoing calls
-    Auth user
-        auth username
-    Auth password
-        auth password
-    Auth from user
-        From user-part for auth
-    Auth from domain
-        From domain-part for auth
+        From domain-part for auth.
     Term use outbound proxy
-        use outbound proxy for termination
+        Use outbound proxy for termination.
     Term force outbound proxy
-        force usage of outbound proxy for termination
+        Force usage of outbound proxy for termination.
+    Term proxy transport protocol
+        ****TODO****
     Term outbound proxy
-        outbound proxy address
-    Term next hop for replies
-        ..
+        Outbound proxy address.
     Term next hop
-        ..
+        ****TODO****
     Term disconnect policy
-        ..
+        ****TODO****
     Term append headers req
-        headers list to append to the INITIAL invite
+        Headers list to append to the INITIAL invite.
     Sdp alines filter type
-        Filter type to process alines in SDP. possible values: Transparent, Blacklist, Whitelist
+        Filter type to process alines in SDP. possible values: Transparent, Blacklist, Whitelist.
     Sdp alines filter list
-        SDP alines comma-separated list
-
+        SDP alines comma-separated list.
     .. _gateway_ringing_timeout:
 
     Ringing timeout
         Timeout between `18x` and `200 OK` responses.
-
-        In case of timeout: routing attempt will be canceled
+        In case of timeout: routing attempt will be canceled.
         and further processing (attempt to reroute or give up) depends from disconnect policy.
-    Relay options
-        Transparent relay of In-dialog OPTIONS between call legs
-    Relay reinvite
-        Transparent relay of In-dialog re-INVITE between call legs
-    Relay hold
-        Transparent relay of In-dialog re-INVITE with hold/unhold requests between call legs
-    Relay prack
-        Transparent relay of In-dialog PRACK between call legs
-    Relay UPDATE
-        Transparent relay of SIP UPDATE between call legs.
-    Suppress early media
-	Allows to send 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of gateway.
-    Fake 180 timer
-        Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
-    Transit headers from origination
-	    Filter of headers in SIP requests which applies to origited calls. Look at :ref:`headers filtering <headers_fitering>`
-    Transit headers from termination
-	    Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`
-    Sip interface name
-            The name of network interface which SEMS is listening on. It might be useful if it is necessary to route SIP-traffic from different IP-addresses.
     Allow 1xx without to tag
         Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
+    Max 30x redirects
+        ****TODO****
+    Max transfers
+        ****TODO****
     Sip timer B
-        SIP timer B (transaction timeout) override. must be less than
+        SIP timer B (transaction timeout) override. Must be less than         ****TODO****
         Call can be rerouted if this allowed by disconnect policy configuration.
     Dns srv failover timer
         SIP timer M (INVITE retransmit) override. Must have value less than timer B.
         Call can be rerouted if this allowed by disconnect policy configuration.
+    Suppress early media
+	    Allows to send 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of gateway.
+    Fake 180 timer
+        Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
+    Send lnp information
+        ****TODO****
+
+Translations **Gateway** attributes:
+    Diversion policy
+        Policy to process Diversion header.
+    Diversion rewrite rule
+        Regular expression pattern for Diversion.
+    Diversion rewrite result
+        Regular expression replacement for Diversion.
+    Src name rewrite rule
+        Regular expression pattern for From display-name part.
+    Src name rewrite result
+        Regular expression replacement for From display-name part.
+    Src rewrite rule
+        Regular expression pattern for From user part.
+    Src rewrite result
+        Regular expression replacement for From user part.
+    Dst rewrite rule
+        Regular expression pattern for To and RURI user part.
+    Dst rewrite result
+        Regular expression replacement for To and RURI user part.
+
+Media **Gateway** attributes:
     Sdp c location
         Location of connection-line in SDP payloads which are generated by YETI.
         Possible values:
@@ -427,18 +455,17 @@ Gateways
     Codec group
         Codecs group which will be used to interact with this gateway.
     Anonymize sdp
-        Anonymize client's SDP session data ( session name, uri, origin user )
+        Anonymize client's SDP session data ( session name, uri, origin user ).
     Proxy media
         Determines RTP processing mode. Must be enabled to have possibility of transcoding.
     Single codec in 200ok
         If enabled, YETI will leave only once codec in responses with SDP
-        (exception is only telephone-event.
-        it will be added anyway if received in SDP offer
-        and present in codecs group for this gateway)
+        (Exception is only telephone-event.
+        It will be added anyway if received in SDP offer and present in codecs group for this gateway).
     Transparent seqno
-        Transparent transmission of the RTP SEQ number on RTP relay
+        Transparent transmission of the RTP SEQ number on RTP relay.
     Transparent ssrc
-        Transparent transmission of the RTP SSRC number on RTP relay
+        Transparent transmission of the RTP SSRC number on RTP relay.
     Force symmetric rtp
         Ignore remote address negotiated in SDP.
         Use address gained from first received RTP/RTCP packet.
@@ -447,7 +474,31 @@ Gateways
         This option allows to disable this limitation.
         If enabled, YETI will change destination address every time when receives RTP/RTCP packet from another source.
     Symmetric rtp ignore rtcp
-        Disable symmetric RTP for RTCP packets
+        Disable symmetric RTP for RTCP packets.
+    Rtp ping
+        Useful for cases: when gateways with enabled symmetric RTP wait for first packet before start sending,
+        but gateway on other side doing the same.
+        If enabled, YETI will send fake RTP packet to the gateway right after stream initialization.
+    Rtp timeout
+        If set, call will be dropped with appropriate disconnect reason in CDR if no RTP arrived during this interval.
+    Filter noaudio streams
+        Cut all streams except of 'audio' from SDP in INVITE to the termination gateway.
+        Appropriate non-audio streams will be automatically inserted as disabled (port set to zero)
+        into responses to the gateway which sent offer to comply with RFC.
+        Useful for gateways which processes multiple streams in SDP incorrectly or/and rejects INVITES with non-audio streams.
+    Rtp relay timestamp aligning
+        Normalize timestamp for RTP packets on RTP relay.
+        Useful for cases on RTP relay when remote side changes RTP streams
+        without appropriate signaling (RTP mark or/and re-INVITE)
+        and destination equipment is not ready to process such behavior correctly.
+    Rtp force relay CN
+        If enabled, YETI will relay CN packets on even if they were not negotiated in SDP.
+    Force one way early media
+        ****TODO****
+    Rtp interface name
+        ****TODO****
+
+Dtmf **Gateway** attributes:
     Force dtmf relay
         Don't process telephone-event (RFC2833) packets and relay them 'as is'.
     Dtmf send mode
@@ -464,31 +515,44 @@ Gateways
             - RFC 2833 (telephone-event)
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
-    Rtp ping
-        Useful for cases: when gateways with enabled symmetric RTP wait for first packet before start sending,
-        but gateway on other side doing the same.
-        If enabled, YETI will send fake RTP packet to the gateway right after stream initialization.
-    Rtp timeout
-        If set, call will be dropped with appropriate disconnect reason in CDR if no RTP arrived during this interval
-    Filter noaudio streams
-        Cut all streams except of 'audio' from SDP in INVITE to the termination gateway.
-        Appropriate non-audio streams will be automatically inserted as disabled (port set to zero)
-        into responses to the gateway which sent offer to comply with RFC.
-        Useful for gateways which processes multiple streams in SDP incorrectly or/and rejects INVITES with non-audio streams.
-    Rtp relay timestamp aligning
-        Normalize timestamp for RTP packets on RTP relay.
-        Useful for cases on RTP relay when remote side changes RTP streams
-        without appropriate signaling (RTP mark or/and re-INVITE)
-        and destination equipment is not ready to process such behavior correctly
-    Rtp force relay CN
-        If enabled, YETI will relay CN packets on even if they were not negotiated in SDP
+
+Radius **Gateway** attributes:
+    Radius accounting profile
+       ****TODO****
+
 
 ----
 
 Disconnect policies
 ~~~~~~~~~~~~~~~~~~~
 
-Disconnect policy allows to override system default actions for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting)
+Disconnect policy allows to override system default actions for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting).
+
+**Disconnect policy** attributes:
+    Id
+        Unique Disconnect policy's id.
+    Name
+        Unique Disconnect policy's name.
+----
+
+Disconnect policies codes
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Disconnect policy code** attributes:
+    Id
+        Unique Disconnect policy code's id.
+    Policy
+        ****TODO****
+    Code
+        ****TODO****
+    Stop hunting
+        ****TODO****
+    Pass reason to originator
+        ****TODO****
+    Rewrited code
+        ****TODO****
+    Rewrited reason
+        ****TODO****
 
 ----
 
@@ -498,41 +562,42 @@ Registrations
 YETI allows to use outgoing SIP registrations on remote supplier or customer equipment.
 
 **Registration** attributes:
-
+    Id
+        Unique Registration's id.
+    Name
+	    Name of this registration.
     Enabled
         disabled registrations will be ignored.
-    Name*
-	Name of this registration.
     Pop
         Point of presence for registration requests.
     Node
-        Node which will hold registration
-    Transport protocol
-        SIP transport protocol which will used for send request
-    Domain*
+        Node which will hold registration.
+    Transport protocol.
+        SIP transport protocol which will used for send request.
+    Domain
         RURI,From domain part.
-    Username*
-        RURI,From user part
+    Username
+        RURI,From user part.
     Display username
-        From display name part
+        From display name part.
     Auth user
-        Authorization username
+        Authorization username.
     Auth password
-        Authorization password
+        Authorization password.
     Proxy
-        SIP Proxy to use for registration
+        SIP Proxy to use for registration.
     Proxy transport protocol
-        SIP transport protocol which will used for interaction with proxy
+        SIP transport protocol which will used for interaction with proxy.
     Contact
         Contact header. Should be in a SIP-URI format.
     Expire
         Registration expiration time.
     Force expire
-        Force re-registration after **Expire** interval even is server set another value in response
-    Retry delay *
-	Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occured.
+        Force re-registration after **Expire** interval even is server set another value in response.
+    Retry delay
+	    Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occured.
     Max attempts
-	Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
+	    Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
 
 ----
 
@@ -540,19 +605,20 @@ Codec groups
 ~~~~~~~~~~~~
 
 **Codec group** attributes:
-
+    Id
+        Unique Codec group's id.
     Name
         Codec group name.
-    List of codecs
+    Codecs
         Each codec has the following attributes:
 
             Codec
-                Codec name. All available codecs are presented in drop-down list
+                Codec name. All available codecs are presented in drop-down list.
             Priority
                 Codec priority in SDP. Less value means higher priority.
                 Must be unique within group.
             Dynamic payload type
-                Payload type override. (allowed only values from dynamic range)
+                Payload type override (allowed only values from dynamic range).
             Format parameters
                 Non-standard value for fmt param SDP attribute.
 
