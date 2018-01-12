@@ -554,7 +554,7 @@ Disconnect policies
 
 Disconnect policy allows to override system default actions for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting).
 
-**Disconnect policy** attributes:
+**Disconnect policy**'s attributes:
     Id
         Unique Disconnect policy's id.
     Name
@@ -564,7 +564,7 @@ Disconnect policy allows to override system default actions for each SIP disconn
 Disconnect policies codes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Disconnect policy code** attributes:
+**Disconnect policy code**'s attributes:
     Id
         Unique Disconnect policy code's id.
     Policy
@@ -587,19 +587,19 @@ Registrations
 
 YETI allows to use outgoing SIP registrations on remote vendor's or customer's equipment.
 
-**Registration** attributes:
+**Registration**'s attributes:
     Id
         Unique Registration's id.
     Name
 	    Name of this registration.
     Enabled
-        disabled registrations will be ignored.
+        Disabled registrations will be ignored.
     Pop
         Point of presence for registration requests.
     Node
         Node which will hold registration.
-    Transport protocol.
-        SIP transport protocol which will used for send request.
+    Transport protocol
+        SIP transport protocol which will be used for send request.
     Domain
         RURI,From domain part.
     Username
@@ -630,16 +630,16 @@ YETI allows to use outgoing SIP registrations on remote vendor's or customer's e
 Codec groups
 ~~~~~~~~~~~~
 
-**Codec group** attributes:
+**Codec group**'s attributes:
     Id
         Unique Codec group's id.
     Name
-        Codec group name.
+        Codec group's name.
     Codecs
         Each codec has the following attributes:
 
             Codec
-                Codec name. All available codecs are presented in drop-down list.
+                Codec's name. All available codecs are presented in drop-down list.
             Priority
                 Codec priority in SDP. Less value means higher priority.
                 Must be unique within group.
@@ -650,66 +650,79 @@ Codec groups
 
 ----
 
-LNP database
-~~~~~~~~~~~~
+LNP databases
+~~~~~~~~~~~~~
 see https://en.wikipedia.org/wiki/Local_number_portability
 
 Yeti supports interaction with LNP databases by SIP and HTTP REST protocols.
 We welcome requests to implement additional protocols or LNP database specific formats.
 
-Name
-    Database name. Unique field.
-Driver
-    Driver which will be used. Available options
-
-        - UDP SIP 301/302 redirect
-        - thinQ RESR LRN driver
-        - In-memory hash
-Host
-    Database host (will be ignored by In-memory hash driver)
-Port
-    Database port
-Timeout
-    Maximum time to wait for response from database.
-    Request will fail with appropriate code and reason.
-Thinq username
-    Authorization username for thinQ API
-Thinq token
-    Authorization token for thinQ API
-Csv file
-    Path to file with data to preload (for In-memory hash driver only)
+**LNP database**'s attributes:
+    Id
+        Unique LNP database's id.
+    Name
+        Database name. Unique field.
+    Driver
+        Driver which will be used. Available options:
+            - UDP SIP 301/302 redirect;
+            - thinQ RESR LRN driver;
+            - In-memory hash.
+    Host
+        Database host (will be ignored by In-memory hash driver).
+    Port
+        Database port.
+    Timeout
+        Maximum time to wait for response from database.
+        Request will fail with appropriate code and reason.
+    Thinq username
+        Authorization username for thinQ API.
+    Thinq token
+        Authorization token for thinQ API.
+    Csv file
+        Path to the file with data to preload (for In-memory hash driver only).
 
 ----
 
 RADIUS Auth Profiles
 ~~~~~~~~~~~~~~~~~~~~
 
-Yeti supports additional authorization of incoming call on external RADIUS server. RADIUS Auth Profile describes communication with that server.
+Yeti supports additional authorization of incoming call on external RADIUS (Remote Authentication Dial-In User Service) server. RADIUS Auth Profile describes communication with that server.
 
 .. note:: module **radius_client** should be loaded to use such feature
 
-**RADIUS Auth Profiles** attributes:
+**RADIUS Auth Profile**'s attributes:
+    Id
+        Unique RADIUS Auth Profile's id.
+    Name
+        Unique name of Auth profile.
+        Uses for informational purposes and doesn't affect system behaviour.
+    Server
+        IP address or hostname of external RADIUS server.
+    Port
+        UDP port on which RADIUS server wait for requests.
+    Secret
+        Password for Authorization procedure on external RADIUS server.
+    Reject on error
+        If enabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be considered as authorized and YETI will do further routing procedure.
+        If disabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be discarded with appropriate code.
+    Timeout
+        Timeout of request after which a request will be repeated (millisecond).
+    Attempts
+        Maximum amount of of requests for every call.
 
-Name
-    Unique name of Auth profile.
-    Uses for informational purposes and doesn't affect system behaviour.
-Server
-    IP address or hostname of external RADIUS server.
-Port
-    UDP port on which RADIUS server wait for requests.
-Secret
-    Password for Authorization procedure on external RADIUS server.
-Reject on error
-    If enabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be considered as authorized and YETI will do further routing procedure.
-    If disabled, in case of error in communication with external RADIUS server (timeout, bad format of response, etc) a call will be discarded with appropriate code.
-Timeout
-    Timeout of request after which a request will be repeated (millisecond).
-Attempts
-    Maximum amount of of requests for every call.
-    
-To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object. 
+    Auth profile attributes ****TODO****
+        Type    ****TODO****
+        Name    ****TODO****
+        Is vsa  ****TODO****
+        Vsa vendor  ****TODO****
+        Vsa vendor type ****TODO****
+        Value   ****TODO****
+        Format  ****TODO****
 
-.. note:: YETI don't support interaction with external routing engines via RADIUS protocol
+
+    To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
+
+.. note:: YETI doesn't support interaction with external routing engines via RADIUS protocol.
 
 ----
 
@@ -718,29 +731,56 @@ RADIUS Accounting Profiles
 
 Yeti supports additional accounting of calls on external RADIUS server. RADIUS Accounting Profile describes communication with that server.
 
-**RADIUS Accounting Profiles** attributes:
+**RADIUS Accounting Profile**'s attributes:
+    Id
+       Unique RADIUS Accounting Profile's id.
+    Name
+        Unique name of Accounting profile.
+        Uses for informational purposes and doesn't affect system behaviour.
+    Server
+        IP address or hostname of external RADIUS server.
+    Port
+        UDP port on which RADIUS server wait for requests.
+    Secret
+        Password for Authorization procedure on external RADIUS server.
+    Timeout
+        Timeout of request after which a request will be repeated (millisecond).
+    Attempts
+        Maximum amount of of requests for every call.
+    Enable start accounting
+        If enabled, YETI will send Start-accounting packets to external RADIUS server.
+    Enable interim accounting
+        If enabled, YETI will send Interim-accounting packets to external RADIUS server.
+    Interim accounting interval
+        Send Interim packets to external RADIUS server every **interval** seconds.
+    Enable stop accounting
+        If enabled, YETI will send Stop-accounting packets to external RADIUS server.
 
-Name
-    Unique name of Accounting profile.
-    Uses for informational purposes and doesn't affect system behaviour.
-Server
-    IP address or hostname of external RADIUS server.
-Port
-    UDP port on which RADIUS server wait for requests.
-Secret
-    Password for Authorization procedure on external RADIUS server.
-Timeout
-    Timeout of request after which a request will be repeated (millisecond).
-Attempts
-    Maximum amount of of requests for every call.
-Enable start accounting
-    If enabled, YETI will send Start-accounting packets to external RADIUS server.
-Enable interim accounting
-    If enabled, YETI will send Interim-accounting packets to external RADIUS server.
-Interim accounting interval
-    Send Interim packets to external RADIUS server every **interval** seconds.
-Enable stop accounting
-    If enabled, YETI will send Stop-accounting packets to external RADIUS server.
+    Start packet attributes ****TODO****
+        Type    ****TODO****
+        Name    ****TODO****
+        Is vsa  ****TODO****
+        Vsa vendor  ****TODO****
+        Vsa vendor type ****TODO****
+        Value   ****TODO****
+        Format  ****TODO****
+    Interim packet attributes ****TODO****
+        Type    ****TODO****
+        Name    ****TODO****
+        Is vsa  ****TODO****
+        Vsa vendor  ****TODO****
+        Vsa vendor type ****TODO****
+        Value   ****TODO****
+        Format  ****TODO****
+    Stop packet attributes ****TODO****
+        Type    ****TODO****
+        Name    ****TODO****
+        Is vsa  ****TODO****
+        Vsa vendor  ****TODO****
+        Vsa vendor type ****TODO****
+        Value   ****TODO****
+        Format  ****TODO****
+
 
 ----
 
@@ -755,24 +795,30 @@ routing table and has some useful filters and options.
 
 Customer Auth form is splitted to 3 tabs and each one is described below.
 
-*General* tab
-`````````````
+General **Customers Auth**'s attributes:
+````````````````````````````````````````
+    Id
+       Unique Customers Auth's id.
     Name
         Unique name of Accounting profile.
         Uses for informational purposes and doesn't affect system behaviour.
     Enabled
-        Disabled records will be ignored
+        Disabled records will be ignored.
     Customer
-        Customer, who this Customer Auth belongs to
+        Customer, who this Customer Auth belongs to.
     Account
-        Accout of Customer, which this Customer Auth belongs to
+        Accout of Customer, which this Customer Auth belongs to.
+    Check account balance
+        ****TODO****
     Gateway
-        Gateway which related to this Customer Auth. That gateway(its parameters),
+        Gateway which related to this Customer Auth. That gateway (its parameters),
         will be used for media handling on the A-leg of a call.
+    Require incoming auth
+        ****TODO****
     Rateplan
-        Rateplan, which this Customer Auth belongs to
+        Rateplan, which this Customer Auth belongs to.
     Routing Plan
-        Routing Plan, which this Customer Auth belongs to
+        Routing Plan, which this Customer Auth belongs to.
     Dst Numberlist
         You may apply Dst Numberlist (Destination) and check B-numbers, by prefix or
         full-match, then reject it or allow.
@@ -783,61 +829,63 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
         It is possible to capture calls to PCAP files, using this option.
         You may choose what kind of information should be captured.
         Possible values are:
-        
-            - Capture nothing
-            - Capture signalling traffic
-            - Capture RTP traffic
-            - Capture all traffic
-            
+            - Capture nothing;
+            - Capture signalling traffic;
+            - Capture RTP traffic;
+            - Capture all traffic.
     Enable Audio Recording
         If checked, the media for calls passing through this Customer Auth will be stored
         in WAV files.
     Capacity
         The capacity of the Customer Auth, i.e. how many calls it accepts at the moment.
     Allow Receive Rate Limit
-        A Customer may send special SIP-header in which he send the price for this call he wants to pay.
+        A Customer may send special SIP-header in which he sends the price for this call he wants to pay.
         And YETI will rely on this price on the routing stage if we allow such a behaviour.
     Send Billing Information
         If enabled, YETI adds the special SIP-header into 200 SIP-message, which contains
         current price for calls, in order to a Customer should be informed.
 
-Match condition options
-```````````````````````
+Match condition **Customers Auth**'s options
+````````````````````````````````````````````
     This part is crucial for authentication process of incoming calls. You should note that a one
     customer may have many of Customer Auth with almost the same parameters, so pay
     attention to parameters besides Ip address.
 
     Transport Protocol
-        Transport protocol TCP/UDP, which the customer uses for sending calls to YETI.
+        Transport protocol (Any/TCP/UDP), which the customer uses for sending calls to YETI.
     Ip
-        IP address of the originator(customer).
+        IP address of the originator (Customer).
     Pop
-        Point of precense, which recieves calls from the customer. If a call will come
-        on the different PoP (a node which recieves calls belongs to different a PoP), such calls
+        Point of presence (PoP), which receives calls from the Customer. If a call will come
+        on the different PoP (a node which receives calls belongs to different PoP), such calls
         will be dropped.
     Src Prefix
-        You can define a prefix which necessarily should be presented in a Src-number for every
-        call from the customer. If not - a call will be dropped. Just a prefix must be used here, not a
+        You can define a prefix which necessarily should be presented in Src-number for every
+        call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
         regular expression.
     Dst Prefix
         You can define a prefix which necessarily should be presented in a Dst-number for every
-        call from the customer. If not - a call will be dropped. Just a prefix must be used here, not a
+        call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
         regular expression.
+    Dst number min length
+        ****TODO****
+    Dst number max length
+        ****TODO****
     Uri Domain
-        If specified, YETI checks the domain part of the URI for every call, and drop calls
+        If specified, YETI checks the domain part of the URI for every call, and drops calls
         if the domain part is not the same as specified.
     From Domain
-        If specified, YETI checks the domain part of the URI in the From header for every call, and drop calls
+        If specified, YETI checks the domain part of the URI in the From header for every call, and drops calls
         if presented domain mismatches.
     To Domain
-        If specified, YETI checks the domain part of the URI in the To header for every call, and drop calls
+        If specified, YETI checks the domain part of the URI in the To header for every call, and drops calls
         if presented domain mismatches.
     X Yeti Auth
         It's possible to define the custom SIP-header **X-Yeti-Auth** for the customer's calls and specify its value in
         YETI. In case they match, YETI passes such calls through.
 
-*Number translation* tab
-````````````````````````
+Number translation **Customers Auth**'s options
+```````````````````````````````````````````````
 
     Diversion policy
         Defines what to do with Diversion header within SIP-signalization.
