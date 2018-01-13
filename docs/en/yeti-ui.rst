@@ -891,43 +891,37 @@ Number translation **Customers Auth**'s options
         Defines what to do with Diversion header within SIP-signalization.
         Default value is "Clear header", so this header will be deleted.
     Diversion rewrite rule
-        This option should contain a regular expression for changing a Diversion header
+        This option should contain a regular expression for changing a Diversion header.
     Diversion rewrite result
-        The result of changing a Diversion header, using the Rewrite Rule above
+        The result of changing a Diversion header, using the Rewrite Rule above.
     Src name rewrite rule
-        This field should contain a regular expression for changing the Name field in the
-        Source-number within SIP-signalization
+        This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization.
     Src name rewrite result
-        The result of changing the Name field in the Source-number, using the
-        Src name rewrite rule above
+        The result of changing the Name field in the Source-number, using the Src name rewrite rule above.
     Src rewrite rule
-        This field should contain a regular expression for changing the Source-number
-        within SIP-signalization
+        This field should contain a regular expression for changing the Source-number within SIP-signalization.
     Src rewrite result
-        The result of changing the Name field in the Source-number, using the Src rewrite rule above
+        The result of changing the Name field in the Source-number, using the Src rewrite rule above.
     Dst rewrite rule
-        This field should contain a regular expression for changing the Destination-number
-        within SIP-signalization
+        This field should contain a regular expression for changing the Destination-number within SIP-signalization.
     Dst rewrite result
-        The result of changing the Name field in the Source-number, using the Dst rewrite rule above
+        The result of changing the Name field in the Source-number, using the Dst rewrite rule above.
 
-*Radius* tab
-````````````
+Radius **Customers Auth**'s options
+```````````````````````````````````
 
     Radius auth profile
-        Must be specified if the additional radius authentication is required
+        Must be specified if the additional radius authentication is required.
     Src number radius rewrite rule
-        Should contain regular expression for changing Source-number which will be sent
-        to Radius-server if it's required
+        Should contain regular expression for changing Source-number which will be send to Radius-server if it's required.
     Src number radius rewrite result
-        The result of applying the Src number radius rewrite rule to Source-number
+        The result of applying the Src number radius rewrite rule to Source-number.
     Dst number radius rewrite rule
-        Should contain regular expression for changing Destination-number which will be sent
-        to Radius-server if it's required
+        Should contain regular expression for changing Destination-number which will be send to Radius-server if it's required.
     Dst number radius rewrite result
-        The result of applying the Dst number radius rewrite rule to Destination-number
+        The result of applying the Dst number radius rewrite rule to Destination-number.
     Radius accounting profile
-        Must be specified if the radius accounting is required
+        Must be specified if the radius accounting is required.
     
 ----
 
@@ -936,188 +930,407 @@ Number translation **Customers Auth**'s options
 Rateplan
 ~~~~~~~~
 
-Name
-    A-Z-Plan
-Profit Control Mode
-    No Control
-Send Quality Alarms To
-    TODO
+**Rateplan**'s attributes:
+``````````````````````````
+    Id
+       Unique Rateplan's id.
+    Name
+        A-Z-Plan         ****TODO****
+    Profit Control Mode
+        Per call    ****TODO****
+        No Control          ****TODO****
+    Send Quality Alarms To
+                ****TODO****
     
 ----
 
 Destination
 ~~~~~~~~~~~
 
-Enabled
-Prefix
-Country
-Network
-Reject Calls
-Quality Alarm
-Rateplan
-Routing Tag
-Valid From
-Valid Till
-Rate Policy
-Initial Interval
-Next Interval
-Use Dp Intervals
-External Id
+General **Destination**'s attributes:
+`````````````````````````````````````
+    Id
+       Unique Destination's id.
+    Prefix
+        ****TODO****
+    Dst number min length
+        ****TODO****
+    Dst number max length
+        ****TODO****
+    Enabled
+        ****TODO****
+    Reject Calls
+        ****TODO****
+    Rateplan
+        ****TODO****
+    Routing Tag
+        ****TODO****
+    Valid From
+        ****TODO****
+    Valid Till
+        ****TODO****
+    Rate Policy
+        ****TODO****
+    Reverse billing
+        ****TODO****
+    Initial Interval
+        ****TODO****
+    Next Interval
+        ****TODO****
+    Created At
+        ****TODO****
+
+Fixed rating configuration of **Destination**'s attributes:
+```````````````````````````````````````````````````````````
+    Initial Rate
+        ****TODO****
+    Next Rate
+        ****TODO****
+    Connect Fee
+        ****TODO****
+    Profit Control Mode
+        ****TODO****
 
 
-Initial Rate
-Next Rate
-Connect Fee
-Profit Control Mode
+Dialpeer based rating configuration of **Destination**'s attributes:
+````````````````````````````````````````````````````````````````````
+    Dp Margin Fixed
+        ****TODO****
+    Dp Margin Percent
+        ****TODO****
 
-Dp Margin Fixed
-Dp Margin Percent
+Quality notifications configuration of **Destination**'s attributes:
+````````````````````````````````````````````````````````````````````
+    Asr Limit
+        ****TODO****
+    Acd Limit
+        ****TODO****
+    Short Calls Limit
+        ****TODO****
 
-Asr Limit
-Acd Limit
-Short Calls Limit
 
 Routing Group
 ~~~~~~~~~~~~~
 
-Name
-    Friendly name of object
-
+**Routing Group**'s attributes:
+```````````````````````````````
+    Id
+       Unique Routing Group's id.
+    Name
+        Friendly name of object.
     
 ----
 
 Dialpeer
 ~~~~~~~~
 
-Prefix
-Country
-Network
-Enabled
-Locked
-Routing Group
-Routing Tag
-Vendor
-Account
-Priority
-Force Hit Rate
-Exclusive Route
-Initial Interval
-Initial Rate
-Next Interval
-Next Rate
-Lcr Rate Multiplier
-Connect Fee
-Gateway
-Gateway Group
-Valid From
-Valid Till
-Capacity
-Src Name Rewrite Rule
-Src Name Rewrite Result
-Src Rewrite Rule
-Src Rewrite Result
-Dst Rewrite Rule
-Dst Rewrite Result
-Acd Limit
-Asr Limit
-Short Calls Limit
-Created At
-External
-Current Rate
+**Dialpeer**'s attributes:
+``````````````````````````
+    Id
+       Unique Dialpeer's id.
+    Prefix
+        ****TODO****
+    Dst number min length
+        ****TODO****
+    Dst number max length
+        ****TODO****
+    Enabled
+        ****TODO****
+    Routing Group
+        ****TODO****
+    Routing Tag
+        ****TODO****
+    Vendor
+        ****TODO****
+    Account
+        ****TODO****
+    Priority
+        ****TODO****
+    Force Hit Rate
+        ****TODO****
+    Exclusive Route
+        ****TODO****
+    Initial Interval
+        ****TODO****
+    Initial Rate
+        ****TODO****
+    Next Interval
+        ****TODO****
+    Next Rate
+        ****TODO****
+    Lcr Rate Multiplier
+        ****TODO****
+    Connect Fee
+        ****TODO****
+    Reverse billing
+        ****TODO****
+    Gateway
+        ****TODO****
+    Gateway Group
+        ****TODO****
+    Valid From
+        ****TODO****
+    Valid Till
+        ****TODO****
+    Acd Limit
+        ****TODO****
+    Asr Limit
+        ****TODO****
+    Short Calls Limit
+        ****TODO****
+    Capacity
+        ****TODO****
+    Src Name Rewrite Rule
+        ****TODO****
+    Src Name Rewrite Result
+        ****TODO****
+    Src Rewrite Rule
+        ****TODO****
+    Src Rewrite Result
+        ****TODO****
+    Dst Rewrite Rule
+        ****TODO****
+    Dst Rewrite Result
+        ****TODO****
+    Created At
+        ****TODO****
 
 ----
 
 
-Routing Plan
-~~~~~~~~~~~~
+Routing Plans
+~~~~~~~~~~~~~
 
-Name
-Sorting
-Use Lnp
-Rate Delta Max
-Routing Groups
+**Routing Plan**'s attributes:
+``````````````````````````````
+    Id
+       Unique Routing Plan's id.
+    Name
+        ****TODO****
+    Sorting
+        ****TODO****
+    Use Lnp
+        ****TODO****
+    Rate Delta Max
+        ****TODO****
+    Routing Groups
+        ****TODO****
 
 ----
 
 Routing plan static routes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Routing Plan
-Prefix
-Country
-Network
-Priority
-Vendor
+**Routing plan static route**'s attributes:
+```````````````````````````````````````````
+    Id
+       Unique Routing plan static route's id.
+    Routing Plan
+        ****TODO****
+    Prefix
+        ****TODO****
+    Priority
+        ****TODO****
+    Vendor
+        ****TODO****
+    Updated At
+        ****TODO****
 
 ----
 
 Routing Plan LNP rules
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Routing plan
-Dst prefix￼
-Req dst rewrite rule￼
-Req dst rewrite result￼
-Database
-Lrn rewrite rule￼
-Lrn rewrite result￼
+**Routing Plan LNP rule**'s attributes:
+```````````````````````````````````````
+    Id
+       Unique Routing Plan LNP rule's id.
+    Routing plan
+        ****TODO****
+    Dst prefix
+        ****TODO****
+    Req dst rewrite rule
+        ****TODO****
+    Req dst rewrite result
+        ****TODO****
+    Database
+        ****TODO****
+    Lrn rewrite rule
+        ****TODO****
+    Lrn rewrite result
+        ****TODO****
 
 ----
 
-LNP Cache
-~~~~~~~~~
-
-TODO
-
-----
-
-Numberlist
+LNP Caches
 ~~~~~~~~~~
 
-TODO
+**LNP Cache**'s attributes:
+```````````````````````````
+    Id
+       Unique LNP Cache's id.
+    DST
+        ****TODO****
+    LRN
+        ****TODO****
+    TAG
+        ****TODO****
+    DATA
+        ****TODO****
+    DATABASE
+        ****TODO****
 
 ----
 
-Numberlist item
-~~~~~~~~~~~~~~~
-
-TODO
-
-----
-
-Routing Tag
+Numberlists
 ~~~~~~~~~~~
 
-TODO
+**Numberlist**'s attributes:
+````````````````````````````
+    Id
+       Unique Numberlist's id.
+    Name
+        ****TODO****
+    Mode
+        ****TODO****
+    Default action
+        ****TODO****
+    Default src rewrite rule
+        ****TODO****
+    Default src rewrite result
+        ****TODO****
+    Default dst rewrite rule
+        ****TODO****
+    Default dst rewrite result
+        ****TODO****
+    Created At
+        ****TODO****
+    Updated At
+        ****TODO****
+
+----
+
+Numberlist items
+~~~~~~~~~~~~~~~~
+
+**Numberlist item**'s attributes:
+`````````````````````````````````
+    Id
+       Unique Numberlist item's id.
+    Numberlist
+        ****TODO****
+    Key
+        ****TODO****
+    Action
+        ****TODO****
+    Src rewrite rule
+        ****TODO****
+    Src rewrite result
+        ****TODO****
+    Dst rewrite rule
+        ****TODO****
+    Dst rewrite result
+        ****TODO****
+    Created At
+        ****TODO****
+    Updated At
+        ****TODO****
+
+----
+
+Routing Tags
+~~~~~~~~~~~~
+
+**Routing Tag**'s attributes:
+`````````````````````````````
+    Id
+       Unique Routing Tag's id.
+    Name
+        ****TODO****
 
 ----
 
 
-Area
-~~~~
+Areas
+~~~~~
 
-TODO
+**Area**'s attributes:
+``````````````````````
+    Id
+       Unique Area's id.
+    Name
+        ****TODO****
 
 ----
 
 Area prefixes
 ~~~~~~~~~~~~~
 
-TODO
+**Area prefixe**'s attributes:
+``````````````````````````````
+    Id
+       Unique Area prefixe's id.
+    Prefix
+        ****TODO****
+    Area
+        ****TODO****
 
 ----
 
-Routing Tags detection
-~~~~~~~~~~~~~~~~~~~~~~
+Routing Tag detection Rules
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-TODO
+**Routing Tag detection Rule**'s attributes:
+````````````````````````````````````````````
+    Id
+       Unique Routing Tag detection Rule's id.
+    Src area
+        ****TODO****
+    Dst area
+        ****TODO****
+    Routing tag
+        ****TODO****
+
 
 ----
 
 Routing Simulation
 ~~~~~~~~~~~~~~~~~~
 
-TODO
+**Routing Simulation**'s attributes:
+````````````````````````````````````
+    Transport protocol
+        ****TODO****
+    Remote ip
+        ****TODO****
+    Remote port
+        ****TODO****
+    Pop
+        ****TODO****
+    Src number
+        ****TODO****
+    Dst number
+        ****TODO****
+    Uri domain
+        ****TODO****
+    From domain
+        ****TODO****
+    To domain
+        ****TODO****
+    X yeti auth
+        ****TODO****
+    Pai
+        ****TODO****
+    Ppi
+        ****TODO****
+    Privacy
+        ****TODO****
+    Rpid
+        ****TODO****
+    Rpid privacy
+        ****TODO****
+    Release mode
+        ****TODO****
 
 ----
 
@@ -1128,39 +1341,80 @@ CDR
 Tables
 ~~~~~~
 
+**CDR Table**'s attributes:
+```````````````````````````
+    Id
+       Unique CDR Table's id.
+    Name
+        ****TODO****
+    Readable
+        ****TODO****
+    Writable
+        ****TODO****
+    Date Start
+        ****TODO****
+    Date Stop
+        ****TODO****
+    Active
+        ****TODO****
+    Comments
+        ****TODO****
+
+----
+
 CDR History
 ~~~~~~~~~~~
+
+----
 
 CDR Archive
 ~~~~~~~~~~~
 
+----
+
 Reports
 -------
+
 
 Custom CDR report
 ~~~~~~~~~~~~~~~~~
 
+----
 
 Customer traffic
 ~~~~~~~~~~~~~~~~
 
+----
+
 Vendor traffic
 ~~~~~~~~~~~~~~
+
+----
 
 Interval CDR report
 ~~~~~~~~~~~~~~~~~~~
 
+----
+
 Termination Distribution
 ~~~~~~~~~~~~~~~~~~~~~~~~
+
+----
 
 Origination performance
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+----
+
 Bad routing
 ~~~~~~~~~~~
 
+----
+
 Not authentificated attempts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+----
 
 
 Realtime Data
@@ -1169,12 +1423,17 @@ Realtime Data
 Active calls
 ~~~~~~~~~~~~
 
+----
+
 Nodes
 ~~~~~
+
+----
 
 Outgoing Registrations
 ~~~~~~~~~~~~~~~~~~~~~~
 
+----
 
 Logs
 ----
@@ -1182,19 +1441,27 @@ Logs
 API Log
 ~~~~~~~
 
+----
+
 Audit Log
 ~~~~~~~~~
+
+----
 
 Logic Log
 ~~~~~~~~~
 
+----
+
 Email Log
 ~~~~~~~~~
+
+----
 
 Events
 ~~~~~~
 
-        
+----
 
 System
 ------
@@ -1349,3 +1616,5 @@ Auth password
     Password for Authorization procedure on external SMTP server.
 Global
 	Set as global for all customers.
+
+----
