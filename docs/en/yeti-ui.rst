@@ -1365,10 +1365,198 @@ Tables
 CDR History
 ~~~~~~~~~~~
 
+**CDR**'s attributes:
+`````````````````````
+    Id
+       Unique CDR's id.
+    Time Start
+        ****TODO****
+    Customer
+        ****TODO****
+    Vendor
+        ****TODO****
+    Customer Auth
+        ****TODO****
+    Src Prefix Routing
+        ****TODO****
+    Src Area
+        ****TODO****
+    Dst Prefix Routing
+        ****TODO****
+    Dst Area
+        ****TODO****
+    Dst Country
+        ****TODO****
+    Status
+        ****TODO****
+    Duration
+        ****TODO****
+    Is Last CDR
+        ****TODO****
+    Dump Level
+        ****TODO****
+    Orig GW
+        ****TODO****
+    Term GW
+        ****TODO****
+    Routing Plan
+        ****TODO****
+    Routing Group
+        ****TODO****
+    Routing Tag
+        ****TODO****
+    Rateplan
+        ****TODO****
+    Internal Disconnect Code
+        ****TODO****
+    Lega Disconnect Code
+        ****TODO****
+    Lega Disconnect Reason
+        ****TODO****
+    Legb Disconnect Code
+        ****TODO****
+    Legb Disconnect Reason
+        ****TODO****
+    Src Prefix In
+        ****TODO****
+    Dst Prefix In
+        ****TODO****
+    Src Prefix Out
+        ****TODO****
+    Dst Prefix Out
+        ****TODO****
+    LRN
+        ****TODO****
+    Diversion In
+        ****TODO****
+    Diversion Out
+        ****TODO****
+    Src Name In
+        ****TODO****
+    Src Name Out
+        ****TODO****
+    Node
+        ****TODO****
+    PoP
+        ****TODO****
+    Local Tag
+        ****TODO****
+    Orig Call
+        ****TODO****
+    Term Call
+        ****TODO****
+    Routing Attempt
+        ****TODO****
+    Customer Price
+        ****TODO****
+    Vendor Price
+        ****TODO****
+    Vendor Invoice
+        ****TODO****
+    Customer Invoice
+        ****TODO****
+    Routing Delay
+        ****TODO****
+    PDD
+        ****TODO****
+    RTT
+        ****TODO****
+
 ----
 
 CDR Archive
 ~~~~~~~~~~~
+
+**CDR**'s attributes:
+`````````````````````
+    Id
+       Unique CDR's id.
+    Time Start
+        ****TODO****
+    Customer
+        ****TODO****
+    Vendor
+        ****TODO****
+    Customer Auth
+        ****TODO****
+    Src Prefix Routing
+        ****TODO****
+    Dst Prefix Routing
+        ****TODO****
+    Dst Country
+        ****TODO****
+    Status
+        ****TODO****
+    Duration
+        ****TODO****
+    Is Last CDR
+        ****TODO****
+    Orig GW
+        ****TODO****
+    Term GW
+        ****TODO****
+    Routing Plan
+        ****TODO****
+    Routing Group
+        ****TODO****
+    Rateplan
+        ****TODO****
+    Internal Disconnect Code
+        ****TODO****
+    Internal Disconnect Reason
+        ****TODO****
+    Lega Disconnect Code
+        ****TODO****
+    Lega Disconnect Reason
+        ****TODO****
+    Legb Disconnect Code
+        ****TODO****
+    Legb Disconnect Reason
+        ****TODO****
+    Src Prefix In
+        ****TODO****
+    Dst Prefix In
+        ****TODO****
+    Src Prefix Out
+        ****TODO****
+    Dst Prefix Out
+        ****TODO****
+    LRN
+        ****TODO****
+    Diversion In
+        ****TODO****
+    Diversion Out
+        ****TODO****
+    Src Name In
+        ****TODO****
+    Src Name Out
+        ****TODO****
+    Node
+        ****TODO****
+    PoP
+        ****TODO****
+    Local Tag
+        ****TODO****
+    Orig Call
+        ****TODO****
+    Term Call
+        ****TODO****
+    Routing Attempt
+        ****TODO****
+    Customer Price
+        ****TODO****
+    Vendor Price
+        ****TODO****
+    Vendor Invoice
+        ****TODO****
+    Customer Invoice
+        ****TODO****
+    Routing Delay
+        ****TODO****
+    PDD
+        ****TODO****
+    RTT
+        ****TODO****
 
 ----
 
@@ -1379,40 +1567,140 @@ Reports
 Custom CDR report
 ~~~~~~~~~~~~~~~~~
 
+**CDR report**'s attributes:
+````````````````````````````
+    Id
+       Unique CDR report's id.
+    Date start
+        ****TODO****
+    Date end
+        ****TODO****
+    Customer
+        ****TODO****
+    Filter
+        ****TODO****
+    Group by
+        ****TODO****
+    Send to
+        ****TODO****
+
 ----
 
 Customer traffic
 ~~~~~~~~~~~~~~~~
+
+**Customer Traffic**'s attributes:
+``````````````````````````````````
+    Id
+       Unique Customer Traffic's id.
+    Date Start
+        ****TODO****
+    Date End
+        ****TODO****
+    Customer
+        ****TODO****
+    Send to
+        ****TODO****
 
 ----
 
 Vendor traffic
 ~~~~~~~~~~~~~~
 
+**Vendor Traffic**'s attributes:
+````````````````````````````````
+    Id
+       Unique Vendor Traffic's id.
+    Date Start
+        ****TODO****
+    Date End
+        ****TODO****
+    Vendor
+        ****TODO****
+    Send to
+        ****TODO****
+
 ----
 
 Interval CDR report
 ~~~~~~~~~~~~~~~~~~~
+
+**Interval CDR report**'s attributes:
+`````````````````````````````````````
+    Id
+       Unique Interval CDR report's id.
+    Date Start
+        ****TODO****
+    Date End
+        ****TODO****
+    Interval length
+        ****TODO****
+    Aggregation function
+        ****TODO****
+    Aggregate by
+        ****TODO****
+    Filter
+        ****TODO****
+    Group by fields
+        ****TODO****
+    Send to
+        ****TODO****
 
 ----
 
 Termination Distribution
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
+**Termination Distribution**'s attributes:
+``````````````````````````````````````````
+    Time Interval
+        ****TODO****
+    Customer
+        ****TODO****
+
 ----
 
 Origination performance
 ~~~~~~~~~~~~~~~~~~~~~~~
+
+**Origination performance**'s attributes:
+`````````````````````````````````````````
+    Time Interval
+        ****TODO****
+    Customer
+        ****TODO****
 
 ----
 
 Bad routing
 ~~~~~~~~~~~
 
+**Bad routing**'s attributes:
+`````````````````````````````
+    Id
+       Unique Bad routing's id.
+    Time Interval
+        ****TODO****
+    Customer
+        ****TODO****
+    Rateplan
+        ****TODO****
+    Routing Plan
+        ****TODO****
+    Internal Disconnect Code
+        ****TODO****
+    Internal Disconnect Reason
+        ****TODO****
+
 ----
 
-Not authentificated attempts
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Not authenticated attempts
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Not authenticated attempt**'s attributes:
+```````````````````````````````````````````
+    Time Interval
+        ****TODO****
 
 ----
 
@@ -1423,16 +1711,59 @@ Realtime Data
 Active calls
 ~~~~~~~~~~~~
 
+**Active call**'s attributes:
+`````````````````````````````
+    Node
+        ****TODO****
+    Destination Country
+        ****TODO****
+    Destination Network
+        ****TODO****
+    Vendor
+        ****TODO****
+    Customer
+        ****TODO****
+    Vendor Account
+        ****TODO****
+    Customer Account
+        ****TODO****
+    Orig GW
+        ****TODO****
+    Term GW
+        ****TODO****
+    Duration
+        ****TODO****
 ----
 
 Nodes
 ~~~~~
+
+**Node**'s attributes:
+``````````````````````
+    Name
+        ****TODO****
+    Active Calls Count
+        ****TODO****
+    Version
+        ****TODO****
+    Shutdown Req Time
+        ****TODO****
+    Sessions Num
+        ****TODO****
+    Uptime
+        ****TODO****
+    PoP
+        ****TODO****
 
 ----
 
 Outgoing Registrations
 ~~~~~~~~~~~~~~~~~~~~~~
 
+**Outgoing Registration**'s attributes:
+```````````````````````````````````````
+    Node
+        ****TODO****
 ----
 
 Logs
@@ -1441,25 +1772,109 @@ Logs
 API Log
 ~~~~~~~
 
+**Log Record**'s attributes:
+````````````````````````````
+    Created At
+        ****TODO****
+    Path
+        ****TODO****
+    Method
+        ****TODO****
+    Status
+        ****TODO****
+    Controller
+        ****TODO****
+    Action
+        ****TODO****
+    Page Duration
+        ****TODO****
+    DB Duration
+        ****TODO****
+    Params
+        ****TODO****
+    Request Body
+        ****TODO****
+    Response Body
+        ****TODO****
+    Request Headers
+        ****TODO****
+    Response Headers
+        ****TODO****
+
 ----
 
 Audit Log
 ~~~~~~~~~
+
+**Log Record**'s attributes:
+````````````````````````````
+    Item type
+        ****TODO****
+    Item ID EQ
+        ****TODO****
+    Event
+        ****TODO****
+    WHODUNNIT
+        ****TODO****
+    Created At
+        ****TODO****
+    IP
+        ****TODO****
+    TXID
+        ****TODO****
 
 ----
 
 Logic Log
 ~~~~~~~~~
 
+**Log Record**'s attributes:
+````````````````````````````
+    Id
+       Unique Record's id.
+    Time Stamp
+        ****TODO****
+    TXID
+        ****TODO****
+    Level
+        ****TODO****
+    Source
+        ****TODO****
+    MSG
+        ****TODO****
+
 ----
 
 Email Log
 ~~~~~~~~~
 
+**Email Log Record**'s attributes:
+``````````````````````````````````
+    Id
+       Unique Record's id.
+    Batch
+        ****TODO****
+    Contact
+        ****TODO****
+    SMTP Connection
+        ****TODO****
+    Mail To
+        ****TODO****
 ----
 
 Events
 ~~~~~~
+
+**Event**'s attributes:
+```````````````````````
+    Id
+       Unique Event's id.
+    Node
+        ****TODO****
+    Retries
+        ****TODO****
+    Command
+        ****TODO****
 
 ----
 
