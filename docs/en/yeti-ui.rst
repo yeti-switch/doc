@@ -702,9 +702,9 @@ We welcome requests to implement additional protocols or LNP database specific f
         Database name. Unique field.
     Driver
         Driver which will be used. Available options:
-            - UDP SIP 301/302 redirect;
-            - thinQ RESR LRN driver;
-            - In-memory hash.
+            UDP SIP 301/302 redirect
+            thinQ RESR LRN driver
+            In-memory hash
     Host
         Database host (will be ignored by In-memory hash driver).
     Port
@@ -869,10 +869,10 @@ General **Customers Auth**'s attributes:
         It is possible to capture calls to PCAP files, using this option.
         You may choose what kind of information should be captured.
         Possible values are:
-            - Capture nothing;
-            - Capture signalling traffic;
-            - Capture RTP traffic;
-            - Capture all traffic.
+            Capture nothing
+            Capture signalling traffic
+            Capture RTP traffic
+            Capture all traffic.
     Enable Audio Recording
         If checked, the media for calls passing through this Customer Auth will be stored
         in WAV files.
