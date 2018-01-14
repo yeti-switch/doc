@@ -868,11 +868,7 @@ General **Customers Auth**'s attributes:
     Dump Level
         It is possible to capture calls to PCAP files, using this option.
         You may choose what kind of information should be captured.
-        Possible values are:
-            Capture nothing
-            Capture signalling traffic
-            Capture RTP traffic
-            Capture all traffic.
+        Possible values are: Capture nothing, Capture signalling traffic, Capture RTP traffic, Capture all traffic.
     Enable Audio Recording
         If checked, the media for calls passing through this Customer Auth will be stored
         in WAV files.
@@ -1022,7 +1018,7 @@ General **Destination**'s attributes:
     Reverse billing
         ****TODO****
     Initial Interval
-        The starting interval from the start of the call in seconds (default 1). Allows you to set another tariffication policy for starting a call (example: * The first 5 seconds are free *).
+        The starting interval from the start of the call in seconds (default 1). Allows you to set another tariffication policy for starting a call (example: *The first 5 seconds are free*).
     Next Interval
         The subsequent interval of tariffication in seconds. With this interval, the charging step is defined (example *Minute (60 seconds)*, *Per second (1 second)*).
     Created At
@@ -2387,5 +2383,3 @@ It is necessary to have an SMTP connection in order to YETI can send invoices an
         Password for Authorization procedure on external SMTP server.
     Global
         Set as global for all customers.
-
-----
