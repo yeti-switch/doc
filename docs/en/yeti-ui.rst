@@ -161,7 +161,9 @@ Payments intended to change account balance.
         Additional information about payment transactions.
     Created at
         Date and time of the payment creation.
+
 ----
+
 
 Invoices
 ~~~~~~~~
