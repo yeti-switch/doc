@@ -448,6 +448,7 @@ Signaling (Termination) **Gateway**'s attributes:
         Filter type to process alines in SDP. possible values: Transparent, Blacklist, Whitelist.
     Sdp alines filter list
         SDP alines comma-separated list.
+
     .. _gateway_ringing_timeout:
 
     Ringing timeout
