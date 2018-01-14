@@ -97,7 +97,13 @@ Contact:
 Accounts
 ~~~~~~~~
 
-****TODO****
+Initial balance for newly created account is always zero.
+Balance can be changed as result of calls billing or new payments.
+
+For each call:
+account balance will be **decreased** on call cost if it uses account for **origination** (customer)
+and **increased** if it uses account for **termination** (vendor).
+
 
 **Account**'s attributes:
 `````````````````````````
@@ -137,13 +143,6 @@ Accounts
         Contacts list to send invoices that were generated.
     Timezone
         Timezone which will be used for invoices generation and statistics for this account.
-
-Initial balance for newly created account is always zero.
-Balance can be changed as result of calls billing or new payments.
-
-For each call:
-account balance will be **decreased** on call cost if it uses account for **origination** (customer)
-and **increased** if it uses account for **termination** (vendor)
 
 ----
 
@@ -267,7 +266,7 @@ Equipment
 Gateway groups
 ~~~~~~~~~~~~~~
 
-Gateway group allows to use multiple gateways for traffic termination to the same vendor if this gateways have similar billing configuration.
+Gateway group allows to use multiple gateways for traffic termination to the same vendor if these gateways have similar billing configuration.
 
 **Gateway group**'s attributes:
 ```````````````````````````````
@@ -288,7 +287,7 @@ Gateway group allows to use multiple gateways for traffic termination to the sam
 Gateways
 ~~~~~~~~
 
-****TODO****
+Gateways are used for sending VoIP traffic.
 
 General **Gateway**'s attributes:
 `````````````````````````````````
@@ -320,23 +319,20 @@ General **Gateway**'s attributes:
         Origination capacity limit for this gateway. In case of gateway usage for termination this attribute will be ignored.
     Termination capacity
         Termination capacity limit for this gateway. In case of gateway usage for origination this attribute will be ignored.       
-    Acd limit  ****TODO**** Poor English
-        ACD threshold. If ACD for gateway traffic will drop below threshold, then dialpeers, which are use this gateway,
-        will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
-    Asr limit ****TODO**** Poor English
-        ASR threshold. If ASR for gateway traffic will drop below threshold, then dialpeers, which are use this gateway,
-        will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+    Acd limit
+        ACD threshold. If ACD for gateway traffic is below the threshold, the Dialpires that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
+    Asr limit
+        ASR threshold. If ASR for gateway traffic is below the threshold, the Dialpires that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
     Short Calls limit
-        ****TODO**** 
-        then dialpeers, which are use this gateway,
-        will be excluded from routing in case of usage of routing plan with **ACD&ASR control**
+        Threshold percentage of Short Calls. If the current value is below the threshold, the Dialpires that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
+
 
 SST **Gateway**'s attributes:
 `````````````````````````````
     SST Enabled
         Force to use SIP Session Timers, otherwise SST usage will be controlled by signaling of the remote gateway.
     SST Session Expires
-        Default value of Expires header for SIP session timers mechanish
+        Default value of Expires header for SIP session timers mechanism.
     SST Minimum timer
         ****TODO****
     SST Maximum timer 
@@ -367,7 +363,11 @@ Signaling **Gateway**'s attributes:
     Relay prack
         Transparent relay of In-dialog PRACK between call legs
     Rel100 mode
-        ****TODO****
+        Disabled - ****TODO****
+        Supported  - ****TODO****
+        Supported not announced  - ****TODO****
+        Require  - ****TODO****
+        Ignored  - ****TODO****
     Relay UPDATE
         Transparent relay of SIP UPDATE between call legs.
     Transit headers from origination
@@ -376,6 +376,9 @@ Signaling **Gateway**'s attributes:
 	    Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`.
     Sip interface name
         The name of network interface which SEMS is listening on. It might be useful if it is necessary to route SIP-traffic from different IP-addresses.
+
+Signaling (Origination) **Gateway**'s attributes:
+`````````````````````````````````````````````````
     Orig next hop
         ****TODO****
     Orig append headers req
@@ -385,7 +388,7 @@ Signaling **Gateway**'s attributes:
     Orig force outbound proxy
         ****TODO****
     Orig proxy transport protocol
-        ****TODO****
+         Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
     Orig outbound proxy
         ****TODO****
     Transparent dialog
@@ -394,8 +397,11 @@ Signaling **Gateway**'s attributes:
         ****TODO****
     Orig disconnect policy
         ****TODO****
+
+Signaling (Termination) **Gateway**'s attributes:
+`````````````````````````````````````````````````
     Transport protocol
-        ****TODO****
+       Transport protocol that is used for Termination (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
     Host
         IP address or DNS name of remote gateway to send SIP signaling (only for termination).
     Port
@@ -409,9 +415,9 @@ Signaling **Gateway**'s attributes:
             - resolve ruri enabled => RURI will be `user@1.1.1.1`
             - resolve ruri disabled => RURI will be `user@domain.com`
     Incoming auth username
-        ****TODO****
+        Incomming Username for authorization. ****TODO**** To clarify
     Incoming auth password
-        ****TODO****
+        Incomming Password for authorization. ****TODO**** To clarify
     Auth enabled
         Enable authorization for outgoing calls.
     Auth user
@@ -427,7 +433,7 @@ Signaling **Gateway**'s attributes:
     Term force outbound proxy
         Force usage of outbound proxy for termination.
     Term proxy transport protocol
-        ****TODO****
+        Transport protocol that is used for Termination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
     Term outbound proxy
         Outbound proxy address.
     Term next hop
@@ -453,7 +459,7 @@ Signaling **Gateway**'s attributes:
     Max transfers
         ****TODO****
     Sip timer B
-        SIP timer B (transaction timeout) override. Must be less than         ****TODO****
+        Overwrites the value of SIP timer B (transaction timeout).
         Call can be rerouted if this allowed by disconnect policy configuration.
     Dns srv failover timer
         SIP timer M (INVITE retransmit) override. Must have value less than timer B.
@@ -560,7 +566,8 @@ Dtmf **Gateway**'s attributes:
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
 
-Radius **Gateway** attributes:
+Radius **Gateway**'s attributes:
+````````````````````````````````
     Radius accounting profile
        ****TODO****
 
@@ -590,9 +597,9 @@ Disconnect policies codes
     Id
         Unique Disconnect policy code's id.
     Policy
-        ****TODO****
+        Disconnect policy that is related to this Code.
     Code
-        ****TODO****
+        ****TODO**** (List of codes)
     Stop hunting
         ****TODO****
     Pass reason to originator
@@ -653,7 +660,7 @@ YETI allows to use outgoing SIP registrations on remote vendor's or customer's e
 Codec groups
 ~~~~~~~~~~~~
 
-****TODO****
+Codec groups allows to create arbitrary sets of media codecs and applies them to the Gateways. Groups can differ in the composition of codecs, their priority and traffic codes, which allows to process different scenarios when processing calls.
 
 **Codec group**'s attributes:
 `````````````````````````````
@@ -738,7 +745,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
     Attempts
         Maximum amount of of requests for every call.
 
-    Auth profile attributes ****TODO****
+    Auth profile attributes ****TODO**** (list of variables)
         Type    ****TODO****
         Name    ****TODO****
         Is vsa  ****TODO****
@@ -975,41 +982,45 @@ Rateplan
     
 ----
 
-Destination
-~~~~~~~~~~~
+Destinations
+~~~~~~~~~~~~
 
-****TODO****
+Destinations in YETI are designed to determine the prefixes that can be processed by the system and the order of calculating the cost of calls for the originator.
 
 General **Destination**'s attributes:
 `````````````````````````````````````
     Id
        Unique Destination's id.
     Prefix
-        ****TODO****
+        The numeric prefix with which the number is to be compared.
     Dst number min length
-        ****TODO****
+        Minimum length of number for this Destination.
     Dst number max length
-        ****TODO****
+        Maximum length of number for this Destination.
     Enabled
-        ****TODO****
+        If this flag is activated, the Direction will participate in the routing procedure.
     Reject Calls
-        ****TODO****
+        If this flag is activated, when the corresponding number is received with this Direction during the routing procedure, the call will be rejected.
     Rateplan
-        ****TODO****
+        Rateplan that is used with this Direction.
     Routing Tag
         ****TODO****
     Valid From
-        ****TODO****
+        Time and date that determine the time from which this Destination participates (will participate) in the routing procedure.
     Valid Till
-        ****TODO****
+        Time and date that determine the point in time to which this Destination will participate in the routing procedure.
     Rate Policy
-        ****TODO****
+        The policy of determining the price of a call on this Direction. The following options are available:
+            -   Fixed. If this option is selected, the cost of the call will be calculated with using the Initial rate, Next rate, Connect fee of this Destination.
+            -   Based on used dialpeer. This option involves calculating the cost of the call with using the Initial rate, Next rate, Connect fee of Dial-up options, which will take the call. In this case, there is a possibility of changing the value, by determining the Dp margin fixed and / or Dp margin percent.
+            -   MIN (Fixed, Based on used dialpeer). The minimum price for a call is chosen, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
+            -   MAX (Fixed, Based on used dialpeer). The maximum price for a call is selected when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
     Reverse billing
         ****TODO****
     Initial Interval
-        ****TODO****
+        The starting interval from the start of the call in seconds (default 1). Allows you to set another tariffication policy for starting a call (example: * The first 5 seconds are free *).
     Next Interval
-        ****TODO****
+        The subsequent interval of tariffication in seconds. With this interval, the charging step is defined (example *Minute (60 seconds)*, *Per second (1 second)*).
     Created At
         ****TODO****
 
