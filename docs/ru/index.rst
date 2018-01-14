@@ -17,6 +17,7 @@ Contents:
    yeti-cli
    yeti-cli-commands
    upgrade-to-1.4
+   best-practices
 
 
 Indices and tables
