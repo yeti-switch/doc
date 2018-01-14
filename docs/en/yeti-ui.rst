@@ -588,6 +588,7 @@ Disconnect policy allows to override system default actions for each SIP disconn
         Unique Disconnect policy's id.
     Name
         Unique Disconnect policy's name.
+
 ----
 
 Disconnect policies codes
@@ -1828,6 +1829,7 @@ Active calls
         ****TODO****
     Duration
         ****TODO****
+
 ----
 
 Nodes
@@ -1863,6 +1865,7 @@ Outgoing Registrations
 ```````````````````````````````````````
     Node
         ****TODO****
+
 ----
 
 Logs
@@ -1967,6 +1970,7 @@ Email Log
         ****TODO****
     Mail To
         ****TODO****
+
 ----
 
 Events
@@ -2142,6 +2146,7 @@ PoPs
        PoP's id.
     Name
         ****TODO****
+
 ----
 
 Countries
