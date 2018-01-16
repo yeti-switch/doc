@@ -145,23 +145,28 @@ Signaling **Gateway**'s attributes:
 Signaling (Origination) **Gateway**'s attributes:
 `````````````````````````````````````````````````
     Orig next hop
-        ****TODO****
+        ****TODO**** - адрес или доменное имя (куда слать)
     Orig append headers req
-        ****TODO****
+        ****TODO****  - x:123\r\n - свои заголовки к запросу на оригинатор
     Orig use outbound proxy
         ****TODO****
     Orig force outbound proxy
-        ****TODO****
+        ****TODO**** - прокси (сип)
     Orig proxy transport protocol
          Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
     Orig outbound proxy
-        ****TODO****
+        ****TODO**** - адрес (IPv4 или IPv6) доменное имя sip:hui@111.11...
     Transparent dialog
-        ****TODO****
+        ****TODO**** - не используется
     Dialog nat handling
-        ****TODO****
+        ****TODO**** - если адреса похожие на серые, то будет резолвиться
     Orig disconnect policy
-        :ref:`Disconnect policiy <disconnect_policy>`_ that is related to this Origination' attribute of the Gateway.
+        :ref:`Disconnect policiy <disconnect_policy>`_ that is related to this Origination's attribute of the Gateway.
+    Incoming auth username
+        Incomming Username for authorization. ****TODO**** To clarify - сейчас в терминации (баг). Отбросит звонок (если галочка)
+    Incoming auth password
+        Incomming Password for authorization. ****TODO**** To clarify
+
 
 Signaling (Termination) **Gateway**'s attributes:
 `````````````````````````````````````````````````
@@ -179,20 +184,16 @@ Signaling (Termination) **Gateway**'s attributes:
 
             - resolve ruri enabled => RURI will be `user@1.1.1.1`
             - resolve ruri disabled => RURI will be `user@domain.com`
-    Incoming auth username
-        Incomming Username for authorization. ****TODO**** To clarify
-    Incoming auth password
-        Incomming Password for authorization. ****TODO**** To clarify
     Auth enabled
         Enable authorization for outgoing calls.
     Auth user
-        Auth username.
+        Auth username. ****TODO**** - то что шлём мы
     Auth password
-        Auth password.
+        Auth password. ****TODO**** - то что шлём мы
     Auth from user
-        From user-part for auth.
+        From user-part for auth. ****TODO**** - То, что будет вписано в хидер From (при использовании авторизации)
     Auth from domain
-        From domain-part for auth.
+        From domain-part for auth. ****TODO**** - То, что будет вписано в хидер From (при использовании авторизации) - доменная часть
     Term use outbound proxy
         Use outbound proxy for termination.
     Term force outbound proxy
@@ -202,9 +203,9 @@ Signaling (Termination) **Gateway**'s attributes:
     Term outbound proxy
         Outbound proxy address.
     Term next hop
-        ****TODO****
+        ****TODO**** - адрес или доменное имя (куда слать)
     Term disconnect policy
-        ****TODO****
+        :ref:`Disconnect policiy <disconnect_policy>`_ that is related to this Termination's attribute of the Gateway.
     Term append headers req
         Headers list to append to the INITIAL invite.
     Sdp alines filter type
@@ -221,9 +222,9 @@ Signaling (Termination) **Gateway**'s attributes:
     Allow 1xx without to tag
         Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
     Max 30x redirects
-        ****TODO****
+        ****TODO**** How many 301/302 redirects Yeti will process. 0 - не будем
     Max transfers
-        ****TODO****
+        ****TODO**** How many SIP REFERs Yeti will process. - 0 - не будем
     Sip timer B
         Overwrites the value of SIP timer B (transaction timeout).
         Call can be rerouted if this allowed by disconnect policy configuration.
@@ -235,7 +236,7 @@ Signaling (Termination) **Gateway**'s attributes:
     Fake 180 timer
         Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
     Send lnp information
-        ****TODO****
+        ****TODO**** - Local number portability - Будет добавлять - код в скайпе (не шлём если не включена). Взять на себя функции запроса (по цепочке дальше)
 
 Translations **Gateway**'s attributes:
 ``````````````````````````````````````
@@ -309,9 +310,9 @@ Media **Gateway**'s attributes:
     Rtp force relay CN
         If enabled, YETI will relay CN packets on even if they were not negotiated in SDP.
     Force one way early media
-        ****TODO****
+        ****TODO**** - до звонка слышим звук (музыка, рингтон), блокировать прохождение звука от оригинатора в состоянии рингтона
     Rtp interface name
-        ****TODO****
+        ****TODO**** sems.conf - оттуда
 
 Dtmf **Gateway**'s attributes:
 ``````````````````````````````
@@ -335,7 +336,7 @@ Dtmf **Gateway**'s attributes:
 Radius **Gateway**'s attributes:
 ````````````````````````````````
     Radius accounting profile
-       ****TODO****
+       ****TODO**** - ссылка (и для оригинационного и терминационного)
 
 
 ----
@@ -359,7 +360,7 @@ Disconnect policy allows to override system default actions for each SIP disconn
 Disconnect policies codes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - для обеспечения совместимости (детали для полиси)
 
 **Disconnect policy code**'s attributes:
 ````````````````````````````````````````
@@ -368,15 +369,15 @@ Disconnect policies codes
     Policy
         Disconnect policy that is related to this Code.
     Code
-        ****TODO**** (List of codes)
+        ****TODO**** (List of codes) SIP - дать линку на список
     Stop hunting
-        ****TODO****
+        ****TODO**** - ре-раутинг не выполнять, если получен такой код
     Pass reason to originator
-        ****TODO****
+        ****TODO**** - просто копирование оригинатору (текста) - код можем поменять, но текст оставить
     Rewrited code
-        ****TODO****
+        ****TODO**** - перезаписываемый код, если пусто - не перезаписываем
     Rewrited reason
-        ****TODO****
+        ****TODO**** - перезаписываемая причина, если пусто  - то дефолтное для кода
 
 ----
 
@@ -514,14 +515,15 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
     Attempts
         Maximum amount of of requests for every call.
 
-    Auth profile attributes ****TODO**** (list of variables)
-        Type    ****TODO****
-        Name    ****TODO****
-        Is vsa  ****TODO****
-        Vsa vendor  ****TODO****
-        Vsa vendor type ****TODO****
-        Value   ****TODO****
-        Format  ****TODO****
+    Auth profile attributes ****TODO**** (list of variables - скопировать и сделать туду) - 255 штук
+        Type    ****TODO**** - RADIUS  тип
+        Name    ****TODO**** - RADIUS имя
+        Is vsa  ****TODO**** - будет ещё отрибут vendor specific attribute encoding
+        Vsa vendor  ****TODO****  - ид вендора (цифры)
+        Vsa vendor type ****TODO**** - тип (цифры)
+        Value   ****TODO**** - значение
+        Format  ****TODO**** - (список форматов)
+        Remove  ****TODO**** - для удаления
 
 
     To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
