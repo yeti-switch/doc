@@ -1,16 +1,6 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
-    yeti-ui-system
-
 ===================================================
 YETI WEB interface - Realtime Data menu description
 ===================================================
-
-Realtime Data
--------------
 
 Active calls
 ~~~~~~~~~~~~

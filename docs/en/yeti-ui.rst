@@ -32,15 +32,17 @@ Displays different various indicators of the system state:
 YETI WEB interface menu description
 ===================================
 
-.. toctree::
-    :maxdepth: 2
+Contents:
 
-    Contents:
-        yeti-ui-billing
-        yeti-ui-equipment
-        yeti-ui-routing
-        yeti-ui-cdr
-        yeti-ui-reports
-        yeti-ui-rtd
-        yeti-ui-logs
-        yeti-ui-system
+.. toctree::
+   :maxdepth: 2
+
+   yeti-ui-billing
+   yeti-ui-equipment
+   yeti-ui-routing
+   yeti-ui-cdr
+   yeti-ui-reports
+   yeti-ui-rtd
+   yeti-ui-logs
+   yeti-ui-system
+

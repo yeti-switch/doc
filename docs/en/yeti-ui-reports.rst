@@ -1,17 +1,7 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
-    yeti-ui-system
 
 =============================================
 YETI WEB interface - Reports menu description
 =============================================
-
-Reports
--------
-
 
 Custom CDR report
 ~~~~~~~~~~~~~~~~~

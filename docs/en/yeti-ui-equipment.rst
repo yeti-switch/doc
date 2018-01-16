@@ -1,16 +1,6 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
-    yeti-ui-system
-
 ===============================================
 YETI WEB interface - Equipment menu description
 ===============================================
-
-Equipment
----------
 
 Gateway groups
 ~~~~~~~~~~~~~~
@@ -121,16 +111,16 @@ Signaling **Gateway**'s attributes:
             * Ignore 100rel related headers.
         ## Supported
             * Add *100rel* to *Supported* header for outgoing INVITE requests.
-            * Process extension related things according to `RFC 3262<https://www.ietf.org/rfc/rfc3262.txt>`_.
+            * Process extension related things according to `RFC 3262 <https://www.ietf.org/rfc/rfc3262.txt>`_.
         ## Supported not announced
             * Doesn't add *100rel* to any header for outgoing INVITE requests,
               but enables *100rel* processing if reply contains *100rel* in *Require* header.
-            * Process extension related things according to `RFC 3262<https://www.ietf.org/rfc/rfc3262.txt>`_.
+            * Process extension related things according to `RFC 3262 <https://www.ietf.org/rfc/rfc3262.txt>`_.
         # Require
             * Add *100rel* to *Require* header for outgoing INVITE requests.
             * Reply with *421 Extension Required* if *100rel* is not supported or required in incoming INVITE.
             * Hangup session if no *Rseq* in incoming reply.
-            * Process extension related things according to `RFC 3262<https://www.ietf.org/rfc/rfc3262.txt>`_.
+            * Process extension related things according to `RFC 3262 <https://www.ietf.org/rfc/rfc3262.txt>`_.
         ## Ignored
             Completely ignore any headers related to 100rel extension.
     Relay UPDATE
@@ -161,7 +151,7 @@ Signaling (Origination) **Gateway**'s attributes:
     Dialog nat handling
         ****TODO**** - если адреса похожие на серые, то будет резолвиться
     Orig disconnect policy
-        :ref:`Disconnect policiy <disconnect_policy>`_ that is related to this Origination's attribute of the Gateway.
+        :ref:`Disconnect policiy <disconnect_policy>` that is related to this Origination's attribute of the Gateway.
     Incoming auth username
         Incomming Username for authorization. ****TODO**** To clarify - сейчас в терминации (баг). Отбросит звонок (если галочка)
     Incoming auth password
@@ -205,7 +195,7 @@ Signaling (Termination) **Gateway**'s attributes:
     Term next hop
         ****TODO**** - адрес или доменное имя (куда слать)
     Term disconnect policy
-        :ref:`Disconnect policiy <disconnect_policy>`_ that is related to this Termination's attribute of the Gateway.
+        :ref:`Disconnect policiy <disconnect_policy>` that is related to this Termination's attribute of the Gateway.
     Term append headers req
         Headers list to append to the INITIAL invite.
     Sdp alines filter type

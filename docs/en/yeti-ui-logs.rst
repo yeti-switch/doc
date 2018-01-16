@@ -1,16 +1,6 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
-    yeti-ui-system
-
 ==========================================
 YETI WEB interface - Logs menu description
 ==========================================
-
-Logs
-----
 
 API Log
 ~~~~~~~

@@ -1,15 +1,6 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
 ============================================
 YETI WEB interface - System menu description
 ============================================
-
-System
-------
-
 
 Info
 ~~~~

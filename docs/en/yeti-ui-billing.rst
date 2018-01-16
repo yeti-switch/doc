@@ -1,19 +1,9 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
-    yeti-ui-system
-
 =============================================
 YETI WEB interface - Billing menu description
 =============================================
 
-Billing
--------
 This section describes billing and accounting entities
 
-----
 
 Contractors
 ~~~~~~~~~~~

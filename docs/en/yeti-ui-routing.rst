@@ -1,17 +1,6 @@
-Contents:
-
-.. toctree::
-    :maxdepth: 3
-
-    yeti-ui-system
-
 =============================================
 YETI WEB interface - Routing menu description
 =============================================
-
-
-Routing
--------
 
 Customers Auth
 ~~~~~~~~~~~~~~
