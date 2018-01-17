@@ -137,9 +137,10 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig next hop
         Network (IPv4 or IPv6) address or domain name that should be used as **SIP next hop** in case of using Gateway as Originator of calls. If this field doesn't specified - **SIP next hop** will be defined automatically by routing rules.
     Orig append headers req
-        Additional SIP headers that Yeti should add to request to the Gateway (in case of using Gateway as Originator of calls). Additional header fields are lines composed of a field name, followed by a colon (":"), followed by a field body, and terminated by CRLF.  A field name must be composed of printable US-ASCII characters (i.e.,    characters that have values between 33 and 126, inclusive), except colon.  A field body may be composed of any US-ASCII characters,
-   except for CR and LF.
-        Format of headers: "field-name1: field-value1**CRLF**field-name1: field-value2...", where *field-name1 and field-name2* - names of the custom  fields, *field-value1 and field-value2* - values of the custom fields, *CRLF* - the carriage-return/line-feed pair (the carriage return (CR) character (ASCII value 13) followed immediately by the line feed (LF) character (ASCIIvalue 10)).
+        Additional SIP headers that Yeti should add to request to the Gateway (in case of using Gateway as Originator of calls). Additional header fields are lines composed of a field name, followed by a colon (:), followed by a field body, and terminated by CRLF.  A field name must be composed of printable US-ASCII characters (i.e., characters that have values between 33 and 126, inclusive), except colon.  A field body may be composed of any US-ASCII characters, except for CR and LF.
+
+    Format of headers: field-name1: field-value1**CRLF**field-name1: field-value2..., where *field-name1 and field-name2* - names of the custom  fields, *field-value1 and field-value2* - values of the custom fields, *CRLF* - the carriage-return/line-feed pair (the carriage return (CR) character (ASCII value 13) followed immediately by the line feed (LF) character (ASCIIvalue 10)).
+
     Orig use outbound proxy
         ****TODO****
     Orig force outbound proxy
@@ -155,10 +156,10 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig disconnect policy
         :ref:`Disconnect policiy <disconnect_policy>` that is related to this Origination's attribute of the Gateway.
     Incoming auth username
-        This field should be filled by *username* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling ref:`Require incoming auth <yeti-ui-routing\require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
+        This field should be filled by *username* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling :ref:`Require incoming auth <require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
         Call will be droped in case of receiving of different *username* from Gateway.
     Incoming auth password
-        This field should be filled by *password* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling ref:`Require incoming auth <yeti-ui-routing\require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
+        This field should be filled by *password* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling :ref:`Require incoming auth <require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
         Call will be droped in case of receiving of different *password* from Gateway.
 
 
