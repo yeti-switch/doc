@@ -135,9 +135,11 @@ Signaling **Gateway**'s attributes:
 Signaling (Origination) **Gateway**'s attributes:
 `````````````````````````````````````````````````
     Orig next hop
-        ****TODO**** - адрес или доменное имя (куда слать)
+        Network (IPv4 or IPv6) address or domain name that should be used as **SIP next hop** in case of using Gateway as Originator of calls. If this field doesn't specified - **SIP next hop** will be defined automatically by routing rules.
     Orig append headers req
-        ****TODO****  - x:123\r\n - свои заголовки к запросу на оригинатор
+        Additional SIP headers that Yeti should add to request to the Gateway (in case of using Gateway as Originator of calls). Additional header fields are lines composed of a field name, followed by a colon (":"), followed by a field body, and terminated by CRLF.  A field name must be composed of printable US-ASCII characters (i.e.,    characters that have values between 33 and 126, inclusive), except colon.  A field body may be composed of any US-ASCII characters,
+   except for CR and LF.
+        Format of headers: "field-name1: field-value1**CRLF**field-name1: field-value2...", where *field-name1 and field-name2* - names of the custom  fields, *field-value1 and field-value2* - values of the custom fields, *CRLF* - the carriage-return/line-feed pair (the carriage return (CR) character (ASCII value 13) followed immediately by the line feed (LF) character (ASCIIvalue 10)).
     Orig use outbound proxy
         ****TODO****
     Orig force outbound proxy
@@ -145,17 +147,19 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig proxy transport protocol
          Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
     Orig outbound proxy
-        ****TODO**** - адрес (IPv4 или IPv6) доменное имя sip:hui@111.11...
+       SIP Uniform Resource Indicator (URI) of SIP proxy for Gateway (in case of using Gateway as Originator of calls).
     Transparent dialog
-        ****TODO**** - не используется
+        Not used yet.
     Dialog nat handling
-        ****TODO**** - если адреса похожие на серые, то будет резолвиться
+       In case of enabling this field Yeti learns the proper remote address (port, transport,...) from the received message and uses that in following in-dialog requests. Enable this option when handling far end NATs.
     Orig disconnect policy
         :ref:`Disconnect policiy <disconnect_policy>` that is related to this Origination's attribute of the Gateway.
     Incoming auth username
-        Incomming Username for authorization. ****TODO**** To clarify - сейчас в терминации (баг). Отбросит звонок (если галочка)
+        This field should be filled by *username* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling ref:`Require incoming auth <yeti-ui-routing\require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
+        Call will be droped in case of receiving of different *username* from Gateway.
     Incoming auth password
-        Incomming Password for authorization. ****TODO**** To clarify
+        This field should be filled by *password* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling ref:`Require incoming auth <yeti-ui-routing\require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
+        Call will be droped in case of receiving of different *password* from Gateway.
 
 
 Signaling (Termination) **Gateway**'s attributes:
@@ -177,13 +181,15 @@ Signaling (Termination) **Gateway**'s attributes:
     Auth enabled
         Enable authorization for outgoing calls.
     Auth user
-        Auth username. ****TODO**** - то что шлём мы
+        This field should be filled by *username* for outgoing authorization on Gateway (in case of using Gateway as Terminator of calls). Field is used only in case of enabling "Auth enabled" flag.
+        Call will be dropped in case of failed authorization on Gateway.
     Auth password
-        Auth password. ****TODO**** - то что шлём мы
+        This field should be filled by *password* for outgoing authorization on Gateway (in case of using Gateway as Terminator of calls). Field is used only in case of enabling "Auth enabled" flag.
+        Call will be dropped in case of failed authorization on Gateway.
     Auth from user
-        From user-part for auth. ****TODO**** - То, что будет вписано в хидер From (при использовании авторизации)
+        Should be used for filling header "From" of SIP header during authorization (user part).
     Auth from domain
-        From domain-part for auth. ****TODO**** - То, что будет вписано в хидер From (при использовании авторизации) - доменная часть
+        Should be used for filling header "From" of SIP header during authorization (domain part).
     Term use outbound proxy
         Use outbound proxy for termination.
     Term force outbound proxy
@@ -193,7 +199,7 @@ Signaling (Termination) **Gateway**'s attributes:
     Term outbound proxy
         Outbound proxy address.
     Term next hop
-        ****TODO**** - адрес или доменное имя (куда слать)
+        Network (IPv4 or IPv6) address or domain name that should be used as **SIP next hop** in case of using Gateway as Terminator of calls. If this field doesn't specified - **SIP next hop** will be defined automatically by routing rules.
     Term disconnect policy
         :ref:`Disconnect policiy <disconnect_policy>` that is related to this Termination's attribute of the Gateway.
     Term append headers req
@@ -212,9 +218,9 @@ Signaling (Termination) **Gateway**'s attributes:
     Allow 1xx without to tag
         Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
     Max 30x redirects
-        ****TODO**** How many 301/302 redirects Yeti will process. 0 - не будем
+        Amount of 301/302 SIP redirects that are allowed by Yeti for this Gateway (in case of using Gateway as Terminator of calls). Calls won't be redirected in case of filling this field by 0 (zero) value.
     Max transfers
-        ****TODO**** How many SIP REFERs Yeti will process. - 0 - не будем
+        Amount of SIP transfers that are allowed by Yeti for this Gateway (in case of using Gateway as Terminator of calls). Calls won't be transfered in case of filling this field by 0 (zero) value.
     Sip timer B
         Overwrites the value of SIP timer B (transaction timeout).
         Call can be rerouted if this allowed by disconnect policy configuration.
