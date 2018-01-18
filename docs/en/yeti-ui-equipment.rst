@@ -513,101 +513,100 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
         Maximum amount of of requests for every call.
 
     Auth profile attributes
-        RADIUS Attributes for including specific authentication, authorization, information and configuration details to the requests and replies. General amount of attributes is regulated by total length of the RADIUS packet (see: `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_).
-        Type
-            The Type of the RADIUS attribute (decimal value between 0 and 255). Regarding to the `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ values 192-223 are reserved for               experimental use, values 224-240 are reserved for implementation-specific use, and values 241-255 are reserved              and should not be used.
+        RADIUS Attributes for including specific authentication, authorization, information and configuration details to the requests and replies. General amount of attributes is regulated by total length of the RADIUS packet (see: `RFC 2865:   Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_).
 
-            .. note:: A RADIUS server and client MAY ignore Attributes with an unknown Type.
-
-        Name
+        -   Type
+            The Type of the RADIUS attribute (decimal value between 0 and 255). Regarding to the `RFC 2865:  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ values 192-223 are reserved for experimental use, values 224-240 are reserved for implementation-specific use, and values 241-255 are reserved and should not be used. A RADIUS server and client MAY ignore Attributes with an unknown Type.
+        -   Name
             Name of attribute. It uses for information only and doesn't transfer in the RADIUS packet.
-        Is vsa
+        -   Is vsa
             If this checkbox is enabled it indicates that it is Vendor Specific Attribute and doesn't described by `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_.
-        Vsa vendor
+        -   Vsa vendor
             Decimal value (between 0 and (2^32 - 1)) of the Vendor's ID in the attribute. In the `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ - the high-order octet is 0 and the low-order 3 octets are the SMI Network Management Private Enterprise Code of the Vendor in network byte order.
-        Vsa vendor type
+        -   Vsa vendor type
             Decimal value (between 0 and 255) of the specific Vendor type of attribute.
-        Vendor specific attribute encoding
+        -   Vendor specific attribute encoding
             ****TODO****
-        Value   ****TODO**** - need to clarify
+        -   Value   ****TODO**** - need to clarify
             String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow.
-        Format
+        -   Format
             The format of the value field is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive)), octets (raw flow of octets - ****TODO**** - need to clarify), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
-        Remove  ****TODO**** - для удаления
+        -   Remove  ****TODO****
 
-.. note:: Currently following variables are supported in the Yeti's auth profiles:
 
-   -    $src_number_radius$ - ****TODO****
-   -    $dst_number_radius$ - ****TODO****
-   -    $orig_gw_name$ - ****TODO****
-   -    $customer_auth_name$ - ****TODO****
-   -    $customer_name$ - ****TODO****
-   -    $customer_account_name$ - ****TODO****
-   -    $term_gw_name$ - ****TODO****
-   -    $orig_gw_external_id$ - ****TODO****
-   -    $term_gw_external_id$ - ****TODO****
-   -    $fake_180_timer$ - ****TODO****
-   -    $customer_id$ - ****TODO****
-   -    $vendor_id$ - ****TODO****
-   -    $customer_acc_id$ - ****TODO****
-   -    $vendor_acc_id$ - ****TODO****
-   -    $customer_auth_id$ - ****TODO****
-   -    $destination_id$ - ****TODO****
-   -    $destination_prefix$ - ****TODO****
-   -    $dialpeer_id$ - ****TODO****
-   -    $dialpeer_prefix$ - ****TODO****
-   -    $orig_gw_id$ - ****TODO****
-   -    $term_gw_id$ - ****TODO****
-   -    $routing_group_id$ - ****TODO****
-   -    $rateplan_id$ - ****TODO****
-   -    $destination_initial_rate$ - ****TODO****
-   -    $destination_next_rate$ - ****TODO****
-   -    $destination_initial_interval$ - ****TODO****
-   -    $destination_next_interval$ - ****TODO****
-   -    $destination_rate_policy_id$ - ****TODO****
-   -    $dialpeer_initial_interval$ - ****TODO****
-   -    $dialpeer_next_interval$ - ****TODO****
-   -    $dialpeer_next_rate$ - ****TODO****
-   -    $destination_fee$ - ****TODO****
-   -    $dialpeer_initial_rate$ - ****TODO****
-   -    $dialpeer_fee$ - ****TODO****
-   -    $dst_prefix_in$ - ****TODO****
-   -    $dst_prefix_out$ - ****TODO****
-   -    $src_prefix_in$ - ****TODO****
-   -    $src_prefix_out$ - ****TODO****
-   -    $src_name_in$ - ****TODO****
-   -    $src_name_out$ - ****TODO****
-   -    $diversion_in$ - ****TODO****
-   -    $diversion_out$ - ****TODO****
-   -    $auth_orig_protocol_id$ - ****TODO****
-   -    $auth_orig_ip$ - ****TODO****
-   -    $auth_orig_port$ - ****TODO****
-   -    $dst_country_id$ - ****TODO****
-   -    $dst_network_id$ - ****TODO****
-   -    $dst_prefix_routing$ - ****TODO****
-   -    $src_prefix_routing$ - ****TODO****
-   -    $routing_plan_id$ - ****TODO****
-   -    $lrn$ - ****TODO****
-   -    $lnp_database_id$ - ****TODO****
-   -    $from_domain$ - ****TODO****
-   -    $to_domain$ - ****TODO****
-   -    $ruri_domain$ - ****TODO****
-   -    $src_area_id$ - ****TODO****
-   -    $dst_area_id$ - ****TODO****
-   -    $routing_tag_id$ - ****TODO****
-   -    $pai_in$ - ****TODO****
-   -    $ppi_in$ - ****TODO****
-   -    $privacy_in$ - ****TODO****
-   -    $rpid_in$ - ****TODO****
-   -    $rpid_privacy_in$ - ****TODO****
-   -    $pai_out$ - ****TODO****
-   -    $ppi_out$ - ****TODO****
-   -    $privacy_out$ - ****TODO****
-   -    $rpid_out$ - ****TODO****
-   -    $rpid_privacy_out$ - ****TODO****
-   -    $customer_acc_check_balance$ - ****TODO****
-   -    $destination_reverse_billing$ - ****TODO****
-   -    $dialpeer_reverse_billing$ - ****TODO****
+    .. note:: Currently following variables are supported in the Yeti's auth profiles:
+
+       -    $src_number_radius$ - ****TODO****
+       -    $dst_number_radius$ - ****TODO****
+       -    $orig_gw_name$ - ****TODO****
+       -    $customer_auth_name$ - ****TODO****
+       -    $customer_name$ - ****TODO****
+       -    $customer_account_name$ - ****TODO****
+       -    $term_gw_name$ - ****TODO****
+       -    $orig_gw_external_id$ - ****TODO****
+       -    $term_gw_external_id$ - ****TODO****
+       -    $fake_180_timer$ - ****TODO****
+       -    $customer_id$ - ****TODO****
+       -    $vendor_id$ - ****TODO****
+       -    $customer_acc_id$ - ****TODO****
+       -    $vendor_acc_id$ - ****TODO****
+       -    $customer_auth_id$ - ****TODO****
+       -    $destination_id$ - ****TODO****
+       -    $destination_prefix$ - ****TODO****
+       -    $dialpeer_id$ - ****TODO****
+       -    $dialpeer_prefix$ - ****TODO****
+       -    $orig_gw_id$ - ****TODO****
+       -    $term_gw_id$ - ****TODO****
+       -    $routing_group_id$ - ****TODO****
+       -    $rateplan_id$ - ****TODO****
+       -    $destination_initial_rate$ - ****TODO****
+       -    $destination_next_rate$ - ****TODO****
+       -    $destination_initial_interval$ - ****TODO****
+       -    $destination_next_interval$ - ****TODO****
+       -    $destination_rate_policy_id$ - ****TODO****
+       -    $dialpeer_initial_interval$ - ****TODO****
+       -    $dialpeer_next_interval$ - ****TODO****
+       -    $dialpeer_next_rate$ - ****TODO****
+       -    $destination_fee$ - ****TODO****
+       -    $dialpeer_initial_rate$ - ****TODO****
+       -    $dialpeer_fee$ - ****TODO****
+       -    $dst_prefix_in$ - ****TODO****
+       -    $dst_prefix_out$ - ****TODO****
+       -    $src_prefix_in$ - ****TODO****
+       -    $src_prefix_out$ - ****TODO****
+       -    $src_name_in$ - ****TODO****
+       -    $src_name_out$ - ****TODO****
+       -    $diversion_in$ - ****TODO****
+       -    $diversion_out$ - ****TODO****
+       -    $auth_orig_protocol_id$ - ****TODO****
+       -    $auth_orig_ip$ - ****TODO****
+       -    $auth_orig_port$ - ****TODO****
+       -    $dst_country_id$ - ****TODO****
+       -    $dst_network_id$ - ****TODO****
+       -    $dst_prefix_routing$ - ****TODO****
+       -    $src_prefix_routing$ - ****TODO****
+       -    $routing_plan_id$ - ****TODO****
+       -    $lrn$ - ****TODO****
+       -    $lnp_database_id$ - ****TODO****
+       -    $from_domain$ - ****TODO****
+       -    $to_domain$ - ****TODO****
+       -    $ruri_domain$ - ****TODO****
+       -    $src_area_id$ - ****TODO****
+       -    $dst_area_id$ - ****TODO****
+       -    $routing_tag_id$ - ****TODO****
+       -    $pai_in$ - ****TODO****
+       -    $ppi_in$ - ****TODO****
+       -    $privacy_in$ - ****TODO****
+       -    $rpid_in$ - ****TODO****
+       -    $rpid_privacy_in$ - ****TODO****
+       -    $pai_out$ - ****TODO****
+       -    $ppi_out$ - ****TODO****
+       -    $privacy_out$ - ****TODO****
+       -    $rpid_out$ - ****TODO****
+       -    $rpid_privacy_out$ - ****TODO****
+       -    $customer_acc_check_balance$ - ****TODO****
+       -    $destination_reverse_billing$ - ****TODO****
+       -    $dialpeer_reverse_billing$ - ****TODO****
 
     To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
 
