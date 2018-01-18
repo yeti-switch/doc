@@ -137,10 +137,8 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig next hop
         Network (IPv4 or IPv6) address or domain name that should be used as **SIP next hop** in case of using Gateway as Originator of calls. If this field doesn't specified - **SIP next hop** will be defined automatically by routing rules.
     Orig append headers req
-        Additional SIP headers that Yeti should add to request to the Gateway (in case of using Gateway as Originator of calls). Additional header fields are lines composed of a field name, followed by a colon (:), followed by a field body, and terminated by CRLF.  A field name must be composed of printable US-ASCII characters (i.e., characters that have values between 33 and 126, inclusive), except colon.  A field body may be composed of any US-ASCII characters, except for CR and LF.
-
-    Format of headers: field-name1: field-value1**CRLF**field-name1: field-value2..., where *field-name1 and field-name2* - names of the custom  fields, *field-value1 and field-value2* - values of the custom fields, *CRLF* - the carriage-return/line-feed pair (the carriage return (CR) character (ASCII value 13) followed immediately by the line feed (LF) character (ASCIIvalue 10)).
-
+        Additional SIP headers that Yeti should add to request to the Gateway (in case of using Gateway as Originator of calls). Additional header fields are lines composed of a field name, followed by a colon (:), followed by a field body, and terminated by followin set of characters ('\r\n'). A field name must be composed of printable US-ASCII characters (i.e., characters that have values between 33 and 126, inclusive), except colon.  A field body may be composed of any US-ASCII characters, except for carriage return character ('\r') and line feed character ('\n').
+        Format of headers: field-name1: field-value1**\r\n**field-name1: field-value2..., where *field-name1 and field-name2* - names of the custom  fields, *field-value1 and field-value2* - values of the custom fields, **\r\n** - the carriage-return/line-feed pair.
     Orig use outbound proxy
         ****TODO****
     Orig force outbound proxy
@@ -196,7 +194,7 @@ Signaling (Termination) **Gateway**'s attributes:
     Term force outbound proxy
         Force usage of outbound proxy for termination.
     Term proxy transport protocol
-        Transport protocol that is used for Termination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
+        Transport protocol that is used for Termination proxy (User Datagram Protocol (UDP) or Transmission Control Protocol (TCP)).
     Term outbound proxy
         Outbound proxy address.
     Term next hop
@@ -233,7 +231,8 @@ Signaling (Termination) **Gateway**'s attributes:
     Fake 180 timer
         Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
     Send lnp information
-        If this checkbox is enabled (in case of using Gateway as Terminator of calls) Yeti will request number portability information from Local Service Management System (LSMS) database and will include Local number portability information to the SIP headers.
+        If this checkbox is enabled (in case of using Gateway as Terminator of calls) Yeti will include Local number portability information (LNP) to the outgoing INVITE-request (by adding npdi and rn parameters to the R-URI) only in case of availability of this LNP information (it means if LNP information was successfully received from :ref:`LNP Database <lnp_databases>`). Rules of receiving LNP information from LNP Database are regulated in the :ref:`Routing plan LNP rules <routing_plan_lnp_rules>`.
+
 
 Translations **Gateway**'s attributes:
 ``````````````````````````````````````
@@ -449,6 +448,8 @@ Codec groups allows to create arbitrary sets of media codecs and applies them to
 
 ----
 
+.. _lnp_databases:
+
 LNP databases
 ~~~~~~~~~~~~~
 see https://en.wikipedia.org/wiki/Local_number_portability
@@ -511,16 +512,102 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
     Attempts
         Maximum amount of of requests for every call.
 
-    Auth profile attributes ****TODO**** (list of variables - скопировать и сделать туду) - 255 штук
-        Type    ****TODO**** - RADIUS  тип
-        Name    ****TODO**** - RADIUS имя
-        Is vsa  ****TODO**** - будет ещё отрибут vendor specific attribute encoding
-        Vsa vendor  ****TODO****  - ид вендора (цифры)
-        Vsa vendor type ****TODO**** - тип (цифры)
-        Value   ****TODO**** - значение
-        Format  ****TODO**** - (список форматов)
+    Auth profile attributes
+        RADIUS Attributes for including specific authentication, authorization, information and configuration details to the requests and replies. General amount of attributes is regulated by total length of the RADIUS packet (see: `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_).
+        Type
+            The Type of the RADIUS attribute (decimal value between 0 and 255). Regarding to the `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ values 192-223 are reserved for               experimental use, values 224-240 are reserved for implementation-specific use, and values 241-255 are reserved              and should not be used.
+
+            .. note:: A RADIUS server and client MAY ignore Attributes with an unknown Type.
+
+        Name
+            Name of attribute. It uses for information only and doesn't transfer in the RADIUS packet.
+        Is vsa
+            If this checkbox is enabled it indicates that it is Vendor Specific Attribute and doesn't described by `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_.
+        Vsa vendor
+            Decimal value (between 0 and (2^32 - 1)) of the Vendor's ID in the attribute. In the `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ - the high-order octet is 0 and the low-order 3 octets are the SMI Network Management Private Enterprise Code of the Vendor in network byte order.
+        Vsa vendor type
+            Decimal value (between 0 and 255) of the specific Vendor type of attribute.
+        Vendor specific attribute encoding
+            ****TODO****
+        Value   ****TODO**** - need to clarify
+            String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow.
+        Format
+            The format of the value field is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive)), octets (raw flow of octets - ****TODO**** - need to clarify), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
         Remove  ****TODO**** - для удаления
 
+.. note:: Currently following variables are supported in the Yeti's auth profiles:
+
+   -    $src_number_radius$ - ****TODO****
+   -    $dst_number_radius$ - ****TODO****
+   -    $orig_gw_name$ - ****TODO****
+   -    $customer_auth_name$ - ****TODO****
+   -    $customer_name$ - ****TODO****
+   -    $customer_account_name$ - ****TODO****
+   -    $term_gw_name$ - ****TODO****
+   -    $orig_gw_external_id$ - ****TODO****
+   -    $term_gw_external_id$ - ****TODO****
+   -    $fake_180_timer$ - ****TODO****
+   -    $customer_id$ - ****TODO****
+   -    $vendor_id$ - ****TODO****
+   -    $customer_acc_id$ - ****TODO****
+   -    $vendor_acc_id$ - ****TODO****
+   -    $customer_auth_id$ - ****TODO****
+   -    $destination_id$ - ****TODO****
+   -    $destination_prefix$ - ****TODO****
+   -    $dialpeer_id$ - ****TODO****
+   -    $dialpeer_prefix$ - ****TODO****
+   -    $orig_gw_id$ - ****TODO****
+   -    $term_gw_id$ - ****TODO****
+   -    $routing_group_id$ - ****TODO****
+   -    $rateplan_id$ - ****TODO****
+   -    $destination_initial_rate$ - ****TODO****
+   -    $destination_next_rate$ - ****TODO****
+   -    $destination_initial_interval$ - ****TODO****
+   -    $destination_next_interval$ - ****TODO****
+   -    $destination_rate_policy_id$ - ****TODO****
+   -    $dialpeer_initial_interval$ - ****TODO****
+   -    $dialpeer_next_interval$ - ****TODO****
+   -    $dialpeer_next_rate$ - ****TODO****
+   -    $destination_fee$ - ****TODO****
+   -    $dialpeer_initial_rate$ - ****TODO****
+   -    $dialpeer_fee$ - ****TODO****
+   -    $dst_prefix_in$ - ****TODO****
+   -    $dst_prefix_out$ - ****TODO****
+   -    $src_prefix_in$ - ****TODO****
+   -    $src_prefix_out$ - ****TODO****
+   -    $src_name_in$ - ****TODO****
+   -    $src_name_out$ - ****TODO****
+   -    $diversion_in$ - ****TODO****
+   -    $diversion_out$ - ****TODO****
+   -    $auth_orig_protocol_id$ - ****TODO****
+   -    $auth_orig_ip$ - ****TODO****
+   -    $auth_orig_port$ - ****TODO****
+   -    $dst_country_id$ - ****TODO****
+   -    $dst_network_id$ - ****TODO****
+   -    $dst_prefix_routing$ - ****TODO****
+   -    $src_prefix_routing$ - ****TODO****
+   -    $routing_plan_id$ - ****TODO****
+   -    $lrn$ - ****TODO****
+   -    $lnp_database_id$ - ****TODO****
+   -    $from_domain$ - ****TODO****
+   -    $to_domain$ - ****TODO****
+   -    $ruri_domain$ - ****TODO****
+   -    $src_area_id$ - ****TODO****
+   -    $dst_area_id$ - ****TODO****
+   -    $routing_tag_id$ - ****TODO****
+   -    $pai_in$ - ****TODO****
+   -    $ppi_in$ - ****TODO****
+   -    $privacy_in$ - ****TODO****
+   -    $rpid_in$ - ****TODO****
+   -    $rpid_privacy_in$ - ****TODO****
+   -    $pai_out$ - ****TODO****
+   -    $ppi_out$ - ****TODO****
+   -    $privacy_out$ - ****TODO****
+   -    $rpid_out$ - ****TODO****
+   -    $rpid_privacy_out$ - ****TODO****
+   -    $customer_acc_check_balance$ - ****TODO****
+   -    $destination_reverse_billing$ - ****TODO****
+   -    $dialpeer_reverse_billing$ - ****TODO****
 
     To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
 

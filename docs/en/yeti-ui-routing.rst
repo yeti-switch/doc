@@ -366,6 +366,8 @@ Routing plan static routes
 
 ----
 
+    .. _routing_plan_lnp_rules:
+
 Routing Plan LNP rules
 ~~~~~~~~~~~~~~~~~~~~~~
 
