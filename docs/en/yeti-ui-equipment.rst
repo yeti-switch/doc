@@ -202,7 +202,7 @@ Signaling (Termination) **Gateway**'s attributes:
     Term next hop
         Network (IPv4 or IPv6) address or domain name that should be used as **SIP next hop** in case of using Gateway as Terminator of calls. If this field doesn't specified - **SIP next hop** will be defined automatically by routing rules.
     Term disconnect policy
-        :ref:`Disconnect policiy <disconnect_policy>` that is related to this Termination's attribute of the Gateway.
+        :ref:`Disconnect policy <disconnect_policy>` that is related to this Termination's attribute of the Gateway.
     Term append headers req
         Headers list to append to the INITIAL invite.
     Sdp alines filter type
@@ -233,7 +233,7 @@ Signaling (Termination) **Gateway**'s attributes:
     Fake 180 timer
         Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
     Send lnp information
-        ****TODO**** - Local number portability - Будет добавлять - код в скайпе (не шлём если не включена). Взять на себя функции запроса (по цепочке дальше)
+        If this checkbox is enabled (in case of using Gateway as Terminator of calls) Yeti will request number portability information from Local Service Management System (LSMS) database and will include Local number portability information to the SIP headers.
 
 Translations **Gateway**'s attributes:
 ``````````````````````````````````````
@@ -307,9 +307,9 @@ Media **Gateway**'s attributes:
     Rtp force relay CN
         If enabled, YETI will relay CN packets on even if they were not negotiated in SDP.
     Force one way early media
-        ****TODO**** - до звонка слышим звук (музыка, рингтон), блокировать прохождение звука от оригинатора в состоянии рингтона
+        If this checkbox is enabled Early Media (the ability of two SIP User Agents to communicate before a SIP call is actually established) will be blocked on the way from LegA (Originator) to LegB (Terminator) of the call. It helps to prevent fraud with using Early Media features for making non-billed calls.
     Rtp interface name
-        ****TODO**** sems.conf - оттуда
+        Attribute that is used for changing RTP interface name in the SEMS (SIP Express Media Server) configuration file (sems.conf).
 
 Dtmf **Gateway**'s attributes:
 ``````````````````````````````
@@ -333,8 +333,7 @@ Dtmf **Gateway**'s attributes:
 Radius **Gateway**'s attributes:
 ````````````````````````````````
     Radius accounting profile
-       ****TODO**** - ссылка (и для оригинационного и терминационного)
-
+       :ref:`Radius accounting profile <radius_accounting_profile>` that is related to this Gateway.
 
 ----
 
@@ -343,7 +342,7 @@ Radius **Gateway**'s attributes:
 Disconnect policies
 ~~~~~~~~~~~~~~~~~~~
 
-Disconnect policy allows to override system default actions for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting).
+Disconnect policy allows to override system default actions for each SIP disconnect code per gateway (rerouting, codes/reasons rewriting). Sometimes it is useful for compatibility between different VoIP platforms.
 
 **Disconnect policy**'s attributes:
 ```````````````````````````````````
@@ -357,24 +356,24 @@ Disconnect policy allows to override system default actions for each SIP disconn
 Disconnect policies codes
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO**** - для обеспечения совместимости (детали для полиси)
+Code's overriding scenarios that are used by :ref:`Disconnect policies <disconnect_policy>`. More than one scenario can be used with one :ref:`Disconnect policy <disconnect_policy>`.
 
 **Disconnect policy code**'s attributes:
 ````````````````````````````````````````
     Id
         Unique Disconnect policy code's id.
     Policy
-        Disconnect policy that is related to this Code.
+        :ref:`Disconnect policy <disconnect_policy>` that is related to this Code.
     Code
-        ****TODO**** (List of codes) SIP - дать линку на список
+        SIP Response Codes that are specified in the `RFC 3261 -  SIP: Session Initiation Protocol <https://tools.ietf.org/html/rfc3261#section-21>`_.
     Stop hunting
-        ****TODO**** - ре-раутинг не выполнять, если получен такой код
+        If this checkbox is enabled re-routing won't be done in case of receiving this SIP Code.
     Pass reason to originator
-        ****TODO**** - просто копирование оригинатору (текста) - код можем поменять, но текст оставить
+        If this checkbox is enabled the Reason (text of Response Code) will be transferred to Originator without changing, even if Code was changed by scenario.
     Rewrited code
-        ****TODO**** - перезаписываемый код, если пусто - не перезаписываем
+        Response Code that will be transferred to Originator instead of original Code. If this field is empty - original Response Code will be transferred to Originator.
     Rewrited reason
-        ****TODO**** - перезаписываемая причина, если пусто  - то дефолтное для кода
+        Response Reason that will be transferred to Originator instead of original (deafult) Reason. If this field is empty - original (default) Response Reason will be transferred to Originator, even if Code was changed by scenario.
 
 ----
 
@@ -528,6 +527,8 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
 .. note:: YETI doesn't support interaction with external routing engines via RADIUS protocol.
 
 ----
+
+.. _radius_accounting_profile:
 
 RADIUS Accounting Profiles
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
