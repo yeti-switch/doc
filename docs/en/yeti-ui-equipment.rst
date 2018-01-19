@@ -512,6 +512,8 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
     Attempts
         Maximum amount of of requests for every call.
 
+.. _auth_profile_attributes:
+
     Auth profile attributes
         RADIUS Attributes for including specific authentication, authorization, information and configuration details to the requests and replies. General amount of attributes is regulated by total length of the RADIUS packet (see: `RFC 2865:   Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_).
 
@@ -531,34 +533,35 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
             String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow.
         -   Format
             The format of the value field is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive)), octets (raw flow of octets - ****TODO**** - need to clarify), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
-        -   Remove  ****TODO****
+        -   Remove
+            This control element can be used for removing existing Auth profile attribute. Auth profile attribute will be removed after saving changes (by clicking Update Auth profile) in case of enabling this checkbox.
 
 
-    .. note:: Currently following variables are supported in the Yeti's auth profiles:
+    .. note:: Currently following variables (placeholders) are supported in the Yeti's auth profiles:
 
        -    $src_number_radius$ - ****TODO****
        -    $dst_number_radius$ - ****TODO****
-       -    $orig_gw_name$ - ****TODO****
-       -    $customer_auth_name$ - ****TODO****
-       -    $customer_name$ - ****TODO****
-       -    $customer_account_name$ - ****TODO****
-       -    $term_gw_name$ - ****TODO****
+       -    $orig_gw_name$ - Value of the Name attribute (string) of Gateway that is used as Originator for current call.
+       -    $customer_auth_name$ - Value of the Name attribute (string) of the Customer Auth.
+       -    $customer_name$ - Value of the Name attribute (string) of the Customer Contractor.
+       -    $customer_account_name$ - Value of the Name attribute (string) of Account that is associated with Customer for current call.
+       -    $term_gw_name$ - Value of the Name attribute (string) of Gateway that is used as Terminator for current call.
        -    $orig_gw_external_id$ - ****TODO****
        -    $term_gw_external_id$ - ****TODO****
        -    $fake_180_timer$ - ****TODO****
-       -    $customer_id$ - ****TODO****
-       -    $vendor_id$ - ****TODO****
-       -    $customer_acc_id$ - ****TODO****
-       -    $vendor_acc_id$ - ****TODO****
-       -    $customer_auth_id$ - ****TODO****
-       -    $destination_id$ - ****TODO****
-       -    $destination_prefix$ - ****TODO****
-       -    $dialpeer_id$ - ****TODO****
-       -    $dialpeer_prefix$ - ****TODO****
-       -    $orig_gw_id$ - ****TODO****
-       -    $term_gw_id$ - ****TODO****
+       -    $customer_id$ - Value of the ID attribute (integer) of the Customer Contractor for current call.
+       -    $vendor_id$ - Value of the ID attribute (integer) of the Vendor Contractor for current call.
+       -    $customer_acc_id$ - Value of the ID attribute (integer) of Account that is associated with Customer for current call.
+       -    $vendor_acc_id$ - Value of the ID attribute (integer) of Account that is associated with Vendor for current call.
+       -    $customer_auth_id$ - Value of the ID attribute (integer) of the Customer Auth.
+       -    $destination_id$ - Value of the ID attribute (integer) of the Destination for current call.
+       -    $destination_prefix$ - Value of the Prefix attribute (string) of the Destination for current call.
+       -    $dialpeer_id$ - Value of the ID attribute (integer) of the Dialpeer for current call.
+       -    $dialpeer_prefix$ - Value of the Prefix attribute (string) of the Dialpeer for current call.
+       -    $orig_gw_id$ - Value of the ID attribute (integer) of Gateway that is used as Originator for current call.
+       -    $term_gw_id$ - Value of the ID attribute (integer) of Gateway that is used as Terminator for current call.
        -    $routing_group_id$ - ****TODO****
-       -    $rateplan_id$ - ****TODO****
+       -    $rateplan_id$ - Value of the ID attribute (integer) of Rateplan for current call.
        -    $destination_initial_rate$ - ****TODO****
        -    $destination_next_rate$ - ****TODO****
        -    $destination_initial_interval$ - ****TODO****
@@ -587,7 +590,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $src_prefix_routing$ - ****TODO****
        -    $routing_plan_id$ - ****TODO****
        -    $lrn$ - ****TODO****
-       -    $lnp_database_id$ - ****TODO****
+       -    $lnp_database_id$ - Value of the ID attribute (integer) of LNP Database that is used for current call.
        -    $from_domain$ - ****TODO****
        -    $to_domain$ - ****TODO****
        -    $ruri_domain$ - ****TODO****
@@ -646,28 +649,9 @@ Yeti supports additional accounting of calls on external RADIUS server. RADIUS A
         Send Interim packets to external RADIUS server every **interval** seconds.
     Enable stop accounting
         If enabled, YETI will send Stop-accounting packets to external RADIUS server.
-
-    Start packet attributes ****TODO****
-        Type    ****TODO****
-        Name    ****TODO****
-        Is vsa  ****TODO****
-        Vsa vendor  ****TODO****
-        Vsa vendor type ****TODO****
-        Value   ****TODO****
-        Format  ****TODO****
-    Interim packet attributes ****TODO****
-        Type    ****TODO****
-        Name    ****TODO****
-        Is vsa  ****TODO****
-        Vsa vendor  ****TODO****
-        Vsa vendor type ****TODO****
-        Value   ****TODO****
-        Format  ****TODO****
-    Stop packet attributes ****TODO****
-        Type    ****TODO****
-        Name    ****TODO****
-        Is vsa  ****TODO****
-        Vsa vendor  ****TODO****
-        Vsa vendor type ****TODO****
-        Value   ****TODO****
-        Format  ****TODO****
+    Start packet attributes
+        RADIUS Attributes for including specific authentication, authorization, information and configuration details into **Start-accounting packets**. Description of fields, principles of their filling and description of placeholders that can be used as variables in the *value* filed are described in the :ref:`Auth profile attributes <auth_profile_attributes>` section.
+    Interim packet attributes
+        RADIUS Attributes for including specific authentication, authorization, information and configuration details into **Interim packet attributes**. Description of fields, principles of their filling and description of placeholders that can be used as variables in the *value* filed are described in the :ref:`Auth profile attributes <auth_profile_attributes>` section.
+    Stop packet attributes
+        RADIUS Attributes for including specific authentication, authorization, information and configuration details into **Stop packet attributes**. Description of fields, principles of their filling and description of placeholders that can be used as variables in the *value* filed are described in the :ref:`Auth profile attributes <auth_profile_attributes>` section.
