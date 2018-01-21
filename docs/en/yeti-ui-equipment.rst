@@ -532,7 +532,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
         -   Value   ****TODO**** - need to clarify
             String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow.
         -   Format
-            The format of the value field is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive)), octets (raw flow of octets - ****TODO**** - need to clarify), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
+            The format of the value field is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for printable text strings), octets (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for binary data), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
         -   Remove
             This control element can be used for removing existing Auth profile attribute. Auth profile attribute will be removed after saving changes (by clicking Update Auth profile) in case of enabling this checkbox.
 
@@ -541,38 +541,38 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
 
        -    $src_number_radius$ - ****TODO****
        -    $dst_number_radius$ - ****TODO****
-       -    $orig_gw_name$ - Value of the Name attribute (string) of Gateway that is used as Originator for current call.
-       -    $customer_auth_name$ - Value of the Name attribute (string) of the Customer Auth.
-       -    $customer_name$ - Value of the Name attribute (string) of the Customer Contractor.
-       -    $customer_account_name$ - Value of the Name attribute (string) of Account that is associated with Customer for current call.
-       -    $term_gw_name$ - Value of the Name attribute (string) of Gateway that is used as Terminator for current call.
+       -    $orig_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Originator for current call.
+       -    $customer_auth_name$ - Value of the *Name* attribute (string) of the Customer Auth.
+       -    $customer_name$ - Value of the *Name* attribute (string) of the Customer Contractor.
+       -    $customer_account_name$ - Value of the *Name* attribute (string) of Account that is associated with Customer for current call.
+       -    $term_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Terminator for current call.
        -    $orig_gw_external_id$ - ****TODO****
        -    $term_gw_external_id$ - ****TODO****
        -    $fake_180_timer$ - ****TODO****
-       -    $customer_id$ - Value of the ID attribute (integer) of the Customer Contractor for current call.
-       -    $vendor_id$ - Value of the ID attribute (integer) of the Vendor Contractor for current call.
-       -    $customer_acc_id$ - Value of the ID attribute (integer) of Account that is associated with Customer for current call.
-       -    $vendor_acc_id$ - Value of the ID attribute (integer) of Account that is associated with Vendor for current call.
-       -    $customer_auth_id$ - Value of the ID attribute (integer) of the Customer Auth.
-       -    $destination_id$ - Value of the ID attribute (integer) of the Destination for current call.
-       -    $destination_prefix$ - Value of the Prefix attribute (string) of the Destination for current call.
-       -    $dialpeer_id$ - Value of the ID attribute (integer) of the Dialpeer for current call.
-       -    $dialpeer_prefix$ - Value of the Prefix attribute (string) of the Dialpeer for current call.
-       -    $orig_gw_id$ - Value of the ID attribute (integer) of Gateway that is used as Originator for current call.
-       -    $term_gw_id$ - Value of the ID attribute (integer) of Gateway that is used as Terminator for current call.
-       -    $routing_group_id$ - ****TODO****
-       -    $rateplan_id$ - Value of the ID attribute (integer) of Rateplan for current call.
-       -    $destination_initial_rate$ - ****TODO****
-       -    $destination_next_rate$ - ****TODO****
-       -    $destination_initial_interval$ - ****TODO****
-       -    $destination_next_interval$ - ****TODO****
-       -    $destination_rate_policy_id$ - ****TODO****
-       -    $dialpeer_initial_interval$ - ****TODO****
-       -    $dialpeer_next_interval$ - ****TODO****
-       -    $dialpeer_next_rate$ - ****TODO****
-       -    $destination_fee$ - ****TODO****
-       -    $dialpeer_initial_rate$ - ****TODO****
-       -    $dialpeer_fee$ - ****TODO****
+       -    $customer_id$ - Value of the *ID* attribute (integer) of the Customer Contractor for current call.
+       -    $vendor_id$ - Value of the *ID* attribute (integer) of the Vendor Contractor for current call.
+       -    $customer_acc_id$ - Value of the *ID* attribute (integer) of Account that is associated with Customer for current call.
+       -    $vendor_acc_id$ - Value of the *ID* attribute (integer) of Account that is associated with Vendor for current call.
+       -    $customer_auth_id$ - Value of the *ID* attribute (integer) of the Customer Auth.
+       -    $destination_id$ - Value of the *ID* attribute (integer) of the Destination for current call.
+       -    $destination_prefix$ - Value of the *Prefix* attribute (string) of the Destination for current call.
+       -    $dialpeer_id$ - Value of the *ID* attribute (integer) of the Dialpeer for current call.
+       -    $dialpeer_prefix$ - Value of the *Prefix* attribute (string) of the Dialpeer for current call.
+       -    $orig_gw_id$ - Value of the *ID* attribute (integer) of Gateway that is used as Originator for current call.
+       -    $term_gw_id$ - Value of the *ID* attribute (integer) of Gateway that is used as Terminator for current call.
+       -    $routing_group_id$ - Value of the *ID* attribute (integer) of Routing Group for current call.
+       -    $rateplan_id$ - Value of the *ID* attribute (integer) of Rateplan for current call.
+       -    $destination_initial_rate$ - Value of the *Initial Rate* attribute (floating point number) of Destination for current call.
+       -    $destination_next_rate$ -  Value of the *Next Rate* attribute (floating point number) of Destination for current call.
+       -    $destination_initial_interval$ - Value of the *Initial Interval* attribute (floating point number) of Destination for current call.
+       -    $destination_next_interval$ - Value of the *Next Interval* attribute (floating point number) of Destination for current call.
+       -    $destination_rate_policy_id$ - Value of the *ID* attribute (integer) of Rate Policy that was chosen in the Destination properties for current call.
+       -    $dialpeer_initial_interval$ - Value of the *Initial Interval* attribute (floating point number) of Dialpeer for current call.
+       -    $dialpeer_next_interval$ - Value of the *Next Interval* attribute (floating point number) of Dialpeer for current call.
+       -    $dialpeer_next_rate$ - Value of the *Next Rate* attribute (floating point number) of Dialpeer for current call.
+       -    $destination_fee$ - Value of the *Connect fee* attribute (floating point number) of Destination for current call.
+       -    $dialpeer_initial_rate$ - Value of the *Initial Rate* attribute (floating point number) of Dialpeer for current call.
+       -    $dialpeer_fee$ - Value of the *Connect fee* attribute (floating point number) of Dialpeer for current call.
        -    $dst_prefix_in$ - ****TODO****
        -    $dst_prefix_out$ - ****TODO****
        -    $src_prefix_in$ - ****TODO****
@@ -588,9 +588,9 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $dst_network_id$ - ****TODO****
        -    $dst_prefix_routing$ - ****TODO****
        -    $src_prefix_routing$ - ****TODO****
-       -    $routing_plan_id$ - ****TODO****
+       -    $routing_plan_id$ - Value of the *ID* attribute (integer) of Routing Plan for current call.
        -    $lrn$ - ****TODO****
-       -    $lnp_database_id$ - Value of the ID attribute (integer) of LNP Database that is used for current call.
+       -    $lnp_database_id$ - Value of the *ID* attribute (integer) of LNP Database that is used for current call.
        -    $from_domain$ - ****TODO****
        -    $to_domain$ - ****TODO****
        -    $ruri_domain$ - ****TODO****
@@ -609,7 +609,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $rpid_privacy_out$ - ****TODO****
        -    $customer_acc_check_balance$ - ****TODO****
        -    $destination_reverse_billing$ - ****TODO****
-       -    $dialpeer_reverse_billing$ - ****TODO****
+       -    $dialpeer_reverse_billing$ - Value of the *Reverse billing* attribute (boolean) of Dialpeer for current call.
 
     To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
 
