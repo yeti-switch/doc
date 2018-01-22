@@ -32,7 +32,8 @@ General **Customers Auth**'s attributes:
     .. _require_incoming_auth:
 
     Require incoming auth
-        ****TODO****
+        In case of enabling this checkbox incoming authorization of Gateway (in case of using Gateway as Originator of calls) will be required.  :ref:`Authorization parameters <incomming_auth_params>` (username and password) are available in the Signaling tab (Origination section) of **Gateway**'s attributes (Equipment menu).
+            Call will be dropped in case of incorrect authorization.
     Rateplan
         Rateplan, which this Customer Auth belongs to.
     Routing Plan
@@ -82,9 +83,11 @@ Match condition **Customers Auth**'s options
         call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
         regular expression.
     Dst number min length
+        Minimal length of destination number allowed for this Customer Auth.
         ****TODO****
     Dst number max length
         ****TODO****
+        Maximum length of destination number allowed for this Customer Auth.
     Uri Domain
         If specified, YETI checks the domain part of the URI for every call, and drops calls
         if the domain part is not the same as specified.
@@ -199,8 +202,6 @@ General **Destination**'s attributes:
         The starting interval from the start of the call in seconds (default 1). Allows you to set another tariffication policy for starting a call (example: *The first 5 seconds are free*).
     Next Interval
         The subsequent interval of tariffication in seconds. With this interval, the charging step is defined (example *Minute (60 seconds)*, *Per second (1 second)*).
-    Created At
-        ****TODO****
 
 Fixed rating configuration of **Destination**'s attributes:
 ```````````````````````````````````````````````````````````
@@ -212,6 +213,9 @@ Fixed rating configuration of **Destination**'s attributes:
         ****TODO****
     Profit Control Mode
         ****TODO****
+        Leave it empty to inherit Profit control mode from Rateplan
+        No control  ****TODO****
+        Per call    ****TODO****
 
 
 Dialpeer based rating configuration of **Destination**'s attributes:
@@ -230,6 +234,8 @@ Quality notifications configuration of **Destination**'s attributes:
     Short Calls Limit
         ****TODO****
 
+
+.. _routing_group:
 
 Routing Group
 ~~~~~~~~~~~~~
@@ -261,7 +267,7 @@ Dialpeer
     Enabled
         ****TODO****
     Routing Group
-        ****TODO****
+        :ref:`Routing Group <routing_group>` that is related to this Dialpeer.
     Routing Tag
         ****TODO****
     Vendor
@@ -317,10 +323,11 @@ Dialpeer
     Dst Rewrite Result
         ****TODO****
     Created At
-        ****TODO****
+        Date and time creation of Dialpeer.
 
 ----
 
+.. _routing_plan:
 
 Routing Plans
 ~~~~~~~~~~~~~
@@ -332,9 +339,16 @@ Routing Plans
     Id
        Unique Routing Plan's id.
     Name
-        ****TODO****
+        Unique Routing Plan name.
     Sorting
         ****TODO****
+        LCR, No ACD&ASR control ****TODO****
+        Prio,LCR, ACD&ASR control ****TODO****
+        LCR,Prio, ACD&ASR control ****TODO****
+        LCRD, Prio, ACD&ASR control ****TODO****
+        Route testing ****TODO****
+        QD-Static, LCR, ACD&ASR control ****TODO****
+        Static only, No ACD&ASR control  ****TODO****
     Use Lnp
         ****TODO****
     Rate Delta Max
@@ -354,7 +368,7 @@ Routing plan static routes
     Id
        Unique Routing plan static route's id.
     Routing Plan
-        ****TODO****
+        :ref:`Routing plan <routing_plan>` that is related for this Routing plan static route. ****TODO****
     Prefix
         ****TODO****
     Priority
@@ -362,7 +376,7 @@ Routing plan static routes
     Vendor
         ****TODO****
     Updated At
-        ****TODO****
+        Date and time of last updating of static routing record.
 
 ----
 
@@ -378,7 +392,7 @@ Routing Plan LNP rules
     Id
        Unique Routing Plan LNP rule's id.
     Routing plan
-        ****TODO****
+            :ref:`Routing plan <routing_plan>` for that will be applied this Routing plan LNP rule.
     Dst prefix
         ****TODO****
     Req dst rewrite rule
@@ -426,11 +440,15 @@ Numberlists
     Id
        Unique Numberlist's id.
     Name
-        ****TODO****
+        Unique Numberlist name.
     Mode
         ****TODO****
+        Strict number match ****TODO****
+        Prefix match    ****TODO****
     Default action
         ****TODO****
+        Reject call ****TODO****
+        Allow call  ****TODO****
     Default src rewrite rule
         ****TODO****
     Default src rewrite result
@@ -461,6 +479,9 @@ Numberlist items
         ****TODO****
     Action
         ****TODO****
+        Default action  ****TODO****
+        Reject call ****TODO****
+        Allow call  ****TODO****
     Src rewrite rule
         ****TODO****
     Src rewrite result
@@ -549,6 +570,8 @@ Routing Simulation
 ````````````````````````````````````
     Transport protocol
         ****TODO****
+        UDP
+        TCP
     Remote ip
         ****TODO****
     Remote port

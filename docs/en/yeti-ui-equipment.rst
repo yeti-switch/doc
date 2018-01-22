@@ -153,6 +153,9 @@ Signaling (Origination) **Gateway**'s attributes:
        In case of enabling this field Yeti learns the proper remote address (port, transport,...) from the received message and uses that in following in-dialog requests. Enable this option when handling far end NATs.
     Orig disconnect policy
         :ref:`Disconnect policiy <disconnect_policy>` that is related to this Origination's attribute of the Gateway.
+
+.. _incomming_auth_params:
+
     Incoming auth username
         This field should be filled by *username* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling :ref:`Require incoming auth <require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
         Call will be droped in case of receiving of different *username* from Gateway.
