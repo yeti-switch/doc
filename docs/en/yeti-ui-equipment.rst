@@ -533,7 +533,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
         -   Value
             String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow. It is possible to combine several placeholders together with pre-defined text to one string. Resulting value will be converted to the data of necessary *Format* (see below). In case of impossibility to convert resulting value to necessary *Format* an error will be occurred.
 
-    .. note:: Example of filling *Value* field: Destination ID: $destination_id$ ; DialPeer ID: $dialpeer_id$
+        .. note:: Example of filling *Value* field: Destination ID: $destination_id$ ; DialPeer ID: $dialpeer_id$
 
         -   Format
             The resulting format of the *Value* field. It is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for printable text strings), octets (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for binary data), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).

@@ -32,8 +32,9 @@ General **Customers Auth**'s attributes:
     .. _require_incoming_auth:
 
     Require incoming auth
-        In case of enabling this checkbox incoming authorization of Gateway (in case of using Gateway as Originator of calls) will be required.  :ref:`Authorization parameters <incomming_auth_params>` (username and password) are available in the Signaling tab (Origination section) of **Gateway**'s attributes (Equipment menu).
-            Call will be dropped in case of incorrect authorization.
+        In case of enabling this checkbox incoming authorization of Gateway (in case of using Gateway as Originator of calls) will be required.
+        :ref:`Authorization parameters <incomming_auth_params>` (username and password) are available in the Signaling tab (Origination section) of **Gateway**'s attributes (Equipment menu).
+        Call will be dropped in case of incorrect authorization.
     Rateplan
         Rateplan, which this Customer Auth belongs to.
     Routing Plan
