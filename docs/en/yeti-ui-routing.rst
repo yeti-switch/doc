@@ -458,9 +458,9 @@ Numberlists
     Default dst rewrite result
         ****TODO****
     Created At
-        ****TODO****
+        Date and time of this Numberlist creation.
     Updated At
-        ****TODO****
+        Date and time of last updating of this Numberlist.
 
 ----
 

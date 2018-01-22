@@ -140,9 +140,9 @@ Signaling (Origination) **Gateway**'s attributes:
         Additional SIP headers that Yeti should add to request to the Gateway (in case of using Gateway as Originator of calls). Additional header fields are lines composed of a field name, followed by a colon (:), followed by a field body, and terminated by followin set of characters ('\r\n'). A field name must be composed of printable US-ASCII characters (i.e., characters that have values between 33 and 126, inclusive), except colon.  A field body may be composed of any US-ASCII characters, except for carriage return character ('\r') and line feed character ('\n').
         Format of headers: field-name1: field-value1**\r\n**field-name1: field-value2..., where *field-name1 and field-name2* - names of the custom  fields, *field-value1 and field-value2* - values of the custom fields, **\r\n** - the carriage-return/line-feed pair.
     Orig use outbound proxy
-        ****TODO****
+        In case of enabling this checkbox Yeti will change destination of sending packets on Leg_A for initial SIP-requests (without remote_tag) to the address (URI) that is mentioned in the *Orig outbound proxy* field below.
     Orig force outbound proxy
-        ****TODO**** - прокси (сип)
+        In case of enabling this checkbox Yeti will change destination of sending packets on Leg_A for in-dialog SIP-requests to the address (URI) that is mentioned in the *Orig outbound proxy* field below.
     Orig proxy transport protocol
          Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
     Orig outbound proxy
@@ -530,20 +530,21 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
             Decimal value (between 0 and (2^32 - 1)) of the Vendor's ID in the attribute. In the `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ - the high-order octet is 0 and the low-order 3 octets are the SMI Network Management Private Enterprise Code of the Vendor in network byte order.
         -   Vsa vendor type
             Decimal value (between 0 and 255) of the specific Vendor type of attribute.
-        -   Vendor specific attribute encoding
-            ****TODO****
-        -   Value   ****TODO**** - need to clarify
-            String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow.
+        -   Value
+            String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow. It is possible to combine several placeholders together with pre-defined text to one string. Resulting value will be converted to the data of necessary *Format* (see below). In case of impossibility to convert resulting value to necessary *Format* an error will be occurred.
+
+    .. note:: Example of filling *Value* field: Destination ID: $destination_id$ ; DialPeer ID: $dialpeer_id$
+
         -   Format
-            The format of the value field is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for printable text strings), octets (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for binary data), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
+            The resulting format of the *Value* field. It is one of six data types: string (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for printable text strings), octets (1-253 octets containing binary data (values 0 through 255 decimal, inclusive) - often used for binary data), ipaddr (32 bit value, most significant octet first), integer (32 bit unsigned value, most significant octet first), date (32 bit unsigned value, most significant octet first -- seconds since 00:00:00 UTC, January 1, 1970), ip6addr (128 bit value, most significant octet first).
         -   Remove
             This control element can be used for removing existing Auth profile attribute. Auth profile attribute will be removed after saving changes (by clicking Update Auth profile) in case of enabling this checkbox.
 
 
     .. note:: Currently following variables (placeholders) are supported in the Yeti's auth profiles:
 
-       -    $src_number_radius$ - ****TODO****
-       -    $dst_number_radius$ - ****TODO****
+       -    $src_number_radius$ - Source (A) number (string) of current call.
+       -    $dst_number_radius$ - Destination (B) number (string) of current call.
        -    $orig_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Originator for current call.
        -    $customer_auth_name$ - Value of the *Name* attribute (string) of the Customer Auth.
        -    $customer_name$ - Value of the *Name* attribute (string) of the Customer Contractor.
@@ -551,7 +552,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $term_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Terminator for current call.
        -    $orig_gw_external_id$ - ****TODO****
        -    $term_gw_external_id$ - ****TODO****
-       -    $fake_180_timer$ - ****TODO****
+       -    $fake_180_timer$ - Value (in ms) of the *Fake 180 timer* (integer) of Gateway that is used as Terminator for current call.
        -    $customer_id$ - Value of the *ID* attribute (integer) of the Customer Contractor for current call.
        -    $vendor_id$ - Value of the *ID* attribute (integer) of the Vendor Contractor for current call.
        -    $customer_acc_id$ - Value of the *ID* attribute (integer) of Account that is associated with Customer for current call.
