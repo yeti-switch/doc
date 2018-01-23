@@ -35,6 +35,8 @@ General **Gateway**'s attributes:
         Unique gateway id.
     Name
         Friendly name of gateway.
+    External
+        ID of Gateway that was initialized via API by external system. It used for associating internal unique Gateway ID with its ID on external system.
     Enabled
         Disabled gateways will be ignored.
     Contractor
@@ -550,8 +552,8 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $customer_name$ - Value of the *Name* attribute (string) of the Customer Contractor.
        -    $customer_account_name$ - Value of the *Name* attribute (string) of Account that is associated with Customer for current call.
        -    $term_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Terminator for current call.
-       -    $orig_gw_external_id$ - ****TODO****
-       -    $term_gw_external_id$ - ****TODO****
+       -    $orig_gw_external_id$ - Value of the *External* attribute (integer) of Gateway that is used as Originator for current call.
+       -    $term_gw_external_id$ - Value of the *External* attribute (integer) of Gateway that is used as Originator for current call.
        -    $fake_180_timer$ - Value (in ms) of the *Fake 180 timer* (integer) of Gateway that is used as Terminator for current call.
        -    $customer_id$ - Value of the *ID* attribute (integer) of the Customer Contractor for current call.
        -    $vendor_id$ - Value of the *ID* attribute (integer) of the Vendor Contractor for current call.
@@ -577,42 +579,42 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $destination_fee$ - Value of the *Connect fee* attribute (floating point number) of Destination for current call.
        -    $dialpeer_initial_rate$ - Value of the *Initial Rate* attribute (floating point number) of Dialpeer for current call.
        -    $dialpeer_fee$ - Value of the *Connect fee* attribute (floating point number) of Dialpeer for current call.
-       -    $dst_prefix_in$ - ****TODO****
-       -    $dst_prefix_out$ - ****TODO****
-       -    $src_prefix_in$ - ****TODO****
-       -    $src_prefix_out$ - ****TODO****
-       -    $src_name_in$ - ****TODO****
-       -    $src_name_out$ - ****TODO****
-       -    $diversion_in$ - ****TODO****
-       -    $diversion_out$ - ****TODO****
-       -    $auth_orig_protocol_id$ - ****TODO****
-       -    $auth_orig_ip$ - ****TODO****
-       -    $auth_orig_port$ - ****TODO****
-       -    $dst_country_id$ - ****TODO****
-       -    $dst_network_id$ - ****TODO****
-       -    $dst_prefix_routing$ - ****TODO****
-       -    $src_prefix_routing$ - ****TODO****
+       -    $dst_prefix_in$ - Destination number (B-number) that is received from Gateway that is used as Originator for current call (string).
+       -    $dst_prefix_out$ - Destination number (B-number) that is sent to Gateway that is used as Terminator for current call (string).
+       -    $src_prefix_in$ - Source number (A-number) that is received from Gateway that is used as Originator for current call (string).
+       -    $src_prefix_out$ - Source number (A-number) that is sent to Gateway that is used as Terminator for current call (string).
+       -    $src_name_in$ - Name of caller that is received in the "From" field of SIP header from Gateway that is used as Originator for current call (string).
+       -    $src_name_out$ - Name of caller that is sent in the "From" field of SIP header to Gateway that is used as Terminator for current call (string).
+       -    $diversion_in$ - Value of SIP Diversion header that is received from Gateway that is used as Originator for current call (string).
+       -    $diversion_out$ - Value of SIP Diversion header that is sent to Gateway that is used as Terminator for current call (string).
+       -    $auth_orig_protocol_id$ - Protocol (integer) that is used for interconnection with Gateway that is used as Originator for current call (1 - UDP, 2 - TCP).
+       -    $auth_orig_ip$ - IP-address of Gateway (that was received during SIP AUTH stage) that is used as Originator for current call (string).
+       -    $auth_orig_port$ - TCP or UDP port number that was used for sending of signaling information from Gateway that is used as Originator for current call (integer).
+       -    $dst_country_id$ - Value of the *ID* attribute (integer) of Country that is associated (via  Network Prefixes table) with the destination number (B-number) for current call.
+       -    $dst_network_id$ - Value of the *ID* attribute (integer) of Network that is associated (via  Network Prefixes table) with the destination number (B-number) for current call.
+       -    $dst_prefix_routing$ - Prefix of the destination number (B-number) that was used for routing  for current call.
+       -    $src_prefix_routing$ - Prefix of the source number (A-number) that was used for routing  for current call.
        -    $routing_plan_id$ - Value of the *ID* attribute (integer) of Routing Plan for current call.
-       -    $lrn$ - ****TODO****
+       -    $lrn$ - Routing number that was received from LNP database (in case of requesting) for current call.
        -    $lnp_database_id$ - Value of the *ID* attribute (integer) of LNP Database that is used for current call.
-       -    $from_domain$ - ****TODO****
-       -    $to_domain$ - ****TODO****
-       -    $ruri_domain$ - ****TODO****
-       -    $src_area_id$ - ****TODO****
-       -    $dst_area_id$ - ****TODO****
-       -    $routing_tag_id$ - ****TODO****
-       -    $pai_in$ - ****TODO****
-       -    $ppi_in$ - ****TODO****
-       -    $privacy_in$ - ****TODO****
-       -    $rpid_in$ - ****TODO****
-       -    $rpid_privacy_in$ - ****TODO****
-       -    $pai_out$ - ****TODO****
-       -    $ppi_out$ - ****TODO****
-       -    $privacy_out$ - ****TODO****
-       -    $rpid_out$ - ****TODO****
-       -    $rpid_privacy_out$ - ****TODO****
-       -    $customer_acc_check_balance$ - ****TODO****
-       -    $destination_reverse_billing$ - ****TODO****
+       -    $from_domain$ - Domain of caller that is received in the "From" field of SIP header from Gateway that is used as Originator for current call (string).
+       -    $to_domain$ - Domain of callee that is received in the "To" field of SIP header from Gateway that is used as Originator for current call (string).
+       -    $ruri_domain$ - Domain that is received in the "R-URI" field of SIP header from Gateway that is used as Originator for current call (string).
+       -    $src_area_id$ - Value of the *ID* attribute (integer) of Area that is associated (via  Area Prefixes table) with the source number (A-number) for current call.
+       -    $dst_area_id$ - Value of the *ID* attribute (integer) of Area that is associated (via  Area Prefixes table) with the destination number (B-number) for current call.
+       -    $routing_tag_id$ - Value of the *ID* attribute (integer) of Routing tag that is associated (via Routing tag detection table) with both source and destination Areas for current call.
+       -    $pai_in$ - P-Asserted-Identity (PAI) privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
+       -    $ppi_in$ - P-Preferred-Identity (PPI) privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
+       -    $privacy_in$ - SIP Privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
+       -    $rpid_in$ - Remote Party ID field of SIP header that was received from Gateway that is used as Originator for current call (string).
+       -    $rpid_privacy_in$ - SIP RPID Privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
+       -    $pai_out$ - P-Asserted-Identity (PAI) privacy field of SIP header that was sent to Gateway that is used as Terminator for current call (string).
+       -    $ppi_out$ - P-Preferred-Identity (PPI) privacy field of SIP header that was sent to Gateway that is used as Terminator for current call (string).
+       -    $privacy_out$ - SIP Privacy field of SIP header that was sent to Gateway that is used as Terminator for current call (string).
+       -    $rpid_out$ - Remote Party ID field of SIP header that was sent to Gateway that is used as Terminator for current call (string).
+       -    $rpid_privacy_out$ - SIP RPID Privacy of SIP header that was sent to Gateway that is used as Terminator for current call (string).
+       -    $customer_acc_check_balance$ - State of Check account balance flag (0 - disabled, 1 - enabled) of Customers Auth for current call.
+       -    $destination_reverse_billing$ - State of Reverse billing flag (0 - disabled, 1 - enabled) of Destination for current call.
        -    $dialpeer_reverse_billing$ - Value of the *Reverse billing* attribute (boolean) of Dialpeer for current call.
 
     To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
