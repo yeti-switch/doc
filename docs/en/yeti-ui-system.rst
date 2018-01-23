@@ -158,7 +158,15 @@ PoPs
 
 Countries
 ~~~~~~~~~
-        ****TODO****
+       ****TODO****
+**Country**'s attributes:
+`````````````````````````
+    .. _country_id:
+
+    Id
+       ****TODO****
+    Name
+       ****TODO****
 
 ----
 
@@ -303,6 +311,8 @@ Networks
 
 **Network**'s attributes:
 `````````````````````````
+    .. _network_id:
+
     Id
        Network's id.
     Name

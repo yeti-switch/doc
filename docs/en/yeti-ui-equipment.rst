@@ -9,6 +9,8 @@ Gateway group allows to use multiple gateways for traffic termination to the sam
 
 **Gateway group**'s attributes:
 ```````````````````````````````
+    .. _gateway_id:
+
     Id
         Unique gateway group id.
     Name
@@ -33,8 +35,12 @@ General **Gateway**'s attributes:
 
     Id
         Unique gateway id.
+    .. _gateway_name:
+
     Name
         Friendly name of gateway.
+    .. _gateway_external:
+
     External
         ID of Gateway that was initialized via API by external system. It used for associating internal unique Gateway ID with its ID on external system.
     Enabled
@@ -233,6 +239,8 @@ Signaling (Termination) **Gateway**'s attributes:
         Call can be rerouted if this allowed by disconnect policy configuration.
     Suppress early media
 	    Allows to send 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of gateway.
+    .. _gateway_fake_180_timer:
+
     Fake 180 timer
         Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
     Send lnp information
@@ -464,6 +472,8 @@ We welcome requests to implement additional protocols or LNP database specific f
 
 **LNP database**'s attributes:
 ``````````````````````````````
+    .. _lnp_database_id:
+
     Id
         Unique LNP database's id.
     Name
@@ -547,38 +557,38 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
 
        -    $src_number_radius$ - Source (A) number (string) of current call.
        -    $dst_number_radius$ - Destination (B) number (string) of current call.
-       -    $orig_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Originator for current call.
-       -    $customer_auth_name$ - Value of the *Name* attribute (string) of the Customer Auth.
-       -    $customer_name$ - Value of the *Name* attribute (string) of the Customer Contractor.
-       -    $customer_account_name$ - Value of the *Name* attribute (string) of Account that is associated with Customer for current call.
-       -    $term_gw_name$ - Value of the *Name* attribute (string) of Gateway that is used as Terminator for current call.
-       -    $orig_gw_external_id$ - Value of the *External* attribute (integer) of Gateway that is used as Originator for current call.
-       -    $term_gw_external_id$ - Value of the *External* attribute (integer) of Gateway that is used as Originator for current call.
-       -    $fake_180_timer$ - Value (in ms) of the *Fake 180 timer* (integer) of Gateway that is used as Terminator for current call.
-       -    $customer_id$ - Value of the *ID* attribute (integer) of the Customer Contractor for current call.
-       -    $vendor_id$ - Value of the *ID* attribute (integer) of the Vendor Contractor for current call.
-       -    $customer_acc_id$ - Value of the *ID* attribute (integer) of Account that is associated with Customer for current call.
-       -    $vendor_acc_id$ - Value of the *ID* attribute (integer) of Account that is associated with Vendor for current call.
-       -    $customer_auth_id$ - Value of the *ID* attribute (integer) of the Customer Auth.
-       -    $destination_id$ - Value of the *ID* attribute (integer) of the Destination for current call.
-       -    $destination_prefix$ - Value of the *Prefix* attribute (string) of the Destination for current call.
-       -    $dialpeer_id$ - Value of the *ID* attribute (integer) of the Dialpeer for current call.
-       -    $dialpeer_prefix$ - Value of the *Prefix* attribute (string) of the Dialpeer for current call.
-       -    $orig_gw_id$ - Value of the *ID* attribute (integer) of Gateway that is used as Originator for current call.
-       -    $term_gw_id$ - Value of the *ID* attribute (integer) of Gateway that is used as Terminator for current call.
-       -    $routing_group_id$ - Value of the *ID* attribute (integer) of Routing Group for current call.
-       -    $rateplan_id$ - Value of the *ID* attribute (integer) of Rateplan for current call.
-       -    $destination_initial_rate$ - Value of the *Initial Rate* attribute (floating point number) of Destination for current call.
-       -    $destination_next_rate$ -  Value of the *Next Rate* attribute (floating point number) of Destination for current call.
-       -    $destination_initial_interval$ - Value of the *Initial Interval* attribute (floating point number) of Destination for current call.
-       -    $destination_next_interval$ - Value of the *Next Interval* attribute (floating point number) of Destination for current call.
-       -    $destination_rate_policy_id$ - Value of the *ID* attribute (integer) of Rate Policy that was chosen in the Destination properties for current call.
-       -    $dialpeer_initial_interval$ - Value of the *Initial Interval* attribute (floating point number) of Dialpeer for current call.
-       -    $dialpeer_next_interval$ - Value of the *Next Interval* attribute (floating point number) of Dialpeer for current call.
-       -    $dialpeer_next_rate$ - Value of the *Next Rate* attribute (floating point number) of Dialpeer for current call.
-       -    $destination_fee$ - Value of the *Connect fee* attribute (floating point number) of Destination for current call.
-       -    $dialpeer_initial_rate$ - Value of the *Initial Rate* attribute (floating point number) of Dialpeer for current call.
-       -    $dialpeer_fee$ - Value of the *Connect fee* attribute (floating point number) of Dialpeer for current call.
+       -    $orig_gw_name$ - Value of the :ref:`*Name* <gateway_name>` attribute (string) of Gateway that is used as Originator for current call.
+       -    $customer_auth_name$ - Value of the :ref:`*Name* <customer_auth_name>` attribute (string) of the Customer Auth.
+       -    $customer_name$ - Value of the :ref:`*Name* <contractor_name>` attribute (string) of the Customer Contractor.
+       -    $customer_account_name$ - Value of the :ref:`*Name* <account_name>` attribute (string) of Account that is associated with Customer for current call.
+       -    $term_gw_name$ - Value of the :ref:`*Name* <gateway_name>` attribute (string) of Gateway that is used as Terminator for current call.
+       -    $orig_gw_external_id$ - Value of the :ref:`*External* <gateway_external>` attribute (integer) of Gateway that is used as Originator for current call.
+       -    $term_gw_external_id$ - Value of the :ref:`*External* <gateway_external>` attribute (integer) of Gateway that is used as Originator for current call.
+       -    $fake_180_timer$ - Value (in ms) of the :ref:`*Fake 180 timer* <gateway_fake_180_timer>` attribute (integer) of Gateway that is used as Terminator for current call.
+       -    $customer_id$ - Value of the :ref:`*ID* <contractor_id>` attribute (integer) of the Customer Contractor for current call.
+       -    $vendor_id$ - Value of the :ref:`*ID* <contractor_id>` attribute (integer) of the Vendor Contractor for current call.
+       -    $customer_acc_id$ - Value of the :ref:`*ID* <account_id>` attribute (integer) of Account that is associated with Customer for current call.
+       -    $vendor_acc_id$ - Value of the :ref:`*ID* <account_id>` attribute (integer) of Account  that is associated with Vendor for current call.
+       -    $customer_auth_id$ - Value of the :ref:`*ID* <customer_auth_id>` attribute (integer) of the Customer Auth.
+       -    $destination_id$ - Value of the :ref:`*ID* <destination_id>` attribute (integer) of the Destination for current call.
+       -    $destination_prefix$ - Value of the :ref:`*Prefix* <destination_prefix>` attribute (string) of the Destination for current call.
+       -    $dialpeer_id$ - Value of the :ref:`*ID* <dialpeer_id>` attribute (integer) of the Dialpeer for current call.
+       -    $dialpeer_prefix$ - Value of the :ref:`*Prefix* <dialpeer_prefix>` attribute (string) of the Dialpeer for current call.
+       -    $orig_gw_id$ - Value of the :ref:`*ID* <gateway_id>` attribute (integer) of Gateway that is used as Originator for current call.
+       -    $term_gw_id$ - Value of the :ref:`*ID* <gateway_id>` attribute (integer) of Gateway that is used as Terminator for current call.
+       -    $routing_group_id$ - Value of the :ref:`*ID* <routing_group_id>` attribute (integer) of Routing Group for current call.
+       -    $rateplan_id$ - Value of the :ref:`*ID* <rateplan_id>` attribute (integer) of Rateplan for current call.
+       -    $destination_initial_rate$ - Value of the :ref:`*Initial Rate* <destination_initial_rate>` attribute (floating point number) of Destination for current call.
+       -    $destination_next_rate$ -  Value of the :ref:`*Next Rate* <destination_next_rate>` attribute (floating point number) of Destination for current call.
+       -    $destination_initial_interval$ - Value of the :ref:`*Initial Interval* <destination_initial_interval>` attribute (floating point number) of Destination for current call.
+       -    $destination_next_interval$ - Value of the :ref:`*Next Interval* <destination_next_interval>` attribute (floating point number) of Destination for current call.
+       -    $destination_rate_policy_id$ - Value of the :ref:`*Rate policy* <rate_policy_id>` attribute (integer) of Destination for current call (1 - Fixed, 2 - Based on used dialpeer, 3 - MIN(Fixed,Based on used dialpeer), 4 - MAX(Fixed,Based on used dialpeer)).
+       -    $dialpeer_initial_interval$ - Value of the :ref:`*Initial Interval* <dialpeer_initial_interval>` attribute (floating point number) of Dialpeer for current call.
+       -    $dialpeer_next_interval$ - Value of the :ref:`*Next Interval* <dialpeer_next_interval>` attribute (floating point number) of Dialpeer for current call.
+       -    $dialpeer_next_rate$ - Value of the :ref:`*Next Rate* <dialpeer_next_rate>` attribute (floating point number) of Dialpeer for current call.
+       -    $destination_fee$ - Value of the :ref:`*Connect fee* <destination_connect_fee>` attribute (floating point number) of Destination for current call.
+       -    $dialpeer_initial_rate$ - Value of the :ref:`*Initial Rate* <dialpeer_initial_rate>` attribute (floating point number) of Dialpeer for current call.
+       -    $dialpeer_fee$ - Value of the :ref:`*Connect fee* <dialpeer_connect_fee>` attribute (floating point number) of Dialpeer for current call.
        -    $dst_prefix_in$ - Destination number (B-number) that is received from Gateway that is used as Originator for current call (string).
        -    $dst_prefix_out$ - Destination number (B-number) that is sent to Gateway that is used as Terminator for current call (string).
        -    $src_prefix_in$ - Source number (A-number) that is received from Gateway that is used as Originator for current call (string).
@@ -590,19 +600,19 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $auth_orig_protocol_id$ - Protocol (integer) that is used for interconnection with Gateway that is used as Originator for current call (1 - UDP, 2 - TCP).
        -    $auth_orig_ip$ - IP-address of Gateway (that was received during SIP AUTH stage) that is used as Originator for current call (string).
        -    $auth_orig_port$ - TCP or UDP port number that was used for sending of signaling information from Gateway that is used as Originator for current call (integer).
-       -    $dst_country_id$ - Value of the *ID* attribute (integer) of Country that is associated (via  Network Prefixes table) with the destination number (B-number) for current call.
-       -    $dst_network_id$ - Value of the *ID* attribute (integer) of Network that is associated (via  Network Prefixes table) with the destination number (B-number) for current call.
+       -    $dst_country_id$ - Value of the :ref:`*ID* <country_id>` attribute (integer) of Country that is associated (via  Network Prefixes table) with the destination number (B-number) for current call.
+       -    $dst_network_id$ - Value of the :ref:`*ID* <network_id>` attribute (integer) of Network that is associated (via  Network Prefixes table) with the destination number (B-number) for current call.
        -    $dst_prefix_routing$ - Prefix of the destination number (B-number) that was used for routing  for current call.
        -    $src_prefix_routing$ - Prefix of the source number (A-number) that was used for routing  for current call.
-       -    $routing_plan_id$ - Value of the *ID* attribute (integer) of Routing Plan for current call.
+       -    $routing_plan_id$ - Value of the :ref:`*ID* <routing_plan_id>` attribute (integer) of Routing Plan for current call.
        -    $lrn$ - Routing number that was received from LNP database (in case of requesting) for current call.
-       -    $lnp_database_id$ - Value of the *ID* attribute (integer) of LNP Database that is used for current call.
+       -    $lnp_database_id$ - Value of the :ref:`*ID* <lnp_database_id>` attribute (integer) of LNP Database that is used for current call.
        -    $from_domain$ - Domain of caller that is received in the "From" field of SIP header from Gateway that is used as Originator for current call (string).
        -    $to_domain$ - Domain of callee that is received in the "To" field of SIP header from Gateway that is used as Originator for current call (string).
        -    $ruri_domain$ - Domain that is received in the "R-URI" field of SIP header from Gateway that is used as Originator for current call (string).
-       -    $src_area_id$ - Value of the *ID* attribute (integer) of Area that is associated (via  Area Prefixes table) with the source number (A-number) for current call.
-       -    $dst_area_id$ - Value of the *ID* attribute (integer) of Area that is associated (via  Area Prefixes table) with the destination number (B-number) for current call.
-       -    $routing_tag_id$ - Value of the *ID* attribute (integer) of Routing tag that is associated (via Routing tag detection table) with both source and destination Areas for current call.
+       -    $src_area_id$ - Value of the :ref:`*ID* <area_id>` attribute (integer) of Area that is associated (via  Area Prefixes table) with the source number (A-number) for current call.
+       -    $dst_area_id$ - Value of the :ref:`*ID* <area_id>` attribute (integer) of Area that is associated (via  Area Prefixes table) with the destination number (B-number) for current call.
+       -    $routing_tag_id$ - Value of the :ref:`*ID* <routing_tag_id>` attribute (integer) of Routing tag that is associated (via Routing tag detection table) with both source and destination Areas for current call.
        -    $pai_in$ - P-Asserted-Identity (PAI) privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
        -    $ppi_in$ - P-Preferred-Identity (PPI) privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
        -    $privacy_in$ - SIP Privacy field of SIP header that was received from Gateway that is used as Originator for current call (string).
@@ -613,9 +623,9 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
        -    $privacy_out$ - SIP Privacy field of SIP header that was sent to Gateway that is used as Terminator for current call (string).
        -    $rpid_out$ - Remote Party ID field of SIP header that was sent to Gateway that is used as Terminator for current call (string).
        -    $rpid_privacy_out$ - SIP RPID Privacy of SIP header that was sent to Gateway that is used as Terminator for current call (string).
-       -    $customer_acc_check_balance$ - State of Check account balance flag (0 - disabled, 1 - enabled) of Customers Auth for current call.
-       -    $destination_reverse_billing$ - State of Reverse billing flag (0 - disabled, 1 - enabled) of Destination for current call.
-       -    $dialpeer_reverse_billing$ - Value of the *Reverse billing* attribute (boolean) of Dialpeer for current call.
+       -    $customer_acc_check_balance$ - State of :ref:`*Check account balance* <customer_check_account_balance>` flag (0 - disabled, 1 - enabled) of Customers Auth for current call.
+       -    $destination_reverse_billing$ - State of :ref:`*Reverse billing* <destination_reverse_billing>` flag (0 - disabled, 1 - enabled) of Destination for current call.
+       -    $dialpeer_reverse_billing$ - Value of the :ref:`*Reverse billing* <dialpeer_reverse_billing>` attribute (boolean) of Dialpeer for current call.
 
     To enable additional RADIUS authorization you should set Radius Auth Profile at Customer Auth object.
 

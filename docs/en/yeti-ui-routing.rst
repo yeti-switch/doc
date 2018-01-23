@@ -12,8 +12,13 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
 
 General **Customers Auth**'s attributes:
 ````````````````````````````````````````
+    .. _customer_auth_id:
+
     Id
        Unique Customers Auth's id.
+
+    .. _customer_auth_name:
+
     Name
         Unique name of Accounting profile.
         Uses for informational purposes and doesn't affect system behaviour.
@@ -23,6 +28,9 @@ General **Customers Auth**'s attributes:
         Customer, who this Customer Auth belongs to.
     Account
         Accout of Customer, which this Customer Auth belongs to.
+
+    .. _customer_check_account_balance:
+
     Check account balance
         ****TODO****
     Gateway
@@ -152,6 +160,8 @@ Rateplan
 
 **Rateplan**'s attributes:
 ``````````````````````````
+    .. _rateplan_id:
+
     Id
        Unique Rateplan's id.
     Name
@@ -171,8 +181,13 @@ Destinations in YETI are designed to determine the prefixes that can be processe
 
 General **Destination**'s attributes:
 `````````````````````````````````````
+    .. _destination_id:
+
     Id
        Unique Destination's id.
+
+    .. _destination_prefix:
+
     Prefix
         The numeric prefix with which the number is to be compared.
     Dst number min length
@@ -191,25 +206,45 @@ General **Destination**'s attributes:
         Time and date that determine the time from which this Destination participates (will participate) in the routing procedure.
     Valid Till
         Time and date that determine the point in time to which this Destination will participate in the routing procedure.
+
+    .. _rate_policy_id:
+
     Rate Policy
         The policy of determining the price of a call on this Direction. The following options are available:
             -   Fixed. If this option is selected, the cost of the call will be calculated with using the Initial rate, Next rate, Connect fee of this Destination.
             -   Based on used dialpeer. This option involves calculating the cost of the call with using the Initial rate, Next rate, Connect fee of Dial-up options, which will take the call. In this case, there is a possibility of changing the value, by determining the Dp margin fixed and / or Dp margin percent.
             -   MIN (Fixed, Based on used dialpeer). The minimum price for a call is chosen, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
             -   MAX (Fixed, Based on used dialpeer). The maximum price for a call is selected when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
+
+    .. _destination_reverse_billing:
+
     Reverse billing
         ****TODO****
+
+    .. _destination_initial_interval:
+
     Initial Interval
         The starting interval from the start of the call in seconds (default 1). Allows you to set another tariffication policy for starting a call (example: *The first 5 seconds are free*).
+
+    .. _destination_next_interval:
+
     Next Interval
         The subsequent interval of tariffication in seconds. With this interval, the charging step is defined (example *Minute (60 seconds)*, *Per second (1 second)*).
 
 Fixed rating configuration of **Destination**'s attributes:
 ```````````````````````````````````````````````````````````
+    .. _destination_initial_rate:
+
     Initial Rate
         ****TODO****
+
+    .. _destination_next_rate:
+
     Next Rate
         ****TODO****
+
+    .. _destination_connect_fee:
+
     Connect Fee
         ****TODO****
     Profit Control Mode
@@ -243,6 +278,8 @@ Routing Group
 
 **Routing Group**'s attributes:
 ```````````````````````````````
+    .. _routing_group_id:
+
     Id
        Unique Routing Group's id.
     Name
@@ -250,15 +287,20 @@ Routing Group
     
 ----
 
-Dialpeer
-~~~~~~~~
+Dialpeers
+~~~~~~~~~
 
 ****TODO****
 
 **Dialpeer**'s attributes:
 ``````````````````````````
+    .. _dialpeer_id:
+
     Id
        Unique Dialpeer's id.
+
+    .. _dialpeer_prefix:
+
     Prefix
         ****TODO****
     Dst number min length
@@ -281,18 +323,36 @@ Dialpeer
         ****TODO****
     Exclusive Route
         If during the routing process it turned out that there are entries in the set of suitable routes with the Exclusive route set - all routes without such flag will be discarded. This behavior allows to disable call re-routing for any direction, if there is an exclusive route for it.
+
+    .. _dialpeer_initial_interval:
+
     Initial Interval
         ****TODO****
+
+    .. _dialpeer_initial_rate:
+
     Initial Rate
         ****TODO****
+
+    .. _dialpeer_next_interval:
+
     Next Interval
         ****TODO****
+
+    .. _dialpeer_next_rate:
+
     Next Rate
         ****TODO****
     Lcr Rate Multiplier
         ****TODO****
+
+    .. _dialpeer_connect_fee:
+
     Connect Fee
         ****TODO****
+
+    .. _dialpeer_reverse_billing:
+
     Reverse billing
         ****TODO****
     Gateway
@@ -337,6 +397,8 @@ Routing Plans
 
 **Routing Plan**'s attributes:
 ``````````````````````````````
+    .. _routing_plan_id:
+
     Id
        Unique Routing Plan's id.
     Name
@@ -505,6 +567,8 @@ Routing Tags
 
 **Routing Tag**'s attributes:
 `````````````````````````````
+    .. _routing_tag_id:
+
     Id
        Unique Routing Tag's id.
     Name
@@ -520,6 +584,8 @@ Areas
 
 **Area**'s attributes:
 ``````````````````````
+    .. _area_id:
+
     Id
        Unique Area's id.
     Name
