@@ -39,6 +39,7 @@ General **Gateway**'s attributes:
 
     Name
         Friendly name of gateway.
+
     .. _gateway_external:
 
     External
@@ -239,6 +240,7 @@ Signaling (Termination) **Gateway**'s attributes:
         Call can be rerouted if this allowed by disconnect policy configuration.
     Suppress early media
 	    Allows to send 180 Ringing message without SDP to LegA when received 180/183 with SDP from LegB of gateway.
+
     .. _gateway_fake_180_timer:
 
     Fake 180 timer
@@ -472,6 +474,7 @@ We welcome requests to implement additional protocols or LNP database specific f
 
 **LNP database**'s attributes:
 ``````````````````````````````
+
     .. _lnp_database_id:
 
     Id

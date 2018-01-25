@@ -18,6 +18,7 @@ Contractor may act as **Customer** - Use provided call termination service and *
 
     Id
         Unique contractor id.
+
     .. _contractor_name:
 
     Name
@@ -83,6 +84,7 @@ and **increased** if it uses account for **termination** (vendor).
 
     Id
         Unique account id.
+
     .. _account_name:
 
     Name

@@ -160,6 +160,7 @@ Rateplan
 
 **Rateplan**'s attributes:
 ``````````````````````````
+
     .. _rateplan_id:
 
     Id
@@ -181,6 +182,7 @@ Destinations in YETI are designed to determine the prefixes that can be processe
 
 General **Destination**'s attributes:
 `````````````````````````````````````
+
     .. _destination_id:
 
     Id
@@ -278,6 +280,7 @@ Routing Group
 
 **Routing Group**'s attributes:
 ```````````````````````````````
+
     .. _routing_group_id:
 
     Id
@@ -397,6 +400,7 @@ Routing Plans
 
 **Routing Plan**'s attributes:
 ``````````````````````````````
+
     .. _routing_plan_id:
 
     Id
@@ -584,6 +588,7 @@ Areas
 
 **Area**'s attributes:
 ``````````````````````
+
     .. _area_id:
 
     Id
