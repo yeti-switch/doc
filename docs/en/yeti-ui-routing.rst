@@ -173,7 +173,7 @@ Rateplans are used for describing common billing parameters that can be applied 
         No Control
             In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied Destination and price in the chosen DialPeer).
     Send Quality Alarms To
-                ****TODO****
+         This field is used for choosing Contact that will be used for sending Quality notifications about all calls that are related to the Destinations from this Ratepalan. Quality notifications configuration is described in the Destination's attributes description.
     
 ----
 
