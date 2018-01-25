@@ -45,6 +45,8 @@ Contractor may act as **Customer** - Use provided call termination service and *
 
 ----
 
+.. _contacts:
+
 Contacts
 ~~~~~~~~
 

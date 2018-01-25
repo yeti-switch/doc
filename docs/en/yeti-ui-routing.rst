@@ -169,13 +169,15 @@ Rateplans are used for describing common billing parameters that can be applied 
         Unique name of Rateplan.
     Profit Control Mode
         Per call
-            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select Dialpeers (for routing the call) where price is bigger or equal (>=) for the price in the Destination that was applied for this call.
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) for the price in the :ref:`Destination <destinations>` that was applied for this call.
         No Control
-            In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied Destination and price in the chosen DialPeer).
+            In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied :ref:`Destination <destinations>` and price in the chosen :ref:`Dialpeer <dialpeers>`).
     Send Quality Alarms To
-         This field is used for choosing Contact that will be used for sending Quality notifications about all calls that are related to the Destinations from this Ratepalan. Quality notifications configuration is described in the Destination's attributes description.
+         This field is used for choosing :ref:`Contact <contacts>` that will be used for sending Quality notifications about all calls that are related to the :ref:`Destinations <destinations>` from this *Ratepalan*. :ref:`Quality notifications configuration <quality_notification_config>` is described in the Destination's attributes description.
     
 ----
+
+.. _destinations:
 
 Destinations
 ~~~~~~~~~~~~
@@ -203,9 +205,9 @@ General **Destination**'s attributes:
     Reject Calls
         If this flag is activated, when the corresponding number is received with this Direction during the routing procedure, the call will be rejected.
     Rateplan
-        Rateplan that is used with this Direction.
+        Rateplan to which this Destination is related.
     Routing Tag
-        ****TODO****
+        :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this Destination.
     Valid From
         Time and date that determine the time from which this Destination participates (will participate) in the routing procedure.
     Valid Till
@@ -266,6 +268,8 @@ Dialpeer based rating configuration of **Destination**'s attributes:
     Dp Margin Percent
         ****TODO****
 
+.. _quality_notification_config:
+
 Quality notifications configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
     Asr Limit
@@ -292,6 +296,8 @@ Routing Group
         Friendly name of object.
     
 ----
+
+.. _dialpeers:
 
 Dialpeers
 ~~~~~~~~~
@@ -567,6 +573,8 @@ Numberlist items
         ****TODO****
 
 ----
+
+.. _routing_tag:
 
 Routing Tags
 ~~~~~~~~~~~~
