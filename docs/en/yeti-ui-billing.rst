@@ -14,6 +14,7 @@ Contractor may act as **Customer** - Use provided call termination service and *
 
 **Contractor** has the following attributes:
 ````````````````````````````````````````````
+
     .. _contractor_id:
 
     Id
@@ -80,6 +81,7 @@ and **increased** if it uses account for **termination** (vendor).
 
 **Account**'s attributes:
 `````````````````````````
+
     .. _account_id:
 
     Id

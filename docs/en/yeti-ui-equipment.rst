@@ -35,6 +35,7 @@ General **Gateway**'s attributes:
 
     Id
         Unique gateway id.
+
     .. _gateway_name:
 
     Name

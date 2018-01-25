@@ -12,6 +12,7 @@ Customer Auth form is splitted to 3 tabs and each one is described below.
 
 General **Customers Auth**'s attributes:
 ````````````````````````````````````````
+
     .. _customer_auth_id:
 
     Id
@@ -92,11 +93,10 @@ Match condition **Customers Auth**'s options
         call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
         regular expression.
     Dst number min length
-        Minimal length of destination number allowed for this Customer Auth.
-        ****TODO****
+        Minimum length of destination number allowed for this Customer Auth. In case of receiving destination number that is less than this minimal value call will be dropped.
     Dst number max length
-        ****TODO****
         Maximum length of destination number allowed for this Customer Auth.
+        In case of receiving destination number that is longer than this maximum value call will be dropped.
     Uri Domain
         If specified, YETI checks the domain part of the URI for every call, and drops calls
         if the domain part is not the same as specified.
@@ -156,7 +156,7 @@ Radius **Customers Auth**'s options
 Rateplan
 ~~~~~~~~
 
-****TODO****
+Rateplans are used for describing common billing parameters that can be applied for concrete Customer. Rateplans include Destinations that are used for configuration of billing principles for particular call destinations.
 
 **Rateplan**'s attributes:
 ``````````````````````````
@@ -166,10 +166,12 @@ Rateplan
     Id
        Unique Rateplan's id.
     Name
-        A-Z-Plan         ****TODO****
+        Unique name of Rateplan.
     Profit Control Mode
-        Per call    ****TODO****
-        No Control          ****TODO****
+        Per call
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select Dialpeers (for routing the call) where price is bigger or equal (>=) for the price in the Destination that was applied for this call.
+        No Control
+            In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied Destination and price in the chosen DialPeer).
     Send Quality Alarms To
                 ****TODO****
     
@@ -235,6 +237,7 @@ General **Destination**'s attributes:
 
 Fixed rating configuration of **Destination**'s attributes:
 ```````````````````````````````````````````````````````````
+
     .. _destination_initial_rate:
 
     Initial Rate
@@ -297,6 +300,7 @@ Dialpeers
 
 **Dialpeer**'s attributes:
 ``````````````````````````
+
     .. _dialpeer_id:
 
     Id
@@ -571,6 +575,7 @@ Routing Tags
 
 **Routing Tag**'s attributes:
 `````````````````````````````
+
     .. _routing_tag_id:
 
     Id
