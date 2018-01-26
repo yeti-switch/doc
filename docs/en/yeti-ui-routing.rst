@@ -13,6 +13,8 @@ routing table and has some useful filters and options.
 
 Customer Auth form is splitted to 3 tabs and each one is described below.
 
+.. _customer_auth:
+
 General **Customers Auth**'s attributes:
 ````````````````````````````````````````
 
@@ -227,7 +229,7 @@ General **Destination**'s attributes:
     .. _destination_reverse_billing:
 
     Reverse billing
-        ****TODO****
+        In case of enabling this flag the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record  is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`).
 
     .. _destination_initial_interval:
 
@@ -258,8 +260,10 @@ Fixed rating configuration of **Destination**'s attributes:
         Fee (in currency units) for connection (it charges once per call).
     Profit Control Mode
         Leave it empty to inherit :ref:`Profit control mode <rateplan_profit_control>` from Rateplan or specify especial mode for this Destination only. In case of specification :ref:`Profit control mode <rateplan_profit_control>` from Rateplan will be ignored for this Destination.
+
         No Control
-            In this mode Yeti won't control of receiving profit from the call (without comparison price of this  Destination and price in the chosen :ref:`Dialpeer <dialpeers>`).
+            In this mode Yeti won't control of receiving profit from the call (without comparison price of this  Destination and price in the chosen :ref:`Dialpeer <dialpeers>` ).
+
         Per call
             In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the  this Destination.
 
