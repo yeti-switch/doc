@@ -1,6 +1,8 @@
-=========================================
-YETI WEB interface - CDR menu description
-=========================================
+===
+CDR
+===
+
+YETI WEB interface - CDR menu description. This section describes CDR storage entities.
 
 
 Tables

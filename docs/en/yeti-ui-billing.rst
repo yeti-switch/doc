@@ -1,8 +1,8 @@
-=============================================
-YETI WEB interface - Billing menu description
-=============================================
+=======
+Billing
+=======
 
-This section describes billing and accounting entities
+YETI WEB interface - Billing menu description. This section describes billing and accounting entities.
 
 
 Contractors

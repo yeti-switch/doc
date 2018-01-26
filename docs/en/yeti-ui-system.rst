@@ -1,6 +1,9 @@
-============================================
-YETI WEB interface - System menu description
-============================================
+======
+System
+======
+
+YETI WEB interface - System menu description. This section describes general configuration parameters for Yeti.
+
 
 Info
 ~~~~

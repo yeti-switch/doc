@@ -1,7 +1,10 @@
 
-=============================================
-YETI WEB interface - Reports menu description
-=============================================
+=======
+Reports
+=======
+
+YETI WEB interface - Reports menu description. This section describes reports entities.
+
 
 Custom CDR report
 ~~~~~~~~~~~~~~~~~

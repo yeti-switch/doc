@@ -1,6 +1,9 @@
-===============================================
-YETI WEB interface - Equipment menu description
-===============================================
+=========
+Equipment
+=========
+
+YETI WEB interface - Equipment menu description. This section describes Equipment entities.
+
 
 Gateway groups
 ~~~~~~~~~~~~~~

@@ -1,6 +1,9 @@
-===================================================
-YETI WEB interface - Realtime Data menu description
-===================================================
+=============
+Realtime Data
+=============
+
+YETI WEB interface - Realtime Data menu description. This section describes realtime data like active calls etc.
+
 
 Active calls
 ~~~~~~~~~~~~

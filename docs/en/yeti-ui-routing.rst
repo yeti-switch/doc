@@ -1,6 +1,9 @@
-=============================================
-YETI WEB interface - Routing menu description
-=============================================
+=======
+Routing
+=======
+
+YETI WEB interface - Routing menu description. This section describes authentication and routing principles.
+
 
 Customers Auth
 ~~~~~~~~~~~~~~
@@ -82,33 +85,29 @@ Match condition **Customers Auth**'s options
         IP address of the originator (Customer).
     Pop
         Point of presence (PoP), which receives calls from the Customer. If a call will come
-        on the different PoP (a node which receives calls belongs to different PoP), such calls
-        will be dropped.
+        to the different PoP (a node which receives calls belongs to different PoP), such call
+        will be processed with other Customer Auth entity.
     Src Prefix
         You can define a prefix which necessarily should be presented in Src-number for every
-        call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
-        regular expression.
+        call from the customer. Just a prefix must be used here, not a regular expression.
     Dst Prefix
         You can define a prefix which necessarily should be presented in a Dst-number for every
-        call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
-        regular expression.
+        call from the customer. Just a prefix must be used here, not a regular expression.
     Dst number min length
-        Minimum length of destination number allowed for this Customer Auth. In case of receiving destination number that is less than this minimal value call will be dropped.
+        Minimum length of destination number allowed for this Customer Auth. In case of receiving destination number that is less than this minimal value other Customer Auth entity will be used (if any) for authentication.
     Dst number max length
         Maximum length of destination number allowed for this Customer Auth.
-        In case of receiving destination number that is longer than this maximum value call will be dropped.
+        In case of receiving destination number that is longer than this maximum value call other Customer Auth entity will be used (if any) for authentication.
     Uri Domain
-        If specified, YETI checks the domain part of the URI for every call, and drops calls
-        if the domain part is not the same as specified.
+        If specified, YETI checks the domain part of the URI for every call. If the domain part is not the same as specified other Customer Auth entity will be used (if any) for authentication.
     From Domain
-        If specified, YETI checks the domain part of the URI in the From header for every call, and drops calls
-        if presented domain mismatches.
+        If specified, YETI checks the domain part of the URI in the From header for every call.
+        If presented domain mismatches other Customer Auth entity will be used (if any) for authentication.
     To Domain
-        If specified, YETI checks the domain part of the URI in the To header for every call, and drops calls
-        if presented domain mismatches.
+        If specified, YETI checks the domain part of the URI in the To header for every call. If presented domain mismatches other Customer Auth entity will be used (if any) for authentication.
     X Yeti Auth
         It's possible to define the custom SIP-header **X-Yeti-Auth** for the customer's calls and specify its value in
-        YETI. In case they match, YETI passes such calls through.
+        YETI. In case they match, YETI passes such calls with using this Customer Auth entity for authentication.
 
 Number translation **Customers Auth**'s options
 ```````````````````````````````````````````````
@@ -167,9 +166,12 @@ Rateplans are used for describing common billing parameters that can be applied 
        Unique Rateplan's id.
     Name
         Unique name of Rateplan.
+
+    .. _rateplan_profit_control:
+
     Profit Control Mode
         Per call
-            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) for the price in the :ref:`Destination <destinations>` that was applied for this call.
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the :ref:`Destination <destinations>` that was applied for this call.
         No Control
             In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied :ref:`Destination <destinations>` and price in the chosen :ref:`Dialpeer <dialpeers>`).
     Send Quality Alarms To
@@ -243,23 +245,23 @@ Fixed rating configuration of **Destination**'s attributes:
     .. _destination_initial_rate:
 
     Initial Rate
-        ****TODO****
+        Rate (in currency units per second) for tariffication of :ref:`Initial Interval <destination_initial_interval>`.
 
     .. _destination_next_rate:
 
     Next Rate
-        ****TODO****
+        Rate (in currency units per second) for tariffication of :ref:`Next Interval <destination_next_interval>`.
 
     .. _destination_connect_fee:
 
     Connect Fee
-        ****TODO****
+        Fee (in currency units) for connection (it charges once per call).
     Profit Control Mode
-        ****TODO****
-        Leave it empty to inherit Profit control mode from Rateplan
-        No control  ****TODO****
-        Per call    ****TODO****
-
+        Leave it empty to inherit :ref:`Profit control mode <rateplan_profit_control>` from Rateplan or specify especial mode for this Destination only. In case of specification :ref:`Profit control mode <rateplan_profit_control>` from Rateplan will be ignored for this Destination.
+        No Control
+            In this mode Yeti won't control of receiving profit from the call (without comparison price of this  Destination and price in the chosen :ref:`Dialpeer <dialpeers>`).
+        Per call
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the  this Destination.
 
 Dialpeer based rating configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
