@@ -31,12 +31,12 @@ General **Customers Auth**'s attributes:
     Customer
         Customer, who this Customer Auth belongs to.
     Account
-        Accout of Customer, which this Customer Auth belongs to.
+        Account of Customer, which this Customer Auth belongs to.
 
     .. _customer_check_account_balance:
 
     Check account balance
-        ****TODO****
+        If this flag is enabled Yeti will check current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this Customer Auth record. If current balance is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`) call will dropped.
     Gateway
         Gateway which related to this Customer Auth. That gateway (its parameters),
         will be used for media handling on the A-leg of a call.
@@ -266,20 +266,21 @@ Fixed rating configuration of **Destination**'s attributes:
 Dialpeer based rating configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
     Dp Margin Fixed
-        ****TODO****
+        Value of this field (in currency units) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
     Dp Margin Percent
-        ****TODO****
+        Value of this field (in percents from full Rate, where 1.0 = 100%) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
+        ****TODO**** - Need to clarify about priorities and values.
 
 .. _quality_notification_config:
 
 Quality notifications configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
     Asr Limit
-        ****TODO****
+        The answer-seizure ratio (ASR) limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with respect to the total call volume on this Destination. If ASR for this Destination will stay less than *Asr Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
     Acd Limit
-        ****TODO****
+        The average call duration (ACD) limit for this Destination (in seconds). Lower limit of the average length of telephone calls on this Destination. If ACD for this Destination will stay less than *Acd Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
     Short Calls Limit
-        ****TODO****
+        The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than 5 seconds (****TODO**** - Need to clarify) with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
 
 
 .. _routing_group:

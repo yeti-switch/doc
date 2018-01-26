@@ -70,6 +70,8 @@ Contact:
 
 ----
 
+.. _accounts:
+
 Accounts
 ~~~~~~~~
 
@@ -95,10 +97,19 @@ and **increased** if it uses account for **termination** (vendor).
         Unique account name.
     Contractor
         Contractor who own this account.
+
+    .. _account_balance:
+
     Balance
         Current account balance.
+
+    .. _account_min_balance:
+
     Min balance
         If account balance become less than this limit, then traffic for this account will be blocked.
+
+    .. _account_max_balance:
+
     Max balance
         If account balance become greater than this limit, then routes, which are belongs to this account, will not be used for calls termination.
     Balance low threshold
