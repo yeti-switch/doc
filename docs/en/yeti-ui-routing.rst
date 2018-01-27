@@ -200,7 +200,6 @@ General **Destination**'s attributes:
 
     Prefix
         This field is used for setting prefix for choosing *Destination* by destination number (number B). Destination will be choosed for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
-        **TODO** need to clarify
     Dst number min length
         Minimum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is less than value of this field.
     Dst number max length
@@ -232,6 +231,7 @@ General **Destination**'s attributes:
     Reverse billing
         In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record that is used for this call.
         Also the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record  is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`).
+    **TODO**
 
     .. _destination_initial_interval:
 
@@ -275,7 +275,7 @@ Dialpeer based rating configuration of **Destination**'s attributes:
         Value of this field (in currency units) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
     Dp Margin Percent
         Value of this field (in percents from full Rate, where 1.0 = 100%) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
-        ****TODO**** - Need to clarify about priorities and values.
+        ****TODO**** - Need to clarify
 
 .. _quality_notification_config:
 
@@ -286,7 +286,7 @@ Quality notifications configuration of **Destination**'s attributes:
     Acd Limit
         The average call duration (ACD) limit for this Destination (in seconds). Lower limit of the average length of telephone calls on this Destination. If ACD for this Destination will stay less than *Acd Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
     Short Calls Limit
-        The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than 5 seconds (****TODO**** - Need to clarify) with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
+        The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than 5 seconds (****TODO**** - Need to clarify - System!!!) with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
 
 
 .. _routing_group:
@@ -325,7 +325,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
 
     Prefix
         This field is used for setting prefix for filtering dialpeers by destination number (number B). Dialpeer will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
-        **TODO** need to clarify
+        **TODO** need to clarify - longest match per vendor
     Dst number min length
         Minimum length of number for this Dialpeer. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is less than value of this field.
     Dst number max length
@@ -343,7 +343,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Priority
         ****TODO****
     Force Hit Rate
-        ****TODO****
+        ****TODO**** (0-1) в 30% случаях будет первым
     Exclusive Route
         If during the routing process it turned out that there are entries in the set of suitable routes with the Exclusive route set - all routes without such flag will be discarded. This behavior allows to disable call re-routing for any direction, if there is an exclusive route for it.
 
@@ -367,7 +367,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Next Rate
         ****TODO****
     Lcr Rate Multiplier
-        ****TODO****
+        ****TODO**** - сортировка по некст райт - множитель при сортировке LCR
 
     .. _dialpeer_connect_fee:
 
