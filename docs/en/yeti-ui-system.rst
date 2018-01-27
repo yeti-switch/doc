@@ -325,6 +325,8 @@ Networks
 
 ----
 
+.. _network_prefixes:
+
 Network Prefixes
 ~~~~~~~~~~~~~~~~
 

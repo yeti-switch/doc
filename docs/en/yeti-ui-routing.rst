@@ -199,11 +199,12 @@ General **Destination**'s attributes:
     .. _destination_prefix:
 
     Prefix
-        The numeric prefix with which the number is to be compared.
+        This field is used for setting prefix for choosing *Destination* by destination number (number B). Destination will be choosed for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
+        **TODO** need to clarify
     Dst number min length
-        Minimum length of number for this Destination.
+        Minimum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is less than value of this field.
     Dst number max length
-        Maximum length of number for this Destination.
+        Maximum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is more than value of this field.
     Enabled
         If this flag is activated, the Direction will participate in the routing procedure.
     Reject Calls
@@ -229,7 +230,8 @@ General **Destination**'s attributes:
     .. _destination_reverse_billing:
 
     Reverse billing
-        In case of enabling this flag the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record  is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`).
+        In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record that is used for this call.
+        Also the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record  is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`).
 
     .. _destination_initial_interval:
 
@@ -309,7 +311,7 @@ Routing Group
 Dialpeers
 ~~~~~~~~~
 
-****TODO****
+Dialpeers identify call destination endpoint and define the billing characteristics that are applied to call legB in a call connection.
 
 **Dialpeer**'s attributes:
 ``````````````````````````
@@ -322,11 +324,12 @@ Dialpeers
     .. _dialpeer_prefix:
 
     Prefix
-        ****TODO****
+        This field is used for setting prefix for filtering dialpeers by destination number (number B). Dialpeer will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
+        **TODO** need to clarify
     Dst number min length
-        ****TODO****
+        Minimum length of number for this Dialpeer. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is less than value of this field.
     Dst number max length
-        ****TODO****
+        Maximum length of number for this Dialpeer. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is more than value of this field.
     Enabled
         ****TODO****
     Routing Group
