@@ -28,6 +28,9 @@ Contractor may act as **Customer** - Use provided call termination service and *
     Enabled
         Self-descriptive.
         If flag is off (contractor disabled) this contractor will not be used for routing and billing.
+
+    .. _contractor_vendor:
+
     Vendor
         If enabled contractor can act as vendor and system may terminate calls to it.
     Customer

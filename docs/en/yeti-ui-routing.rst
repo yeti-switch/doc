@@ -338,13 +338,13 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Routing Tag
         :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
     Vendor
-        ****TODO****
+       :ref:`Contractor <contractors>` that is related to this *Dialpeer*. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Account
-        ****TODO****
+        Account of :ref:`Contractor <contractors>` that is related to the chosen *Vendor* for this *Dialpeer*.
     Priority
-        ****TODO****
+        Value of this field (numeric) is used during building of Dialpeers rating for routing call. Dialpeers with biggest  value of *Priority* will be put into top of rating for the same Vendor. **TODO** - need to clarify.
     Force Hit Rate
-        ****TODO**** (0-1) в 30% случаях будет первым
+        Value of this field (numeric between 0 and 1) is used during building of Dialpeers rating for routing call. It represents probability of putting this *Dialpeer* at the top of suitable routes.
     Exclusive Route
         If during the routing process it turned out that there are entries in the set of suitable routes with the Exclusive route set - all routes without such flag will be discarded. This behavior allows to disable call re-routing for any direction, if there is an exclusive route for it.
 
