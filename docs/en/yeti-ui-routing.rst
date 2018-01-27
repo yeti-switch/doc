@@ -230,8 +230,7 @@ General **Destination**'s attributes:
 
     Reverse billing
         In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record that is used for this call.
-        Also the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record  is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`).
-    **TODO**
+        Also the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record is less than :ref:`Min balance <account_min_balance>`.
 
     .. _destination_initial_interval:
 
@@ -286,13 +285,16 @@ Quality notifications configuration of **Destination**'s attributes:
     Acd Limit
         The average call duration (ACD) limit for this Destination (in seconds). Lower limit of the average length of telephone calls on this Destination. If ACD for this Destination will stay less than *Acd Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
     Short Calls Limit
-        The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than 5 seconds (****TODO**** - Need to clarify - System!!!) with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
+        The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
 
 
 .. _routing_group:
 
 Routing Group
 ~~~~~~~~~~~~~
+
+Routing Groups are used for describing common parameters that can be applied for set of Dialpeers. Routing Groups include Dialpeers that are used for configuration of routing and billing principles for the calls.
+
 
 **Routing Group**'s attributes:
 ```````````````````````````````
@@ -324,18 +326,17 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_prefix:
 
     Prefix
-        This field is used for setting prefix for filtering dialpeers by destination number (number B). Dialpeer will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
-        **TODO** need to clarify - longest match per vendor
+        This field is used for setting prefix for filtering dialpeers by destination number (number B). *Dialpeer* will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more dialpeers from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one *Dialpeer* will be selected for call routing on the basis longest prefix match algorithm.
     Dst number min length
-        Minimum length of number for this Dialpeer. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is less than value of this field.
+        Minimum length of number for this *Dialpeer*. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is less than value of this field.
     Dst number max length
-        Maximum length of number for this Dialpeer. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is more than value of this field.
+        Maximum length of number for this *Dialpeer*. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is more than value of this field.
     Enabled
-        ****TODO****
+        *Dialpeer* can be used in the dialpeers selection process (for routing calls) only in case of enabling this flag.
     Routing Group
         :ref:`Routing Group <routing_group>` that is related to this Dialpeer.
     Routing Tag
-        ****TODO****
+        :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
     Vendor
         ****TODO****
     Account

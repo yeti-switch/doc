@@ -175,6 +175,7 @@ Countries
 
 ----
 
+.. _global_configuration:
 
 Global configuration
 ~~~~~~~~~~~~~~~~~~~~
@@ -221,6 +222,9 @@ LNP Cache TTL
     Time to life of LNP cache (seconds).
 LNP E2E Timeout
     Timeout for requests to LNP database (seconds). YETI will drop calls if **Drop Call If LNP Fail** enabled and timeout expired or bad response returned.
+
+.. _short_call_length:
+
 Short Call Length
     User may decide which calls are 'short' by this settings (seconds). It involves **Short Calls** filter button on the *CDR -> CDR History* page.
 Termination Stats Window
