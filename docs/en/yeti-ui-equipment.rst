@@ -28,6 +28,8 @@ Gateway group allows to use multiple gateways for traffic termination to the sam
 
 ----
 
+.. _gateways:
+
 Gateways
 ~~~~~~~~
 
@@ -176,6 +178,7 @@ Signaling (Origination) **Gateway**'s attributes:
         This field should be filled by *password* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling :ref:`Require incoming auth <require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
         Call will be droped in case of receiving of different *password* from Gateway.
 
+.. _gateway_signaling_termination:
 
 Signaling (Termination) **Gateway**'s attributes:
 `````````````````````````````````````````````````

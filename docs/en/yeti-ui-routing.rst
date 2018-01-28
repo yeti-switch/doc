@@ -351,48 +351,49 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_initial_interval:
 
     Initial Interval
-        ****TODO****
+        The starting interval from the start of the call in seconds (default 1). Allows to set another tariffication policy for starting a call (example: *The first 5 seconds are free*).
 
     .. _dialpeer_initial_rate:
 
     Initial Rate
-        ****TODO****
+        Rate (in currency units per second) for tariffication of :ref:`Initial Interval <dialpeer_initial_interval>` for this *Dialpeer*.
 
     .. _dialpeer_next_interval:
 
     Next Interval
-        ****TODO****
+        The subsequent interval of tariffication in seconds. With this interval, the charging step is defined (example *Minute (60 seconds)*, *Per second (1 second)*).
 
     .. _dialpeer_next_rate:
 
     Next Rate
-        ****TODO****
+        Rate (in currency units per second) for tariffication of :ref:`Next Interval <dialpeer_next_interval>` for this *Dialpeer*.
     Lcr Rate Multiplier
-        ****TODO**** - сортировка по некст райт - множитель при сортировке LCR
+        Value of this field (numeric) is used during building of Dialpeers rating for routing call on the basis of least-cost routing (LCR). This value is used for multiplying :ref:`Next Rate <dialpeer_next_rate>` value only during building of Dialpeers rating and doesn't effect on final cost of call.
+        **TODO** - need to clarify.
 
     .. _dialpeer_connect_fee:
 
     Connect Fee
-        ****TODO****
+        Fee (in currency units) for connection (it charges once per call) for this *Dialpeer*.
 
     .. _dialpeer_reverse_billing:
 
     Reverse billing
-        ****TODO****
+        In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** of the :ref:`Destination <destinations>` to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. **TODO** - need to clarify.
     Gateway
-        ****TODO****
+        :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group
         ****TODO****
     Valid From
-        ****TODO****
+        Date and time from that this *Dialpeer* will be active and can be used for routing call.
     Valid Till
-        ****TODO****
+        Date and time up to that this *Dialpeer* will be active and can be used for routing call.
     Acd Limit
-        ****TODO****
+        The average call duration (ACD) limit for this *Dialpeer* (in seconds). Lower limit of the average length of telephone calls on this *Dialpeer*. If ACD for this *Dialpeer* will stay less than *Acd Limit* this *Dialpeer* will be excluding from call routing process.
     Asr Limit
-        ****TODO****
+        The answer-seizure ratio (ASR) limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with respect to the total call volume on this *Dialpeer*. If ASR for this Destination will stay less than *Asr Limit* this *Dialpeer* will be excluding from call routing process.
     Short Calls Limit
-        ****TODO****
+        The Short Calls ratio limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this *Dialpeer*. If this ration for this *Dialpeer* will stay less than *Short Calls Limit* this *Dialpeer* will be excluding from call routing process.
     Capacity
         ****TODO****
     Src Name Rewrite Rule
