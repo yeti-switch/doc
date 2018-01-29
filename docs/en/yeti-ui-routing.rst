@@ -444,7 +444,7 @@ Routing Plans are used for describing common parameters that can be applied for 
             LCR, No ACD&ASR control - Sorting only on the basis of least-cost routing (LCR) algorithm (routes with lowest price will be on the top of rating) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`.
             Prio,LCR, ACD&ASR control - Sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` with following sorting on the basis of least-cost routing (LCR) algorithm (routes with highest priorities will be on the top of rating, in case of same priorities LCR sorting will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Priority and Cost values).
             LCR,Prio, ACD&ASR control - Sorting on the basis of least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
-            LCRD, Prio, ACD&ASR control ****TODO****
+            LCRD, Prio, ACD&ASR control - Sorting on the basis of modified (****TODO****) least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
             Route testing ****TODO****
             QD-Static, LCR, ACD&ASR control ****TODO****
             Static only, No ACD&ASR control  ****TODO****
@@ -453,7 +453,7 @@ Routing Plans are used for describing common parameters that can be applied for 
     Rate Delta Max
         ****TODO****
     Routing Groups
-        ****TODO****
+        :ref:`Routing Groups <routing_group>` that are related to this Routing Plan.
 
 ----
 
@@ -469,11 +469,11 @@ Routing plan static routes
     Routing Plan
         :ref:`Routing plan <routing_plan>` that is related for this Routing plan static route. ****TODO****
     Prefix
-        ****TODO****
+        This field is used for setting prefix for filtering static routes by destination number (number B). Route will be selected to the list of possible routes for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more routes from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one route will be selected for call routing on the basis longest prefix match algorithm. ****TODO****
     Priority
-        ****TODO****
+        Value of this field (numeric) is used during building of routing rating for routing call. Route with biggest  value of *Priority* will be put into top of rating for the same Vendor. **TODO** - need to clarify.
     Vendor
-        ****TODO****
+        :ref:`Contractor <contractors>` that is related to this static route. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Updated At
         Date and time of last updating of static routing record.
 
@@ -491,15 +491,15 @@ Routing Plan LNP rules
     Id
        Unique Routing Plan LNP rule's id.
     Routing plan
-            :ref:`Routing plan <routing_plan>` for that will be applied this Routing plan LNP rule.
+        :ref:`Routing plan <routing_plan>` for that will be applied this Routing plan LNP rule.
     Dst prefix
-        ****TODO****
+        This field is used for setting prefix for filtering calls by destination number (number B) for using this *Routing Plan LNP rule*.
     Req dst rewrite rule
         ****TODO****
     Req dst rewrite result
         ****TODO****
     Database
-        ****TODO****
+        :ref:`LNP Database <lnp_databases>` that will be used for processing LNP requests for selected calls.
     Lrn rewrite rule
         ****TODO****
     Lrn rewrite result
@@ -590,9 +590,9 @@ Numberlist items
     Dst rewrite result
         ****TODO****
     Created At
-        ****TODO****
+        Date and time of this Numberlist item creation.
     Updated At
-        ****TODO****
+        Date and time of last updating of this Numberlist item.
 
 ----
 
@@ -611,7 +611,7 @@ Routing Tags
     Id
        Unique Routing Tag's id.
     Name
-        ****TODO****
+       Unique Routing Tag's name.
 
 ----
 
@@ -629,7 +629,7 @@ Areas
     Id
        Unique Area's id.
     Name
-        ****TODO****
+       Unique Area's name.
 
 ----
 
