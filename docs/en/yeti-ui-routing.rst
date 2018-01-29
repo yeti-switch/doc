@@ -132,7 +132,7 @@ Number translation **Customers Auth**'s options
     Dst rewrite rule
         This field should contain a regular expression for changing the Destination-number within SIP-signalization.
     Dst rewrite result
-        The result of changing the Name field in the Source-number, using the Dst rewrite rule above.
+        The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
 
 Radius **Customers Auth**'s options
 ```````````````````````````````````
@@ -290,8 +290,8 @@ Quality notifications configuration of **Destination**'s attributes:
 
 .. _routing_group:
 
-Routing Group
-~~~~~~~~~~~~~
+Routing Groups
+~~~~~~~~~~~~~~
 
 Routing Groups are used for describing common parameters that can be applied for set of Dialpeers. Routing Groups include Dialpeers that are used for configuration of routing and billing principles for the calls.
 
@@ -341,6 +341,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
        :ref:`Contractor <contractors>` that is related to this *Dialpeer*. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Account
         Account of :ref:`Contractor <contractors>` that is related to the chosen *Vendor* for this *Dialpeer*.
+
+    .. _dialpeer_priority:
+
     Priority
         Value of this field (numeric) is used during building of Dialpeers rating for routing call. Dialpeers with biggest  value of *Priority* will be put into top of rating for the same Vendor. **TODO** - need to clarify.
     Force Hit Rate
@@ -383,33 +386,39 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Gateway
         :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group
-        ****TODO****
+        :ref:`Gateway Group <gateway_groups>` that will be used for termination of the calls for this *Dialpeer* in case of using multiple gateways for traffic termination to the same Vendor.
     Valid From
         Date and time from that this *Dialpeer* will be active and can be used for routing call.
     Valid Till
         Date and time up to that this *Dialpeer* will be active and can be used for routing call.
+
+    .. _dialpeer_acd_limit:
+
     Acd Limit
         The average call duration (ACD) limit for this *Dialpeer* (in seconds). Lower limit of the average length of telephone calls on this *Dialpeer*. If ACD for this *Dialpeer* will stay less than *Acd Limit* this *Dialpeer* will be excluding from call routing process.
+
+    .. _dialpeer_asr_limit:
+
     Asr Limit
         The answer-seizure ratio (ASR) limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with respect to the total call volume on this *Dialpeer*. If ASR for this Destination will stay less than *Asr Limit* this *Dialpeer* will be excluding from call routing process.
     Short Calls Limit
         The Short Calls ratio limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this *Dialpeer*. If this ration for this *Dialpeer* will stay less than *Short Calls Limit* this *Dialpeer* will be excluding from call routing process.
     Capacity
-        ****TODO****
+        Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed bia this *Dialpeer* at same time.
     Src Name Rewrite Rule
-        ****TODO****
+        This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
     Src Name Rewrite Result
-        ****TODO****
+        The result of changing the Name field in the Source-number, using the Src name rewrite rule above.
     Src Rewrite Rule
-        ****TODO****
+        This field should contain a regular expression for changing the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
     Src Rewrite Result
-        ****TODO****
+        The result of changing the Name field in the Source-number, using the Src rewrite rule above.
     Dst Rewrite Rule
-        ****TODO****
+        This field should contain a regular expression for changing the Destination-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
     Dst Rewrite Result
-        ****TODO****
+        The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
     Created At
-        Date and time creation of Dialpeer.
+        Date and time creation of this *Dialpeer*.
 
 ----
 
@@ -418,7 +427,8 @@ Dialpeers identify call destination endpoint and define the billing characterist
 Routing Plans
 ~~~~~~~~~~~~~
 
-****TODO****
+Routing Plans are used for describing common parameters that can be applied for set of :ref:`Routing Groups <routing_group>`.
+    **TODO** - need to clarify.
 
 **Routing Plan**'s attributes:
 ``````````````````````````````
@@ -426,18 +436,18 @@ Routing Plans
     .. _routing_plan_id:
 
     Id
-       Unique Routing Plan's id.
+        Unique Routing Plan's id.
     Name
         Unique Routing Plan name.
     Sorting
-        ****TODO****
-        LCR, No ACD&ASR control ****TODO****
-        Prio,LCR, ACD&ASR control ****TODO****
-        LCR,Prio, ACD&ASR control ****TODO****
-        LCRD, Prio, ACD&ASR control ****TODO****
-        Route testing ****TODO****
-        QD-Static, LCR, ACD&ASR control ****TODO****
-        Static only, No ACD&ASR control  ****TODO****
+        This field is used for setting sorting method for the routes (Dialpeers) within Routing Plan. **TODO** - need to clarify. The following algorithms (sorting methods) are available:
+            LCR, No ACD&ASR control - Sorting only on the basis of least-cost routing (LCR) algorithm (routes with lowest price will be on the top of rating) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`.
+            Prio,LCR, ACD&ASR control - Sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` with following sorting on the basis of least-cost routing (LCR) algorithm (routes with highest priorities will be on the top of rating, in case of same priorities LCR sorting will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Priority and Cost values).
+            LCR,Prio, ACD&ASR control - Sorting on the basis of least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
+            LCRD, Prio, ACD&ASR control ****TODO****
+            Route testing ****TODO****
+            QD-Static, LCR, ACD&ASR control ****TODO****
+            Static only, No ACD&ASR control  ****TODO****
     Use Lnp
         ****TODO****
     Rate Delta Max

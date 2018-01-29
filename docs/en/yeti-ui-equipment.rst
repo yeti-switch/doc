@@ -5,6 +5,8 @@ Equipment
 YETI WEB interface - Equipment menu description. This section describes Equipment entities.
 
 
+.. _gateway_groups:
+
 Gateway groups
 ~~~~~~~~~~~~~~
 
