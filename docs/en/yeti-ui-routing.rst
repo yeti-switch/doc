@@ -222,9 +222,9 @@ General **Destination**'s attributes:
     Rate Policy
         The policy of determining the price of a call on this Direction. The following options are available:
             -   Fixed. If this option is selected, the cost of the call will be calculated with using the Initial rate, Next rate, Connect fee of this Destination.
-            -   Based on used dialpeer. This option involves calculating the cost of the call with using the Initial rate, Next rate, Connect fee of Dial-up options, which will take the call. In this case, there is a possibility of changing the value, by determining the Dp margin fixed and / or Dp margin percent.
-            -   MIN (Fixed, Based on used dialpeer). The minimum price for a call is chosen, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
-            -   MAX (Fixed, Based on used dialpeer). The maximum price for a call is selected when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
+            -   Based on used dialpeer. This option involves calculating the cost of the call with using the Initial rate, Next rate, Connect fee of Dialpeer that is used for the call. In this case, there is a possibility of changing the value, by determining the :ref:`Dialpeer based rating configuration attributes <destination_dialpeer_based_rating_configuration>` (Dp margin fixed and / or Dp margin percent).
+            -   MIN (Fixed, Based on used dialpeer). The minimum price for the call will be chose, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
+            -   MAX (Fixed, Based on used dialpeer). The maximum price for the call will be chose, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
 
     .. _destination_reverse_billing:
 
@@ -268,13 +268,14 @@ Fixed rating configuration of **Destination**'s attributes:
         Per call
             In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the  this Destination.
 
+.. _destination_dialpeer_based_rating_configuration:
+
 Dialpeer based rating configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
     Dp Margin Fixed
         Value of this field (in currency units) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
     Dp Margin Percent
         Value of this field (in percents from full Rate, where 1.0 = 100%) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
-        ****TODO**** - Need to clarify
 
 .. _quality_notification_config:
 
@@ -345,7 +346,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_priority:
 
     Priority
-        Value of this field (numeric) is used during building of Dialpeers rating for routing call. Dialpeers with biggest  value of *Priority* will be put into top of rating for the same Vendor. **TODO** - need to clarify.
+        Value of this field (numeric) is used during building of Dialpeers rating (sorting of Dialpeers) for routing call. Dialpeers with biggest value of *Priority* will be put into top of rating and will be used first in routing set.
     Force Hit Rate
         Value of this field (numeric between 0 and 1) is used during building of Dialpeers rating for routing call. It represents probability of putting this *Dialpeer* at the top of suitable routes.
     Exclusive Route
@@ -371,8 +372,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Next Rate
         Rate (in currency units per second) for tariffication of :ref:`Next Interval <dialpeer_next_interval>` for this *Dialpeer*.
     Lcr Rate Multiplier
-        Value of this field (numeric) is used during building of Dialpeers rating for routing call on the basis of least-cost routing (LCR). This value is used for multiplying :ref:`Next Rate <dialpeer_next_rate>` value only during building of Dialpeers rating and doesn't effect on final cost of call.
-        **TODO** - need to clarify.
+        Value of this field (numeric) is used during building of Dialpeers rating (sorting of Dialpeers) for routing call on the basis of least-cost routing (LCR). This value is used for multiplying :ref:`Next Rate <dialpeer_next_rate>` value only during building of Dialpeers rating and doesn't effect on final cost of call.
 
     .. _dialpeer_connect_fee:
 
@@ -382,7 +382,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_reverse_billing:
 
     Reverse billing
-        In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** of the :ref:`Destination <destinations>` to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. **TODO** - need to clarify.
+        In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be removed** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
     Gateway
         :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group
