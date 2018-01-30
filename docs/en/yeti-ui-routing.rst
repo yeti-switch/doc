@@ -248,12 +248,12 @@ Fixed rating configuration of **Destination**'s attributes:
     .. _destination_initial_rate:
 
     Initial Rate
-        Rate (in currency units per second) for tariffication of :ref:`Initial Interval <destination_initial_interval>`.
+        Rate (in currency units per minute) for tariffication of :ref:`Initial Interval <destination_initial_interval>`.
 
     .. _destination_next_rate:
 
     Next Rate
-        Rate (in currency units per second) for tariffication of :ref:`Next Interval <destination_next_interval>`.
+        Rate (in currency units per minute) for tariffication of :ref:`Next Interval <destination_next_interval>`.
 
     .. _destination_connect_fee:
 
@@ -671,7 +671,7 @@ Routing Tag detection Rules
 Routing Simulation
 ~~~~~~~~~~~~~~~~~~
 
-****TODO****
+Routing Simulation tool is used for debugging of call passing via Yeti. After filling necessary fields (attributes of call) and pushing "Simulate routing" button the result of call including disconnect code of call and full information about it and also log  of call's processing will be provided.
 
 **Routing Simulation**'s attributes:
 ````````````````````````````````````
