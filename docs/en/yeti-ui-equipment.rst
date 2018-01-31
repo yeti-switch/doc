@@ -161,7 +161,7 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig force outbound proxy
         In case of enabling this checkbox Yeti will change destination of sending packets on Leg_A for in-dialog SIP-requests to the address (URI) that is mentioned in the *Orig outbound proxy* field below.
     Orig proxy transport protocol
-         Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
+         Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or Transmission Control Protocol (TCP)).
     Orig outbound proxy
        SIP Uniform Resource Indicator (URI) of SIP proxy for Gateway (in case of using Gateway as Originator of calls).
     Transparent dialog

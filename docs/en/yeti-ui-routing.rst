@@ -615,6 +615,7 @@ Routing Tags
 
 ----
 
+.. _areas:
 
 Areas
 ~~~~~
@@ -633,79 +634,80 @@ Areas
 
 ----
 
+.. _area_prefixes:
+
 Area prefixes
 ~~~~~~~~~~~~~
 
-****TODO****
+Area prefixes are used for determination of :ref:`Areas <areas>` by source or destination numbers with using prefixes.
 
 **Area prefixe**'s attributes:
 ``````````````````````````````
     Id
        Unique Area prefixe's id.
     Prefix
-        ****TODO****
+        This field is used for setting prefix for this *Area*. Call will be associated with this *Area* (Source or Destination) only in case of matching this *Prefix* with first symbols of relevant number (A or B).
     Area
-        ****TODO****
+        :ref:`Area <areas>` that is associated to the *Prefix* above.
 
 ----
 
 Routing Tag detection Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+Routing Tag detection Rules are used for choosing :ref:`Routing tag <routing_tag>` (that is used for routing of calls) by source and destination :ref:`Areas <areas>` that are determinated via :ref:`Area prfixes <area_prefixes>` table.
 
 **Routing Tag detection Rule**'s attributes:
 ````````````````````````````````````````````
     Id
        Unique Routing Tag detection Rule's id.
     Src area
-        ****TODO****
+        Source :ref:`Area <areas>` (could be empty).
     Dst area
-        ****TODO****
+        Destination :ref:`Area <areas>` (could be empty).
     Routing tag
-        ****TODO****
-
+        :ref:`Routing tag <routing_tag>` that should be associated with Areas.
 
 ----
 
 Routing Simulation
 ~~~~~~~~~~~~~~~~~~
 
-Routing Simulation tool is used for debugging of call passing via Yeti. After filling necessary fields (attributes of call) and pushing "Simulate routing" button the result of call including disconnect code of call and full information about it and also log  of call's processing will be provided.
+Routing Simulation tool is used for debugging of call passing via Yeti. After filling necessary fields (attributes of call) and pushing "Simulate routing" button the result of call including disconnect code of call and full information about it and also log of call's processing will be provided.
 
 **Routing Simulation**'s attributes:
 ````````````````````````````````````
     Transport protocol
-        ****TODO****
-        UDP
-        TCP
+        Transport protocol of call delivering:
+            UDP - User Datagram Protocol
+            TCP - Transmission Control Protocol
     Remote ip
-        ****TODO****
+        IP address of remote host that will be used as source of call during simulation.
     Remote port
-        ****TODO****
+        UDP/TCP port of remote host that will be used as source of call during simulation.
     Pop
-        ****TODO****
+        Point-of-Presence that will receive call during simulation.
     Src number
-        ****TODO****
+        Source number (A-number) of simulated call.
     Dst number
-        ****TODO****
+        Destination number (B-number) of simulated call.
     Uri domain
-        ****TODO****
+        Domain part of the URI for simulated call.
     From domain
-        ****TODO****
+        Domain part of the URI in the From header for simulated call.
     To domain
-        ****TODO****
+        Domain part of the URI in the To header for simulated call.
     X yeti auth
-        ****TODO****
+        Value of custom SIP-header **X-Yeti-Auth** for simulated call.
     Pai
-        ****TODO****
+        Value of P-Asserted-Identity (PAI) privacy field of SIP header for simulated call.
     Ppi
-        ****TODO****
+        Value of P-Preferred-Identity (PPI) privacy field of SIP header for simulated call.
     Privacy
-        ****TODO****
+        Value of SIP Privacy field of SIP header for simulated call.
     Rpid
-        ****TODO****
+        Value of Remote Party ID field of SIP header for simulated call.
     Rpid privacy
-        ****TODO****
+        Value of SIP RPID Privacy field of SIP header for simulated call.
     Release mode
         ****TODO****
