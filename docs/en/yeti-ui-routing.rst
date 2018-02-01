@@ -152,7 +152,7 @@ Radius **Customers Auth**'s options
     
 ----
 
-..
+.. _rateplans:
 
 Rateplan
 ~~~~~~~~
@@ -620,7 +620,7 @@ Routing Tags
 Areas
 ~~~~~
 
-****TODO****
+Areas are used for systematizing destination numbers and source numbers by geographical areas that are identified by international country code. With using *Areas* Yeti could apply some additional routing rules (via Routing Tags) to the calls.
 
 **Area**'s attributes:
 ``````````````````````

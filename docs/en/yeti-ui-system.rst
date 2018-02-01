@@ -104,6 +104,8 @@ Background Tasks
 
 ----
 
+.. _disconnect_codes:
+
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
@@ -158,6 +160,8 @@ PoPs
         ****TODO****
 
 ----
+
+.. _countries:
 
 Countries
 ~~~~~~~~~

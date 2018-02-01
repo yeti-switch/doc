@@ -34,54 +34,54 @@ Tables
 CDR History
 ~~~~~~~~~~~
 
-****TODO****
+Call Delivery Records (CDR) about all calls (or call attempts) what are passed via Yeti.
 
 **CDR**'s attributes:
 `````````````````````
     Id
        Unique CDR's id.
     Time Start
-        ****TODO****
+       Date and time of call starting.
     Customer
-        ****TODO****
+        Value of the :ref:`*Name* <contractor_name>` attribute of the Customer Contractor for the call.
     Vendor
-        ****TODO****
+        Value of the :ref:`*Name* <contractor_name>` attribute of the Vendor Contractor for the call.
     Customer Auth
-        ****TODO****
+        Value of the :ref:`*Name* <customer_auth_name>` attribute of the Customer Auth.
     Src Prefix Routing
-        ****TODO****
+        Prefix of the source number (A-number) that was used for routing for the call.
     Src Area
-        ****TODO****
+        Source :ref:`Area <areas>` for the call (if any).
     Dst Prefix Routing
-        ****TODO****
+        Prefix of the destination number (B-number) that was used for routing for the call
     Dst Area
-        ****TODO****
+        Destination :ref:`Area <areas>` for the call (if any).
     Dst Country
-        ****TODO****
+        :ref:`Country <countries>` that was associated (via :ref:`Network Prefixes <network_prefixes>` table) with the destination number (B-number) for the call.
     Status
         ****TODO****
     Duration
-        ****TODO****
+        Duration of the call in seconds. ****TODO**** - need to clarify
     Is Last CDR
-        ****TODO****
+        This field should be "1" for last routing attempt for the call ("0" otherwise). ****TODO****
     Dump Level
         ****TODO****
     Orig GW
-        ****TODO****
+        Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that is used as Originator for the call.
     Term GW
-        ****TODO****
+        Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that is used as Terminator for the call.
     Routing Plan
-        ****TODO****
+        :ref:`Routing plan <routing_plan>` that was used for the call.
     Routing Group
-        ****TODO****
+        :ref:`Routing Group <routing_group>` that was used for the call.
     Routing Tag
-        ****TODO****
+        :ref:`Routing Tag <routing_tag>` that was used for the call.
     Rateplan
-        ****TODO****
+        :ref:`Rateplan <rateplans>` that was used for the call.
     Internal Disconnect Code
         ****TODO****
     Lega Disconnect Code
-        ****TODO****
+        :ref:`Disconnect Code <disconnect_codes>` for interconnection between Yeti and Gateway that was used as Originator for the call.
     Lega Disconnect Reason
         ****TODO****
     Legb Disconnect Code
@@ -89,23 +89,23 @@ CDR History
     Legb Disconnect Reason
         ****TODO****
     Src Prefix In
-        ****TODO****
+        Source number (A-number) that is received from Gateway that is used as Originator for the call.
     Dst Prefix In
-        ****TODO****
+        Destination number (B-number) that is received from Gateway that is used as Originator for the call.
     Src Prefix Out
-        ****TODO****
+        Source number (A-number) that is sent to Gateway that is used as Terminator for the call.
     Dst Prefix Out
-        ****TODO****
+        Destination number (B-number) that is sent to Gateway that is used as Terminator for the call.
     LRN
-        ****TODO****
+        Routing number that was received from LNP database (in case of requesting) for the call.
     Diversion In
-        ****TODO****
+        Value of SIP Diversion header that is received from Gateway that is used as Originator for the call.
     Diversion Out
-        ****TODO****
+        Value of SIP Diversion header that is sent to Gateway that is used as Terminator for the call.
     Src Name In
-        ****TODO****
+        Name of caller that is received in the "From" field of SIP header from Gateway that is used as Originator for the call.
     Src Name Out
-        ****TODO****
+        Name of caller that is sent in the "From" field of SIP header to Gateway that is used as Terminator for the call.
     Node
         ****TODO****
     PoP
@@ -117,7 +117,7 @@ CDR History
     Term Call
         ****TODO****
     Routing Attempt
-        ****TODO****
+        Number of attempt to route this call to destination.
     Customer Price
         ****TODO****
     Vendor Price
