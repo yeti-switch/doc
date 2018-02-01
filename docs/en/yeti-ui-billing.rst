@@ -161,6 +161,7 @@ Payments intended to change account balance.
 
 ----
 
+.. _invoices:
 
 Invoices
 ~~~~~~~~

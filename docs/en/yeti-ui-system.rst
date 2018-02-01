@@ -146,18 +146,19 @@ Jobs
 
 ----
 
+.. _pops:
 
 PoPs
 ~~~~
 
-****TODO****
+Points of Presence (PoPs) are used for separate calls between different switching platforms (f.e. in different countries).
 
 **PoP**'s attributes:
 `````````````````````
     Id
        PoP's id.
     Name
-        ****TODO****
+        Name of the Point of Presence.
 
 ----
 
@@ -196,6 +197,9 @@ CDR Unload Dir
     Directory where YETI unload CDR tables on the *CDR -> Tables* page.
 CDR Unload URI
     URL for external CDR viewer program. YETI redirects to that program from *CDR -> Tables* page when user press **Unloaded files** button.
+
+.. _system_global_configuration_cdr_archive_delay:
+
 CDR Archive Delay
     Move CDRs to archive table after **N** months.
 CDR Remove Delay
