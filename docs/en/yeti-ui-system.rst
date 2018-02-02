@@ -39,18 +39,18 @@ Admin Users
 API Accesses
 ~~~~~~~~~~~~
 
-****TODO****
+Application Programming Interface (API) is used for interactions between external systems (for example billings) and Yeti.
 
 **API Access**'s attributes:
 ````````````````````````````
     Id
        API Access's id.
     Login
-        ****TODO****
+        Unique login of user that is used for authentication of access wia Application Programming Interface (API).
     Password
-        ****TODO****
+        Password of user that is used for authentication of access wia Application Programming Interface (API).
     Customer
-        ****TODO****
+        :ref:`Customer <contractors>` that is associated with this *API Access*.
     Accounts
         ****TODO****
     Allowd IPs
@@ -98,9 +98,9 @@ Background Tasks
     Queue
         ****TODO****
     Created At
-        ****TODO****
+        Date and time of this Background Task item creation.
     Updated At
-        ****TODO****
+        Date and time of last updating of this Background Task item.
 
 ----
 
@@ -166,7 +166,7 @@ Points of Presence (PoPs) are used for separate calls between different switchin
 
 Countries
 ~~~~~~~~~
-       ****TODO****
+       Countries are used for systematizing destination numbers and source numbers by countries that are identified by international country code. With using *Countries* Yeti could apply some additional routing rules to the calls.
 
 **Country**'s attributes:
 `````````````````````````
@@ -174,9 +174,9 @@ Countries
     .. _country_id:
 
     Id
-       ****TODO****
+       Unique Country's id.
     Name
-       ****TODO****
+       Unique Country's name.
 
 ----
 
@@ -320,6 +320,8 @@ LNP Resolvers
 
 ----
 
+.. _networks:
+
 Networks
 ~~~~~~~~
 
@@ -333,7 +335,7 @@ Networks
     Id
        Network's id.
     Name
-        ****TODO****
+        Name of the Network (Carrier).
 
 ----
 
@@ -349,12 +351,11 @@ Catalogue of phone prefixes. Yeti database contains preloaded data of prefixes. 
     Id
        Network Prefixe's id.
     Prefix
-        ****TODO****
+         This field is used for setting prefix for the *Network*. Call will be associated with this *Network* (Source or Destination) only in case of matching this *Prefix* with first symbols of relevant number (A or B).
     Country
-        Country this prefix belongs to. ****TODO****
+        :ref:`Country <countries>` that is associated to the *Prefix* above.
     Network
-        Operator network name. ****TODO****
-
+        :ref:`Network <networks>` that is associated to the *Prefix* above.
 
 ----
 

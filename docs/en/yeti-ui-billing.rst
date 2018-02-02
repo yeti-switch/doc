@@ -100,7 +100,7 @@ and **increased** if it uses account for **termination** (vendor).
     Name
         Unique account name.
     Contractor
-        Contractor who own this account.
+        :ref:`Contractor <contractors>` that is related to this *Account*.
 
     .. _account_balance:
 
@@ -173,9 +173,9 @@ Invoice provides possibility to summarize billing information for mutual settlem
     Id
         Unique invoice id.
     Contractor
-        Contractor that is related to this invoice.
+        :ref:`Contractor <contractors>` that is related to this invoice.
     Account
-        Account that is related to this invoice.
+        :ref:`Account <accounts>` that is related to this invoice.
     State
         Status of the invoice. New invoices are created with status *Pending*.
         After changing status of invoice to *Approve*, it is considered confirmed and is sent to the contragent's email (configured in account settings).
