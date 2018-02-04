@@ -1,6 +1,9 @@
-==========================================
-YETI WEB interface - Logs menu description
-==========================================
+====
+Logs
+====
+
+YETI WEB interface - Logs menu description. This section describes logs and notifications entities.
+
 
 API Log
 ~~~~~~~

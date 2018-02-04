@@ -1,6 +1,9 @@
-============================================
-YETI WEB interface - System menu description
-============================================
+======
+System
+======
+
+YETI WEB interface - System menu description. This section describes general configuration parameters for Yeti.
+
 
 Info
 ~~~~
@@ -36,18 +39,18 @@ Admin Users
 API Accesses
 ~~~~~~~~~~~~
 
-****TODO****
+Application Programming Interface (API) is used for interactions between external systems (for example billings) and Yeti.
 
 **API Access**'s attributes:
 ````````````````````````````
     Id
        API Access's id.
     Login
-        ****TODO****
+        Unique login of user that is used for authentication of access wia Application Programming Interface (API).
     Password
-        ****TODO****
+        Password of user that is used for authentication of access wia Application Programming Interface (API).
     Customer
-        ****TODO****
+        :ref:`Customer <contractors>` that is associated with this *API Access*.
     Accounts
         ****TODO****
     Allowd IPs
@@ -95,11 +98,13 @@ Background Tasks
     Queue
         ****TODO****
     Created At
-        ****TODO****
+        Date and time of this Background Task item creation.
     Updated At
-        ****TODO****
+        Date and time of last updating of this Background Task item.
 
 ----
+
+.. _disconnect_codes:
 
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
@@ -141,24 +146,27 @@ Jobs
 
 ----
 
+.. _pops:
 
 PoPs
 ~~~~
 
-****TODO****
+Points of Presence (PoPs) are used for separate calls between different switching platforms (f.e. in different countries).
 
 **PoP**'s attributes:
 `````````````````````
     Id
        PoP's id.
     Name
-        ****TODO****
+        Name of the Point of Presence.
 
 ----
 
+.. _countries:
+
 Countries
 ~~~~~~~~~
-       ****TODO****
+       Countries are used for systematizing destination numbers and source numbers by countries that are identified by international country code. With using *Countries* Yeti could apply some additional routing rules to the calls.
 
 **Country**'s attributes:
 `````````````````````````
@@ -166,12 +174,13 @@ Countries
     .. _country_id:
 
     Id
-       ****TODO****
+       Unique Country's id.
     Name
-       ****TODO****
+       Unique Country's name.
 
 ----
 
+.. _global_configuration:
 
 Global configuration
 ~~~~~~~~~~~~~~~~~~~~
@@ -188,6 +197,9 @@ CDR Unload Dir
     Directory where YETI unload CDR tables on the *CDR -> Tables* page.
 CDR Unload URI
     URL for external CDR viewer program. YETI redirects to that program from *CDR -> Tables* page when user press **Unloaded files** button.
+
+.. _system_global_configuration_cdr_archive_delay:
+
 CDR Archive Delay
     Move CDRs to archive table after **N** months.
 CDR Remove Delay
@@ -218,6 +230,9 @@ LNP Cache TTL
     Time to life of LNP cache (seconds).
 LNP E2E Timeout
     Timeout for requests to LNP database (seconds). YETI will drop calls if **Drop Call If LNP Fail** enabled and timeout expired or bad response returned.
+
+.. _short_call_length:
+
 Short Call Length
     User may decide which calls are 'short' by this settings (seconds). It involves **Short Calls** filter button on the *CDR -> CDR History* page.
 Termination Stats Window
@@ -305,6 +320,8 @@ LNP Resolvers
 
 ----
 
+.. _networks:
+
 Networks
 ~~~~~~~~
 
@@ -318,9 +335,11 @@ Networks
     Id
        Network's id.
     Name
-        ****TODO****
+        Name of the Network (Carrier).
 
 ----
+
+.. _network_prefixes:
 
 Network Prefixes
 ~~~~~~~~~~~~~~~~
@@ -332,12 +351,11 @@ Catalogue of phone prefixes. Yeti database contains preloaded data of prefixes. 
     Id
        Network Prefixe's id.
     Prefix
-        ****TODO****
+         This field is used for setting prefix for the *Network*. Call will be associated with this *Network* (Source or Destination) only in case of matching this *Prefix* with first symbols of relevant number (A or B).
     Country
-        Country this prefix belongs to. ****TODO****
+        :ref:`Country <countries>` that is associated to the *Prefix* above.
     Network
-        Operator network name. ****TODO****
-
+        :ref:`Network <networks>` that is associated to the *Prefix* above.
 
 ----
 

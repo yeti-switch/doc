@@ -1,9 +1,10 @@
-=============================================
-YETI WEB interface - Billing menu description
-=============================================
+=======
+Billing
+=======
 
-This section describes billing and accounting entities
+YETI WEB interface - Billing menu description. This section describes billing and accounting entities.
 
+.. _contractors:
 
 Contractors
 ~~~~~~~~~~~
@@ -27,6 +28,9 @@ Contractor may act as **Customer** - Use provided call termination service and *
     Enabled
         Self-descriptive.
         If flag is off (contractor disabled) this contractor will not be used for routing and billing.
+
+    .. _contractor_vendor:
+
     Vendor
         If enabled contractor can act as vendor and system may terminate calls to it.
     Customer
@@ -70,6 +74,8 @@ Contact:
 
 ----
 
+.. _accounts:
+
 Accounts
 ~~~~~~~~
 
@@ -94,11 +100,20 @@ and **increased** if it uses account for **termination** (vendor).
     Name
         Unique account name.
     Contractor
-        Contractor who own this account.
+        :ref:`Contractor <contractors>` that is related to this *Account*.
+
+    .. _account_balance:
+
     Balance
         Current account balance.
+
+    .. _account_min_balance:
+
     Min balance
         If account balance become less than this limit, then traffic for this account will be blocked.
+
+    .. _account_max_balance:
+
     Max balance
         If account balance become greater than this limit, then routes, which are belongs to this account, will not be used for calls termination.
     Balance low threshold
@@ -146,6 +161,7 @@ Payments intended to change account balance.
 
 ----
 
+.. _invoices:
 
 Invoices
 ~~~~~~~~
@@ -157,9 +173,9 @@ Invoice provides possibility to summarize billing information for mutual settlem
     Id
         Unique invoice id.
     Contractor
-        Contractor that is related to this invoice.
+        :ref:`Contractor <contractors>` that is related to this invoice.
     Account
-        Account that is related to this invoice.
+        :ref:`Account <accounts>` that is related to this invoice.
     State
         Status of the invoice. New invoices are created with status *Pending*.
         After changing status of invoice to *Approve*, it is considered confirmed and is sent to the contragent's email (configured in account settings).

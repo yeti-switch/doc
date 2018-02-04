@@ -1,6 +1,11 @@
-===============================================
-YETI WEB interface - Equipment menu description
-===============================================
+=========
+Equipment
+=========
+
+YETI WEB interface - Equipment menu description. This section describes Equipment entities.
+
+
+.. _gateway_groups:
 
 Gateway groups
 ~~~~~~~~~~~~~~
@@ -24,6 +29,8 @@ Gateway group allows to use multiple gateways for traffic termination to the sam
         If enabled, firstly use termination gateways with the same POP as origination traffic has.
 
 ----
+
+.. _gateways:
 
 Gateways
 ~~~~~~~~
@@ -154,7 +161,7 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig force outbound proxy
         In case of enabling this checkbox Yeti will change destination of sending packets on Leg_A for in-dialog SIP-requests to the address (URI) that is mentioned in the *Orig outbound proxy* field below.
     Orig proxy transport protocol
-         Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
+         Transport protocol that is used for Origination proxy (User Datagram Protocol (UDP) or Transmission Control Protocol (TCP)).
     Orig outbound proxy
        SIP Uniform Resource Indicator (URI) of SIP proxy for Gateway (in case of using Gateway as Originator of calls).
     Transparent dialog
@@ -173,6 +180,7 @@ Signaling (Origination) **Gateway**'s attributes:
         This field should be filled by *password* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling :ref:`Require incoming auth <require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
         Call will be droped in case of receiving of different *password* from Gateway.
 
+.. _gateway_signaling_termination:
 
 Signaling (Termination) **Gateway**'s attributes:
 `````````````````````````````````````````````````

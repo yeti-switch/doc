@@ -1,6 +1,9 @@
-=============================================
-YETI WEB interface - Routing menu description
-=============================================
+=======
+Routing
+=======
+
+YETI WEB interface - Routing menu description. This section describes authentication and routing principles.
+
 
 Customers Auth
 ~~~~~~~~~~~~~~
@@ -9,6 +12,8 @@ This entity authenticates calls from customers or gateways, applies them to
 routing table and has some useful filters and options.
 
 Customer Auth form is splitted to 3 tabs and each one is described below.
+
+.. _customer_auth:
 
 General **Customers Auth**'s attributes:
 ````````````````````````````````````````
@@ -28,12 +33,12 @@ General **Customers Auth**'s attributes:
     Customer
         Customer, who this Customer Auth belongs to.
     Account
-        Accout of Customer, which this Customer Auth belongs to.
+        Account of Customer, which this Customer Auth belongs to.
 
     .. _customer_check_account_balance:
 
     Check account balance
-        ****TODO****
+        If this flag is enabled Yeti will check current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this Customer Auth record. If current balance is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`) call will dropped.
     Gateway
         Gateway which related to this Customer Auth. That gateway (its parameters),
         will be used for media handling on the A-leg of a call.
@@ -82,33 +87,29 @@ Match condition **Customers Auth**'s options
         IP address of the originator (Customer).
     Pop
         Point of presence (PoP), which receives calls from the Customer. If a call will come
-        on the different PoP (a node which receives calls belongs to different PoP), such calls
-        will be dropped.
+        to the different PoP (a node which receives calls belongs to different PoP), such call
+        will be processed with other Customer Auth entity.
     Src Prefix
         You can define a prefix which necessarily should be presented in Src-number for every
-        call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
-        regular expression.
+        call from the customer. Just a prefix must be used here, not a regular expression.
     Dst Prefix
         You can define a prefix which necessarily should be presented in a Dst-number for every
-        call from the customer. If not - the call will be dropped. Just a prefix must be used here, not a
-        regular expression.
+        call from the customer. Just a prefix must be used here, not a regular expression.
     Dst number min length
-        Minimum length of destination number allowed for this Customer Auth. In case of receiving destination number that is less than this minimal value call will be dropped.
+        Minimum length of destination number allowed for this Customer Auth. In case of receiving destination number that is less than this minimal value other Customer Auth entity will be used (if any) for authentication.
     Dst number max length
         Maximum length of destination number allowed for this Customer Auth.
-        In case of receiving destination number that is longer than this maximum value call will be dropped.
+        In case of receiving destination number that is longer than this maximum value call other Customer Auth entity will be used (if any) for authentication.
     Uri Domain
-        If specified, YETI checks the domain part of the URI for every call, and drops calls
-        if the domain part is not the same as specified.
+        If specified, YETI checks the domain part of the URI for every call. If the domain part is not the same as specified other Customer Auth entity will be used (if any) for authentication.
     From Domain
-        If specified, YETI checks the domain part of the URI in the From header for every call, and drops calls
-        if presented domain mismatches.
+        If specified, YETI checks the domain part of the URI in the From header for every call.
+        If presented domain mismatches other Customer Auth entity will be used (if any) for authentication.
     To Domain
-        If specified, YETI checks the domain part of the URI in the To header for every call, and drops calls
-        if presented domain mismatches.
+        If specified, YETI checks the domain part of the URI in the To header for every call. If presented domain mismatches other Customer Auth entity will be used (if any) for authentication.
     X Yeti Auth
         It's possible to define the custom SIP-header **X-Yeti-Auth** for the customer's calls and specify its value in
-        YETI. In case they match, YETI passes such calls through.
+        YETI. In case they match, YETI passes such calls with using this Customer Auth entity for authentication.
 
 Number translation **Customers Auth**'s options
 ```````````````````````````````````````````````
@@ -131,7 +132,7 @@ Number translation **Customers Auth**'s options
     Dst rewrite rule
         This field should contain a regular expression for changing the Destination-number within SIP-signalization.
     Dst rewrite result
-        The result of changing the Name field in the Source-number, using the Dst rewrite rule above.
+        The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
 
 Radius **Customers Auth**'s options
 ```````````````````````````````````
@@ -151,7 +152,7 @@ Radius **Customers Auth**'s options
     
 ----
 
-..
+.. _rateplans:
 
 Rateplan
 ~~~~~~~~
@@ -167,9 +168,12 @@ Rateplans are used for describing common billing parameters that can be applied 
        Unique Rateplan's id.
     Name
         Unique name of Rateplan.
+
+    .. _rateplan_profit_control:
+
     Profit Control Mode
         Per call
-            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) for the price in the :ref:`Destination <destinations>` that was applied for this call.
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the :ref:`Destination <destinations>` that was applied for this call.
         No Control
             In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied :ref:`Destination <destinations>` and price in the chosen :ref:`Dialpeer <dialpeers>`).
     Send Quality Alarms To
@@ -195,11 +199,11 @@ General **Destination**'s attributes:
     .. _destination_prefix:
 
     Prefix
-        The numeric prefix with which the number is to be compared.
+        This field is used for setting prefix for choosing *Destination* by destination number (number B). Destination will be choosed for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
     Dst number min length
-        Minimum length of number for this Destination.
+        Minimum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is less than value of this field.
     Dst number max length
-        Maximum length of number for this Destination.
+        Maximum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is more than value of this field.
     Enabled
         If this flag is activated, the Direction will participate in the routing procedure.
     Reject Calls
@@ -218,14 +222,15 @@ General **Destination**'s attributes:
     Rate Policy
         The policy of determining the price of a call on this Direction. The following options are available:
             -   Fixed. If this option is selected, the cost of the call will be calculated with using the Initial rate, Next rate, Connect fee of this Destination.
-            -   Based on used dialpeer. This option involves calculating the cost of the call with using the Initial rate, Next rate, Connect fee of Dial-up options, which will take the call. In this case, there is a possibility of changing the value, by determining the Dp margin fixed and / or Dp margin percent.
-            -   MIN (Fixed, Based on used dialpeer). The minimum price for a call is chosen, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
-            -   MAX (Fixed, Based on used dialpeer). The maximum price for a call is selected when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
+            -   Based on used dialpeer. This option involves calculating the cost of the call with using the Initial rate, Next rate, Connect fee of Dialpeer that is used for the call. In this case, there is a possibility of changing the value, by determining the :ref:`Dialpeer based rating configuration attributes <destination_dialpeer_based_rating_configuration>` (Dp margin fixed and / or Dp margin percent).
+            -   MIN (Fixed, Based on used dialpeer). The minimum price for the call will be chose, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
+            -   MAX (Fixed, Based on used dialpeer). The maximum price for the call will be chose, when comparing the price of the "Fixed" mode and the "Based on used dialpeer" mode.
 
     .. _destination_reverse_billing:
 
     Reverse billing
-        ****TODO****
+        In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record that is used for this call.
+        Also the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record is less than :ref:`Min balance <account_min_balance>`.
 
     .. _destination_initial_interval:
 
@@ -243,47 +248,54 @@ Fixed rating configuration of **Destination**'s attributes:
     .. _destination_initial_rate:
 
     Initial Rate
-        ****TODO****
+        Rate (in currency units per minute) for tariffication of :ref:`Initial Interval <destination_initial_interval>`.
 
     .. _destination_next_rate:
 
     Next Rate
-        ****TODO****
+        Rate (in currency units per minute) for tariffication of :ref:`Next Interval <destination_next_interval>`.
 
     .. _destination_connect_fee:
 
     Connect Fee
-        ****TODO****
+        Fee (in currency units) for connection (it charges once per call).
     Profit Control Mode
-        ****TODO****
-        Leave it empty to inherit Profit control mode from Rateplan
-        No control  ****TODO****
-        Per call    ****TODO****
+        Leave it empty to inherit :ref:`Profit control mode <rateplan_profit_control>` from Rateplan or specify especial mode for this Destination only. In case of specification :ref:`Profit control mode <rateplan_profit_control>` from Rateplan will be ignored for this Destination.
 
+        No Control
+            In this mode Yeti won't control of receiving profit from the call (without comparison price of this  Destination and price in the chosen :ref:`Dialpeer <dialpeers>` ).
+
+        Per call
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the  this Destination.
+
+.. _destination_dialpeer_based_rating_configuration:
 
 Dialpeer based rating configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
     Dp Margin Fixed
-        ****TODO****
+        Value of this field (in currency units) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
     Dp Margin Percent
-        ****TODO****
+        Value of this field (in percents from full Rate, where 1.0 = 100%) will be added (or removed in case of negative value) to/from Rate of Dialpeers during building of Dialpeers rating for routing call regarding to the Rate policy of this Destination.
 
 .. _quality_notification_config:
 
 Quality notifications configuration of **Destination**'s attributes:
 ````````````````````````````````````````````````````````````````````
     Asr Limit
-        ****TODO****
+        The answer-seizure ratio (ASR) limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with respect to the total call volume on this Destination. If ASR for this Destination will stay less than *Asr Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
     Acd Limit
-        ****TODO****
+        The average call duration (ACD) limit for this Destination (in seconds). Lower limit of the average length of telephone calls on this Destination. If ACD for this Destination will stay less than *Acd Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
     Short Calls Limit
-        ****TODO****
+        The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
 
 
 .. _routing_group:
 
-Routing Group
-~~~~~~~~~~~~~
+Routing Groups
+~~~~~~~~~~~~~~
+
+Routing Groups are used for describing common parameters that can be applied for set of Dialpeers. Routing Groups include Dialpeers that are used for configuration of routing and billing principles for the calls.
+
 
 **Routing Group**'s attributes:
 ```````````````````````````````
@@ -302,7 +314,7 @@ Routing Group
 Dialpeers
 ~~~~~~~~~
 
-****TODO****
+Dialpeers identify call destination endpoint and define the billing characteristics that are applied to call legB in a call connection.
 
 **Dialpeer**'s attributes:
 ``````````````````````````
@@ -315,89 +327,98 @@ Dialpeers
     .. _dialpeer_prefix:
 
     Prefix
-        ****TODO****
+        This field is used for setting prefix for filtering dialpeers by destination number (number B). *Dialpeer* will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more dialpeers from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one *Dialpeer* will be selected for call routing on the basis longest prefix match algorithm.
     Dst number min length
-        ****TODO****
+        Minimum length of number for this *Dialpeer*. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is less than value of this field.
     Dst number max length
-        ****TODO****
+        Maximum length of number for this *Dialpeer*. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is more than value of this field.
     Enabled
-        ****TODO****
+        *Dialpeer* can be used in the dialpeers selection process (for routing calls) only in case of enabling this flag.
     Routing Group
         :ref:`Routing Group <routing_group>` that is related to this Dialpeer.
     Routing Tag
-        ****TODO****
+        :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
     Vendor
-        ****TODO****
+       :ref:`Contractor <contractors>` that is related to this *Dialpeer*. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Account
-        ****TODO****
+        Account of :ref:`Contractor <contractors>` that is related to the chosen *Vendor* for this *Dialpeer*.
+
+    .. _dialpeer_priority:
+
     Priority
-        ****TODO****
+        Value of this field (numeric) is used during building of Dialpeers rating (sorting of Dialpeers) for routing call. Dialpeers with biggest value of *Priority* will be put into top of rating and will be used first in routing set.
     Force Hit Rate
-        ****TODO****
+        Value of this field (numeric between 0 and 1) is used during building of Dialpeers rating for routing call. It represents probability of putting this *Dialpeer* at the top of suitable routes.
     Exclusive Route
         If during the routing process it turned out that there are entries in the set of suitable routes with the Exclusive route set - all routes without such flag will be discarded. This behavior allows to disable call re-routing for any direction, if there is an exclusive route for it.
 
     .. _dialpeer_initial_interval:
 
     Initial Interval
-        ****TODO****
+        The starting interval from the start of the call in seconds (default 1). Allows to set another tariffication policy for starting a call (example: *The first 5 seconds are free*).
 
     .. _dialpeer_initial_rate:
 
     Initial Rate
-        ****TODO****
+        Rate (in currency units per second) for tariffication of :ref:`Initial Interval <dialpeer_initial_interval>` for this *Dialpeer*.
 
     .. _dialpeer_next_interval:
 
     Next Interval
-        ****TODO****
+        The subsequent interval of tariffication in seconds. With this interval, the charging step is defined (example *Minute (60 seconds)*, *Per second (1 second)*).
 
     .. _dialpeer_next_rate:
 
     Next Rate
-        ****TODO****
+        Rate (in currency units per second) for tariffication of :ref:`Next Interval <dialpeer_next_interval>` for this *Dialpeer*.
     Lcr Rate Multiplier
-        ****TODO****
+        Value of this field (numeric) is used during building of Dialpeers rating (sorting of Dialpeers) for routing call on the basis of least-cost routing (LCR). This value is used for multiplying :ref:`Next Rate <dialpeer_next_rate>` value only during building of Dialpeers rating and doesn't effect on final cost of call.
 
     .. _dialpeer_connect_fee:
 
     Connect Fee
-        ****TODO****
+        Fee (in currency units) for connection (it charges once per call) for this *Dialpeer*.
 
     .. _dialpeer_reverse_billing:
 
     Reverse billing
-        ****TODO****
+        In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be removed** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
     Gateway
-        ****TODO****
+        :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group
-        ****TODO****
+        :ref:`Gateway Group <gateway_groups>` that will be used for termination of the calls for this *Dialpeer* in case of using multiple gateways for traffic termination to the same Vendor.
     Valid From
-        ****TODO****
+        Date and time from that this *Dialpeer* will be active and can be used for routing call.
     Valid Till
-        ****TODO****
+        Date and time up to that this *Dialpeer* will be active and can be used for routing call.
+
+    .. _dialpeer_acd_limit:
+
     Acd Limit
-        ****TODO****
+        The average call duration (ACD) limit for this *Dialpeer* (in seconds). Lower limit of the average length of telephone calls on this *Dialpeer*. If ACD for this *Dialpeer* will stay less than *Acd Limit* this *Dialpeer* will be excluding from call routing process.
+
+    .. _dialpeer_asr_limit:
+
     Asr Limit
-        ****TODO****
+        The answer-seizure ratio (ASR) limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with respect to the total call volume on this *Dialpeer*. If ASR for this Destination will stay less than *Asr Limit* this *Dialpeer* will be excluding from call routing process.
     Short Calls Limit
-        ****TODO****
+        The Short Calls ratio limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this *Dialpeer*. If this ration for this *Dialpeer* will stay less than *Short Calls Limit* this *Dialpeer* will be excluding from call routing process.
     Capacity
-        ****TODO****
+        Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed bia this *Dialpeer* at same time.
     Src Name Rewrite Rule
-        ****TODO****
+        This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
     Src Name Rewrite Result
-        ****TODO****
+        The result of changing the Name field in the Source-number, using the Src name rewrite rule above.
     Src Rewrite Rule
-        ****TODO****
+        This field should contain a regular expression for changing the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
     Src Rewrite Result
-        ****TODO****
+        The result of changing the Name field in the Source-number, using the Src rewrite rule above.
     Dst Rewrite Rule
-        ****TODO****
+        This field should contain a regular expression for changing the Destination-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
     Dst Rewrite Result
-        ****TODO****
+        The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
     Created At
-        Date and time creation of Dialpeer.
+        Date and time creation of this *Dialpeer*.
 
 ----
 
@@ -406,7 +427,8 @@ Dialpeers
 Routing Plans
 ~~~~~~~~~~~~~
 
-****TODO****
+Routing Plans are used for describing common parameters that can be applied for set of :ref:`Routing Groups <routing_group>`.
+    **TODO** - need to clarify.
 
 **Routing Plan**'s attributes:
 ``````````````````````````````
@@ -414,24 +436,24 @@ Routing Plans
     .. _routing_plan_id:
 
     Id
-       Unique Routing Plan's id.
+        Unique Routing Plan's id.
     Name
         Unique Routing Plan name.
     Sorting
-        ****TODO****
-        LCR, No ACD&ASR control ****TODO****
-        Prio,LCR, ACD&ASR control ****TODO****
-        LCR,Prio, ACD&ASR control ****TODO****
-        LCRD, Prio, ACD&ASR control ****TODO****
-        Route testing ****TODO****
-        QD-Static, LCR, ACD&ASR control ****TODO****
-        Static only, No ACD&ASR control  ****TODO****
+        This field is used for setting sorting method for the routes (Dialpeers) within Routing Plan. **TODO** - need to clarify. The following algorithms (sorting methods) are available:
+            LCR, No ACD&ASR control - Sorting only on the basis of least-cost routing (LCR) algorithm (routes with lowest price will be on the top of rating) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`.
+            Prio,LCR, ACD&ASR control - Sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` with following sorting on the basis of least-cost routing (LCR) algorithm (routes with highest priorities will be on the top of rating, in case of same priorities LCR sorting will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Priority and Cost values).
+            LCR,Prio, ACD&ASR control - Sorting on the basis of least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
+            LCRD, Prio, ACD&ASR control - Sorting on the basis of modified (****TODO****) least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
+            Route testing ****TODO****
+            QD-Static, LCR, ACD&ASR control ****TODO****
+            Static only, No ACD&ASR control  ****TODO****
     Use Lnp
         ****TODO****
     Rate Delta Max
         ****TODO****
     Routing Groups
-        ****TODO****
+        :ref:`Routing Groups <routing_group>` that are related to this Routing Plan.
 
 ----
 
@@ -447,11 +469,11 @@ Routing plan static routes
     Routing Plan
         :ref:`Routing plan <routing_plan>` that is related for this Routing plan static route. ****TODO****
     Prefix
-        ****TODO****
+        This field is used for setting prefix for filtering static routes by destination number (number B). Route will be selected to the list of possible routes for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more routes from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one route will be selected for call routing on the basis longest prefix match algorithm. ****TODO****
     Priority
-        ****TODO****
+        Value of this field (numeric) is used during building of routing rating for routing call. Route with biggest  value of *Priority* will be put into top of rating for the same Vendor. **TODO** - need to clarify.
     Vendor
-        ****TODO****
+        :ref:`Contractor <contractors>` that is related to this static route. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Updated At
         Date and time of last updating of static routing record.
 
@@ -469,15 +491,15 @@ Routing Plan LNP rules
     Id
        Unique Routing Plan LNP rule's id.
     Routing plan
-            :ref:`Routing plan <routing_plan>` for that will be applied this Routing plan LNP rule.
+        :ref:`Routing plan <routing_plan>` for that will be applied this Routing plan LNP rule.
     Dst prefix
-        ****TODO****
+        This field is used for setting prefix for filtering calls by destination number (number B) for using this *Routing Plan LNP rule*.
     Req dst rewrite rule
         ****TODO****
     Req dst rewrite result
         ****TODO****
     Database
-        ****TODO****
+        :ref:`LNP Database <lnp_databases>` that will be used for processing LNP requests for selected calls.
     Lrn rewrite rule
         ****TODO****
     Lrn rewrite result
@@ -568,9 +590,9 @@ Numberlist items
     Dst rewrite result
         ****TODO****
     Created At
-        ****TODO****
+        Date and time of this Numberlist item creation.
     Updated At
-        ****TODO****
+        Date and time of last updating of this Numberlist item.
 
 ----
 
@@ -589,15 +611,16 @@ Routing Tags
     Id
        Unique Routing Tag's id.
     Name
-        ****TODO****
+       Unique Routing Tag's name.
 
 ----
 
+.. _areas:
 
 Areas
 ~~~~~
 
-****TODO****
+Areas are used for systematizing destination numbers and source numbers by geographical areas that are identified by international country code. With using *Areas* Yeti could apply some additional routing rules (via Routing Tags) to the calls.
 
 **Area**'s attributes:
 ``````````````````````
@@ -607,83 +630,84 @@ Areas
     Id
        Unique Area's id.
     Name
-        ****TODO****
+       Unique Area's name.
 
 ----
+
+.. _area_prefixes:
 
 Area prefixes
 ~~~~~~~~~~~~~
 
-****TODO****
+Area prefixes are used for determination of :ref:`Areas <areas>` by source or destination numbers with using prefixes.
 
 **Area prefixe**'s attributes:
 ``````````````````````````````
     Id
        Unique Area prefixe's id.
     Prefix
-        ****TODO****
+        This field is used for setting prefix for this *Area*. Call will be associated with this *Area* (Source or Destination) only in case of matching this *Prefix* with first symbols of relevant number (A or B).
     Area
-        ****TODO****
+        :ref:`Area <areas>` that is associated to the *Prefix* above.
 
 ----
 
 Routing Tag detection Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+Routing Tag detection Rules are used for choosing :ref:`Routing tag <routing_tag>` (that is used for routing of calls) by source and destination :ref:`Areas <areas>` that are determinated via :ref:`Area prfixes <area_prefixes>` table.
 
 **Routing Tag detection Rule**'s attributes:
 ````````````````````````````````````````````
     Id
        Unique Routing Tag detection Rule's id.
     Src area
-        ****TODO****
+        Source :ref:`Area <areas>` (could be empty).
     Dst area
-        ****TODO****
+        Destination :ref:`Area <areas>` (could be empty).
     Routing tag
-        ****TODO****
-
+        :ref:`Routing tag <routing_tag>` that should be associated with Areas.
 
 ----
 
 Routing Simulation
 ~~~~~~~~~~~~~~~~~~
 
-****TODO****
+Routing Simulation tool is used for debugging of call passing via Yeti. After filling necessary fields (attributes of call) and pushing "Simulate routing" button the result of call including disconnect code of call and full information about it and also log of call's processing will be provided.
 
 **Routing Simulation**'s attributes:
 ````````````````````````````````````
     Transport protocol
-        ****TODO****
-        UDP
-        TCP
+        Transport protocol of call delivering:
+            UDP - User Datagram Protocol
+            TCP - Transmission Control Protocol
     Remote ip
-        ****TODO****
+        IP address of remote host that will be used as source of call during simulation.
     Remote port
-        ****TODO****
+        UDP/TCP port of remote host that will be used as source of call during simulation.
     Pop
-        ****TODO****
+        Point-of-Presence that will receive call during simulation.
     Src number
-        ****TODO****
+        Source number (A-number) of simulated call.
     Dst number
-        ****TODO****
+        Destination number (B-number) of simulated call.
     Uri domain
-        ****TODO****
+        Domain part of the URI for simulated call.
     From domain
-        ****TODO****
+        Domain part of the URI in the From header for simulated call.
     To domain
-        ****TODO****
+        Domain part of the URI in the To header for simulated call.
     X yeti auth
-        ****TODO****
+        Value of custom SIP-header **X-Yeti-Auth** for simulated call.
     Pai
-        ****TODO****
+        Value of P-Asserted-Identity (PAI) privacy field of SIP header for simulated call.
     Ppi
-        ****TODO****
+        Value of P-Preferred-Identity (PPI) privacy field of SIP header for simulated call.
     Privacy
-        ****TODO****
+        Value of SIP Privacy field of SIP header for simulated call.
     Rpid
-        ****TODO****
+        Value of Remote Party ID field of SIP header for simulated call.
     Rpid privacy
-        ****TODO****
+        Value of SIP RPID Privacy field of SIP header for simulated call.
     Release mode
         ****TODO****
