@@ -8,7 +8,7 @@ YETI WEB interface - CDR menu description. This section describes CDR storage en
 Tables
 ~~~~~~
 
-****TODO****
+****TODO**** - information including size of talbes
 
 **CDR Table**'s attributes:
 ```````````````````````````
@@ -25,7 +25,7 @@ Tables
     Date Stop
         ****TODO****
     Active
-        ****TODO****
+        ****TODO**** - history if true, archive if false
     Comments
         ****TODO****
 
@@ -59,13 +59,13 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
     Dst Country
         :ref:`Country <countries>` that was associated (via :ref:`Network Prefixes <network_prefixes>` table) with the destination number (B-number) for the call.
     Status
-        ****TODO****
+        ****TODO**** true - success, false - failed
     Duration
-        Duration of the call in seconds. ****TODO**** - need to clarify
+        Duration of the call in seconds.
     Is Last CDR
-        This field should be "1" for last routing attempt for the call ("0" otherwise). ****TODO****
+        This field should be "true" for last routing attempt for the call ("false" otherwise).
     Dump Level
-        ****TODO****
+        ****TODO**** - pcap file with debugging information will be provided (depends on level)
     Orig GW
         Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that is used as Originator for the call.
     Term GW
@@ -163,7 +163,7 @@ CDR Archive
     Status
         ****TODO****
     Duration
-        Duration of the call in seconds. ****TODO**** - need to clarify
+        Duration of the call in seconds.
     Is Last CDR
         This field should be "1" for last routing attempt for the call ("0" otherwise). ****TODO****
     Orig GW

@@ -207,9 +207,9 @@ CDR Remove Delay
 Max Records
     Maximum amount of records which YETI can save to CSV file on every list-type page (*Download: CSV* button at the bottom of page).
 Import Max Threads
-    Number of threads for import from CSV proccess.
+    Number of threads for import from CSV process.
 Import Helpers Dir
-    Helper directory where YETI saves temporary files durring import from CSV process.
+    Helper directory where YETI saves temporary files during import from CSV process.
 Active Calls Require Filter
     Requre any filter on the *RT data -> Active Calls* page.
 Registrations Require Filter
@@ -225,7 +225,10 @@ Random Disconnect Enable
 Random Disconnect Length
     Duration of calls (seconds) which YETI will disconnect if **Random Disconnect Enable** enabled.
 Drop Call If LNP Fail
-    If **true** YETI drops calls if request to LNP database is not successfull.
+    If **true** YETI drops calls if request to LNP database is not successful.
+
+.. _system_global_configuration_lnp_cache_ttl:
+
 LNP Cache TTL
     Time to life of LNP cache (seconds).
 LNP E2E Timeout

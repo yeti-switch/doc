@@ -4,6 +4,7 @@ Routing
 
 YETI WEB interface - Routing menu description. This section describes authentication and routing principles.
 
+.. _customer_auth:
 
 Customers Auth
 ~~~~~~~~~~~~~~
@@ -12,8 +13,6 @@ This entity authenticates calls from customers or gateways, applies them to
 routing table and has some useful filters and options.
 
 Customer Auth form is splitted to 3 tabs and each one is described below.
-
-.. _customer_auth:
 
 General **Customers Auth**'s attributes:
 ````````````````````````````````````````
@@ -52,7 +51,7 @@ General **Customers Auth**'s attributes:
     Rateplan
         Rateplan, which this Customer Auth belongs to.
     Routing Plan
-        Routing Plan, which this Customer Auth belongs to.
+        :ref:`Routing Plan <routing_plan>` that is associated with this *Customer Auth*. Only :ref:`Dialpeers <dialpeers>` that are related to this :ref:`Routing Plan <routing_plan>` could be used for routing of the calls that were received in the framework of this *Customer Auth*.
     Dst Numberlist
         You may apply Dst Numberlist (Destination) and check B-numbers, by prefix or
         full-match, then reject it or allow.
@@ -427,8 +426,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
 Routing Plans
 ~~~~~~~~~~~~~
 
-Routing Plans are used for describing common parameters that can be applied for set of :ref:`Routing Groups <routing_group>`.
-    **TODO** - need to clarify.
+Routing Plans are used for describing common parameters that can be applied for set of :ref:`Dialpeers <dialpeers>` that are specified by :ref:`Routing Groups <routing_group>`.
 
 **Routing Plan**'s attributes:
 ``````````````````````````````
@@ -440,38 +438,54 @@ Routing Plans are used for describing common parameters that can be applied for 
     Name
         Unique Routing Plan name.
     Sorting
-        This field is used for setting sorting method for the routes (Dialpeers) within Routing Plan. **TODO** - need to clarify. The following algorithms (sorting methods) are available:
-            LCR, No ACD&ASR control - Sorting only on the basis of least-cost routing (LCR) algorithm (routes with lowest price will be on the top of rating) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`.
-            Prio,LCR, ACD&ASR control - Sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` with following sorting on the basis of least-cost routing (LCR) algorithm (routes with highest priorities will be on the top of rating, in case of same priorities LCR sorting will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Priority and Cost values).
-            LCR,Prio, ACD&ASR control - Sorting on the basis of least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
-            LCRD, Prio, ACD&ASR control - Sorting on the basis of modified (****TODO****) least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes with best values of these parameters will be upper in the rating withing same Cost and Priority values).
-            Route testing ****TODO****
-            QD-Static, LCR, ACD&ASR control ****TODO****
-            Static only, No ACD&ASR control  ****TODO****
+        This field is used for setting sorting method for the routes (Dialpeers) within Routing Plan. The following algorithms (sorting methods) are available:
+
+            **LCR, No ACD&ASR control** - Sorting only on the basis of least-cost routing (LCR) algorithm (routes with lowest price will be on the top of rating) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`.
+
+            **Prio,LCR, ACD&ASR control** - Sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` with following sorting on the basis of least-cost routing (LCR) algorithm (routes with highest priorities will be on the top of rating, in case of same priorities LCR sorting will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes where values of these parameters are less than presetuped limits couldn't be chosen for routing).
+
+            **LCR,Prio, ACD&ASR control** - Sorting on the basis of least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes where values of these parameters are less than presetuped limits couldn't be chosen for routing).
+
+            **LCRD, Prio, ACD&ASR control** - Sorting on the basis of modified least-cost routing (LCR) algorithm with following sorting on the basis of internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` (routes with lowest price will be on the top of rating, in case of same prices sorting on priorities will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes where values of these parameters are less than presetuped limits couldn't be chosen for routing). Difference of this algorithm from the classic LCR algorithm is on the using :ref:`Rate Delta Max <rate_delta_max>` value during the sorting of :ref:`Dialpeers <dialpeers>` by price. :ref:`Dialpeers <dialpeers>` with prices that are different one from other less than :ref:`Rate Delta Max <rate_delta_max>` value will be on one level of sorting by price and :ref:`Priority <dialpeer_priority>` will be used for building routing rating between them.
+
+            **Route testing** - This mode of sorting usually used for testing routes from different Vendors. In this mode you can use especial format of destination number: XX*YYYYYYYYYY, where XX - :ref:`Vendor ID <contractor_id>` and YYYYYYYYYY - phone number. In this mode most preffered :ref:`Dialpeer <dialpeers>` of :ref:`Vendor <contractors>` with XX ID will be used for the routing.
+
+            **QD-Static, LCR, ACD&ASR control** - Sorting on the basis of modified internal :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` with following sorting on the basis of least-cost routing (LCR) algorithm (routes with highest priorities will be on the top of rating, in case of same priorities LCR sorting will be used) with control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>` (routes where values of these parameters are less than presetuped limits couldn't be chosen for routing). In this method of sorting :ref:`Priority <dialpeer_priority>` of :ref:`Dialpeers <dialpeers>` will be re-writen by :ref:`Priority <routing_plan_static_route_priority>` of the :ref:`Routing plan static route <routing_plan_static_route>` (if this static route is present in this *Routing plan*).
+
+            **Static only, No ACD&ASR control** - Sorting only on the basis of :ref:`Priority <routing_plan_static_route_priority>` of the :ref:`Routing plan static route <routing_plan_static_route>` (if this static route is present in this *Routing plan*) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`. Routes with highest priorities will be on the top of rating. Routing will be done only in case of presence of :ref:`Routing plan static route <routing_plan_static_route>` record and :ref:`Dialpeer <dialpeers>` record that are related to this *Routing plan*.
+
     Use Lnp
-        ****TODO****
+        If this flag is enabled to all calls with ported numbers that are associated with this *Routing plan* via :ref:`Customer Auth <customer_auth>` record, will be applied local number portability procedure (receiving information from :ref:`LNP Cache <lnp_caches>` or sending request to :ref:`LNP Database <lnp_databases>`.
+
+    .. _rate_delta_max:
+
     Rate Delta Max
-        ****TODO****
+        This value is used for *LCRD, Prio, ACD&ASR control* method of sorting. You should setup this value in case of using this method of sorting. :ref:`Dialpeers <dialpeers>` with prices that are different one from other less than :ref:`Rate Delta Max <rate_delta_max>` value will be on one level of sorting by price and :ref:`Priority <dialpeer_priority>` will be used for building routing rating between them.
     Routing Groups
-        :ref:`Routing Groups <routing_group>` that are related to this Routing Plan.
+        :ref:`Routing Groups <routing_group>` that are related to this *Routing Plan*. The rules that are described in this *Routing plan* will be applied to all :ref:`Dialpeers <dialpeers>` that are associated with chosen :ref:`Routing Groups <routing_group>`.
 
 ----
+
+.. _routing_plan_static_route:
 
 Routing plan static routes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+Routing plan static routes are used only for two methods of sorting that could be chosen for :ref:`Routing plan <routing_plan>`:  **QD-Static, LCR, ACD&ASR control** and **Static only, No ACD&ASR control**. They are used for setting common Priority for the group of :ref:`Dialpeers <dialpeers>` that are related to some :ref:`Vendor <contractors>`, have common Prefix and are related to common :ref:`Routing plan <routing_plan>`.
 
 **Routing plan static route**'s attributes:
 ```````````````````````````````````````````
     Id
        Unique Routing plan static route's id.
     Routing Plan
-        :ref:`Routing plan <routing_plan>` that is related for this Routing plan static route. ****TODO****
+        :ref:`Routing plan <routing_plan>` that is related for this Routing plan static route.
     Prefix
-        This field is used for setting prefix for filtering static routes by destination number (number B). Route will be selected to the list of possible routes for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more routes from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one route will be selected for call routing on the basis longest prefix match algorithm. ****TODO****
+        This field is used for setting prefix for filtering static routes by destination number (number B). This record will be used during one of two methods of sorting in the framework of :ref:`Routing plan <routing_plan>` (**QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control**) only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more routes will match the destination number by this parameter (prefix) only one record will be selected for sorting on the basis longest prefix match algorithm.
+
+    .. _routing_plan_static_route_priority:
+
     Priority
-        Value of this field (numeric) is used during building of routing rating for routing call. Route with biggest  value of *Priority* will be put into top of rating for the same Vendor. **TODO** - need to clarify.
+        Value of this field (numeric) is used during building of routing rating for routing call. Route with biggest  value of *Priority* will be put into top of rating. Value of this field will be used for rewriting of the :ref:`Priority <dialpeer_priority>` of the related :ref:`Dialpeers <dialpeers>` in case of using **QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control** mode of sorting in the framework of :ref:`Routing plan <routing_plan>`.
     Vendor
         :ref:`Contractor <contractors>` that is related to this static route. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Updated At
@@ -479,12 +493,12 @@ Routing plan static routes
 
 ----
 
-    .. _routing_plan_lnp_rules:
+.. _routing_plan_lnp_rules:
 
 Routing Plan LNP rules
 ~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+Routing Plan LNP (Local number portability) rules are used for processing ported numbers of calls in case of enabling *Use Lnp* flag of :ref:`Routing plan <routing_plan>`.
 
 **Routing Plan LNP rule**'s attributes:
 ```````````````````````````````````````
@@ -495,67 +509,78 @@ Routing Plan LNP rules
     Dst prefix
         This field is used for setting prefix for filtering calls by destination number (number B) for using this *Routing Plan LNP rule*.
     Req dst rewrite rule
-        ****TODO****
+        *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Replacement* parameter of **regexp_replace** function is used value from *Req dst rewrite result* bellow. Returned value of **regexp_replace** function will be used for sending to :ref:`LNP Database <lnp_databases>`. It helps to change format of the destination number in the request to the :ref:`LNP Database <lnp_databases>` for providing compatibility.
     Req dst rewrite result
-        ****TODO****
+        *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Req dst rewrite rule* above. Returned value of **regexp_replace** function will be used for sending to :ref:`LNP Database <lnp_databases>`. It helps to change format of the destination number in the request to the :ref:`LNP Database <lnp_databases>` for providing compatibility.
     Database
         :ref:`LNP Database <lnp_databases>` that will be used for processing LNP requests for selected calls.
     Lrn rewrite rule
-        ****TODO****
+        *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B) that was received as answer from :ref:`LNP Database <lnp_databases>`, as a *Replacement* parameter of **regexp_replace** function is used value from *Lrn rewrite result* bellow. Returned value of **regexp_replace** function will be used for rewriting of original destination number before sending it to Termination Gateway. It helps to change format of the destination number that was received as answer from :ref:`LNP Database <lnp_databases>` for providing compatibility.
     Lrn rewrite result
-        ****TODO****
+        *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B) that was received as answer from :ref:`LNP Database <lnp_databases>`, as a *Pattern* parameter of **regexp_replace** function is used value from *Lrn rewrite rule* above. Returned value of **regexp_replace** function will be used for rewriting of original destination number before sending it to Termination Gateway. It helps to change format of the destination number that was received as answer from :ref:`LNP Database <lnp_databases>` for providing compatibility.
 
 ----
+
+.. _lnp_caches:
 
 LNP Caches
 ~~~~~~~~~~
 
-****TODO****
+LNP Caches are used for storing information about requests to the Local number portability Databases that were made by Yeti. Period of storing of *LNP Cache* in the system is regulated by :ref:`LNP Cache TTL <system_global_configuration_lnp_cache_ttl>` parameter from :ref:`Global configuration <global_configuration>`.
 
 **LNP Cache**'s attributes:
 ```````````````````````````
     Id
        Unique LNP Cache's id.
     DST
-        ****TODO****
+        Destination number that was used in the LNP request.
     LRN
-        ****TODO****
+        Destination number that was received from :ref:`LNP Database <lnp_databases>`.
     TAG
-        ****TODO****
+        Additional information that was received from :ref:`LNP Database <lnp_databases>`.
     DATA
-        ****TODO****
+        Information that was received from :ref:`LNP Database <lnp_databases>` in raw format.
     DATABASE
-        ****TODO****
+        :ref:`LNP Database <lnp_databases>` that was used for request Local number portability information.
 
 ----
+
+.. _numberlists:
 
 Numberlists
 ~~~~~~~~~~~
 
-****TODO****
+Numberlists are used for describing common parameters that can be applied for set of :ref:`Numberlist items <numberlist_items>`.
+
 
 **Numberlist**'s attributes:
 ````````````````````````````
     Id
-       Unique Numberlist's id.
+        Unique Numberlist's id.
     Name
-        Unique Numberlist name.
+        Unique Numberlist's name.
     Mode
-        ****TODO****
-        Strict number match ****TODO****
-        Prefix match    ****TODO****
+        Mode of comparison :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` and with source (A) or destination (B) number of the call:
+
+        **Strict number match** - In this mode :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` should contain full source (A) or destination (B) number of the call.
+
+        **Prefix match**    - In this mode :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` should contain Prefix. Only in case of matching *Prefix* with first symbols of the source (A) or destination (B) number - according  action will be applied to the call.
+
     Default action
-        ****TODO****
-        Reject call ****TODO****
-        Allow call  ****TODO****
+        This action will be applied to the call by default in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*. You can rewrite this action for concrete :ref:`Numberlist item <numberlist_items>` by specifying action in the :ref:`Numberlist item <numberlist_items>` attributes:
+
+        **Reject call** -   Reject call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
+
+        **Allow call** -  Allow call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
+
     Default src rewrite rule
-        ****TODO****
+        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
     Default src rewrite result
-        ****TODO****
+        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
     Default dst rewrite rule
-        ****TODO****
+        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
     Default dst rewrite result
-        ****TODO****
+        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
     Created At
         Date and time of this Numberlist creation.
     Updated At
@@ -563,24 +588,33 @@ Numberlists
 
 ----
 
+.. _numberlist_items:
+
 Numberlist items
 ~~~~~~~~~~~~~~~~
 
-****TODO****
+Numberlist items allow to do something with source or destination number or reject call in general before its routing and after rewriting on the level of :ref:`Customer Auth <customer_auth>`.
 
 **Numberlist item**'s attributes:
 `````````````````````````````````
     Id
-       Unique Numberlist item's id.
+        Unique Numberlist item's id.
     Numberlist
-        ****TODO****
+        :ref:`Numberlist <numberlists>` that is associated with this *Numberlist item*.
+
+.. _numberlist_items_key:
+
     Key
-        ****TODO****
+        Full number or Prefix. Interpretation of this field depends on Mode of comparison that was chosen in the :ref:`Numberlist <numberlists>`.
     Action
-        ****TODO****
-        Default action  ****TODO****
-        Reject call ****TODO****
-        Allow call  ****TODO****
+        This action will be applied to the call in case of conformity source (A) or destination (B) number and the Key field (according to the Mode that was chosen in the :ref:`Numberlist <numberlists>`):
+
+        **Default action**  - Action that is set for the :ref:`Numberlist <numberlists>`) will be used.
+
+        **Reject call** - Reject call in case of conformity source (A) or destination (B) number and the Key field (according to the Mode that was chosen  in the :ref:`Numberlist <numberlists>`).  Action from the :ref:`Numberlist <numberlists>`) will be ignored in case of choosing this action.
+
+        **Allow call** - Allow call in case of conformity source (A) or destination (B) number and the Key field (according to the Mode that was chosen  in the :ref:`Numberlist <numberlists>`). Action from the :ref:`Numberlist <numberlists>`) will be ignored in case of choosing this action.
+
     Src rewrite rule
         ****TODO****
     Src rewrite result
@@ -710,4 +744,4 @@ Routing Simulation tool is used for debugging of call passing via Yeti. After fi
     Rpid privacy
         Value of SIP RPID Privacy field of SIP header for simulated call.
     Release mode
-        ****TODO****
+        If this flag is enabled Yeti won't show debugging information together with result of call simulation.
