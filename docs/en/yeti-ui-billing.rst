@@ -116,8 +116,14 @@ and **increased** if it uses account for **termination** (vendor).
 
     Max balance
         If account balance become greater than this limit, then routes, which are belongs to this account, will not be used for calls termination.
+
+    .. _account_balance_low_threshold:
+
     Balance low threshold
         If account balance become less than this limit, notification will be send by email.
+
+    .. _account_balance_high_threshold:
+
     Balance high threshold    
         If account balance become greater than this limit, notification will be send by email.
     Origination capacity

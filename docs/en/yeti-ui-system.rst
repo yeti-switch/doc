@@ -8,31 +8,33 @@ YETI WEB interface - System menu description. This section describes general con
 Info
 ~~~~
 
-****TODO****
+General information about current build of Yeti and current state of Yeti's database is provided in this window. There are four separate sections: TOP10 tables in Routing database, TOP10 tables in CDR database, Build info and Replication. Detailed information about size of data (together with whole size) for top ten tables from the both (Routing and CDR) databases is provided.
 
 ----
+
+.. _admin_users:
 
 Admin Users
 ~~~~~~~~~~~
 
-****TODO****
+Users that have access to this YETI WEB interface.
 
 **User**'s attributes:
 ``````````````````````
     Id
        Unique User's id.
     Email
-        ****TODO****
+       Email of this *Admin Users*.
     Username
-        ****TODO****
+       Unique User's name.
     Password
-        ****TODO****
+       Password for authentication.
     Password confirmation
-        ****TODO****
+       Confirmation of the password.
     Ssh key
-        ****TODO****
+        SSH key that can be used for authentication.
     Stateful filters
-        ****TODO****
+        ****TODO**** - need to clarify
 
 ----
 
@@ -52,51 +54,92 @@ Application Programming Interface (API) is used for interactions between externa
     Customer
         :ref:`Customer <contractors>` that is associated with this *API Access*.
     Accounts
-        ****TODO****
+        :ref:` <Accounts accounts>` that are associated with this *API Access*.
     Allowd IPs
-        ****TODO****
+        Array of IP addresses that is divided by comma. It is possible to use hosts or networks addresses here.
 
 ----
+
+.. _api_log_configs:
 
 Api Log Configs
 ~~~~~~~~~~~~~~~
 
-    ****TODO****
+Api Log Configs are used for setting (where necessary) Debug mode for storing records to the :ref:`API Log <api_log>`.
+You can click on the  "Yes/No" button near the records for changing their state.
+
+**Api Log Config**'s properties:
+````````````````````````````````
+    Controller
+        Controller that will be used for applying of the Debug mode of storing records to the :ref:`API Log <api_log>` in case of enabling Debug property bellow.
+    Debug
+        In case of enabling this property (by clicking on it) additional fields (Request Body, Response Body, Request Headers, Response Headers) will be stored to the :ref:`API Log <api_log>` for the Controller above.
 
 ----
 
 Alerts
 ~~~~~~
 
-****TODO****
+Alerts are used for configuring :ref:`Contact <contacts>` or :ref:`Admin User <admin_users>` for sending notifications in case of some Events. Following Events are available for configuration:
+
+    **AccountHighThesholdCleared** - event when the balance of some :ref:`Account <accounts>` has become in norm after was becoming bigger than high threshold. :ref:`Balance high threshold <account_balance_high_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **AccountLowThesholdCleared** - event when the balance of some :ref:`Account <accounts>` has become in norm after was becoming less than low threshold. :ref:`Balance low threshold <account_balance_low_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **AccountHighThesholdReached** - event when the balance of some :ref:`Account <accounts>` has become bigger than high threshold. :ref:`Balance high threshold <account_balance_high_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **AccountLowThesholdReached** - event when the balance of some :ref:`Account <accounts>` has become less than low threshold. :ref:`Balance low threshold <account_balance_low_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **DestinationQualityAlarmCleared** - event when one of the quality parameters (Asr, Acd or Short Calls) of some :ref:`Destination <destinations>` has become in norm after were becoming less than :ref:`Asr Limit, Acd Limit or Short Calls Limit <quality_notification_config>` values accordingly;
+
+    **DestinationQualityAlarmFired** - event when one of the quality parameters (Asr, Acd or Short Calls) of some :ref:`Destination <destinations>` has become less than :ref:`Asr Limit, Acd Limit or Short Calls Limit <quality_notification_config>` values accordingly;
+
+    **GatewayLocked** - event when :ref:`Gateway <gateways>` has been locked because threshold  of the quality parameters (Acd limit, Asr limit or Short Calls limit) of the :ref:`Gateway <gateways>` was overcome. In locked mode :ref:`Gateway <gateways>` could not be used for termination of calls.
+
+    **GatewayUnlocked** - event when :ref:`Gateway <gateways>` has been unlocked because quality parameters (Acd limit, Asr limit and Short Calls limit) of the :ref:`Gateway <gateways>` had become in norm;
+
+    **DialpeerLocked** - event when :ref:`Dialpeer <dialpeers>` has been locked because threshold of the quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` was overcome. In locked mode :ref:`Dialpeer <dialpeers>` could not be used for routing of calls in case of using *sorting method* with **ACD&ASR control** in the relevant :ref:`Routing Plan <routing_plan>`.
+
+    **DialpeerUnlocked** - event when :ref:`Dialpeer <dialpeers>` has been unlocked because quality parameters (Acd Limit, Asr Limit and Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` had become in norm;
+
+
+
+**Alert**'s properties:
+```````````````````````
+    Id
+        Unique Alert's id.
+    Event
+        Name of Event for this "Alert".
+    Send To
+        :ref:`Contact <contacts>` or :ref:`Admin User <admin_users>` for sending this *Alert*.
 
 ----
 
 Background Tasks
 ~~~~~~~~~~~~~~~~
 
-****TODO****
+Background Tasks are used for storing records about ongoing tasks that are making in background. Task will be removed from this list after finishing of its action. In normal mode this list is empty.
 
-**Background Task**'s attributes:
+**Background Task**'s properties:
 `````````````````````````````````
     Priority
-        ****TODO****
+        Priority of this *Background Task*.
     Attempts
-        ****TODO****
+        Current amount of attempts of make action for this *Background Task*.
     Hadler
-        ****TODO****
+        Some serialized data that is related to this *Background Task*.
     Last Error
-        ****TODO****
+        Last Error of action's attempt for this *Background Task*.
     Run At
-        ****TODO****
+        Date and time of running this *Background Task*.
     Locked At
-        ****TODO****
+        Date and time of locking action's attempt (by some working process) for this *Background Task*.
     Failed At
-        ****TODO****
+        Date and time of failing action's attempt for this *Background Task*.
     Locked By
-        ****TODO****
+        Process ID of working process that is locked this *Background Task*.
     Queue
-        ****TODO****
+        Name of Queue where this *Background Task* is staying.
     Created At
         Date and time of this Background Task item creation.
     Updated At
@@ -109,40 +152,81 @@ Background Tasks
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
-****TODO****
+Disconnect Codes are used for defining special actions for some SIP disconnect codes and for rewriting them (if necessary) during call routing for compatibility between different VoIP platforms.
 
 **Disconnect Code**'s attributes:
 `````````````````````````````````
     Id
        Disconnect Code's id.
     Namespace
-        ****TODO****
+       Namespace that is related to this *Disconnect Code*. Following Namespaces are available: TM (traffic manager), RADIUS, TS (traffic switch), SIP.
     Code
-        ****TODO****
+        Numeric SIP code for this *Disconnect Code*.
     Reason
-        ****TODO****
+        Textual Reason for this *Disconnect Code*.
     Success
-        ****TODO****
+        In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful.
     Successnozerolen
-        ****TODO****
+        In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful only for calls with no zero length.
     Stop hunting
-        ****TODO****
+        In case of enabling of this field Yeti will stop going through Dialpeers rating for routing the call after receiving this *Disconnect Code*.
     Pass reason to originator
-        ****TODO****
+        In case of enabling of this field Yeti will transfer reason from termination :ref:`Gateway <gateways>` to origination.
     Rewrited code
-        ****TODO****
+        If this field is not empty new numeric code from this field will be transfer to origination :ref:`Gateway <gateways>`.
     Rewrited reason
-        ****TODO****
+        If this field is not empty new textual reason from this field will be transfer to origination :ref:`Gateway <gateways>`.
     Store cdr
-        ****TODO****
+        In case of enabling of this field Yeti will store CDRs for calls that were terminated with this *Disconnect Code*.
     Silently drop
-        ****TODO****
+        In case of enabling of this field Yeti won't answer anything to legA (origination :ref:`Gateway <gateways>`) when Yeti's routing procedure returned this *Disconnect Code*. This field is used only with TM (traffic manager) namespace and can be used for preventing fake authorization attempts from the network bots.
 
 ----
 
+.. _jobs:
+
 Jobs
 ~~~~
-        ****TODO****
+Jobs are used for review schedulers of some regular procedures that are executed by system or could be executed manually.
+You could press "Run" link for execute some procedure or "Unlock" in case of some problems during its execution. Following procedures are available:
+
+    -   **CdrPartitioning** - procedure of creating new tables for storing CDRs;
+
+    -   **EventProcessor** - procedure of sending :ref:`Events <events>` to the SEMS;
+
+    -   **CdrBatchCleaner** - procedure of removing old batches of information from temporary table in Routing Database;
+
+    -   **CdrArchiving** - procedure of moving tables with CDRs from :ref:`History <cdr_history>` to :ref:`Archive <cdr_archive>`. CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.;
+
+    -   **CallsMonitoring** - procedure that is used for periodical (once per minute) calculation of cost for all active calls for each :ref:`Account <accounts>` and comparison their cost with current :ref:`Account Balance <account_balance>`. If account balance is less than cost of all active calls for the :ref:`Account <accounts>` all calls will be dropped by Yeti. This procedure also is used for calculating statistics for :ref:`Dushboard <dashboard>` and :ref:`Active calls <active_calls>`;
+
+    -   **StatsClean** - procedure of removing statistics that are used for calculation of quality parameters (ACD, ASR and Short Calls) for :ref:`Gateways <gateways>` and :ref:`Dialpeers <dialpeers>`;
+
+    -   **StatsAggregation** - procedure of aggregation of the data about calls for the graphs;
+
+    -   **Invoice** - procedure of :ref:`Invoice <invoices>` generation according to periods that were configured in the settings of :ref:`Accounts <accounts>`.
+
+    -   **ReportScheduler** - procedure of :ref:`Reports <reports>` generation according to stored Schedulers;
+
+    -   **TerminationQualityCheck** - procedure of checking of the quality parameters of :ref:`Dialpeers <dialpeers>`. :ref:`Dialpeer <dialpeers>` will be locked in case of overcoming of threshold for quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>`.
+
+    -   **DialpeerRatesApply** - procedure of applying :ref:`New Rates <new_rates>` for :ref:`Dialpeers <dialpeers>`.
+
+    -   **AccountBalanceNotify** - procedure of sending :ref:`Account Balance Notifications <account_balance_low_threshold>`.
+
+
+**Job**'s properties:
+`````````````````````
+    Id
+        Job's id.
+    Type
+        Name of procedure for this *Job*.
+    Description
+        Textual description of procedure.
+    Executed
+        Period of time when this *Job* was executed last time.
+    Running
+        Running status (Yes or No) of this *Job*.
 
 ----
 
@@ -168,7 +252,7 @@ Countries
 ~~~~~~~~~
        Countries are used for systematizing destination numbers and source numbers by countries that are identified by international country code. With using *Countries* Yeti could apply some additional routing rules to the calls.
 
-**Country**'s attributes:
+**Country**'s properties:
 `````````````````````````
 
     .. _country_id:
@@ -177,6 +261,8 @@ Countries
        Unique Country's id.
     Name
        Unique Country's name.
+    ISO2
+       Official ISO Country Code.
 
 ----
 
@@ -210,12 +296,21 @@ Import Max Threads
     Number of threads for import from CSV process.
 Import Helpers Dir
     Helper directory where YETI saves temporary files during import from CSV process.
+
+.. _system_global_configuration_active_calls_require_filter:
+
 Active Calls Require Filter
     Requre any filter on the *RT data -> Active Calls* page.
 Registrations Require Filter
     Require any filter on the *RT data -> Outgoing Registrations* page.
+
+.. _system_global_configuration_active_calls_show_chart:
+
 Active Calls Show Chart
     If **true** YETI shows chart of active calls on the *RT data -> Active Calls* page.
+
+.. _system_global_configuration_active_calls_autorefresh_enable:
+
 Active Calls Autorefresh Enable
     If **true** YETI will refresh *RT data -> Active Calls* page every 20 seconds.
 Max Call Duration
@@ -249,7 +344,14 @@ Quality Control Min Duration
 
 CDR Writer Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
-        ****TODO****
+
+The page contains CDR writer configuration of YETI.
+
+**System Cdr Config**'s attributes:
+```````````````````````````````````
+
+Call duration round mode
+    This field is used to regulate round mode of call duration in Yeti. Following values are available: Always UP;Always DOWN; Math rules (up if >= 0.5).
 
 ----
 
@@ -257,16 +359,16 @@ CDR Writer Configuration
 Load Balancers
 ~~~~~~~~~~~~~~
 
-****TODO****
+Load Balancers are used as proxy-servers for SIP-signaling between  :ref:`Gateways <gateways>` and :ref:`YETI-SEMS nodes <nodes>`. Load Balancer could distribute calls to the :ref:`YETI-SEMS nodes <nodes>`. It is useful for cases when it is necessary to switch-off, reboot or reconfigure one or more :ref:`YETI-SEMS nodes <nodes>` without stopping work of whole system. Yeti will recognize only Load Balancers that are included in this list. In this case Yeti will search information about source :ref:`Gateway <gateways>` in the special headers that were received from Load Balancer.
 
 **Load Balancer**'s attributes:
 ```````````````````````````````
     Id
        Load Balancer's id.
     Name
-        ****TODO****
+        Load Balancer's name.
     Signalling IP
-        ****TODO****
+        Signalling IP address for this *Load Balancer*.
 
 ----
 
@@ -283,7 +385,7 @@ Every node represents independent installation of YETI-SEMS, which communicate t
     Id
        Node's id.
     Name
-        Node name.
+       Node's name.
     Pop
         Point of presence. Might be useful for logic grupping of nodes (different data-centers, as example).
     Signalling ip
@@ -310,18 +412,18 @@ Comments
 LNP Resolvers
 ~~~~~~~~~~~~~
 
-****TODO****
+Local number portability (LNP) Resolvers are used for interconnection with :ref:`LNP Databases <lnp_databases>`.
 
 **LNP Resolver**'s attributes:
 ``````````````````````````````
     Id
        LNP Resolver's id.
     Name
-        ****TODO****
+       Unique name of this *LNP Resolver*.
     Address
-        ****TODO****
+       IP-address or domain name for connection to this *LNP Resolver*.
     Port
-        ****TODO****
+       TCP port for connection to this *LNP Resolver*.
 
 ----
 
@@ -369,7 +471,7 @@ Sensors
 
 System supports mirroring of signaling and media traffic.
 This functionality can be used for Lawful Interception.
-Currently system supports two encapsulation methods:
+Currently system supports three encapsulation methods:
 
     - IP-IP tunnel
         Original packets will be encapsulated into additional IP-IP tunnel header.
@@ -378,6 +480,8 @@ Currently system supports two encapsulation methods:
     - IP over Ethernet
         In this mode original packets will be encapsulated directly into Ethernet frame using raw sockets.
         Intended to use for cases when destination equipment is in the same L2 domain.
+    -   HEPv3
+        Homer Encapsulation Protocol or HEP is a protocol used to send data from a tracing node to a capturing node. The          latest version of HEP is version 3 which came with a major improvement changing HEP protocol from a header based          encapsulation protocol, that is each field had it's well known position in the header as it is for the TCP              header for example, to a more flexible chunk-based protocol.
 
 Sensor and logging level can be chosen in gateway settings.
 Sensor configuration is separate for A and B leg, thus for both legs mirroring - sensors must be configured for both termination and origination gateway.
@@ -387,23 +491,27 @@ Sensor configuration is separate for A and B leg, thus for both legs mirroring -
     Id
        Sensor's id.
     Name
-        ****TODO****
+        Sensor's name.
     Mode
-        ****TODO****
+        IP-IP encapsulation
+        IP-Ethernet encapsulation
+        HEPv3
     Source Interface
-        ****TODO****
+        The name of the source interface of this *Sensor*. This field is used for "IP-Ethernet encapsulation" mode.
     Target MAC
-        ****TODO****
+        MAC address of target gateway. This field is used for "IP-Ethernet encapsulation" mode.
     Source IP
-        ****TODO****
+        IP address of source interface of this *Sensor*. This field is used for "IP-IP encapsulation" mode.
     Target IP
-        ****TODO****
+        IP address of target gateway. This field is used for "IP-IP encapsulation" and for "HEPv3" modes.
     Target Port
-        ****TODO****
+        Port number of target gateway. This field is used for "HEPv3" mode.
     Hep Capture
-        ****TODO****
+        Value of HEP_CAPTURE_ID. Leave it empty to use YETI Node ID as HEP_CAPTURE_ID. This field is used for "HEPv3" mode.
 
 ----
+
+.. _smtp_connections:
 
 SMTP connections
 ~~~~~~~~~~~~~~~~

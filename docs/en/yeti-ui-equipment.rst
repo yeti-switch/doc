@@ -400,6 +400,8 @@ Code's overriding scenarios that are used by :ref:`Disconnect policies <disconne
 
 ----
 
+.. _registrations:
+
 Registrations
 ~~~~~~~~~~~~~
 
@@ -440,7 +442,7 @@ YETI allows to use outgoing SIP registrations on remote vendor's or customer's e
     Force expire
         Force re-registration after **Expire** interval even is server set another value in response.
     Retry delay
-	    Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occured.
+	    Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occurred.
     Max attempts
 	    Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
 
