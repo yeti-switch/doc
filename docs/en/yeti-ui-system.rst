@@ -270,6 +270,8 @@ Load Balancers
 
 ----
 
+.. _nodes:
+
 Nodes
 ~~~~~
 

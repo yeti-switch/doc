@@ -35,7 +35,7 @@ Tables are used for review general information about Call Delivery Records (CDR)
 CDR History
 ~~~~~~~~~~~
 
-Storage of Call Delivery Records (CDR) about all calls (or call attempts) what are passed via Yeti (without archived records). CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.
+Storage of Call Delivery Records (CDR) for all calls (or call attempts) what are passed via Yeti (without archived records). CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.
 
 **CDR**'s attributes:
 `````````````````````
@@ -66,11 +66,16 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
     Is Last CDR
         This field should be "yes" ("true") for last routing attempt for the call ("no"("false") otherwise).
     Dump Level
-        Capture nothing
-        Capture signaling traffic
-        Capture rtp traffic
-        Capture all traffic
-        ****TODO**** - pcap file with debugging information will be provided (depends on level)
+        Level of capturing of call to PCAP (Packet Capture) files that was chosen in the :ref:`Dump Level <customer_auth_dump_level>` attribute of :ref:`Customers Auth <customer_auth>` that is related to this call:
+
+        **Capture nothing** - Information didn't capture to pcap-file for this call.
+
+        **Capture signaling traffic** - Only signaling information had been captured to pcap-file for this call.
+
+        **Capture rtp traffic** - Only RTP traffic had been captured to pcap-file for this call.
+
+        **Capture all traffic** - Only signaling information & RTP traffic had been captured to pcap-file for this call.
+
     Orig GW
         Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that is used as Originator for the call.
     Term GW
@@ -84,7 +89,7 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
     Rateplan
         :ref:`Rateplan <rateplans>` that was used for the call.
     Internal Disconnect Code
-        ****TODO****
+        Internal :ref:`Disconnect Code <disconnect_codes>` for the call.
     Lega Disconnect Code
         :ref:`Disconnect Code <disconnect_codes>` for interconnection between Yeti and Gateway that was used as Originator for the call.
     Lega Disconnect Reason
@@ -112,15 +117,15 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
     Src Name Out
         Name of caller that is sent in the "From" field of SIP header to Gateway that is used as Terminator for the call.
     Node
-        ****TODO****
+        :ref:`Node <nodes>` (independent installation of YETI-SEMS) that was used for the call.
     PoP
         :ref:`Point of Presence <pops>` that was received the call.
     Local Tag
-        ****TODO****
+        ****TODO**** (	6A96AC2A-59DCAF69000E66CE-FB0FC700)
     Orig Call
-        ****TODO****
+        ****TODO**** (ce1929d5ee766c7409aa4be0c3d758ac)
     Term Call
-        ****TODO****
+        ****TODO**** (480AE781-59DCAF6A00024EF7-3B2FB700)
     Routing Attempt
         Number of attempt to route this call to destination.
     Customer Price
@@ -134,9 +139,9 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
     Routing Delay
         Delay (in miliseconds) between receiving call by Yeti (from Originator) and starting of its termination (to Terminator).
     PDD
-        ****TODO****
+        Post Dial Delay (PDD) for this call ( time between the start of the call and the moment the phone of the called party starts ringing) in seconds.
     RTT
-        ****TODO****
+        Round-trip time (RTT) for this call.
 
 ----
 
@@ -145,7 +150,7 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
 CDR Archive
 ~~~~~~~~~~~
 
-****TODO****
+Storage of archived Call Delivery Records (CDR) for all calls (or call attempts) what are passed via Yeti (without archived records). CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.
 
 **CDR**'s attributes:
 `````````````````````
@@ -166,11 +171,11 @@ CDR Archive
     Dst Country
         :ref:`Country <countries>` that was associated (via :ref:`Network Prefixes <network_prefixes>` table) with the destination number (B-number) for the call.
     Status
-        ****TODO****
+        Status of the call regarding its :ref:`Disconnect Code <disconnect_codes>`. Could be **SUCCESS** (if "Success" flag is enabled for :ref:`Disconnect Code <disconnect_codes>` that was applied to the call) or **FAILURE** (otherwise).
     Duration
         Duration of the call in seconds.
     Is Last CDR
-        This field should be "1" for last routing attempt for the call ("0" otherwise). ****TODO****
+        This field should be "yes" ("true") for last routing attempt for the call ("no"("false") otherwise).
     Orig GW
         Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that is used as Originator for the call.
     Term GW
@@ -184,9 +189,9 @@ CDR Archive
     Rateplan
         :ref:`Rateplan <rateplans>` that was used for the call.
     Internal Disconnect Code
-        ****TODO****
+        Internal :ref:`Disconnect Code <disconnect_codes>` for the call.
     Internal Disconnect Reason
-        ****TODO****
+        Internal Disconnect Reason for the call.
     Lega Disconnect Code
         :ref:`Disconnect Code <disconnect_codes>` for interconnection between Yeti and Gateway that was used as Originator for the call.
     Lega Disconnect Reason
@@ -214,15 +219,15 @@ CDR Archive
     Src Name Out
         Name of caller that is sent in the "From" field of SIP header to Gateway that is used as Terminator for the call.
     Node
-        ****TODO****
+        :ref:`Node <nodes>` (independent installation of YETI-SEMS) that was used for the call.
     PoP
         :ref:`Point of Presence <pops>` that was received the call.
     Local Tag
-        ****TODO****
+        ****TODO**** (	6A96AC2A-59DCAF69000E66CE-FB0FC700)
     Orig Call
-        ****TODO****
+        ****TODO**** (ce1929d5ee766c7409aa4be0c3d758ac)
     Term Call
-        ****TODO****
+        ****TODO**** (480AE781-59DCAF6A00024EF7-3B2FB700)
     Routing Attempt
         Number of attempt to route this call to destination.
     Customer Price
@@ -236,6 +241,6 @@ CDR Archive
     Routing Delay
         Delay (in miliseconds) between receiving call by Yeti (from Originator) and starting of its termination (to Terminator).
     PDD
-        ****TODO****
+        Post Dial Delay (PDD) for this call ( time between the start of the call and the moment the phone of the called party starts ringing) in seconds.
     RTT
-        ****TODO****
+        Round-trip time (RTT) for this call.

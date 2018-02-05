@@ -58,6 +58,9 @@ General **Customers Auth**'s attributes:
     Src Numberlist
         You may apply Src Numberlist (Source) and check B-numbers, by prefix or
         full-match, then reject it or allow.
+
+    .. _customer_auth_dump_level:
+
     Dump Level
         It is possible to capture calls to PCAP files, using this option.
         You may choose what kind of information should be captured.
@@ -635,7 +638,7 @@ Numberlist items allow to do something with source or destination number or reje
 Routing Tags
 ~~~~~~~~~~~~
 
-Routing Tags are used for creating transparent link between :ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` inside of Yeti's routing logic. Routing Tag for every call is detected after processing call with using :ref:`Numberlists <numberlists>` on the basis :ref:`Routing Tag detection Rules <routing_tag_detection_rules>`.
+Routing Tags are used for creating transparent routing rules within Yeti's routing logic. Routing Tag for every call is detected after processing call with using :ref:`Numberlists <numberlists>` on the basis :ref:`Routing Tag detection Rules <routing_tag_detection_rules>`.
 
 **Routing Tag**'s attributes:
 `````````````````````````````
