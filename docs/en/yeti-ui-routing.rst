@@ -574,13 +574,13 @@ Numberlists are used for describing common parameters that can be applied for se
         **Allow call** -  Allow call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
 
     Default src rewrite rule
-        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
+        *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used source number (number A), as a *Replacement* parameter of **regexp_replace** function is used value from *Default src rewrite result* bellow. Returned value of **regexp_replace** function will be used as source number (number A) for the call during future routing. It helps to change format of the source number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
     Default src rewrite result
-        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
+        *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used source number (number A), as a *Pattern* parameter of **regexp_replace** function is used value from *Default src rewrite rule* above. Returned value of **regexp_replace** function will be used as source number (number A) for the call during future routing. It helps to change format of the source number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
     Default dst rewrite rule
-        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
+        *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Replacement* parameter of **regexp_replace** function is used value from *Default dst rewrite result* bellow. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
     Default dst rewrite result
-        ****TODO**** - used only in case of missing rewrite rule in the numberlist item
+        *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Default dst rewrite rule* above. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
     Created At
         Date and time of this Numberlist creation.
     Updated At
@@ -616,13 +616,13 @@ Numberlist items allow to do something with source or destination number or reje
         **Allow call** - Allow call in case of conformity source (A) or destination (B) number and the Key field (according to the Mode that was chosen  in the :ref:`Numberlist <numberlists>`). Action from the :ref:`Numberlist <numberlists>`) will be ignored in case of choosing this action.
 
     Src rewrite rule
-        ****TODO****
+        *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used source number (number A), as a *Replacement* parameter of **regexp_replace** function is used value from *Src rewrite result* bellow. Returned value of **regexp_replace** function will be used as source number (number A) for the call during future routing. It helps to change format of the source number for providing compatibility.
     Src rewrite result
-        ****TODO****
+        *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used source number (number A), as a *Pattern* parameter of **regexp_replace** function is used value from *Src rewrite rule* above. Returned value of **regexp_replace** function will be used as source number (number A) for the call during future routing. It helps to change format of the source number for providing compatibility.
     Dst rewrite rule
-        ****TODO****
+        *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Replacement* parameter of **regexp_replace** function is used value from *Dst rewrite result* bellow. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility.
     Dst rewrite result
-        ****TODO****
+        *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Dst rewrite rule* above. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility.
     Created At
         Date and time of this Numberlist item creation.
     Updated At
@@ -635,7 +635,7 @@ Numberlist items allow to do something with source or destination number or reje
 Routing Tags
 ~~~~~~~~~~~~
 
-****TODO****
+Routing Tags are used for creating transparent link between :ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` inside of Yeti's routing logic. Routing Tag for every call is detected after processing call with using :ref:`Numberlists <numberlists>` on the basis :ref:`Routing Tag detection Rules <routing_tag_detection_rules>`.
 
 **Routing Tag**'s attributes:
 `````````````````````````````
@@ -685,6 +685,8 @@ Area prefixes are used for determination of :ref:`Areas <areas>` by source or de
         :ref:`Area <areas>` that is associated to the *Prefix* above.
 
 ----
+
+.. _routing_tag_detection_rules:
 
 Routing Tag detection Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

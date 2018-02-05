@@ -8,28 +8,29 @@ YETI WEB interface - CDR menu description. This section describes CDR storage en
 Tables
 ~~~~~~
 
-****TODO**** - information including size of talbes
+Tables are used for review general information about Call Delivery Records (CDR) that are stored in the system.
 
 **CDR Table**'s attributes:
 ```````````````````````````
     Id
        Unique CDR Table's id.
     Name
-        ****TODO****
-    Readable
-        ****TODO****
-    Writable
-        ****TODO****
-    Date Start
-        ****TODO****
-    Date Stop
-        ****TODO****
+        Unique CDR Table's name.
     Active
-        ****TODO**** - history if true, archive if false
-    Comments
-        ****TODO****
+        Yes - if CDRs of this *Table* are available in the :ref:`CDR History <cdr_history>`.
+        No - if  CDRs of this *Table* are available in the :ref:`CDR Archive <cdr_archive>`.
+    Date Start
+        Date of *Table* creation (date of the first CDR record in the *Table*).
+    Date Stop
+        Date of *Table* closing (date of the last CDR record in the *Table*).
+    Data Size
+        Size of data that are represented in this *Table* without system information.
+    Full Size
+        Full size of data that are represented in this *Table* including system information.
 
 ----
+
+.. _cdr_history:
 
 CDR History
 ~~~~~~~~~~~
@@ -59,12 +60,16 @@ Storage of Call Delivery Records (CDR) about all calls (or call attempts) what a
     Dst Country
         :ref:`Country <countries>` that was associated (via :ref:`Network Prefixes <network_prefixes>` table) with the destination number (B-number) for the call.
     Status
-        ****TODO**** true - success, false - failed
+        Status of the call regarding its :ref:`Disconnect Code <disconnect_codes>`. Could be **SUCCESS** (if "Success" flag is enabled for :ref:`Disconnect Code <disconnect_codes>` that was applied to the call) or **FAILURE** (otherwise).
     Duration
         Duration of the call in seconds.
     Is Last CDR
-        This field should be "true" for last routing attempt for the call ("false" otherwise).
+        This field should be "yes" ("true") for last routing attempt for the call ("no"("false") otherwise).
     Dump Level
+        Capture nothing
+        Capture signaling traffic
+        Capture rtp traffic
+        Capture all traffic
         ****TODO**** - pcap file with debugging information will be provided (depends on level)
     Orig GW
         Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that is used as Originator for the call.
