@@ -221,7 +221,7 @@ Storage of archived Call Delivery Records (CDR) for all calls (or call attempts)
     Node
         :ref:`Node <nodes>` (independent installation of YETI-SEMS) that was used for the call.
     PoP
-        :ref:`Point of Presence <pops>` that was received the call.
+        :ref:`Point of Presence <pops>` that was received the call. 
     Local Tag
         ****TODO**** (	6A96AC2A-59DCAF69000E66CE-FB0FC700)
     Orig Call
