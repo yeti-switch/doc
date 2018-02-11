@@ -6,7 +6,7 @@ YETI WEB interface - Logs menu description. This section describes logs and noti
 
 
 API Log
-~~~~~~~
+~~~~~~~ - log of request to the System by external clients or by internal cron procedures
 
 ****TODO****
 
@@ -44,7 +44,7 @@ API Log
 Audit Log
 ~~~~~~~~~
 
-****TODO****
+****TODO**** - log of changes. any changing of the object (by web-interface, by console or by system) will create record in this log
 
 **Log Record**'s attributes:
 ````````````````````````````
@@ -61,14 +61,14 @@ Audit Log
     IP
         ****TODO****
     TXID
-        ****TODO****
+        ****TODO**** - ID of transactions. Actions with same TXID were from one transaction
 
 ----
 
 Logic Log
 ~~~~~~~~~
 
-****TODO****
+****TODO**** - log of internal processes (for example long-time import). It is impossible to implement monitoring from web-interface, so you can see status of operations via this log
 
 **Log Record**'s attributes:
 ````````````````````````````
@@ -81,7 +81,7 @@ Logic Log
     Level
         ****TODO****
     Source
-        ****TODO****
+        ****TODO**** 	Dialpeer (3) - third process of Dialpeers import
     MSG
         ****TODO****
 
@@ -90,7 +90,7 @@ Logic Log
 Email Log
 ~~~~~~~~~
 
-****TODO****
+****TODO**** - email that were or weren't sent by some reason
 
 **Email Log Record**'s attributes:
 ``````````````````````````````````
@@ -110,7 +110,7 @@ Email Log
 Events
 ~~~~~~
 
-****TODO****
+****TODO**** - order of events. used by SEMS for loading something from the DB (need to clarify) )
 
 **Event**'s attributes:
 ```````````````````````

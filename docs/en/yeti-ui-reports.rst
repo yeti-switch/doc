@@ -165,7 +165,9 @@ Vendor traffic reports are used for creating reports and schedulers (for sending
 Interval CDR report
 ~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - 2018-01-21 15:55:00 - 2018-01-21 16:00:00 - timestamp - it is beginning of the intervals
+****TODO****  - interval doesn't present in case of absence of calls. empty in case of impossibility calculate value, but calls were presented.
+
 
 **Interval CDR report**'s attributes:
 `````````````````````````````````````
@@ -185,11 +187,11 @@ Interval CDR report
         Max
         Min
     Aggregate by
-        ****TODO****
+        ****TODO**** - parameter of CDR that will be used for calculation (list of parameters)
     Filter
-        ****TODO****
+        ****TODO**** - SQL (filtering) statement that will be used for filtering records (it is possible to use agregational parameter
     Group by fields
-        ****TODO****
+        ****TODO**** - additional grouping fields. Will be added to the output
     Send to
         :ref:`Contact <contacts>` for sending this  *Interval CDR report*.
 
@@ -198,7 +200,7 @@ Interval CDR report
 Termination Distribution
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - that vendors were used for sending calls (from whole system or from separate customer).
 
 **Termination Distribution**'s attributes:
 ``````````````````````````````````````````
@@ -212,7 +214,7 @@ Termination Distribution
 Origination performance
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - that customers were used for receiving calls. only authorized calls are taken into account
 
 **Origination performance**'s attributes:
 `````````````````````````````````````````
@@ -226,7 +228,7 @@ Origination performance
 Bad routing
 ~~~~~~~~~~~
 
-****TODO****
+****TODO**** - cases when calls were ended by bad routing codes within the system
 
 **Bad routing**'s attributes:
 `````````````````````````````
@@ -250,7 +252,7 @@ Bad routing
 Not authenticated attempts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - not success authorizing attempts (failed calls)
 
 **Not authenticated attempt**'s attributes:
 ```````````````````````````````````````````

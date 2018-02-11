@@ -8,12 +8,16 @@ YETI WEB interface - Realtime Data menu description. This section describes real
 Active calls
 ~~~~~~~~~~~~
 
-****TODO****
+****TODO****  - tool that can show active calls in the system. Calls can be presented as table (full information), or list (short information) together with graph
+****TODO****  - it is depends on ACTIVE CALLS REQUIRE FILTER parameter from global configuration. will it show result without filtering or require filtering before
+****TODO**** ACTIVE CALLS SHOW CHART  - show graph or not
+****TODO**** ACTIVE CALLS AUTOREFRESH ENABLE - authomatical update during demostration
+****TODO**** y - calls count, x- time (step - 1 minute)
 
 **Active call**'s attributes:
 `````````````````````````````
     Node
-        ****TODO****
+        ****TODO**** - from the System Nodes
     Destination Country
         ****TODO****
     Destination Network
@@ -38,20 +42,20 @@ Active calls
 Nodes
 ~~~~~
 
-****TODO****
+****TODO**** - Node (SEMS) installation
 
 **Node**'s attributes:
 ``````````````````````
     Name
         ****TODO****
     Active Calls Count
-        ****TODO****
+        ****TODO**** -
     Version
-        ****TODO****
+        ****TODO**** - version of sems
     Shutdown Req Time
-        ****TODO****
+        ****TODO**** - time for requesting shutdown (during this time new calls are rejected)
     Sessions Num
-        ****TODO****
+        ****TODO**** - number of sessions (1 for legA, and some amount for legsb, including rerouting)
     Uptime
         ****TODO****
     PoP
@@ -62,7 +66,7 @@ Nodes
 Outgoing Registrations
 ~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - SIP registration. It helps to mask Yeti and simulate client procedure (registration). Registrations are presented in equipment registrations. This is only current state
 
 **Outgoing Registration**'s attributes:
 ```````````````````````````````````````
