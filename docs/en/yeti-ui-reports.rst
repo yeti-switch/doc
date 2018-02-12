@@ -22,8 +22,10 @@ Custom CDR reports are used for creating customized reports and schedulers (for 
     Customer
         :ref:`Customer <contractors>` that is related to the calls that will be used for selecting CDRs for this *CDR report*.
     Filter
+        Statement (f.e. "vendor_price < 10") that will be used for filtering records for this *CDR report*.
         ****TODO****
     Group by
+        Attributes of CDR that will be used for grouping records for this *CDR report*.
         ****TODO****
     Send to
         :ref:`Contact <contacts>` for sending this *CDR report*.
@@ -151,7 +153,7 @@ Vendor traffic reports are used for creating reports and schedulers (for sending
          **Monthly** - 1 time per month (at the beginning of next month)).
 
     Vendor
-            :ref:`Vendor <contractors>` that is related to the calls that will be used for selecting CDRs for this regular *Vendor traffic* report.
+        :ref:`Vendor <contractors>` that is related to the calls that will be used for selecting CDRs for this regular *Vendor traffic* report.
     Send to
         :ref:`Contact <contacts>` for sending this regular *Vendor traffic* report.
     Last Run At
@@ -165,9 +167,7 @@ Vendor traffic reports are used for creating reports and schedulers (for sending
 Interval CDR report
 ~~~~~~~~~~~~~~~~~~~
 
-****TODO**** - 2018-01-21 15:55:00 - 2018-01-21 16:00:00 - timestamp - it is beginning of the intervals
-****TODO****  - interval doesn't present in case of absence of calls. empty in case of impossibility calculate value, but calls were presented.
-
+Interval CDR reports are used for creating reports and schedulers (for sending regular reports to the user) about all traffic in the system grouped by discrete intervals of time. As an output of this *Interval CDR report* Yeti will provide table where presented only intervals where calls were made. At the *Timestamp* field beginning of the time interval will be presented.
 
 **Interval CDR report**'s attributes:
 `````````````````````````````````````
@@ -178,20 +178,15 @@ Interval CDR report
     Date end
         Date and time of the ending of reporting period for this *Interval CDR report*.
     Interval length
-        ****TODO****    5 minutes, 10 minutes, 30 minutes, 1 hour, 6 hours, 1 Day
+        Interval of time that will be used for grouping records in this *Interval CDR report*. Following intervals are available: 5 minutes, 10 minutes, 30 minutes, 1 hour, 6 hours, 1 Day.
     Aggregation function
-        ****TODO****
-        Sum
-        Count
-        Avg
-        Max
-        Min
+        Aggregation function that will be used for calculation reporting parameter for this *Interval CDR report*. Following functions are available: Sum, Count, Avg, Max, Min.
     Aggregate by
-        ****TODO**** - parameter of CDR that will be used for calculation (list of parameters)
+        Parameter of CDR that will be used for calculation with using aggregation function above. Following parameters are available: destination_next_rate, destination_fee, dialpeer_next_rate, dialpeer_fee, time_limit, customer_price, vendor_price, duration, profit, destination_initial_rate, dialpeer_initial_rate, destination_initial_interval, destination_next_interval, dialpeer_initial_interval, dialpeer_next_interval.
     Filter
-        ****TODO**** - SQL (filtering) statement that will be used for filtering records (it is possible to use agregational parameter
+        ****TODO****
     Group by fields
-        ****TODO**** - additional grouping fields. Will be added to the output
+        ****TODO****
     Send to
         :ref:`Contact <contacts>` for sending this  *Interval CDR report*.
 
@@ -200,7 +195,7 @@ Interval CDR report
 Termination Distribution
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO**** - that vendors were used for sending calls (from whole system or from separate customer).
+Termination Distribution report it is snapshot report that is used for monitoring list of vendors that were used for termination of the calls (from the whole system or from the separate customer).
 
 **Termination Distribution**'s attributes:
 ``````````````````````````````````````````
