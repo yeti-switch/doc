@@ -8,7 +8,8 @@ YETI WEB interface - Realtime Data menu description. This section describes real
 Active calls
 ~~~~~~~~~~~~
 
-****TODO****  - tool that can show active calls in the system. Calls can be presented as table (full information), or list (short information) together with graph
+Active calls tool is used for monitoring of active calls in the System. Calls can be represented in the form of table (with providing full information) or in the form of graph together with list of calls (with providing short information).
+
 ****TODO****  - it is depends on ACTIVE CALLS REQUIRE FILTER parameter from global configuration. will it show result without filtering or require filtering before
 ****TODO**** ACTIVE CALLS SHOW CHART  - show graph or not
 ****TODO**** ACTIVE CALLS AUTOREFRESH ENABLE - authomatical update during demostration

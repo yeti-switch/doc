@@ -23,10 +23,8 @@ Custom CDR reports are used for creating customized reports and schedulers (for 
         :ref:`Customer <contractors>` that is related to the calls that will be used for selecting CDRs for this *CDR report*.
     Filter
         Statement (f.e. "vendor_price < 10") that will be used for filtering records for this *CDR report*.
-        ****TODO****
     Group by
         Attributes of CDR that will be used for grouping records for this *CDR report*.
-        ****TODO****
     Send to
         :ref:`Contact <contacts>` for sending this *CDR report*.
 
@@ -53,9 +51,9 @@ Custom CDR reports are used for creating customized reports and schedulers (for 
     Customer
         :ref:`Customer <contractors>` that is related to the calls that will be used for selecting CDRs for this regular *CDR report*.
     Filter
-        ****TODO****
+        Statement (f.e. "vendor_price < 10") that will be used for filtering records for this regular *CDR report*.
     Group by
-        ****TODO****
+        Attributes of CDR that will be used for grouping records for this regular *CDR report*.
     Send to
         :ref:`Contact <contacts>` for sending this regular *CDR report*.
     Last Run At
@@ -182,74 +180,76 @@ Interval CDR reports are used for creating reports and schedulers (for sending r
     Aggregation function
         Aggregation function that will be used for calculation reporting parameter for this *Interval CDR report*. Following functions are available: Sum, Count, Avg, Max, Min.
     Aggregate by
-        Parameter of CDR that will be used for calculation with using aggregation function above. Following parameters are available: destination_next_rate, destination_fee, dialpeer_next_rate, dialpeer_fee, time_limit, customer_price, vendor_price, duration, profit, destination_initial_rate, dialpeer_initial_rate, destination_initial_interval, destination_next_interval, dialpeer_initial_interval, dialpeer_next_interval.
+        Parameter of CDR that will be used for calculation with using aggregation function above.
     Filter
-        ****TODO****
+        Statement (f.e. "vendor_price < 10") that will be used for filtering records for this *Interval CDR report*.
     Group by fields
-        ****TODO****
+        Attributes of CDR that will be used for grouping records for this *Interval CDR report*.
     Send to
-        :ref:`Contact <contacts>` for sending this  *Interval CDR report*.
+        :ref:`Contact <contacts>` for sending this *Interval CDR report*.
 
 ----
 
 Termination Distribution
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Termination Distribution report it is snapshot report that is used for monitoring list of vendors that were used for termination of the calls (from the whole system or from the separate customer).
+Termination Distribution report is used for monitoring list of vendors that were used for termination of the calls (from the whole system or from the separate customer) during the short period of time (less than 1 Day).
 
 **Termination Distribution**'s attributes:
 ``````````````````````````````````````````
     Time Interval
-        ****TODO****
+        Period of time for selecting CDRs that will be used for creating this *Termination Distribution* report. Following intervals are available: 1 minute, 5 minutes, 10 minutes, 15 minutes, 1 hour, 3 hours, 1 Day.
     Customer
-        ****TODO****
+        :ref:`Customer <contractors>` that is related to the calls that will be used for selecting CDRs for this *Termination Distribution report*. Choose "Any" for selecting calls from all Customers.
 
 ----
 
 Origination performance
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO**** - that customers were used for receiving calls. only authorized calls are taken into account
+Origination performance report is used for monitoring originated calls (from the whole system or from the separate customer) during the short period of time (less than 1 Day). Only authorized calls are taken into account during creating this *Origination performance* report.
 
 **Origination performance**'s attributes:
 `````````````````````````````````````````
     Time Interval
-        ****TODO****
+        Period of time for selecting CDRs that will be used for creating this *Origination performance* report. Following intervals are available: 1 minute, 5 minutes, 10 minutes, 15 minutes, 1 hour, 3 hours, 1 Day.
     Customer
-        ****TODO****
+        :ref:`Customer <contractors>` that is related to the calls that will be used for selecting CDRs for this *Origination performance*. Choose "Any" for selecting calls from all Customers.
 
 ----
 
 Bad routing
 ~~~~~~~~~~~
 
-****TODO**** - cases when calls were ended by bad routing codes within the system
+Bad routing report is used for monitoring failed attempts of the call's routing  (from the whole system or from the separate customer) during the short period of time (less than 1 Day).
+
 
 **Bad routing**'s attributes:
 `````````````````````````````
     Id
        Unique Bad routing's id.
     Time Interval
-        ****TODO****
+       Period of time for selecting CDRs that will be used for creating this *Bad routing* report. Following intervals are available: 1 minute, 5 minutes, 10 minutes, 15 minutes, 1 hour, 3 hours, 1 Day.
     Customer
-        ****TODO****
+       :ref:`Customer <contractors>` that is related to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls from all Customers.
     Rateplan
-        ****TODO****
+       :ref:`Rateplan <rateplans>` that was applied to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls for all Ratepalns.
     Routing Plan
-        ****TODO****
+       :ref:`Routing plan <routing_plan>` that was applied to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls for all Routing plans.
     Internal Disconnect Code
-        ****TODO****
+       Internal :ref:`Disconnect code <disconnect_codes>` of termination the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. It is possible to use statement for this field (equals, greater than, less than).
     Internal Disconnect Reason
-        ****TODO****
+       Internal Disconnect Reason of termination the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. It is possible to use statement for this field (contains, equals, starts with, ends with).
 
 ----
 
 Not authenticated attempts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-****TODO**** - not success authorizing attempts (failed calls)
+Not authenticated attempts report is used for monitoring failed authentication attempts (from the whole system) during the short period of time (less than 1 Day).
+
 
 **Not authenticated attempt**'s attributes:
 ```````````````````````````````````````````
     Time Interval
-        ****TODO****
+        Period of time for selecting CDRs that will be used for creating this *Not authenticated attempts* report. Following intervals are available: 1 minute, 5 minutes, 10 minutes, 15 minutes, 1 hour, 3 hours, 1 Day.
