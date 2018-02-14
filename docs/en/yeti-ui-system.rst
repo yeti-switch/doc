@@ -210,12 +210,21 @@ Import Max Threads
     Number of threads for import from CSV process.
 Import Helpers Dir
     Helper directory where YETI saves temporary files during import from CSV process.
+
+.. _system_global_configuration_active_calls_require_filter:
+
 Active Calls Require Filter
     Requre any filter on the *RT data -> Active Calls* page.
 Registrations Require Filter
     Require any filter on the *RT data -> Outgoing Registrations* page.
+
+.. _system_global_configuration_active_calls_show_chart:
+
 Active Calls Show Chart
     If **true** YETI shows chart of active calls on the *RT data -> Active Calls* page.
+
+.. _system_global_configuration_active_calls_autorefresh_enable:
+
 Active Calls Autorefresh Enable
     If **true** YETI will refresh *RT data -> Active Calls* page every 20 seconds.
 Max Call Duration
@@ -283,7 +292,7 @@ Every node represents independent installation of YETI-SEMS, which communicate t
     Id
        Node's id.
     Name
-        Node name.
+       Node's name.
     Pop
         Point of presence. Might be useful for logic grupping of nodes (different data-centers, as example).
     Signalling ip
