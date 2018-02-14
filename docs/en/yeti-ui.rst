@@ -16,27 +16,10 @@ YETI WEB interface
     - *login*: **admin**,
     - *password*: **111111**
 
-Configuration Objects
-=====================
-
-Dashboard
----------
-Displays different various indicators of the system state:
-
-- active calls graph
-- profitability and duration of the calls
-- billing status
-- state of the system replication
-
-
-YETI WEB interface menu description
-===================================
-
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
+   yeti-ui-dashboard
    yeti-ui-billing
    yeti-ui-equipment
    yeti-ui-routing

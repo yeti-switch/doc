@@ -63,8 +63,7 @@ Outgoing Registrations
 ~~~~~~~~~~~~~~~~~~~~~~
 
 Outgoing Registrations are used for monitoring of current status ****TODO****
- masking Yeti and simulate client procedure (SIP Registration). Registrations are presented in equipment registrations. This is only current state
-It is possible to filter records by :ref:`Node <nodes>`.
+ masking Yeti and simulate client procedure (SIP Registration). Registrations are presented in equipment registrations. This is only current state. It is possible to filter records by :ref:`Node <nodes>`.
 
 **Outgoing Registration**'s attributes:
 ```````````````````````````````````````
