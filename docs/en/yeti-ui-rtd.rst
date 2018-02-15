@@ -12,8 +12,8 @@ Active calls tool is used for monitoring of active calls in the System. Calls ca
 It is possible to request filtering before showing the information about active calls by setting :ref:`Active Calls Require Filter <system_global_configuration_active_calls_require_filter>` parameter in the :ref:`Global configuration <global_configuration>`.
 It is also possible add (or remove) graph from the screen by changing :ref:`Active Calls Show Chart <system_global_configuration_active_calls_show_chart>` parameter in the :ref:`Global configuration <global_configuration>` and enable (or disable) automatic update mode by changing :ref:`Active Calls Autorefresh Enable  <system_global_configuration_active_calls_autorefresh_enable>` parameter in the :ref:`Global configuration <global_configuration>`.
 
-**Active call**'s attributes:
-`````````````````````````````
+**Active call**'s filtering parameters:
+```````````````````````````````````````
     Node
         :ref:`Node <nodes>` (independent installation of YETI-SEMS) that will be used for filtering active calls. In case of specification - only calls from selected node will be shown. For monitoring calls from all :ref:`Nodes <nodes>`, please, choose "Any" in this field.
     Destination Country
@@ -40,9 +40,16 @@ It is also possible add (or remove) graph from the screen by changing :ref:`Acti
 Nodes
 ~~~~~
 
-RealTime information about current state of the :ref:`Nodes <nodes>` (independent installations of YETI-SEMS). It is possible to filter records by Name or by :ref:`Points of Presence <pops>`.
+RealTime information about current state of the :ref:`Nodes <nodes>` (independent installations of YETI-SEMS).
 
-**Node**'s attributes:
+**Node**'s filtering parameters:
+````````````````````````````````
+    Name
+        Node's name. It is possible to use statement for this field (contains, equals, starts with, ends with).
+    POP
+        :ref:`Point of Presence <pops>` (PoP) that will be used for filtering Nodes. In case of specification - only Nodes that are related to selected PoP will be shown. For monitoring Nodes from all :ref:`Points of Presence <pops>`, please, choose "Any" in this field.
+
+**Node**'s properties:
 ``````````````````````
     Name
         Node's name.
@@ -62,10 +69,48 @@ RealTime information about current state of the :ref:`Nodes <nodes>` (independen
 Outgoing Registrations
 ~~~~~~~~~~~~~~~~~~~~~~
 
-Outgoing Registrations are used for monitoring of current status ****TODO****
- masking Yeti and simulate client procedure (SIP Registration). Registrations are presented in equipment registrations. This is only current state. It is possible to filter records by :ref:`Node <nodes>`.
+Outgoing Registrations are used for monitoring of current status of :ref:`outgoing SIP registrations on remote vendor's or customer's equipment <registrations>`.
 
-**Outgoing Registration**'s attributes:
-```````````````````````````````````````
+**Outgoing Registration**'s filtering parameters:
+`````````````````````````````````````````````````
     Node
-        ****TODO****
+        :ref:`Node <nodes>` (independent installation of YETI-SEMS) that will be used for filtering Outgoing Registrations. In case of specification - only Outgoing Registrations from selected node will be shown. For monitoring Outgoing Registrations from all :ref:`Nodes <nodes>`, please, choose "Any" in this field.
+
+**Outgoing Registration**'s properties:
+```````````````````````````````````````
+    User
+        Username that is used for this *Outgoing Registration* (user part of RURI).
+    Domain
+        Domain that is used for this *Outgoing Registration* (domain part of RURI).
+    State
+        Current state of this *Outgoing Registration*. Following states are available: RegisterError - ****TODO****; RegisterPending - ****TODO**** ...
+    Auth User
+        Authorization username that is used for this *Outgoing Registration*.
+    Display Name
+        Display Name that is used for this *Outgoing Registration* (From display name part).
+    Contact
+        Contact header that is used for this *Outgoing Registration* (in SIP-URI format).
+    Proxy
+        Proxy that is used for this *Outgoing Registration* (if any).
+    Expires
+        Registration expiration time for this *Outgoing Registration*.
+    Expires Left
+        Time in seconds that is left before expiration for this *Outgoing Registration*. ****TODO****
+    Node
+        :ref:`Node <nodes>` (independent installation of YETI-SEMS) that is used for this *Outgoing Registration*.
+    Last Error Code
+        Code of last error that was received for this *Outgoing Registration*.
+    Last Error Initiator
+        Initiator of last error for this *Outgoing Registration* (remote or local).
+    Last Error Reason
+        Reason of last error that was received for this *Outgoing Registration*.
+    Last Request Time
+        Timestamp of last sending REGISTER request for this *Outgoing Registration*.
+    Last Succ Req Time
+        Timestamp of last sending sucess REGISTER request for this *Outgoing Registration*.
+    Attempt
+        Current amount of attempts for sending REGISTER request for this *Outgoing Registration*.
+    Max Attempts
+        Maximum amount of attempts for sending REGISTER request that is used for this *Outgoing Registration*.
+    Retry Delay
+        Delay before sending a new REGISTER request to a registrar, when received error code or timeout occurred.
