@@ -45,65 +45,77 @@ API Log contains records about all requests via Application Programming Interfac
 Audit Log
 ~~~~~~~~~
 
-****TODO**** - log of changes. any changing of the object (by web-interface, by console or by system) will create record in this log
+Audit Log contains records about all changes of objects within Yeti's database that were initiated by user (via web-interface or via console) or by system. It is possible to use filters to select necessary records.
 
-**Log Record**'s attributes:
+**Log Record**'s properties:
 ````````````````````````````
     Item type
-        ****TODO****
+        Type of item (Contractor, Account, Gateway, Rateplan etc.) that was changed.
     Item ID EQ
-        ****TODO****
+        Unique identifier of item.
     Event
-        ****TODO****
-    WHODUNNIT
-        ****TODO****
+        Type of event that was occurred (create, update, destroy).
     Created At
-        ****TODO****
-    IP
-        ****TODO****
+        Date and time of this record creation.
     TXID
-        ****TODO**** - ID of transactions. Actions with same TXID were from one transaction
+        Unique identifier of transaction. Actions with same TXID are related to common transaction (operation).
+    Who
+        Username for the records that are related to some :ref:`Admin Users <admin_users>`. You can use "WHODUNNIT" for filtering by ID from :ref:`Admin Users <admin_users>` table.
+    IP
+        IP-address of user that was initiate operation that is related to this Audit Log record.
 
 ----
 
 Logic Log
 ~~~~~~~~~
 
-****TODO**** - log of internal processes (for example long-time import). It is impossible to implement monitoring from web-interface, so you can see status of operations via this log
+Logic Log contains records about internal processes. It is useful for monitoring status of long-time operations (like import of records to the Yeti's database from external sources). It is possible to use filters to select necessary records.
 
-**Log Record**'s attributes:
+**Log Record**'s properties:
 ````````````````````````````
     Id
        Unique Record's id.
     Time Stamp
-        ****TODO****
+        Date and time of operation.
     TXID
-        ****TODO****
+        Unique identifier of transaction.
     Level
         ****TODO****
     Source
-        ****TODO**** 	Dialpeer (3) - third process of Dialpeers import
+        Type of item and process number (f.e. Dialpeer (3) - third process of the import of Dialpeers).
     MSG
-        ****TODO****
+        Status of the internal process (started, finished, success, Validation failed) and detailed message with additional information (if any).
 
 ----
 
 Email Log
 ~~~~~~~~~
 
-****TODO**** - email that were or weren't sent by some reason
+Email Log contains records about emails that were or weren't (via some reason) sent from the system. It is possible to use filters to select necessary records.
 
-**Email Log Record**'s attributes:
+**Email Log Record**'s properties:
 ``````````````````````````````````
     Id
        Unique Record's id.
-    Batch
-        ****TODO****
+    Created At
+        Date and time of this record creation.
+    Sent At
+        Date and time of this record creation.
     Contact
-        ****TODO****
+        :ref:`Contact <contacts>` that was used for sending email.
     SMTP Connection
-        ****TODO****
+        :ref:`SMTP Connection <smtp_connections>` that was used for sending email.
+    Mail From
+        Email address that was used as "From-address" for sending email.
     Mail To
+        Email address that was used as "To-address" for sending email.
+    Subject
+        Subject that was used for sending email.
+    Attachments
+        Attachments that were attached to email.
+    Error
+        Text of error (if any).
+    Batch
         ****TODO****
 
 ----
@@ -111,15 +123,36 @@ Email Log
 Events
 ~~~~~~
 
-****TODO**** - order of events. used by SEMS for loading something from the DB (need to clarify) )
+Events contains records about ... ****TODO**** (order of events on SEMS). It is possible to use filters to select necessary records.
 
-**Event**'s attributes:
+**Event**'s properties:
 ```````````````````````
     Id
        Unique Event's id.
     Node
-        ****TODO****
+        :ref:`Node <nodes>` that is related to this *Event*.
     Retries
         ****TODO****
     Command
+        ****TODO****
+
+Balance notifications
+~~~~~~~~~~~~~~~~~~~~~
+****TODO**** -
+
+**Balance notification**'s properties:
+``````````````````````````````````````
+    Id
+       Unique Balance notification's id.
+    Created At
+       Date and time of this record creation.
+    Direction
+        ****TODO****
+    Action
+        ****TODO****
+    Is Processed
+        "Yes" - if this *Balance notification* was processed, "No" - otherwise.
+    Processed At
+       Date and time whet this *Balance notification* was processed.
+    Data
         ****TODO****

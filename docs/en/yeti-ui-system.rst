@@ -12,6 +12,8 @@ Info
 
 ----
 
+.. _admin_users:
+
 Admin Users
 ~~~~~~~~~~~
 
@@ -413,6 +415,8 @@ Sensor configuration is separate for A and B leg, thus for both legs mirroring -
         ****TODO****
 
 ----
+
+.. _smtp_connections:
 
 SMTP connections
 ~~~~~~~~~~~~~~~~
