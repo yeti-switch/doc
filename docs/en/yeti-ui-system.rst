@@ -8,7 +8,7 @@ YETI WEB interface - System menu description. This section describes general con
 Info
 ~~~~
 
-****TODO****
+General information about current build of Yeti and current state of Yeti's database is provided in this window. There are four separate sections: TOP10 tables in Routing database, TOP10 tables in CDR database, Build info and Replication. Detailed information about size of data (together with whole size) for top ten tables from the both (Routing and CDR) databases is provided.
 
 ----
 
@@ -17,22 +17,22 @@ Info
 Admin Users
 ~~~~~~~~~~~
 
-****TODO****
+Users that have access to this YETI WEB interface.
 
 **User**'s attributes:
 ``````````````````````
     Id
        Unique User's id.
     Email
-        ****TODO****
+       Email of this *Admin Users*.
     Username
-        ****TODO****
+       Unique User's name.
     Password
-        ****TODO****
+       Password for authentication.
     Password confirmation
-        ****TODO****
+       Confirmation of the password.
     Ssh key
-        ****TODO****
+        SSH key that can be used for authentication.
     Stateful filters
         ****TODO****
 
@@ -54,9 +54,9 @@ Application Programming Interface (API) is used for interactions between externa
     Customer
         :ref:`Customer <contractors>` that is associated with this *API Access*.
     Accounts
-        ****TODO****
+        :ref:` <Accounts accounts>` that are associated with this *API Access*.
     Allowd IPs
-        ****TODO****
+        Array of IP addresses that is divided by comma. It is possible to use hosts or networks addresses here.
 
 ----
 
@@ -65,12 +65,28 @@ Api Log Configs
 
     ****TODO****
 
+**Api Log Config**'s properties:
+````````````````````````````````
+    Controller
+        ****TODO****
+    Debug
+        ****TODO****
+
 ----
 
 Alerts
 ~~~~~~
 
 ****TODO****
+
+**Api Log Config**'s properties:
+````````````````````````````````
+    Id
+        ****TODO****
+    Event
+        ****TODO****
+    Send To
+        ****TODO****
 
 ----
 
@@ -79,7 +95,7 @@ Background Tasks
 
 ****TODO****
 
-**Background Task**'s attributes:
+**Background Task**'s properties:
 `````````````````````````````````
     Priority
         ****TODO****
@@ -146,6 +162,19 @@ Jobs
 ~~~~
         ****TODO****
 
+**Job**'s properties:
+`````````````````````
+    Id
+        ****TODO****
+    Type
+        ****TODO****
+    Description
+        ****TODO****
+    Executed
+        ****TODO****
+    Running
+        ****TODO****
+
 ----
 
 .. _pops:
@@ -170,7 +199,7 @@ Countries
 ~~~~~~~~~
        Countries are used for systematizing destination numbers and source numbers by countries that are identified by international country code. With using *Countries* Yeti could apply some additional routing rules to the calls.
 
-**Country**'s attributes:
+**Country**'s properties:
 `````````````````````````
 
     .. _country_id:
@@ -179,6 +208,8 @@ Countries
        Unique Country's id.
     Name
        Unique Country's name.
+    ISO2
+        ****TODO****
 
 ----
 
