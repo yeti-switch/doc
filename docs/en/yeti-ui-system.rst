@@ -68,7 +68,7 @@ Api Log Configs
 **Api Log Config**'s properties:
 ````````````````````````````````
     Controller
-        ****TODO****
+        Controller that is ... ****TODO****
     Debug
         ****TODO****
 
@@ -79,14 +79,14 @@ Alerts
 
 ****TODO****
 
-**Api Log Config**'s properties:
-````````````````````````````````
+**Alert**'s properties:
+```````````````````````
     Id
-        ****TODO****
+        Unique Alert's id.
     Event
         ****TODO****
     Send To
-        ****TODO****
+         :ref:`Contact <contacts>` or  :ref:`Admin User <admin_users>` for sending this *Alert*.
 
 ----
 
@@ -106,7 +106,7 @@ Background Tasks
     Last Error
         ****TODO****
     Run At
-        ****TODO****
+        Date and time of running this *Background Task*.
     Locked At
         ****TODO****
     Failed At
@@ -165,7 +165,7 @@ Jobs
 **Job**'s properties:
 `````````````````````
     Id
-        ****TODO****
+        Job's id.
     Type
         ****TODO****
     Description
