@@ -34,7 +34,7 @@ Users that have access to this YETI WEB interface.
     Ssh key
         SSH key that can be used for authentication.
     Stateful filters
-        ****TODO****
+        ****TODO**** - persistent - по дефолту сохранять состояние фильтров
 
 ----
 
@@ -63,14 +63,14 @@ Application Programming Interface (API) is used for interactions between externa
 Api Log Configs
 ~~~~~~~~~~~~~~~
 
-    ****TODO****
+    ****TODO**** - надо клацать
 
 **Api Log Config**'s properties:
 ````````````````````````````````
     Controller
         Controller that is ... ****TODO****
     Debug
-        ****TODO****
+        ****TODO**** - будет записывать для апи запросов тела запросв и т.д.
 
 ----
 
@@ -84,7 +84,7 @@ Alerts
     Id
         Unique Alert's id.
     Event
-        ****TODO****
+        ****TODO**** - описать AccountHighThesholdCleared - был превышен, стал хорошим, был принижен стал хорошим
     Send To
          :ref:`Contact <contacts>` or  :ref:`Admin User <admin_users>` for sending this *Alert*.
 
@@ -93,7 +93,7 @@ Alerts
 Background Tasks
 ~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - фоновые задачи, как только сделается - будет удалена
 
 **Background Task**'s properties:
 `````````````````````````````````
@@ -102,19 +102,19 @@ Background Tasks
     Attempts
         ****TODO****
     Hadler
-        ****TODO****
+        ****TODO**** - серилизованая данные
     Last Error
         ****TODO****
     Run At
         Date and time of running this *Background Task*.
     Locked At
-        ****TODO****
+        ****TODO**** - если взята в работу
     Failed At
-        ****TODO****
+        ****TODO**** - зафейлилас
     Locked By
-        ****TODO****
+        ****TODO**** - пид процесса, который взял в работу
     Queue
-        ****TODO****
+        ****TODO**** - имя очереди
     Created At
         Date and time of this Background Task item creation.
     Updated At
@@ -127,16 +127,16 @@ Background Tasks
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - причина (код)
 
 **Disconnect Code**'s attributes:
 `````````````````````````````````
     Id
        Disconnect Code's id.
     Namespace
-        ****TODO****
+        ****TODO**** TM- traffic manager, RADIUS- -  , TS - traffic switch, SIP - уже нога Б
     Code
-        ****TODO****
+        ****TODO**** - SIP код
     Reason
         ****TODO****
     Success
@@ -160,7 +160,7 @@ Disconnect Codes
 
 Jobs
 ~~~~
-        ****TODO****
+        ****TODO**** - шедуллеры, которые запускаются кроном или в ручную (описать 12 штук)  - unlock появляется
 
 **Job**'s properties:
 `````````````````````
@@ -209,7 +209,7 @@ Countries
     Name
        Unique Country's name.
     ISO2
-        ****TODO****
+       Official ISO Country Code.
 
 ----
 
@@ -291,7 +291,7 @@ Quality Control Min Duration
 
 CDR Writer Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
-        ****TODO****
+        ****TODO**** - способ Call duration round mode
 
 ----
 
@@ -352,18 +352,18 @@ Comments
 LNP Resolvers
 ~~~~~~~~~~~~~
 
-****TODO****
+Local number portability (LNP) Resolvers are used for ****TODO****
 
 **LNP Resolver**'s attributes:
 ``````````````````````````````
     Id
        LNP Resolver's id.
     Name
-        ****TODO****
+       Unique name of this *LNP Resolver*.
     Address
-        ****TODO****
+       IP-address or domain name for connection to this *LNP Resolver*.
     Port
-        ****TODO****
+       Network port for connection to this *LNP Resolver*. ****TODO****
 
 ----
 
@@ -429,13 +429,15 @@ Sensor configuration is separate for A and B leg, thus for both legs mirroring -
     Id
        Sensor's id.
     Name
-        ****TODO****
+        Sensor's name.
     Mode
-        ****TODO****
+        IP-IP encapsulation
+        IP-Ethernet encapsulation
+        HEPv3 ****TODO****
     Source Interface
-        ****TODO****
+        The name of the source interface of this *Sensor*. This field is used for "IP-Ethernet encapsulation" mode. ****TODO****
     Target MAC
-        ****TODO****
+        MAC address of target gateway. This field is used for "IP-Ethernet encapsulation" mode. ****TODO****
     Source IP
         ****TODO****
     Target IP

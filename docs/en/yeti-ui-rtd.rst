@@ -83,7 +83,7 @@ Outgoing Registrations are used for monitoring of current status of :ref:`outgoi
     Domain
         Domain that is used for this *Outgoing Registration* (domain part of RURI).
     State
-        Current state of this *Outgoing Registration*. Following states are available: RegisterError - ****TODO****; RegisterPending - ****TODO**** ...
+        Current state of this *Outgoing Registration*. Following states are available: RegisterError; RegisterPending; Success. ****TODO****
     Auth User
         Authorization username that is used for this *Outgoing Registration*.
     Display Name
@@ -95,7 +95,7 @@ Outgoing Registrations are used for monitoring of current status of :ref:`outgoi
     Expires
         Registration expiration time for this *Outgoing Registration*.
     Expires Left
-        Time in seconds that is left before expiration for this *Outgoing Registration*. ****TODO****
+        Time in seconds that is left before expiration for this *Outgoing Registration*.
     Node
         :ref:`Node <nodes>` (independent installation of YETI-SEMS) that is used for this *Outgoing Registration*.
     Last Error Code

@@ -15,23 +15,23 @@ API Log contains records about all requests via Application Programming Interfac
     Created At
         Date and time of request.
     Status
-        Status of operation (code of error). ****TODO****
+        Status of operation (HTTP-response code).
     Method
-        HTTP-request (PUT, GET, POST) method that was used for this API-request. ****TODO****
+        HTTP-request (PUT, GET, POST, DELETE) method that was used for this API-request.
     Path
         Relative path to requested procedure.
     DB Duration
-        Duration (im milliseconds) of processing request by Database. ****TODO****
+        Duration (im milliseconds) of processing request by Database.
     Page Duration
-        Duration (im milliseconds) of loading page with answer on API-request. ****TODO****
+        Total response time (im milliseconds).
     Controller
-        Controller that is contained procedure that was requested. ****TODO****
+        Controller that is contained procedure that was requested.
     Action
-        Name of requested procedure. ****TODO****
+        Name of requested procedure.
     Params
-        Parameters that were sent with request. ****TODO****
+        Parameters that were sent with request.
     Request Body
-        Body of request in raw format. ****TODO****
+        Body of request in raw format. This field will be recorded only in case (ApiLogConfigs) for this controller  ****TODO****
     Response Body
         Body of response in raw format. ****TODO****
     Request Headers
@@ -80,7 +80,7 @@ Logic Log contains records about internal processes. It is useful for monitoring
     TXID
         Unique identifier of transaction.
     Level
-        ****TODO****
+        ****TODO**** Level of importance.
     Source
         Type of item and process number (f.e. Dialpeer (3) - third process of the import of Dialpeers).
     MSG
@@ -116,7 +116,7 @@ Email Log contains records about emails that were or weren't (via some reason) s
     Error
         Text of error (if any).
     Batch
-        ****TODO****
+        ****TODO**** Если какая-то сущность шлёт несколько мейлов сразу, то они будут в одном батче (числовое значение)
 
 ----
 
@@ -124,6 +124,7 @@ Events
 ~~~~~~
 
 Events contains records about ... ****TODO**** (order of events on SEMS). It is possible to use filters to select necessary records.
+Если поменяли что-то критичное для работы sems то тут создаётся строка, которая находится до тех пор, пока фоновый процесс не пошлёт евент семсу. С целью обновить изменения. Кодек - группа. В нормальном режиме эта табличка пустая.
 
 **Event**'s properties:
 ```````````````````````
@@ -132,13 +133,13 @@ Events contains records about ... ****TODO**** (order of events on SEMS). It is 
     Node
         :ref:`Node <nodes>` that is related to this *Event*.
     Retries
-        ****TODO****
+        ****TODO**** - количество попыток
     Command
-        ****TODO****
+        ****TODO**** - команда которую послали
 
 Balance notifications
 ~~~~~~~~~~~~~~~~~~~~~
-****TODO**** -
+****TODO**** - если трэш-холд нотификейшн в акаунте (порог оповещения). Если случилось, то в этот лог записывается нотификейшн
 
 **Balance notification**'s properties:
 ``````````````````````````````````````
@@ -147,12 +148,12 @@ Balance notifications
     Created At
        Date and time of this record creation.
     Direction
-        ****TODO****
+        ****TODO**** - превышен или принижен
     Action
-        ****TODO****
+        ****TODO**** - fire - случился, восстановился - другой (сделать пеймент, попробовать)
     Is Processed
         "Yes" - if this *Balance notification* was processed, "No" - otherwise.
     Processed At
        Date and time whet this *Balance notification* was processed.
     Data
-        ****TODO****
+        ****TODO**** - данные аккаунта к которому относится нотификейшн
