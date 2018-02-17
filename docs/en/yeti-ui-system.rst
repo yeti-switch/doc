@@ -34,7 +34,7 @@ Users that have access to this YETI WEB interface.
     Ssh key
         SSH key that can be used for authentication.
     Stateful filters
-        ****TODO**** - persistent - по дефолту сохранять состояние фильтров
+        ****TODO**** - persistent - by default to store state of filters
 
 ----
 
@@ -60,17 +60,19 @@ Application Programming Interface (API) is used for interactions between externa
 
 ----
 
+.. _api_log_configs:
+
 Api Log Configs
 ~~~~~~~~~~~~~~~
 
-    ****TODO**** - надо клацать
+    ****TODO**** - you can click on the records for changing them state
 
 **Api Log Config**'s properties:
 ````````````````````````````````
     Controller
         Controller that is ... ****TODO****
     Debug
-        ****TODO**** - будет записывать для апи запросов тела запросв и т.д.
+        ****TODO**** - will write additional fields to the API Log .
 
 ----
 
@@ -84,7 +86,7 @@ Alerts
     Id
         Unique Alert's id.
     Event
-        ****TODO**** - описать AccountHighThesholdCleared - был превышен, стал хорошим, был принижен стал хорошим
+        ****TODO**** - list of events should be described (AccountHighThesholdCleared - was bigger than theshold, but was cleared....)
     Send To
          :ref:`Contact <contacts>` or  :ref:`Admin User <admin_users>` for sending this *Alert*.
 
@@ -93,7 +95,7 @@ Alerts
 Background Tasks
 ~~~~~~~~~~~~~~~~
 
-****TODO**** - фоновые задачи, как только сделается - будет удалена
+****TODO**** - some tasks that are making in background. Will be deleted after finishing
 
 **Background Task**'s properties:
 `````````````````````````````````
@@ -102,19 +104,19 @@ Background Tasks
     Attempts
         ****TODO****
     Hadler
-        ****TODO**** - серилизованая данные
+        ****TODO**** - serialized data
     Last Error
         ****TODO****
     Run At
         Date and time of running this *Background Task*.
     Locked At
-        ****TODO**** - если взята в работу
+        ****TODO**** - in case of going to the action
     Failed At
-        ****TODO**** - зафейлилас
+        ****TODO**** - in case of failing
     Locked By
-        ****TODO**** - пид процесса, который взял в работу
+        ****TODO**** - PID of process that is locked this task
     Queue
-        ****TODO**** - имя очереди
+        ****TODO**** - name of the Queue
     Created At
         Date and time of this Background Task item creation.
     Updated At
@@ -127,16 +129,16 @@ Background Tasks
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
-****TODO**** - причина (код)
+****TODO**** - reason (code)
 
 **Disconnect Code**'s attributes:
 `````````````````````````````````
     Id
        Disconnect Code's id.
     Namespace
-        ****TODO**** TM- traffic manager, RADIUS- -  , TS - traffic switch, SIP - уже нога Б
+        ****TODO**** TM- traffic manager, RADIUS- -  , TS - traffic switch, SIP - all interconnection with legB
     Code
-        ****TODO**** - SIP код
+        ****TODO**** - SIP code
     Reason
         ****TODO****
     Success
@@ -160,7 +162,7 @@ Disconnect Codes
 
 Jobs
 ~~~~
-        ****TODO**** - шедуллеры, которые запускаются кроном или в ручную (описать 12 штук)  - unlock появляется
+        ****TODO**** - schedulers that could be run by cron or manually. Run or Unlock (for the failed) actions
 
 **Job**'s properties:
 `````````````````````
@@ -291,7 +293,7 @@ Quality Control Min Duration
 
 CDR Writer Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
-        ****TODO**** - способ Call duration round mode
+        ****TODO**** - Call duration round mode
 
 ----
 

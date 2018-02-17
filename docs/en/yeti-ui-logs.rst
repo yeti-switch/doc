@@ -31,14 +31,13 @@ API Log contains records about all requests via Application Programming Interfac
     Params
         Parameters that were sent with request.
     Request Body
-        Body of request in raw format. This field will be recorded only in case (ApiLogConfigs) for this controller  ****TODO****
+        Body of request in raw format. This field will be recorded only in case of enabling "Debug" mode for the selected Controller in the :ref:`Api Log Configs <api_log_configs>` configuration menu.
     Response Body
-        Body of response in raw format. ****TODO****
+        Body of response in raw format. This field will be recorded only in case of enabling "Debug" mode for the selected Controller in the :ref:`Api Log Configs <api_log_configs>` configuration menu.
     Request Headers
-        Headers of request in raw format. ****TODO****
+        Headers of request in raw format. This field will be recorded only in case of enabling "Debug" mode for the selected Controller in the :ref:`Api Log Configs <api_log_configs>` configuration menu.
     Response Headers
-        Headers of response in raw format. ****TODO****
-
+        Headers of response in raw format. This field will be recorded only in case of enabling "Debug" mode for the selected Controller in the :ref:`Api Log Configs <api_log_configs>` configuration menu.
 
 ----
 
@@ -80,7 +79,7 @@ Logic Log contains records about internal processes. It is useful for monitoring
     TXID
         Unique identifier of transaction.
     Level
-        ****TODO**** Level of importance.
+        Level of importance of this record of *Logic Log*.
     Source
         Type of item and process number (f.e. Dialpeer (3) - third process of the import of Dialpeers).
     MSG
@@ -116,30 +115,30 @@ Email Log contains records about emails that were or weren't (via some reason) s
     Error
         Text of error (if any).
     Batch
-        ****TODO**** Если какая-то сущность шлёт несколько мейлов сразу, то они будут в одном батче (числовое значение)
+        Digital value that represents belonging to the common batch of emails that were sent.
 
 ----
 
 Events
 ~~~~~~
 
-Events contains records about ... ****TODO**** (order of events on SEMS). It is possible to use filters to select necessary records.
-Если поменяли что-то критичное для работы sems то тут создаётся строка, которая находится до тех пор, пока фоновый процесс не пошлёт евент семсу. С целью обновить изменения. Кодек - группа. В нормальном режиме эта табличка пустая.
+Events log contains records about tasks that are in queue to the SEMS. Tasks are adding to this queue in case of changing some critical (for SEMS working) properties (like Codec's configuration). SEMS will re-load data from Yeti's database after receiving this event. Record will be removed from this *Events* log after successful sending it to the SEMS. In the normal working mode this log will be empty. It is possible to use filters to select necessary records.
 
 **Event**'s properties:
 ```````````````````````
     Id
        Unique Event's id.
     Node
-        :ref:`Node <nodes>` that is related to this *Event*.
+       :ref:`Node <nodes>` that is related to this *Event*.
     Retries
-        ****TODO**** - количество попыток
+        Current amount of retries for sending this command (task) to the SEMS.
     Command
-        ****TODO**** - команда которую послали
+        Command that was sent to the SEMS.
 
 Balance notifications
 ~~~~~~~~~~~~~~~~~~~~~
-****TODO**** - если трэш-холд нотификейшн в акаунте (порог оповещения). Если случилось, то в этот лог записывается нотификейшн
+
+Balance notifications are used for storing records about breaking of the low or high threshold of some :ref:`Account <accounts>` (where these properties are configured).
 
 **Balance notification**'s properties:
 ``````````````````````````````````````
@@ -148,12 +147,14 @@ Balance notifications
     Created At
        Date and time of this record creation.
     Direction
-        ****TODO**** - превышен или принижен
+        "Low" in case if balance of :ref:`Account <accounts>` is become less than low threshold.
+        "High" in case if balance of :ref:`Account <accounts>` is become bigger than high threshold.
     Action
-        ****TODO**** - fire - случился, восстановился - другой (сделать пеймент, попробовать)
+        "Fire" - in case of breaking some of threshold for :ref:`Account <accounts>` that is related this *Balance notification*.
+        "Clear" - in case of restoring some of threshold for :ref:`Account <accounts>` that is related this *Balance notification*.
     Is Processed
         "Yes" - if this *Balance notification* was processed, "No" - otherwise.
     Processed At
        Date and time whet this *Balance notification* was processed.
     Data
-        ****TODO**** - данные аккаунта к которому относится нотификейшн
+        Specific data of :ref:`Account <accounts>` that is related this *Balance notification*.
