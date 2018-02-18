@@ -125,19 +125,19 @@ Background Tasks are used for storing records about ongoing tasks that are makin
     Attempts
         Current amount of attempts of make action for this *Background Task*.
     Hadler
-        ****TODO**** - serialized data
+        Some serialized data that is related to this *Background Task*.
     Last Error
-        ****TODO****
+        Last Error of action's attempt for this *Background Task*.
     Run At
         Date and time of running this *Background Task*.
     Locked At
-        ****TODO**** - in case of going to the action
+        Date and time of locking action's attempt (by some working process) for this *Background Task*.
     Failed At
-        ****TODO**** - in case of failing
+        Date and time of failing action's attempt for this *Background Task*.
     Locked By
-        ****TODO**** - PID of process that is locked this task
+        Process ID of working process that is locked this *Background Task*.
     Queue
-        ****TODO**** - name of the Queue
+        Name of Queue where this *Background Task* is staying.
     Created At
         Date and time of this Background Task item creation.
     Updated At
@@ -150,32 +150,32 @@ Background Tasks are used for storing records about ongoing tasks that are makin
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
-****TODO**** - reason (code)
+Disconnect Codes are used for ****TODO****
 
 **Disconnect Code**'s attributes:
 `````````````````````````````````
     Id
        Disconnect Code's id.
     Namespace
-        ****TODO**** TM- traffic manager, RADIUS- -  , TS - traffic switch, SIP - all interconnection with legB
+       Namespace that is related to this *Disconnect Code*. Following Namespaces are available: TM (traffic manager), RADIUS, TS (traffic switch), SIP.
     Code
-        ****TODO**** - SIP code
+        Numeric SIP code for this *Disconnect Code*.
     Reason
-        ****TODO****
+        Textual Reason for this *Disconnect Code*.
     Success
-        ****TODO****
+        In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful.
     Successnozerolen
         ****TODO****
     Stop hunting
-        ****TODO****
+        In case of enabling of this field Yeti will stop ****TODO****
     Pass reason to originator
-        ****TODO****
+        In case of enabling of this field Yeti will transfer reason from termination :ref:`Gateway <gateways>` to origination.
     Rewrited code
-        ****TODO****
+        If this field is not empty new numeric code from this field will be transfer to origination :ref:`Gateway <gateways>`.
     Rewrited reason
-        ****TODO****
+        If this field is not empty new textual reason from this field will be transfer to origination :ref:`Gateway <gateways>`.
     Store cdr
-        ****TODO****
+        In case of enabling of this field Yeti will store CDRs for calls that were terminated with this *Disconnect Code*.
     Silently drop
         ****TODO****
 
