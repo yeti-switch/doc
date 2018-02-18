@@ -4,6 +4,7 @@ Logs
 
 YETI WEB interface - Logs menu description. This section describes logs and notifications entities.
 
+.. _api_log:
 
 API Log
 ~~~~~~~

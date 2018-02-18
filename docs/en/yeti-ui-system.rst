@@ -34,7 +34,7 @@ Users that have access to this YETI WEB interface.
     Ssh key
         SSH key that can be used for authentication.
     Stateful filters
-        ****TODO**** - persistent - by default to store state of filters
+        ****TODO**** - need to clarify
 
 ----
 
@@ -65,44 +65,65 @@ Application Programming Interface (API) is used for interactions between externa
 Api Log Configs
 ~~~~~~~~~~~~~~~
 
-    ****TODO**** - you can click on the records for changing them state
+Api Log Configs are used for setting (where necessary) Debug mode for storing records to the :ref:`API Log <api_log>`.
+You can click on the  "Yes/No" button near the records for changing their state.
 
 **Api Log Config**'s properties:
 ````````````````````````````````
     Controller
-        Controller that is ... ****TODO****
+        Controller that will be used for applying of the Debug mode of storing records to the :ref:`API Log <api_log>` in case of enabling Debug property bellow.
     Debug
-        ****TODO**** - will write additional fields to the API Log .
+        In case of enabling this property (by clicking on it) additional fields (Request Body, Response Body, Request Headers, Response Headers) will be stored to the :ref:`API Log <api_log>` for the Controller above.
 
 ----
 
 Alerts
 ~~~~~~
 
-****TODO****
+Alerts are used for configuring :ref:`Contact <contacts>` or :ref:`Admin User <admin_users>` for sending notifications in case of some Events. Following Events are available for configuration:
+
+    **AccountHighThesholdCleared** - event when the balance of some :ref:`Account <accounts>` has become in norm after was becoming bigger than high threshold. :ref:`Balance high threshold <account_balance_high_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **AccountLowThesholdCleared** - event when the balance of some :ref:`Account <accounts>` has become in norm after was becoming less than low threshold. :ref:`Balance low threshold <account_balance_low_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **AccountHighThesholdReached** - event when the balance of some :ref:`Account <accounts>` has become bigger than high threshold. :ref:`Balance high threshold <account_balance_high_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **AccountLowThesholdReached** - event when the balance of some :ref:`Account <accounts>` has become less than low threshold. :ref:`Balance low threshold <account_balance_low_threshold>` should be configured for the :ref:`Account <accounts>`;
+
+    **DestinationQualityAlarmCleared** - event when one of the quality parameters (Asr, Acd or Short Calls) of some :ref:`Destination <destinations>` has become in norm after were becoming less than :ref:`Asr Limit, Acd Limit or Short Calls Limit <quality_notification_config>` values accordingly;
+
+    **DestinationQualityAlarmFired** - event when one of the quality parameters (Asr, Acd or Short Calls) of some :ref:`Destination <destinations>` has become less than :ref:`Asr Limit, Acd Limit or Short Calls Limit <quality_notification_config>` values accordingly;
+
+    **GatewayUnlocked** - ****TODO****;
+
+    **DialpeerUnlocked** - ****TODO****;
+
+    **GatewayLocked** - ****TODO****;
+
+    **DialpeerLocked** - ****TODO****.
 
 **Alert**'s properties:
 ```````````````````````
     Id
         Unique Alert's id.
     Event
-        ****TODO**** - list of events should be described (AccountHighThesholdCleared - was bigger than theshold, but was cleared....)
+        Name of Event for this "Alert".
     Send To
-         :ref:`Contact <contacts>` or  :ref:`Admin User <admin_users>` for sending this *Alert*.
+        :ref:`Contact <contacts>` or :ref:`Admin User <admin_users>` for sending this *Alert*.
 
 ----
 
 Background Tasks
 ~~~~~~~~~~~~~~~~
 
-****TODO**** - some tasks that are making in background. Will be deleted after finishing
+Background Tasks are used for storing records about ongoing tasks that are making in background. Task will be removed from this list after finishing of its action. In normal mode this list is empty.
 
 **Background Task**'s properties:
 `````````````````````````````````
     Priority
-        ****TODO****
+        Priority of this *Background Task*.
     Attempts
-        ****TODO****
+        Current amount of attempts of make action for this *Background Task*.
     Hadler
         ****TODO**** - serialized data
     Last Error
