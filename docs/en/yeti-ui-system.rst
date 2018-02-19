@@ -167,7 +167,7 @@ Disconnect Codes are used for ****TODO****
     Successnozerolen
         ****TODO****
     Stop hunting
-        In case of enabling of this field Yeti will stop ****TODO****
+        In case of enabling of this field Yeti will stop going through Dialpeers rating for routing the call after receiving this *Disconnect Code*.
     Pass reason to originator
         In case of enabling of this field Yeti will transfer reason from termination :ref:`Gateway <gateways>` to origination.
     Rewrited code
@@ -183,20 +183,45 @@ Disconnect Codes are used for ****TODO****
 
 Jobs
 ~~~~
-        ****TODO**** - schedulers that could be run by cron or manually. Run or Unlock (for the failed) actions
+Jobs are used for review schedulers of some regular procedures that are executed by system or could be executed manually.
+You could press "Run" link for execute some procedure or "Unlock" in case of some problems during its execution. Following procedures are available:
+
+    -   **CdrPartitioning** - ****TODO****;
+
+    -   **EventProcessor** - ****TODO****;
+
+    -   **CdrBatchCleaner** - ****TODO****;
+
+    -   **CdrArchiving** - ****TODO****;
+
+    -   **CallsMonitoring** - ****TODO****;
+
+    -   **StatsClean** - ****TODO****;
+
+    -   **StatsAggregation** - ****TODO****;
+
+    -   **Invoice** - ****TODO****;
+
+    -   **ReportScheduler** - ****TODO****;
+
+    -   **TerminationQualityCheck** - ****TODO****;
+
+    -   **DialpeerRatesApply** - ****TODO****;
+
+    -   **AccountBalanceNotify** - ****TODO****;
 
 **Job**'s properties:
 `````````````````````
     Id
         Job's id.
     Type
-        ****TODO****
+        Name of procedure for this *Job*.
     Description
-        ****TODO****
+        Textual description of procedure.
     Executed
-        ****TODO****
+        Period of time when this *Job* was executed last time.
     Running
-        ****TODO****
+        Running status (Yes or No) of this *Job*.
 
 ----
 
@@ -314,7 +339,14 @@ Quality Control Min Duration
 
 CDR Writer Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
-        ****TODO**** - Call duration round mode
+
+The page contains CDR writer configuration of YETI.
+
+**System Cdr Config**'s attributes:
+```````````````````````````````````
+
+Call duration round mode
+    This field is used to regulate round mode of call duration in Yeti. Following values are available: Always UP;Always DOWN; Math rules (up if >= 0.5).
 
 ----
 
@@ -329,9 +361,9 @@ Load Balancers
     Id
        Load Balancer's id.
     Name
-        ****TODO****
+        Load Balancer's name.
     Signalling IP
-        ****TODO****
+        Signalling IP address for this *Load Balancer*. - ****TODO****
 
 ----
 
@@ -462,13 +494,13 @@ Sensor configuration is separate for A and B leg, thus for both legs mirroring -
     Target MAC
         MAC address of target gateway. This field is used for "IP-Ethernet encapsulation" mode. ****TODO****
     Source IP
-        ****TODO****
+        IP address of source interface of this *Sensor*. This field is used for "IP-IP encapsulation" mode. ****TODO****
     Target IP
-        ****TODO****
+        IP address of target gateway. This field is used for "IP-IP encapsulation" and for "HEPv3" modes. ****TODO****
     Target Port
-        ****TODO****
+        Port number of target gateway. This field is used for "HEPv3" mode. ****TODO****
     Hep Capture
-        ****TODO****
+        Value of HEP_CAPTURE_ID. Leave it empty to use YETI Node ID as HEP_CAPTURE_ID. This field is used for "HEPv3" mode. ****TODO****
 
 ----
 
