@@ -83,7 +83,7 @@ Outgoing Registrations are used for monitoring of current status of :ref:`outgoi
     Domain
         Domain that is used for this *Outgoing Registration* (domain part of RURI).
     State
-        Current state of this *Outgoing Registration*. Following states are available: RegisterError; RegisterPending; Success. ****TODO****
+        Current state of this *Outgoing Registration*. Following states are available: RegisterPending; RegisterActive;RegisterError; RegisterExpired; RegisterPostponed.
     Auth User
         Authorization username that is used for this *Outgoing Registration*.
     Display Name

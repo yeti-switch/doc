@@ -94,11 +94,11 @@ Alerts are used for configuring :ref:`Contact <contacts>` or :ref:`Admin User <a
 
     **DestinationQualityAlarmFired** - event when one of the quality parameters (Asr, Acd or Short Calls) of some :ref:`Destination <destinations>` has become less than :ref:`Asr Limit, Acd Limit or Short Calls Limit <quality_notification_config>` values accordingly;
 
-    **GatewayUnlocked** - ****TODO****;
+    **GatewayUnlocked** - ****TODO**** ;
 
-    **DialpeerUnlocked** - ****TODO****;
+    **DialpeerUnlocked** - ****TODO**** - если диалпир по какому-либо параметру качества превысил лимиты, то ему ставится флаг локед, если качество восстановилось то анлокед; локед диалпиры не используются для роутинга (при определённых вариантах сортировки)
 
-    **GatewayLocked** - ****TODO****;
+    **GatewayLocked** - ****TODO**** - не используется для терминации если локед;
 
     **DialpeerLocked** - ****TODO****.
 
@@ -150,7 +150,7 @@ Background Tasks are used for storing records about ongoing tasks that are makin
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
-Disconnect Codes are used for ****TODO****
+Disconnect Codes are used for ****TODO**** - определение поведения для кода (если сказали бизи - то незачем рераутить, для каких то кодов нужен, для каких-то нет). Для обеспечения совместимости (реврайтинг)
 
 **Disconnect Code**'s attributes:
 `````````````````````````````````
@@ -165,7 +165,7 @@ Disconnect Codes are used for ****TODO****
     Success
         In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful.
     Successnozerolen
-        ****TODO****
+        ****TODO**** - только если длинна была больше нуля
     Stop hunting
         In case of enabling of this field Yeti will stop going through Dialpeers rating for routing the call after receiving this *Disconnect Code*.
     Pass reason to originator
@@ -177,7 +177,7 @@ Disconnect Codes are used for ****TODO****
     Store cdr
         In case of enabling of this field Yeti will store CDRs for calls that were terminated with this *Disconnect Code*.
     Silently drop
-        ****TODO****
+        ****TODO**** - не отвечать ничего ноге А если этот код вернула процедура маршрутизации  TM (traffic manager), нужно для борьбы с ботами
 
 ----
 
@@ -186,29 +186,29 @@ Jobs
 Jobs are used for review schedulers of some regular procedures that are executed by system or could be executed manually.
 You could press "Run" link for execute some procedure or "Unlock" in case of some problems during its execution. Following procedures are available:
 
-    -   **CdrPartitioning** - ****TODO****;
+    -   **CdrPartitioning** - ****TODO**** - создаёт новые таблицы на каждый месяц для сдров;
 
-    -   **EventProcessor** - ****TODO****;
+    -   **EventProcessor** - ****TODO**** - отсылает евенты семсу ;
 
-    -   **CdrBatchCleaner** - ****TODO****;
+    -   **CdrBatchCleaner** - ****TODO**** - удаляет из временной таблицы в раутинг базе старые батчи ;
 
-    -   **CdrArchiving** - ****TODO****;
+    -   **CdrArchiving** - ****TODO**** - CDR ARCHIVE DELAY - переносит те таблицы которые пора переносить ;
 
-    -   **CallsMonitoring** - ****TODO****;
+    -   **CallsMonitoring** - ****TODO**** - раз в минуту, затягивает звонки со всех нод - считает стоимость звонков на текущий момент для каждого аккаунта (стоимость активные звонки) - сравнивается с балансом аккаунта - если не хватает денег то звонки отключаются, статистика на дашборд ;
 
-    -   **StatsClean** - ****TODO****;
+    -   **StatsClean** - ****TODO**** - очищает статистику для диалпиров и для гейтвеев, по которой считается качество ;
 
-    -   **StatsAggregation** - ****TODO****;
+    -   **StatsAggregation** - ****TODO**** - аггрегирует данные для графиков про звонки;
 
-    -   **Invoice** - ****TODO****;
+    -   **Invoice** - ****TODO**** - генерирует инвойсы (есть параметр в аккаунтс);
 
-    -   **ReportScheduler** - ****TODO****;
+    -   **ReportScheduler** - ****TODO**** - генерирует репорты ;
 
-    -   **TerminationQualityCheck** - ****TODO****;
+    -   **TerminationQualityCheck** - ****TODO**** - статистика для диалпиров по качеству, сравнивает статистику - лочит диалпиры;
 
-    -   **DialpeerRatesApply** - ****TODO****;
+    -   **DialpeerRatesApply** - ****TODO**** - нехт-рейт (завтра рейт будет другой) - применяет изменения у диалпир ;
 
-    -   **AccountBalanceNotify** - ****TODO****;
+    -   **AccountBalanceNotify** - ****TODO**** - нотификейшены по балансу (ниже, выше);
 
 **Job**'s properties:
 `````````````````````
@@ -354,7 +354,7 @@ Call duration round mode
 Load Balancers
 ~~~~~~~~~~~~~~
 
-****TODO****
+****TODO**** - лоадбалансер ставится перед нодами семса .. обрабатывает сигнализацию - если нода перегружена или выключена - если мимо лоадбалансера то айпи-адрес будет сорца, - лоад-балансер вставляет хидеры, ищем кастомер аус по хидерам, тут авторизированные лоадбалансеры (будем доверять ему)
 
 **Load Balancer**'s attributes:
 ```````````````````````````````
@@ -407,7 +407,7 @@ Comments
 LNP Resolvers
 ~~~~~~~~~~~~~
 
-Local number portability (LNP) Resolvers are used for ****TODO****
+Local number portability (LNP) Resolvers are used for ****TODO**** наш софт, который взаимодействует с базой данной
 
 **LNP Resolver**'s attributes:
 ``````````````````````````````
@@ -418,7 +418,7 @@ Local number portability (LNP) Resolvers are used for ****TODO****
     Address
        IP-address or domain name for connection to this *LNP Resolver*.
     Port
-       Network port for connection to this *LNP Resolver*. ****TODO****
+       Network port for connection to this *LNP Resolver*. ****TODO**** TCP
 
 ----
 
@@ -488,7 +488,7 @@ Sensor configuration is separate for A and B leg, thus for both legs mirroring -
     Mode
         IP-IP encapsulation
         IP-Ethernet encapsulation
-        HEPv3 ****TODO****
+        HEPv3 ****TODO**** - https://github.com/sipcapture/HEP
     Source Interface
         The name of the source interface of this *Sensor*. This field is used for "IP-Ethernet encapsulation" mode. ****TODO****
     Target MAC
