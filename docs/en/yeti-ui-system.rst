@@ -98,7 +98,7 @@ Alerts are used for configuring :ref:`Contact <contacts>` or :ref:`Admin User <a
 
     **GatewayUnlocked** - event when :ref:`Gateway <gateways>` has been unlocked because quality parameters (Acd limit, Asr limit and Short Calls limit) of the :ref:`Gateway <gateways>` had become in norm;
 
-    **DialpeerLocked** - event when :ref:`Dialpeer <dialpeers>` has been locked because threshold  of the quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` was overcome. In locked mode :ref:`Dialpeer <dialpeers>` could not be used for routing of calls in case of using *sorting method* with **ACD&ASR control** in the relevant :ref:`Routing Plan <routing_plan>`.
+    **DialpeerLocked** - event when :ref:`Dialpeer <dialpeers>` has been locked because threshold of the quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` was overcome. In locked mode :ref:`Dialpeer <dialpeers>` could not be used for routing of calls in case of using *sorting method* with **ACD&ASR control** in the relevant :ref:`Routing Plan <routing_plan>`.
 
     **DialpeerUnlocked** - event when :ref:`Dialpeer <dialpeers>` has been unlocked because quality parameters (Acd Limit, Asr Limit and Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` had become in norm;
 
@@ -204,15 +204,16 @@ You could press "Run" link for execute some procedure or "Unlock" in case of som
 
     -   **StatsAggregation** - procedure of aggregation of the data about calls for the graphs;
 
-    -   **Invoice** - ****TODO**** - генерирует инвойсы (есть параметр в аккаунтс);
+    -   **Invoice** - procedure of :ref:`Invoice <invoices>` generation according to periods that were configured in the settings of :ref:`Accounts <accounts>`.
 
-    -   **ReportScheduler** - ****TODO**** - генерирует репорты ;
+    -   **ReportScheduler** - procedure of :ref:`Reports <reports>` generation according to stored Schedulers;
 
-    -   **TerminationQualityCheck** - ****TODO**** - статистика для диалпиров по качеству, сравнивает статистику - лочит диалпиры;
+    -   **TerminationQualityCheck** - procedure of checking of the quality parameters of :ref:`Dialpeers <dialpeers>`. :ref:`Dialpeer <dialpeers>` will be locked in case of overcoming of threshold for quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>`.
 
-    -   **DialpeerRatesApply** - ****TODO**** - нехт-рейт (завтра рейт будет другой) - применяет изменения у диалпир ;
+    -   **DialpeerRatesApply** - procedure of applying :ref:`New Rates <new_rates>` for :ref:`Dialpeers <dialpeers>`.
 
-    -   **AccountBalanceNotify** - ****TODO**** - нотификейшены по балансу (ниже, выше);
+    -   **AccountBalanceNotify** - procedure of sending :ref:`Account Balance Notifications <account_balance_low_threshold>`.
+
 
 **Job**'s properties:
 `````````````````````
@@ -358,7 +359,7 @@ Call duration round mode
 Load Balancers
 ~~~~~~~~~~~~~~
 
-****TODO**** - лоадбалансер ставится перед нодами семса .. обрабатывает сигнализацию - если нода перегружена или выключена - если мимо лоадбалансера то айпи-адрес будет сорца, - лоад-балансер вставляет хидеры, ищем кастомер аус по хидерам, тут авторизированные лоадбалансеры (будем доверять ему)
+Load Balancers are used as proxy-servers for SIP-signaling between  :ref:`Gateways <gateways>` and :ref:`YETI-SEMS nodes <nodes>`. Load Balancer could distribute calls to the :ref:`YETI-SEMS nodes <nodes>`. It is useful for cases when it is necessary to switch-off, reboot or reconfigure one or more :ref:`YETI-SEMS nodes <nodes>` without stopping work of whole system. Yeti will recognize only Load Balancers that are included in this list. In this case Yeti will search information about source :ref:`Gateway <gateways>` in the special headers that were received from Load Balancer.
 
 **Load Balancer**'s attributes:
 ```````````````````````````````
@@ -367,7 +368,7 @@ Load Balancers
     Name
         Load Balancer's name.
     Signalling IP
-        Signalling IP address for this *Load Balancer*. - ****TODO****
+        Signalling IP address for this *Load Balancer*.
 
 ----
 
@@ -411,7 +412,7 @@ Comments
 LNP Resolvers
 ~~~~~~~~~~~~~
 
-Local number portability (LNP) Resolvers are used for ****TODO**** наш софт, который взаимодействует с базой данной
+Local number portability (LNP) Resolvers are used for interconnection with :ref:`LNP Databases <lnp_databases>`.
 
 **LNP Resolver**'s attributes:
 ``````````````````````````````
@@ -422,7 +423,7 @@ Local number portability (LNP) Resolvers are used for ****TODO**** наш соф
     Address
        IP-address or domain name for connection to this *LNP Resolver*.
     Port
-       Network port for connection to this *LNP Resolver*. ****TODO**** TCP
+       TCP port for connection to this *LNP Resolver*.
 
 ----
 
@@ -470,7 +471,7 @@ Sensors
 
 System supports mirroring of signaling and media traffic.
 This functionality can be used for Lawful Interception.
-Currently system supports two encapsulation methods:
+Currently system supports three encapsulation methods:
 
     - IP-IP tunnel
         Original packets will be encapsulated into additional IP-IP tunnel header.
@@ -479,6 +480,8 @@ Currently system supports two encapsulation methods:
     - IP over Ethernet
         In this mode original packets will be encapsulated directly into Ethernet frame using raw sockets.
         Intended to use for cases when destination equipment is in the same L2 domain.
+    -   HEPv3
+        Homer Encapsulation Protocol or HEP is a protocol used to send data from a tracing node to a capturing node. The          latest version of HEP is version 3 which came with a major improvement changing HEP protocol from a header based          encapsulation protocol, that is each field had it's well known position in the header as it is for the TCP              header for example, to a more flexible chunk-based protocol.
 
 Sensor and logging level can be chosen in gateway settings.
 Sensor configuration is separate for A and B leg, thus for both legs mirroring - sensors must be configured for both termination and origination gateway.
@@ -492,19 +495,19 @@ Sensor configuration is separate for A and B leg, thus for both legs mirroring -
     Mode
         IP-IP encapsulation
         IP-Ethernet encapsulation
-        HEPv3 ****TODO**** - https://github.com/sipcapture/HEP
+        HEPv3
     Source Interface
-        The name of the source interface of this *Sensor*. This field is used for "IP-Ethernet encapsulation" mode. ****TODO****
+        The name of the source interface of this *Sensor*. This field is used for "IP-Ethernet encapsulation" mode.
     Target MAC
-        MAC address of target gateway. This field is used for "IP-Ethernet encapsulation" mode. ****TODO****
+        MAC address of target gateway. This field is used for "IP-Ethernet encapsulation" mode.
     Source IP
-        IP address of source interface of this *Sensor*. This field is used for "IP-IP encapsulation" mode. ****TODO****
+        IP address of source interface of this *Sensor*. This field is used for "IP-IP encapsulation" mode.
     Target IP
-        IP address of target gateway. This field is used for "IP-IP encapsulation" and for "HEPv3" modes. ****TODO****
+        IP address of target gateway. This field is used for "IP-IP encapsulation" and for "HEPv3" modes.
     Target Port
-        Port number of target gateway. This field is used for "HEPv3" mode. ****TODO****
+        Port number of target gateway. This field is used for "HEPv3" mode.
     Hep Capture
-        Value of HEP_CAPTURE_ID. Leave it empty to use YETI Node ID as HEP_CAPTURE_ID. This field is used for "HEPv3" mode. ****TODO****
+        Value of HEP_CAPTURE_ID. Leave it empty to use YETI Node ID as HEP_CAPTURE_ID. This field is used for "HEPv3" mode.
 
 ----
 

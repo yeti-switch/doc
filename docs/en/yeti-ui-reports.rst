@@ -5,6 +5,7 @@ Reports
 
 YETI WEB interface - Reports menu description. This section describes reports entities.
 
+.. _reports:
 
 Custom CDR report
 ~~~~~~~~~~~~~~~~~
