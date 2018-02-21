@@ -20,6 +20,7 @@ Contents:
    disconnect-codes
    headers-filtering
    upgrade-to-1.4
+   upgrade-to-1.5
 
 
 Indices and tables
