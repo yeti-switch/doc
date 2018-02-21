@@ -4,6 +4,7 @@ Realtime Data
 
 YETI WEB interface - Realtime Data menu description. This section describes realtime data like active calls etc.
 
+.. _active_calls:
 
 Active calls
 ~~~~~~~~~~~~

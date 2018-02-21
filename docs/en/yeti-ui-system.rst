@@ -94,13 +94,15 @@ Alerts are used for configuring :ref:`Contact <contacts>` or :ref:`Admin User <a
 
     **DestinationQualityAlarmFired** - event when one of the quality parameters (Asr, Acd or Short Calls) of some :ref:`Destination <destinations>` has become less than :ref:`Asr Limit, Acd Limit or Short Calls Limit <quality_notification_config>` values accordingly;
 
-    **GatewayUnlocked** - ****TODO**** ;
+    **GatewayLocked** - event when :ref:`Gateway <gateways>` has been locked because threshold  of the quality parameters (Acd limit, Asr limit or Short Calls limit) of the :ref:`Gateway <gateways>` was overcome. In locked mode :ref:`Gateway <gateways>` could not be used for termination of calls.
 
-    **DialpeerUnlocked** - ****TODO**** - если диалпир по какому-либо параметру качества превысил лимиты, то ему ставится флаг локед, если качество восстановилось то анлокед; локед диалпиры не используются для роутинга (при определённых вариантах сортировки)
+    **GatewayUnlocked** - event when :ref:`Gateway <gateways>` has been unlocked because quality parameters (Acd limit, Asr limit and Short Calls limit) of the :ref:`Gateway <gateways>` had become in norm;
 
-    **GatewayLocked** - ****TODO**** - не используется для терминации если локед;
+    **DialpeerLocked** - event when :ref:`Dialpeer <dialpeers>` has been locked because threshold  of the quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` was overcome. In locked mode :ref:`Dialpeer <dialpeers>` could not be used for routing of calls in case of using *sorting method* with **ACD&ASR control** in the relevant :ref:`Routing Plan <routing_plan>`.
 
-    **DialpeerLocked** - ****TODO****.
+    **DialpeerUnlocked** - event when :ref:`Dialpeer <dialpeers>` has been unlocked because quality parameters (Acd Limit, Asr Limit and Short Calls Limit) of the :ref:`Dialpeer <dialpeers>` had become in norm;
+
+
 
 **Alert**'s properties:
 ```````````````````````
@@ -150,7 +152,7 @@ Background Tasks are used for storing records about ongoing tasks that are makin
 Disconnect Codes
 ~~~~~~~~~~~~~~~~
 
-Disconnect Codes are used for ****TODO**** - определение поведения для кода (если сказали бизи - то незачем рераутить, для каких то кодов нужен, для каких-то нет). Для обеспечения совместимости (реврайтинг)
+Disconnect Codes are used for defining special actions for some SIP disconnect codes and for rewriting them (if necessary) during call routing for compatibility between different VoIP platforms.
 
 **Disconnect Code**'s attributes:
 `````````````````````````````````
@@ -165,7 +167,7 @@ Disconnect Codes are used for ****TODO**** - определение поведе
     Success
         In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful.
     Successnozerolen
-        ****TODO**** - только если длинна была больше нуля
+        In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful only for calls with no zero length.
     Stop hunting
         In case of enabling of this field Yeti will stop going through Dialpeers rating for routing the call after receiving this *Disconnect Code*.
     Pass reason to originator
@@ -177,28 +179,30 @@ Disconnect Codes are used for ****TODO**** - определение поведе
     Store cdr
         In case of enabling of this field Yeti will store CDRs for calls that were terminated with this *Disconnect Code*.
     Silently drop
-        ****TODO**** - не отвечать ничего ноге А если этот код вернула процедура маршрутизации  TM (traffic manager), нужно для борьбы с ботами
+        In case of enabling of this field Yeti won't answer anything to legA (origination :ref:`Gateway <gateways>`) when Yeti's routing procedure returned this *Disconnect Code*. This field is used only with TM (traffic manager) namespace and can be used for preventing fake authorization attempts from the network bots.
 
 ----
+
+.. _jobs:
 
 Jobs
 ~~~~
 Jobs are used for review schedulers of some regular procedures that are executed by system or could be executed manually.
 You could press "Run" link for execute some procedure or "Unlock" in case of some problems during its execution. Following procedures are available:
 
-    -   **CdrPartitioning** - ****TODO**** - создаёт новые таблицы на каждый месяц для сдров;
+    -   **CdrPartitioning** - procedure of creating new tables for storing CDRs;
 
-    -   **EventProcessor** - ****TODO**** - отсылает евенты семсу ;
+    -   **EventProcessor** - procedure of sending :ref:`Events <events>` to the SEMS;
 
-    -   **CdrBatchCleaner** - ****TODO**** - удаляет из временной таблицы в раутинг базе старые батчи ;
+    -   **CdrBatchCleaner** - procedure of removing old batches of information from temporary table in Routing Database;
 
-    -   **CdrArchiving** - ****TODO**** - CDR ARCHIVE DELAY - переносит те таблицы которые пора переносить ;
+    -   **CdrArchiving** - procedure of moving tables with CDRs from :ref:`History <cdr_history>` to :ref:`Archive <cdr_archive>`. CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.;
 
-    -   **CallsMonitoring** - ****TODO**** - раз в минуту, затягивает звонки со всех нод - считает стоимость звонков на текущий момент для каждого аккаунта (стоимость активные звонки) - сравнивается с балансом аккаунта - если не хватает денег то звонки отключаются, статистика на дашборд ;
+    -   **CallsMonitoring** - procedure that is used for periodical (once per minute) calculation of cost for all active calls for each :ref:`Account <accounts>` and comparison their cost with current :ref:`Account Balance <account_balance>`. If account balance is less than cost of all active calls for the :ref:`Account <accounts>` all calls will be dropped by Yeti. This procedure also is used for calculating statistics for :ref:`Dushboard <dashboard>` and :ref:`Active calls <active_calls>`;
 
-    -   **StatsClean** - ****TODO**** - очищает статистику для диалпиров и для гейтвеев, по которой считается качество ;
+    -   **StatsClean** - procedure of removing statistics that are used for calculation of quality parameters (ACD, ASR and Short Calls) for :ref:`Gateways <gateways>` and :ref:`Dialpeers <dialpeers>`;
 
-    -   **StatsAggregation** - ****TODO**** - аггрегирует данные для графиков про звонки;
+    -   **StatsAggregation** - procedure of aggregation of the data about calls for the graphs;
 
     -   **Invoice** - ****TODO**** - генерирует инвойсы (есть параметр в аккаунтс);
 

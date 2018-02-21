@@ -2,6 +2,8 @@
 Dashboard
 =========
 
+.. _dashboard:
+
 YETI WEB Displays different various indicators of the system state:
 
 - active calls graph
@@ -9,4 +11,3 @@ YETI WEB Displays different various indicators of the system state:
 - billing status
 - state of the system replication
 
-****TODO****
