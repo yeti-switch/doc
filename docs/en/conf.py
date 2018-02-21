@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Yeti'
-copyright = u'2016, yeti-switch.org'
+copyright = u'yeti-switch.org'
 author = u'Yeti team'
 
 # The version info for the project you're documenting, acts as replacement for
