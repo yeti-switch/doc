@@ -360,7 +360,7 @@ Example of minimal configuration file for node with id 0::
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
           routing {
-            schema = switch13
+            schema = switch14
             function = route_release
             init = init
             master_pool {
@@ -400,7 +400,7 @@ Example of minimal configuration file for node with id 0::
            function = writecdr
            master {
              host = 127.0.0.1
-             port = 5433
+             port = 5432
              name = cdr
              user = cdr
              pass = cdr
@@ -408,7 +408,7 @@ Example of minimal configuration file for node with id 0::
            failover_to_slave = false
            slave {
              host = 127.0.0.1
-             port = 5433
+             port = 5432
              name = cdr
              user = cdr
              pass = cdr
