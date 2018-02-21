@@ -12,7 +12,7 @@ Contents:
    :maxdepth: 2
 
    general
-   installation
+   installation/index.rst
    yeti-ui
    ldap
    yeti-cli
