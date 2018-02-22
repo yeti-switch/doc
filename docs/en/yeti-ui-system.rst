@@ -480,7 +480,7 @@ Currently system supports three encapsulation methods:
     - IP over Ethernet
         In this mode original packets will be encapsulated directly into Ethernet frame using raw sockets.
         Intended to use for cases when destination equipment is in the same L2 domain.
-    -   HEPv3
+    - HEPv3
         Homer Encapsulation Protocol or HEP is a protocol used to send data from a tracing node to a capturing node. The          latest version of HEP is version 3 which came with a major improvement changing HEP protocol from a header based          encapsulation protocol, that is each field had it's well known position in the header as it is for the TCP              header for example, to a more flexible chunk-based protocol.
 
 Sensor and logging level can be chosen in gateway settings.
