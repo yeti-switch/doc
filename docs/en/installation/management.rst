@@ -11,9 +11,9 @@ to store yeti module configuration for all nodes in cluster.
 Packages installation
 ---------------------
 
-::
+.. code-block:: console
 
-    # aptitude install yeti-management
+    # apt update && apt install yeti-management
 
 Configuration files
 -------------------
@@ -54,7 +54,9 @@ any specific values you have to define empty section
 for this node anyway, otherwise management node
 will not provide configuration for node with this id.
 
-Example of minimal configuration file for node with id 0::
+Example of minimal configuration file for node with id 8
+
+.. code-block:: c
 
     signalling {
       globals {
@@ -145,18 +147,25 @@ Example of minimal configuration file for node with id 0::
       }
       node 8 { }
     } 
+    
+.. warning:: You should define all Nodes that has been created at web interface by their IDs. See :ref:`System->Nodes <nodes>` menu. SEMS node will refuse to start if corresponding node is not defined at system.cfg
+
 
 Management server launch
 ------------------------
 
-Launch configured management server instance::
+Launch configured management server instance:
+
+.. code-block:: console
 
     # service yeti-management start
 
 Checks
 ------
 
-Check file /var/log/yeti/yeti-management.log for daemon logs::
+Check file /var/log/yeti/yeti-management.log for daemon logs:
+
+.. code-block:: console
 
     # tail -2 /var/log/yeti/yeti-management.log
     Sep 12 12:54:47 evial yeti-management[25376]: [25376] 
@@ -164,7 +173,9 @@ Check file /var/log/yeti/yeti-management.log for daemon logs::
     Sep 12 12:54:47 evial yeti-management[25376]: [25376]
       info: server/src/mgmt_server.cpp:123: listen on tcp://0.0.0.0:4444
 
-Check listening port::
+Check listening port:
+
+.. code-block:: console
 
     # netstat -lpn | grep yeti_management
     4444 tcp 0 0 0.0.0.0:4444 0.0.0.0:* LISTEN 25376/yeti_manageme

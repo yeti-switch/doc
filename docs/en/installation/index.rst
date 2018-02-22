@@ -3,8 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Installation manual
-===================
+Installation and operation manual
+=================================
 
 Supported OS is Debian GNU/Linux 8, the only supported architecture is amd64
 
@@ -21,4 +21,5 @@ Components:
    management
    sems
    load-balancer
+   database-tuning
 

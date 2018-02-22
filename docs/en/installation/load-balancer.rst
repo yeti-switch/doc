@@ -1,6 +1,5 @@
 .. :maxdepth: 2
 
-
 ==========================
 Load balancer installation
 ==========================
@@ -8,13 +7,11 @@ Load balancer installation
 Packages installation
 ---------------------
 
-::
+.. code-block:: console
 
-    # aptitude install yeti-lb
+    root@server:~# apt update && apt install yeti-lb
     
-Note: On package configuration stage
-you will be asked to specify address of previously installed
-signaling node and address for load balancer to listen on.
+.. note:: On package configuration stage you will be asked to specify address of previously installedsignaling node and address for load balancer to listen on.
 
 After installation you can change any parameters by editing files:
 /etc/kamailio/dispatcher.list and /etc/kamailio/lb.conf
@@ -22,22 +19,26 @@ After installation you can change any parameters by editing files:
 Launch
 ------
 
-Launch load balancer::
+Launch load balancer:
 
-    # service kamailio start
+.. code-block:: console
+
+    root@server:~# service kamailio start
 
 Checks
 ------
 
-Check kamailio running and listening desired sockets::
+Check kamailio running and listening desired sockets:
 
-    # pgrep kamailio
+.. code-block:: console
+
+    root@server:~# pgrep kamailio
     30853
     30854
     30855
     30856
     30857
-    # netstat -lpn | grep kamailio
+    root@server:~# netstat -lpn | grep kamailio
     tcp 0 0 127.0.0.1:5060 0.0.0.0:* LISTEN 30857/kamailio 
     udp 0 0 127.0.0.1:5060 0.0.0.0:* 30853/kamailio
     raw 0 0 0.0.0.0:255 0.0.0.0:* 7 30853/kamailio
@@ -46,6 +47,8 @@ Check kamailio running and listening desired sockets::
 Check for /var/log/syslog on possible errors.
 
 Also you can run daemon in foreground
-with logging to stderr for debugging purposes::
+with logging to stderr for debugging purposes:
 
-    # kamailio -eED /etc/kamailio/kamailio.cfg
+.. code-block:: console
+
+    root@server:~# kamailio /etc/kamailio/kamailio.cfg

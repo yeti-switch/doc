@@ -8,9 +8,9 @@ SEMS node installation
 Install packages
 ----------------
 
-::
+.. code-block:: console
 
-    # aptitude install sems sems-modules-yeti
+    # apt update && apt install sems sems-modules-yeti
     
 Configuration files
 -------------------
@@ -18,7 +18,9 @@ Configuration files
 /etc/sems/sems.conf
 ~~~~~~~~~~~~~~~~~~~
 
-Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server ::
+Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
+
+.. code-block:: ini
 
     interfaces=intern
     sip_ip_intern=<SIGNALLING_IP> 
@@ -54,7 +56,10 @@ Add new node to the routing database using web interface
 Use id of newly created node as value for **node_id** parameter
 
 node_id
-    unique signaling node id
+    unique signaling node id.
+    
+.. warning:: You should create Node at web interface and use ID from web interface at **node_id** variable. See :ref:`System->Nodes <nodes>` menu.
+
 cfg_timeout
     timeout of waiting response from management node
 cfg_urls
@@ -62,7 +67,7 @@ cfg_urls
 cfg_url_<name>
     management node address to fetch configuration ([sub:/etc/yeti/management.cfg])
 
-::
+.. code-block:: ini
 
     node_id = <id of created node>
     
@@ -73,19 +78,29 @@ cfg_url_<name>
     core_options_handling=yes
     
 
-Other configuration files
-~~~~~~~~~~~~~~~~~~~~~~~~~
+.. _jsonrpc:
 
-Copy defaults for the rest of needed configuration files::
+/etc/sems/etc/jsonrpc.conf
+~~~~~~~~~~~~~~~~~~~~~~~~~~    
 
-    # mv /etc/sems/etc/jsonrpc.conf.dist /etc/sems/etc/jsonrpc.conf
+Such file used for RPC configuration
 
-Edit this file to change listenging address if you are going to build a multi-node system
+.. code-block:: ini
+
+    jsonrpc_listen=127.0.0.1 
+    jsonrpc_port=7080
+    server_threads=1
+    
+RPC socket should be available from WEB interface server. You should place your real IP address if you run SEMS node on dedicated server.
+
+.. warning:: RPC allows shutdown SEMS node or make it non-operational. RPC interface should be secured by firewall to prevent connections from not trusted hosts. In YETI systems only two components should have ability to connect to RPC - WEB interface and yeti-cli console
 
 Launch traffic switch
 ---------------------
 
-Launch configured traffic switch instance::
+Launch configured traffic switch instance:
+
+.. code-block:: console
 
     # service sems start
 
@@ -95,7 +110,9 @@ which will launch daemon in foreground with debug logging level
 Checks
 ------
 
-Check if **sems** process exists and signaling/media/rpc sockets are opened::
+Check if **sems** process exists and signaling/media/rpc sockets are opened:
+
+.. code-block:: console
 
     # pgrep sems
     29749
