@@ -13,9 +13,9 @@ Server requirements:
 Packages installation
 ---------------------
 
-::
+.. code-block:: console
 
-    # aptitude update && aptitude install yeti-web nginx
+    # apt update && apt install yeti-web nginx
 
 Databases connection configuration
 ----------------------------------
@@ -34,7 +34,7 @@ Create database.yml file with the following content:
       username: yeti
       password: somepassword
       host: 127.0.0.1
-      schema_search_path: gui, public, switch, billing, class4, runtime_stats, sys, logs, data_import
+      schema_search_path: 'gui, public, switch, billing, class4, runtime_stats, sys, logs, data_import'
       port: 5432
       min_messages: notice
     
@@ -57,7 +57,9 @@ Databases data initialization
 -----------------------------
 
 To simplify work with databases use utility yeti-db
-To initialize empty databases::
+To initialize empty databases:
+
+.. code-block:: console
 
     # cd /home/yeti-web 
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:create db:structure:load db:migrate
@@ -65,7 +67,9 @@ To initialize empty databases::
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:seed
  
     
-To upgrade databases to the latest version::
+To upgrade databases to the latest version:
+
+.. code-block:: console
 
     # cd /home/yeti-web 
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
@@ -75,7 +79,9 @@ To upgrade databases to the latest version::
 Nginx configuration
 -------------------
 
-For basic configuration remove default config and copy yeti-web.dist.nginx::
+For basic configuration remove default config and copy yeti-web.dist.nginx:
+
+.. code-block:: console
 
     # rm /etc/nginx/sites-enabled/default
     # cp /home/yeti-web/config/yeti-web.dist.nginx /etc/nginx/sites-enabled/yeti
@@ -88,7 +94,9 @@ For basic configuration remove default config and copy yeti-web.dist.nginx::
 Launch
 ------
 
-After successful configuration of databases you finally can run software using following commands::
+After successful configuration of databases you finally can run software using following commands:
+
+.. code-block:: console
 
     # service yeti-web start 
     # service yeti-cdr-billing@cdr_billing start
@@ -99,18 +107,22 @@ This will run web-interface and CDR processing workers
 Checks
 ------
 
-check if unicorn listens on local socket::
+check if unicorn listens on local socket:
+
+.. code-block:: console
 
     # netstat -lpn | grep unicorn
     unix 2 [ ACC ] STREAM LISTENING 2535145 24728/unicorn.rb -E /tmp/yeti-unicorn.sock
 
-check if nginx listens on correct TCP/IP addresses and ports::
+check if nginx listens on correct TCP/IP addresses and ports:
+
+.. code-block:: console
 
     # netstat -lpn | grep nginx
     tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN 23627/nginx
     tcp 0 0 127.0.0.1:6666 0.0.0.0:* LISTEN 23627/nginx
 
-Log files to check for possible warnings/errors :
+Log files to check for possible warnings/errors:
 
 - /var/log/yeti-admin.log
 - /var/log/yeti-cdr-billing.log
@@ -132,19 +144,19 @@ It is accomplished via LibreOffice software, so our package just a wrapper for a
 .. warning::
     This operation will install a lot of packages in your system!
 
-::
+.. code-block:: console
 
-    # aptitude install yeti-libreoffice-headless
+    # apt install yeti-libreoffice-headless
 
 Make sure, that service is enabled for autostart
 
-::
+.. code-block:: console
 
     # systemctl enable yeti-libreoffice-headless
 
 Run it
 
-::
+.. code-block:: console
 
     # systemctl start yeti-libreoffice-headless
 

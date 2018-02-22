@@ -393,7 +393,8 @@ Every node represents independent installation of YETI-SEMS, which communicate t
     Signaling port
         Network port for sending SIP-packets (dafault value 5060).
     Rpc endpoint
-        IP address and port on which YETI-SEMS is waiting for RPC connections.
+        IP address and port on which YETI-SEMS is waiting for RPC connections. Value of this field should have format IP:PORT, for example 127.0.0.1:7080. See :ref:`SEMS jsonrpc.conf <jsonrpc>` for defails
+        
 
 In view mode user can use next tabs:
 

@@ -12,16 +12,18 @@ to provide correct limitation among all nodes for distributed installations.
 Install packages
 ================
 
-::
+.. code-block:: console
 
-    # aptitude install redis-server
+    # apt update && apt install redis-server
 
 Checks
 ======
 
 Try to enter redis console from traffic switch host
 (redis installed at the same host
-with traffic switch in this example)::
+with traffic switch in this example):
+
+.. code-block:: console
 
     # redis-cli
     127.0.0.1:6379> ping

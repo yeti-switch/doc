@@ -12,7 +12,7 @@ Packages installation
 
 .. code-block:: console
 
-    # aptitude update && aptitude install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-yeti skytools3 skytools3-ticker
+    # apt update && apt install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-yeti skytools3 skytools3-ticker
 
 Databases creation
 ------------------
@@ -55,3 +55,4 @@ Check if databases were successfully created and are accessible::
 Don't forget to make changes in /etc/postgresql/9.4/main/pg_hba.conf
 and apply them if you plan to access this databases from other hosts and/or set up database replication
 
+.. seealso:: :doc:`database-tuning`
