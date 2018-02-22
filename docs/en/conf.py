@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 #
 # yeti documentation build configuration file, created by
 # sphinx-quickstart on Fri Oct  2 15:28:16 2015.
@@ -47,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Yeti'
-copyright = u'2016, yeti-switch.org'
+copyright = u'2018, yeti-switch.org'
 author = u'Yeti team'
 
 # The version info for the project you're documenting, acts as replacement for

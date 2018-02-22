@@ -52,3 +52,4 @@ System can store many different templates and you can choose desired template fo
    -    [INV_LAST_CALL_AT]	Date and time of of the last call from all calls that are billed in the invoice
    -    [INV_LAST_SUCCESSFUL_CALL_AT]	Date and time of of the last successful call from all calls that are billed in the invoice
 
+

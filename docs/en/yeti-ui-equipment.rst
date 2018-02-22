@@ -5,12 +5,12 @@ Equipment
 YETI WEB interface - Equipment menu description. This section describes Equipment entities.
 
 .. toctree::
-:maxdepth: 2
+   :maxdepth: 1
 
-       yeti-ui-equipment\yeti-ui-equipment-gateway_groups
-       yeti-ui-equipment\yeti-ui-equipment-gateways
-       yeti-ui-equipment\yeti-ui-equipment-disconnect_policies
-       yeti-ui-equipment\yeti-ui-equipment-disconnect_policy_codes
+   yeti-ui-equipment/yeti-ui-equipment-gateway_groups
+   yeti-ui-equipment/yeti-ui-equipment-gateways
+   yeti-ui-equipment/yeti-ui-equipment-disconnect_policies
+   yeti-ui-equipment/yeti-ui-equipment-disconnect_policy_codes
 
 .. _registrations:
 
