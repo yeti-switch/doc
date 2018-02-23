@@ -14,6 +14,7 @@ Contents:
    general
    installation/index.rst
    yeti-ui
+   routing-logic
    ldap
    yeti-cli
    yeti-cli-commands
