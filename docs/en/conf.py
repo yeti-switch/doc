@@ -47,7 +47,6 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Yeti'
-=======
 copyright = u'yeti-switch.org'
 author = u'Yeti team'
 
