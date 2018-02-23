@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 #
 # yeti documentation build configuration file, created by
 # sphinx-quickstart on Fri Oct  2 15:28:16 2015.
