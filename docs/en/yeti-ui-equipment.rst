@@ -14,5 +14,5 @@ YETI WEB interface - Equipment menu description. This section describes Equipmen
    yeti-ui-equipment/yeti-ui-equipment-registrations
    yeti-ui-equipment/yeti-ui-equipment-codec_groups
    yeti-ui-equipment/yeti-ui-equipment-lnp_databases
-   yeti-ui-equipment/yeti-ui-radius_auth_profiles
-   yeti-ui-equipment/yeti-ui-radius_accounting_profiles
+   yeti-ui-equipment/yeti-ui-equipment-radius_auth_profiles
+   yeti-ui-equipment/yeti-ui-equipment-radius_accounting_profiles
