@@ -21,5 +21,6 @@ Components:
    management
    sems
    load-balancer
+   cli-utility
    database-tuning
 

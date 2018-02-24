@@ -2,7 +2,7 @@
 .. :maxdepth: 2
 
 ==============================
-YETI Internal disconnect codes
+Internal disconnect codes
 ==============================
 
 Calls can be disconnected due to many reasons.

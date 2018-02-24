@@ -15,7 +15,6 @@ Contents:
    installation/index.rst
    yeti-ui
    yeti-cli
-   yeti-cli-commands
    disconnect-codes
    headers-filtering
    upgrade-to-1.4
