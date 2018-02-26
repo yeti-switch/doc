@@ -3,7 +3,7 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to yeti's documentation!
+Welcome to Yeti's documentation!
 ================================
 
 Contents:
@@ -14,9 +14,7 @@ Contents:
    general
    installation/index.rst
    yeti-ui
-   ldap
    yeti-cli
-   yeti-cli-commands
    disconnect-codes
    headers-filtering
    upgrade-to-1.4
