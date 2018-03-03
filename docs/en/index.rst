@@ -19,6 +19,7 @@ Contents:
    headers-filtering
    upgrade-to-1.4
    upgrade-to-1.5
+   best-practices
 
 
 Indices and tables
