@@ -1,7 +1,7 @@
 .. :maxdepth: 2
 
 ========================
-YETI General information
+General information
 ========================
 
 :Site: https://yeti-switch.org/

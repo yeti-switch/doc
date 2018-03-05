@@ -3,24 +3,27 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to yeti's documentation!
-================================
+Добро пожаловать на сайт документации Yeti!
+===========================================
 
-Contents:
+Содержимое:
 
 .. toctree::
    :maxdepth: 2
 
-   installation
+   general
+   installation/index.rst
    yeti-ui
-   headers-filtering
    yeti-cli
-   yeti-cli-commands
+   disconnect-codes
+   headers-filtering
    upgrade-to-1.4
+   upgrade-to-1.5
+   best-practices
 
 
-Indices and tables
-==================
+Индексы и таблицы
+=================
 
 * :ref:`genindex`
 * :ref:`modindex`

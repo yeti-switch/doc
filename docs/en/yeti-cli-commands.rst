@@ -12,9 +12,9 @@ Internal commands
 exit
     Exit from console
 formatting disable
-    Disable output autoformattin mode
+    Disable output autoformatting mode
 formatting enable
-    Enable output autoformattin mode
+    Enable output autoformatting mode
 list
     Show node list
 use <Node-id>
