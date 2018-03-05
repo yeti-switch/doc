@@ -1,7 +1,7 @@
 
-==================
-YETI WEB interface
-==================
+=============
+WEB interface
+=============
 
 :Site: https://yeti-switch.org/
 
