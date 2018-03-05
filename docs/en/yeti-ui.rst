@@ -1,5 +1,4 @@
 
-
 ==================
 YETI WEB interface
 ==================
@@ -28,4 +27,5 @@ YETI WEB interface
    yeti-ui-rtd
    yeti-ui-logs
    yeti-ui-system
+   yeti-ui-regexp_replace
 

@@ -97,16 +97,22 @@ Dialpeers identify call destination endpoint and define the billing characterist
         Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed bia this *Dialpeer* at same time.
     Src Name Rewrite Rule
         This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src Name Rewrite Result
         The result of changing the Name field in the Source-number, using the Src name rewrite rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src Rewrite Rule
         This field should contain a regular expression for changing the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src Rewrite Result
         The result of changing the Name field in the Source-number, using the Src rewrite rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst Rewrite Rule
         This field should contain a regular expression for changing the Destination-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst Rewrite Result
         The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Created At
         Date and time creation of this *Dialpeer*.
 

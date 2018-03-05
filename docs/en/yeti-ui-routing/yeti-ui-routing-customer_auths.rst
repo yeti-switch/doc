@@ -116,20 +116,28 @@ Number translation **Customers Auth**'s options
         Default value is "Clear header", so this header will be deleted.
     Diversion rewrite rule
         This option should contain a regular expression for changing a Diversion header.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Diversion rewrite result
         The result of changing a Diversion header, using the Rewrite Rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src name rewrite rule
         This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src name rewrite result
         The result of changing the Name field in the Source-number, using the Src name rewrite rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src rewrite rule
         This field should contain a regular expression for changing the Source-number within SIP-signalization.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src rewrite result
         The result of changing the Name field in the Source-number, using the Src rewrite rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst rewrite rule
         This field should contain a regular expression for changing the Destination-number within SIP-signalization.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst rewrite result
         The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
 
 Radius **Customers Auth**'s options
 ```````````````````````````````````
@@ -138,12 +146,16 @@ Radius **Customers Auth**'s options
         Must be specified if the additional radius authentication is required.
     Src number radius rewrite rule
         Should contain regular expression for changing Source-number which will be send to Radius-server if it's required.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src number radius rewrite result
         The result of applying the Src number radius rewrite rule to Source-number.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst number radius rewrite rule
         Should contain regular expression for changing Destination-number which will be send to Radius-server if it's required.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst number radius rewrite result
         The result of applying the Dst number radius rewrite rule to Destination-number.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Radius accounting profile
         Must be specified if the radius accounting is required.
     
