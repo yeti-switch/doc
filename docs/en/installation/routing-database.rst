@@ -5,7 +5,14 @@
 Routing database installation
 =============================
 
-.. note:: We recommend placing routing database on the same host with management WEB interface for best performance and web interface responsiveness. 
+.. note:: We recommend placing routing database on the same host with management WEB interface for best performance and web interface responsiveness.
+
+
+Supported versions
+------------------
+
+For Debian 8 you should install Postgresql version 9.4. For Debian 9 we suppors Postgresql 10 as well.
+
 
 Packages installation
 ---------------------
@@ -13,6 +20,13 @@ Packages installation
 .. code-block:: console
 
     # apt update && apt install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-yeti skytools3 skytools3-ticker
+    
+or for Debian 10:
+
+.. code-block:: console
+
+    # apt update && apt install postgresql-10 postgresql-contrib-10 postgresql-10-prefix postgresql-10-pgq3 postgresql-10-yeti skytools3 skytools3-ticker
+
 
 Databases creation
 ------------------
