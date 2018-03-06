@@ -4,6 +4,47 @@
 Load balancer installation
 ==========================
 
+SIP flow with load-balancer
+--------------------------------
+
+.. raw:: html
+
+	<embed>
+	 <pre class='code xu mscgen_js' data-language='xu' data-named-style='basic'>
+	msc {
+  
+	  arcgradient=0, hscale=2;
+ 
+	  C[label="Call originator\n11.11.11.11"],
+	  L[label="YETI Load balancer\n12.12.12.12"],
+	  S[label="SEMS Node\n13.13.13.13"];
+  
+	  L alt S [label="POP", textbgcolor="#f7fff7"] {
+	  C => L [label="INVITE"];
+	  L => C [label="100 Trying"];
+	  L => S [label="INVITE\nX-ORIG-IP:11.11.11.11.11\nX-ORIG-PORT:5060\nX-ORIG-PROTO:1"];
+	  S rbox S [label= "Routing procedures"];
+	  S => L [label="100 Trying"];
+	  S => L [label="180 Ringing"];
+	  L => C [label="180 Ringing"];
+	  S => L [label="200 OK"];
+	  L => C [label="200 OK"];
+	  C >> S [label="RTP from originator"];
+	  S >> C [label="RTP to originator"];
+	  C => L [label="ACK"];
+          L => S [label="ACK"];
+          C => L [label="BYE"];
+          L => S [label="BYE"];
+          S => L [label="200 OK"];
+	  L => C [label="200 OK"];
+	  S rbox S [label= "CDR writing"];
+	  };
+	}
+
+    </pre>
+    </embed>
+
+
 Packages installation
 ---------------------
 
@@ -15,6 +56,11 @@ Packages installation
 
 After installation you can change any parameters by editing files:
 /etc/kamailio/dispatcher.list and /etc/kamailio/lb.conf
+
+
+
+
+
 
 Launch
 ------
