@@ -4,9 +4,66 @@
 Upgrading from 1.5 branch to 1.6
 ================================
 
+~~~~~~~~~
+Changelog
+~~~~~~~~~
 
-Upgrade yeti-web package to 1.5
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- Multiple tags for call
+- Multiple IP,src_prefix and dst_prefix values allowed at same Customer Auth record
+- At CDR database additination PGQ queue **cdr_streaming** was added to allow external system read full CDR
+- Yeti writes to CDR external_id fields from Customer Auth, Account, Contractor and Gateway
+- **active_admin.yml** was renamed to **yeti_web.yml**
+- Ability to change GWT token lifetime via **yeti_web.yml** config variable **api.token_lifetime**
+- CI improvements and Nightly packages from master branch
+- Support for Debian 9
+- Support for Postgresql 10(experimental)
+- Multiple Copy action fixes
+- Multiple Admin API improvements(pagination, new resources, etc)
+- Writing operator name to audit log on data modifications by batch action
+- Multiple libraries was updated. CVE-2014-7819, CVE-2017-17718,CVE-2015-1840 fixed
+- https://github.com/yeti-switch/yeti-web/issues/150
+- https://github.com/yeti-switch/yeti-web/issues/209
+
+
+~~~~~~~~~~~~~~~~~
+Upgrade procedure
+~~~~~~~~~~~~~~~~~
+
+Upgrade your databases
+~~~~~~~~~~~~~~~~~~~~~~
+
+You should add PGDG APT repository, See :doc:`installation/repositories` for details. Then you should upgrade your postgresql packages to latest versions and install additional package **postgresql-9.4-pgq-ext**. You have to check that packages:
+
+- postgresql-9.4
+- postgresql-9.4-client
+- postgresql-contrib-9.4
+- postgresql-9.4-prefix
+- postgresql-9.4-pgq3
+
+is installed from PGDG repository
+and packages:
+
+- postgresql-9.4-pgq-ext
+- postgresql-9.4-yeti
+
+is installed from YETI repository. You can check it using command:
+
+.. code-block:: console
+
+        root@yeti-cdr-server:/# apt policy postgresql-9.4 postgresql-9.4-client postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-pgq-ext postgresql-9.4-yeti
+
+Upgrade pgqd on CDR database
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You should remove packages **skytools3** and **skytools3-ticker** and instead install package **pgqd**. Configure pgqd by changing file **/etc/pgqd.ini**. See :doc:`installation/cdr-database` for details. Kill all previous instances of pgqd and start service:
+
+.. code-block:: console
+
+        root@yeti-cdr-server:/# service pgqd start
+
+
+Upgrade yeti-web package to 1.6.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code-block:: console
 
@@ -26,7 +83,7 @@ Apply first stage of migrations
 Switch to new routing schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Switch routing schema  to 'switch15' at /etc/yeti/system.cfg on your yeti-management server and restart yeti-management server
+Change at /etc/yeti/system.cfg switch routing schema to **switch15** from **switch14** and **serialize_dynamic_fields = true** instead of **serialize_dynamic_fields = false** on your yeti-management server and restart yeti-management server
 
 
 SEMS servers

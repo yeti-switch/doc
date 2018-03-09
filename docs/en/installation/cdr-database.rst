@@ -14,7 +14,18 @@ CDRs databases require similar set of packages as routing database
 
 .. code-block:: console
 
-    # aptitude update && aptitude install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-yeti skytools3 skytools3-ticker
+    # apt update && apt install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-pgq-ext postgresql-9.4-yeti pgqd
+    
+or for Debian 9 and Postgresql 10:
+
+.. code-block:: console
+
+    # apt update && apt install postgresql-10 postgresql-contrib-10 postgresql-10-prefix postgresql-10-pgq3 postgresql-10-pgq-ext postgresql-10-yeti pgqd
+    
+    
+.. warning:: Since  yeti-web version 1.6.0 it is important to install Postgresql from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details
+  
+  
 
 Databases creation
 ==================
@@ -40,12 +51,12 @@ Create routing database
 For large installations it's recommended to place CDR database on dedicated server.
 
 
-PGQ ticker
-==========
+PGQd ticker
+===========
 
-After initialization of CDR database you should run skytools pgq ticker daemon on server with CDR database.
+After initialization of CDR database you should run pgq ticker daemon(**pgqd**) on server with CDR database.
 
-Create configuration file /etc/skytools/pgqd.ini 
+Create configuration file /etc/pgqd.ini 
 
 .. code-block:: ini
     
@@ -54,7 +65,7 @@ Create configuration file /etc/skytools/pgqd.ini
     initial_database = cdr
     database_list = cdr
     script = /usr/bin/pgqd
-    pidfile = /var/run/skytools/pgqd.pid
+    pidfile = /var/run/postgresql/pgqd.pid
     ticker_max_count=1
     ticker_max_lag=3
     ticker_idle_period=360
@@ -64,7 +75,7 @@ Then you should start ticker:
 
 .. code-block:: console
 
-    # service skytools3 start
+    # service pgqd start
     
     
 Checks

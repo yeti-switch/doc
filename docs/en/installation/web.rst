@@ -7,7 +7,8 @@ WEB interface installation
 
 Server requirements:
 
-- OS Debian 8 Wheezy with amd64 architecture
+- amd64 architecture
+- Debian 8 Jessie or Debian 9 Stretch distibution
 - at least 4GB of RAM
 
 Packages installation

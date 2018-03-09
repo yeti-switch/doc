@@ -120,7 +120,7 @@ Example of minimal configuration file for node with id 8
            }
            failover_requeue = true
            failover_to_file = false
-           serialize_dynamic_fields = false
+           serialize_dynamic_fields = true
          }
          resources {
            reject_on_error = false
