@@ -10,6 +10,7 @@ Changelog
 
 - Multiple tags for call
 - Multiple IP,src_prefix and dst_prefix values allowed at same Customer Auth record
+- Ability to override Disconnect codes/reasons on capacity overload. See System->Disconnect codes menu
 - At CDR database additination PGQ queue **cdr_streaming** was added to allow external system read full CDR
 - Yeti writes to CDR external_id fields from Customer Auth, Account, Contractor and Gateway
 - **active_admin.yml** was renamed to **yeti_web.yml**
@@ -79,6 +80,14 @@ Apply first stage of migrations
 	root@yeti:/# cd /home/yeti-web
 	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
 	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+	....SKIPPED...
+	== 20180212105355 MultipleMatchingConditions: migrated (2.0862s) ==============
+
+	IMPORTANT: Now update and restart your servers. And after that run `rake db:migrate` again.
+	root@yeti:/home/yeti-web# 
+    
+Notification ``IMPORTANT: Now update and restart your servers. And after that run `rake db:migrate` again.`` will inform you that migration is not finished. You should apply next part of migrations after SEMS upgrade.
+
 
 Switch to new routing schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
