@@ -28,6 +28,9 @@ Contractor may act as **Customer** - Use provided call termination service and *
 
     Vendor
         If enabled contractor can act as vendor and system may terminate calls to it.
+
+    .. _contractor_customer:
+
     Customer
         If enabled contractor can act as customer and originate calls to the system.
     Description

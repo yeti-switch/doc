@@ -27,18 +27,92 @@ On the first step of authentication algorithm Yeti is looking into :ref:`Load Ba
 On the second step of authentication algorithm Yeti is looking into *Customer Auth* table for the records that are matching **ALL** following conditions:
 
 -   :ref:`IP address <customer_auth_ip_address>` of *Customer Auth* record contains or equals **Remote IP address**;
--   :ref:`Dst Prefix <customer_auth_dst_prefix>` of *Customer Auth* record is in the prefix range of **URI name**;
--   :ref:`Src Prefix <customer_auth_src_prefix>` of *Customer Auth* record is in the prefix range of **From name**;
--   :ref:`PoP <customer_auth_pop>` of *Customer Auth* record (if chosen) equals **PoP** that received the call;
--   :ref:`X-Yeti-Auth <customer_auth_x_yeti_auth>` of *Customer Auth* record (if not empty) equals **X-Yeti-Auth**;
--   :ref:`URI domain <customer_auth_uri_domain>` of *Customer Auth* record (if not empty) equals **From name**;
--   :ref:`To domain <customer_auth_to_domain>` of *Customer Auth* record (if not empty) equals **To domain**;
--   :ref:`From domain <customer_auth_from_domain>` of *Customer Auth* record (if not empty) equals **From domain**;
--   :ref:`Transport protocol <customer_auth_transport_protocol>` of *Customer Auth* record (if chosen) equals **Transport protocol**;
--   Length of **URI name** is between Dst number min and max length values of *Customer Auth* record;
--   *Customer Auth* record is enabled;
--   Contractor that is associated with *Customer Auth* record has Customer status.
 
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`Dst Prefix <customer_auth_dst_prefix>` of *Customer Auth* record is in the prefix range of **URI name**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`Src Prefix <customer_auth_src_prefix>` of *Customer Auth* record is in the prefix range of **From name**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`PoP <customer_auth_pop>` of *Customer Auth* record (if chosen) equals **PoP** that received the call;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`X-Yeti-Auth <customer_auth_x_yeti_auth>` of *Customer Auth* record (if not empty) equals **X-Yeti-Auth**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`URI domain <customer_auth_uri_domain>` of *Customer Auth* record (if not empty) equals **From name**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`To domain <customer_auth_to_domain>` of *Customer Auth* record (if not empty) equals **To domain**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`From domain <customer_auth_from_domain>` of *Customer Auth* record (if not empty) equals **From domain**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   :ref:`Transport protocol <customer_auth_transport_protocol>` of *Customer Auth* record (if chosen) equals **Transport protocol**;
+
+    .. note::
+
+       Example ***TODO***
+
+-   Length of **URI name** is between :ref:`Dst number min and max length <customer_auth_dst_number_min_length>` values of *Customer Auth* record;
+
+    .. note::
+
+       Example ***TODO***
+
+-   *Customer Auth* record is enabled;
+-   :ref:`Contractor <contractors>` that is associated with *Customer Auth* record has :ref:`Customer <contractor_customer>` status.
+
+If no records were found on previous step the procedure of Authentication will be exited with **Disconnect Code 110** (Can’t find Customer or Customer locked).
+
+On the third step of authentication algorithm Yeti sorts of *Customer Auth* records (if any were found on the previous step) with following rules:
+
+-   records with the longest mask of :ref:`IP address <customer_auth_ip_address>` first;
+
+    .. note::
+
+       Example ***TODO***
+
+-   records with chosen :ref:`Transport protocol <customer_auth_transport_protocol>`, :ref:`PoP <customer_auth_pop>` and with entered :ref:`URI domain <customer_auth_uri_domain>`, :ref:`To domain <customer_auth_to_domain>` and :ref:`From domain <customer_auth_from_domain>` values first;
+
+    .. note::
+
+       Example ***TODO***
+
+-   records with longest :ref:`Dst Prefix <customer_auth_dst_prefix> and :ref:`Src Prefix <customer_auth_src_prefix>` first.
+
+    .. note::
+
+       Example ***TODO***
+
+
+After sorting of *Customer Auth* records routing procedure will be continued with using first record from the sorted list of *Customer Auth* records that was received.
 
 Customer Auth form is splitted to 3 tabs and each one is described below.
 
