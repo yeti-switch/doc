@@ -28,63 +28,84 @@ On the second step of authentication algorithm Yeti is looking into *Customer Au
 
 -   :ref:`IP address <customer_auth_ip_address>` of *Customer Auth* record contains or equals **Remote IP address**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       IP address of *Customer Auth* record = *0.0.0.0/0* ; **Remote IP address** = *8.8.8.8* => **TRUE**
+       IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.1.1* => **TRUE**
+       IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.2.1* => **FALSE**
 
 -   :ref:`Dst Prefix <customer_auth_dst_prefix>` of *Customer Auth* record is in the prefix range of **URI name**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       Dst Prefix of *Customer Auth* record = ** ; **URI name** = ** => **TRUE**
+       Dst Prefix of *Customer Auth* record = ** ; **URI name** = ** => **TRUE**
+       Dst Prefix of *Customer Auth* record = ** ; **URI name** = ** => **FALSE**
 
 -   :ref:`Src Prefix <customer_auth_src_prefix>` of *Customer Auth* record is in the prefix range of **From name**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       Src Prefix of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
+       Src Prefix of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
+       Src Prefix of *Customer Auth* record = ** ; **From name** = ** => **FALSE**
 
 -   :ref:`PoP <customer_auth_pop>` of *Customer Auth* record (if chosen) equals **PoP** that received the call;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       PoP of *Customer Auth* record = *Any* ; **PoP** = *ONAT.EDU.UA DC* => **TRUE**
+       PoP of *Customer Auth* record = *ONAT.EDU.UA DC* ; **PoP** = *ONAT.EDU.UA DC* => **TRUE**
+       PoP of *Customer Auth* record = *City* ; **PoP** = *ONAT.EDU.UA DC* => **FALSE**
+
 
 -   :ref:`X-Yeti-Auth <customer_auth_x_yeti_auth>` of *Customer Auth* record (if not empty) equals **X-Yeti-Auth**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = ** => **TRUE**
+       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = ** => **TRUE**
+       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = ** => **FALSE**
 
 -   :ref:`URI domain <customer_auth_uri_domain>` of *Customer Auth* record (if not empty) equals **From name**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       URI domain of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
+       URI domain of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
+       URI domain of *Customer Auth* record = ** ; **From name** = ** => **FALSE**
 
 -   :ref:`To domain <customer_auth_to_domain>` of *Customer Auth* record (if not empty) equals **To domain**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       To domain of *Customer Auth* record = ** ; **To name** = ** => **TRUE**
+       To domain of *Customer Auth* record = ** ; **To name** = ** => **TRUE**
+       To domain of *Customer Auth* record = ** ; **To name** = ** => **FALSE**
 
 -   :ref:`From domain <customer_auth_from_domain>` of *Customer Auth* record (if not empty) equals **From domain**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       From domain of *Customer Auth* record = ** ; **From domain** = *onat.edu.ua* => **TRUE**
+       From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *onat.edu.ua* => **TRUE**
+       From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *yeti-switch.org* => **FALSE**
 
 -   :ref:`Transport protocol <customer_auth_transport_protocol>` of *Customer Auth* record (if chosen) equals **Transport protocol**;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       Transport protocol of *Customer Auth* record = *TCP* ; **Transport protocol** = *TCP* => **TRUE**
+       Transport protocol of *Customer Auth* record = *Any* ; **Transport protocol** = *UDP* => **TRUE**
+       Transport protocol of *Customer Auth* record = *UDP* ; **Transport protocol** = *TCP* => **FALSE**
 
 -   Length of **URI name** is between :ref:`Dst number min and max length <customer_auth_dst_number_min_length>` values of *Customer Auth* record;
 
-    .. note::
+    .. note:: Examples:
 
-       Example ***TODO***
+       Dst number min length of *Customer Auth* record = *3* ; Dst number max length of *Customer Auth* record = *15* ; **URI name** = *380662296132* => **TRUE**
+       Dst number min length of *Customer Auth* record = *7* ; Dst number max length of *Customer Auth* record = *7* ; **URI name** = *7050460* => **TRUE**
+       Dst number min length of *Customer Auth* record = *0* ; Dst number max length of *Customer Auth* record = *7* ; **URI name** = *0487050460* => **FALSE**
 
 -   *Customer Auth* record is enabled;
 -   :ref:`Contractor <contractors>` that is associated with *Customer Auth* record has :ref:`Customer <contractor_customer>` status.
@@ -95,19 +116,19 @@ On the third step of authentication algorithm Yeti sorts of *Customer Auth* reco
 
 -   records with the longest mask of :ref:`IP address <customer_auth_ip_address>` first;
 
-    .. note::
+    .. note:: Examples:
 
        Example ***TODO***
 
 -   records with chosen :ref:`Transport protocol <customer_auth_transport_protocol>`, :ref:`PoP <customer_auth_pop>` and with entered :ref:`URI domain <customer_auth_uri_domain>`, :ref:`To domain <customer_auth_to_domain>` and :ref:`From domain <customer_auth_from_domain>` values first;
 
-    .. note::
+    .. note:: Examples:
 
        Example ***TODO***
 
 -   records with longest :ref:`Dst Prefix <customer_auth_dst_prefix> and :ref:`Src Prefix <customer_auth_src_prefix>` first.
 
-    .. note::
+    .. note:: Examples:
 
        Example ***TODO***
 
