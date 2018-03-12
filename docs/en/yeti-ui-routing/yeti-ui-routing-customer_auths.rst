@@ -33,22 +33,30 @@ On the second step of authentication algorithm Yeti is looking into *Customer Au
        IP address of *Customer Auth* record = *0.0.0.0/0* ; **Remote IP address** = *8.8.8.8* => **TRUE**
        IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.1.1* => **TRUE**
        IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.2.1* => **FALSE**
+       IP address of *Customer Auth* record = *192.168.1/24, 192.168.2.1* ; **Remote IP address** = *192.168.2.1* => **TRUE**
+       IP address of *Customer Auth* record = *192.168.1/24, 192.168.2.1* ; **Remote IP address** = *195.5.30.10* => **FALSE**
 
 -   :ref:`Dst Prefix <customer_auth_dst_prefix>` of *Customer Auth* record is in the prefix range of **URI name**;
 
     .. note:: Examples:
 
-       Dst Prefix of *Customer Auth* record = ** ; **URI name** = ** => **TRUE**
-       Dst Prefix of *Customer Auth* record = ** ; **URI name** = ** => **TRUE**
-       Dst Prefix of *Customer Auth* record = ** ; **URI name** = ** => **FALSE**
+       Dst Prefix of *Customer Auth* record = ** ; **URI name** = *0662296132* => **TRUE**
+       Dst Prefix of *Customer Auth* record = *066* ; **URI name** = *0662296132* => **TRUE**
+       Dst Prefix of *Customer Auth* record = *066[1-3]* ; **URI name** = *0662296132* => **TRUE**
+       Dst Prefix of *Customer Auth* record = *066[1-3]* ; **URI name** = *0665296132* => **FALSE**
+       Dst Prefix of *Customer Auth* record = *066[1-3], 0665* ; **URI name** = *0665296132* => **TRUE**
+       Dst Prefix of *Customer Auth* record = *066[1-3], 0665* ; **URI name** = *0666296132* => **FALSE**
 
 -   :ref:`Src Prefix <customer_auth_src_prefix>` of *Customer Auth* record is in the prefix range of **From name**;
 
     .. note:: Examples:
 
-       Src Prefix of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
-       Src Prefix of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
-       Src Prefix of *Customer Auth* record = ** ; **From name** = ** => **FALSE**
+           Src Prefix of *Customer Auth* record = ** ; **From name** = *0662296132* => **TRUE**
+           Src Prefix of *Customer Auth* record = *066* ; **From name** = *0662296132* => **TRUE**
+           Src Prefix of *Customer Auth* record = *066[1-3]* ; **From name** = *0662296132* => **TRUE**
+           Src Prefix of *Customer Auth* record = *066[1-3]* ; **From name** = *0665296132* => **FALSE**
+           Src Prefix of *Customer Auth* record = *066[1-3], 0665* ; **From name** = *0665296132* => **TRUE**
+           Src Prefix of *Customer Auth* record = *066[1-3], 0665* ; **From name** = *0666296132* => **FALSE**
 
 -   :ref:`PoP <customer_auth_pop>` of *Customer Auth* record (if chosen) equals **PoP** that received the call;
 
@@ -63,25 +71,31 @@ On the second step of authentication algorithm Yeti is looking into *Customer Au
 
     .. note:: Examples:
 
-       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = ** => **TRUE**
-       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = ** => **TRUE**
-       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = ** => **FALSE**
+       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = *18unID* => **TRUE**
+       X-Yeti-Auth of *Customer Auth* record = *18unID* ; **X-Yeti-Auth** = *18unID* => **TRUE**
+       X-Yeti-Auth of *Customer Auth* record = *18unID* ; **X-Yeti-Auth** = ** => **FALSE**
+       X-Yeti-Auth of *Customer Auth* record = *18unID, 20Pd4A* ; **X-Yeti-Auth** = *20Pd4A* => **TRUE**
+       X-Yeti-Auth of *Customer Auth* record = *18unID, 20Pd4A* ; **X-Yeti-Auth** = *24578* => **FALSE**
 
--   :ref:`URI domain <customer_auth_uri_domain>` of *Customer Auth* record (if not empty) equals **From name**;
+-   :ref:`URI domain <customer_auth_uri_domain>` of *Customer Auth* record (if not empty) equals **URI domain**;
 
     .. note:: Examples:
 
-       URI domain of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
-       URI domain of *Customer Auth* record = ** ; **From name** = ** => **TRUE**
-       URI domain of *Customer Auth* record = ** ; **From name** = ** => **FALSE**
+       URI domain of *Customer Auth* record = ** ; **URI domain** = *onat.edu.ua* => **TRUE**
+       URI domain of *Customer Auth* record = *onat.edu.ua* ; **URI domain** = *onat.edu.ua* => **TRUE**
+       URI domain of *Customer Auth* record = *onat.edu.ua* ; **URI domain** = *yeti-switch.org* => **FALSE**
+       URI domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **URI domain** = *yeti-switch.org* => **TRUE**
+       URI domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **URI domain** = *demo.yeti-switch.org* => **FALSE**
 
 -   :ref:`To domain <customer_auth_to_domain>` of *Customer Auth* record (if not empty) equals **To domain**;
 
     .. note:: Examples:
 
-       To domain of *Customer Auth* record = ** ; **To name** = ** => **TRUE**
-       To domain of *Customer Auth* record = ** ; **To name** = ** => **TRUE**
-       To domain of *Customer Auth* record = ** ; **To name** = ** => **FALSE**
+       To domain of *Customer Auth* record = ** ; **To domain** = *onat.edu.ua* => **TRUE**
+       To domain of *Customer Auth* record = *onat.edu.ua* ; **To domain** = *onat.edu.ua* => **TRUE**
+       To domain of *Customer Auth* record = *onat.edu.ua* ; **To domain** = *yeti-switch.org* => **FALSE**
+       To domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **To domain** = *yeti-switch.org* => **TRUE**
+       To domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **To domain** = *demo.yeti-switch.org* => **FALSE**
 
 -   :ref:`From domain <customer_auth_from_domain>` of *Customer Auth* record (if not empty) equals **From domain**;
 
@@ -90,6 +104,8 @@ On the second step of authentication algorithm Yeti is looking into *Customer Au
        From domain of *Customer Auth* record = ** ; **From domain** = *onat.edu.ua* => **TRUE**
        From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *onat.edu.ua* => **TRUE**
        From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *yeti-switch.org* => **FALSE**
+       From domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **From domain** = *yeti-switch.org* => **TRUE**
+       From domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **From domain** = *demo.yeti-switch.org* => **FALSE**
 
 -   :ref:`Transport protocol <customer_auth_transport_protocol>` of *Customer Auth* record (if chosen) equals **Transport protocol**;
 
@@ -118,19 +134,14 @@ On the third step of authentication algorithm Yeti sorts of *Customer Auth* reco
 
     .. note:: Examples:
 
-       Example ***TODO***
+       Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.1* will be higher than record with ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24*
+       Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24* will be higher than record with ref:`IP address <customer_auth_ip_address>` = *0.0.0.0/0*
+       Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24* will be on same level with record with ref:`IP address <customer_auth_ip_address>` = *195.5.30.0/24*
+
 
 -   records with chosen :ref:`Transport protocol <customer_auth_transport_protocol>`, :ref:`PoP <customer_auth_pop>` and with entered :ref:`URI domain <customer_auth_uri_domain>`, :ref:`To domain <customer_auth_to_domain>` and :ref:`From domain <customer_auth_from_domain>` values first;
 
-    .. note:: Examples:
-
-       Example ***TODO***
-
 -   records with longest :ref:`Dst Prefix <customer_auth_dst_prefix> and :ref:`Src Prefix <customer_auth_src_prefix>` first.
-
-    .. note:: Examples:
-
-       Example ***TODO***
 
 
 After sorting of *Customer Auth* records routing procedure will be continued with using first record from the sorted list of *Customer Auth* records that was received.
@@ -214,7 +225,7 @@ Match condition **Customers Auth**'s options
     .. _customer_auth_ip_address:
 
     Ip
-        IP address of the originator (Customer).
+        IP address or array of IP-addresses (separated by comma(,)) of the originator (Customer).
 
     .. _customer_auth_pop:
 
@@ -226,14 +237,12 @@ Match condition **Customers Auth**'s options
     .. _customer_auth_src_prefix:
 
     Src Prefix
-        You can define a prefix which necessarily should be presented in Src-number for every
-        call from the customer. Just a prefix must be used here, not a regular expression.
+        You can define a prefix or array of prefixes (separated by comma(,)) which necessarily should be presented in Src-number for every call from the customer. Just a prefix (or prefixes) must be used here, not a regular expression.
 
     .. _customer_auth_dst_prefix:
 
     Dst Prefix
-        You can define a prefix which necessarily should be presented in a Dst-number for every
-        call from the customer. Just a prefix must be used here, not a regular expression.
+        You can define a prefix or array of prefixes (separated by comma(,)) which necessarily should be presented in a Dst-number for every call from the customer. Just a prefix (or prefixes) must be used here, not a regular expression.
 
     .. _customer_auth_dst_number_min_length:
 
@@ -249,24 +258,23 @@ Match condition **Customers Auth**'s options
     .. _customer_auth_uri_domain:
 
     Uri Domain
-        If specified, YETI checks the domain part of the URI for every call. If the domain part is not the same as specified other Customer Auth entity will be used (if any) for authentication.
+        If specified, YETI checks the domain part of the URI for every call. If the domain part is not the same as specified other Customer Auth entity will be used (if any) for authentication. You can specify more than one *Uri Domain* (separated by comma(,)).
 
     .. _customer_auth_from_domain:
 
     From Domain
         If specified, YETI checks the domain part of the URI in the From header for every call.
-        If presented domain mismatches other Customer Auth entity will be used (if any) for authentication.
+        If presented domain mismatches other Customer Auth entity will be used (if any) for authentication. You can specify more than one *From Domain* (separated by comma(,)).
 
     .. _customer_auth_to_domain:
 
     To Domain
-        If specified, YETI checks the domain part of the URI in the To header for every call. If presented domain mismatches other Customer Auth entity will be used (if any) for authentication.
+        If specified, YETI checks the domain part of the URI in the To header for every call. If presented domain mismatches other Customer Auth entity will be used (if any) for authentication. You can specify more than one *To Domain* (separated by comma(,)).
 
     .. _customer_auth_x_yeti_auth:
 
     X Yeti Auth
-        It's possible to define the custom SIP-header **X-Yeti-Auth** for the customer's calls and specify its value in
-        YETI. In case they match, YETI passes such calls with using this Customer Auth entity for authentication.
+        It's possible to define the custom SIP-header **X-Yeti-Auth** or array of headers (separated by comma(,)) for the customer's calls and specify its value in YETI. In case they match, YETI passes such calls with using this Customer Auth entity for authentication.
 
 Number translation **Customers Auth**'s options
 ```````````````````````````````````````````````

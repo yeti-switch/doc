@@ -61,7 +61,7 @@
       condition3 [label = "Src Prefix of Customer\n Auth record is in the\n prefix range of\n From name"; shape=box; sides=4];
       condition4 [label = "PoP of Customer\n Auth record (if chosen)\n equals PoP that received\n the call"; shape=box; sides=4];
       condition5 [label = "X-Yeti-Auth of Customer\n Auth record (if not\n empty) equals\n X-Yeti-Auth"; shape=box; sides=4];
-      condition6 [label = "URI domain of Customer\n Auth record (if not\n empty) equals\n From name"; shape=box; sides=4];
+      condition6 [label = "URI domain of Customer\n Auth record (if not\n empty) equals\n URI domain"; shape=box; sides=4];
       condition7 [label = "To domain of Customer\n Auth record (if not\n empty) equals\n To domain"; shape=box; sides=4];
       condition8 [label = "From domain of\n Customer Auth record (if\n not empty) equals\n From domain"; shape=box; sides=4];
       condition9 [label = "Transport protocol of\n Customer Auth record (if\n chosen) equals Transport\n protocol"; shape=box; sides=4];
@@ -69,7 +69,7 @@
       condition11 [label = "\nCustomer Auth\n record is enabled\n "; shape=box; sides=4];
       condition12 [label = "Contractor that is\n associated with\n Customer Auth record\n has Customer status"; shape=box; sides=4];
 
-      block4 [label = "Exit from authentication procedure with\n Disconnect Code 110\n (Can’t find Customer or Customer locked)"; shape=box; sides=4];
+      block4 [label = "Exit from authentication procedure with\n Disconnect Code 110\n (Canï¿½t find Customer or Customer locked)"; shape=box; sides=4];
 
       block5 [label = "Sorting of Customer Auth records with following rules: records with\n the longest mask of IP address first; records with chosen Transport\n protocol, PoP and with entered Uri domain, To domain and From\n domain values first; records with longest Dst and Src Prefixes first"; shape=box; sides=4];
 
