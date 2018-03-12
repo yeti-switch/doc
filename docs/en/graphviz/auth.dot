@@ -1,9 +1,9 @@
-    digraph Auth {
+digraph Auth {
 
-      node [style=filled; fillcolor="#FCF9A5"];
-      graph [nodesep=0.1, ranksep=0.001, mindist=0.01];
+    node [style=filled; fillcolor="#FCF9A5"];
+    graph [nodesep=0.1, ranksep=0.001, mindist=0.01];
 
-      subgraph cluster_dbfiltering {
+    subgraph cluster_dbfiltering {
 
         shape=doubleoctagon;
 
@@ -16,7 +16,7 @@
             condition1;
             condition2;
             condition3;
-          }
+        }
 
         subgraph cluster_dbfiltering2 {
 
@@ -25,7 +25,7 @@
             condition4;
             condition5;
             condition6;
-          }
+        }
 
         subgraph cluster_dbfiltering3 {
 
@@ -34,7 +34,7 @@
             condition7;
             condition8;
             condition9;
-          }
+        }
 
         subgraph cluster_dbfiltering4 {
 
@@ -43,53 +43,53 @@
             condition10;
             condition11;
             condition12;
-          }
+        }
 
-          block00 [label = "Result of selection"; shape=box; sides=4 ];
-
-      }
-
-
-      block1 [label = "Looking into Load Balancers table for the records where Signaling IP is equal Remote IP address"; shape=box; sides=4 ];
-
-      block2 [label = "Call was received from Load Balancer?"; shape=diamond];
-
-      block3 [label = "Using special headers that were\n received from Load Balancer for\n receiving information about real\n Remote IP address, port and\n Transport protocol"; shape=box; sides=4];
-
-      condition1 [label = "IP address of Customer\n Auth record contains or\n equals Remote\n IP address"; shape=box; sides=4];
-      condition2 [label = "Dst Prefix of Customer\n Auth record is in the\n prefix range of\n URI name"; shape=box; sides=4];
-      condition3 [label = "Src Prefix of Customer\n Auth record is in the\n prefix range of\n From name"; shape=box; sides=4];
-      condition4 [label = "PoP of Customer\n Auth record (if chosen)\n equals PoP that received\n the call"; shape=box; sides=4];
-      condition5 [label = "X-Yeti-Auth of Customer\n Auth record (if not\n empty) equals\n X-Yeti-Auth"; shape=box; sides=4];
-      condition6 [label = "URI domain of Customer\n Auth record (if not\n empty) equals\n URI domain"; shape=box; sides=4];
-      condition7 [label = "To domain of Customer\n Auth record (if not\n empty) equals\n To domain"; shape=box; sides=4];
-      condition8 [label = "From domain of\n Customer Auth record (if\n not empty) equals\n From domain"; shape=box; sides=4];
-      condition9 [label = "Transport protocol of\n Customer Auth record (if\n chosen) equals Transport\n protocol"; shape=box; sides=4];
-      condition10 [label = "Length of URI name is\n between Dst number min\n and max length values of\n Customer Auth record"; shape=box; sides=4];
-      condition11 [label = "\nCustomer Auth\n record is enabled\n "; shape=box; sides=4];
-      condition12 [label = "Contractor that is\n associated with\n Customer Auth record\n has Customer status"; shape=box; sides=4];
-
-      block4 [label = "Exit from authentication procedure with\n Disconnect Code 110\n (Can�t find Customer or Customer locked)"; shape=box; sides=4];
-
-      block5 [label = "Sorting of Customer Auth records with following rules: records with\n the longest mask of IP address first; records with chosen Transport\n protocol, PoP and with entered Uri domain, To domain and From\n domain values first; records with longest Dst and Src Prefixes first"; shape=box; sides=4];
-
-      block6 [label = "Continuation of routing procedure with using first record from the\n sorted list of Customer Auth records that was received"; shape=box; sides=4];
-
-      block1 -> block2;
-      block2 -> block3 [ label = "Yes"; fontcolor = "darkgreen" ];
-      block2 -> block0 [ label = "No" ; fontcolor = "tomato"];
-      block3 -> block0;
-
-      condition11 -> block00 [style=invis];
-
-      block00 -> block4 [ label = "Not\n Found"; fontcolor = "tomato" ];
-      block00 -> block5 [ label = "Found"; fontcolor = "darkgreen" ];
-      block5 -> block6;
-
-
-      block0 -> condition2 [style=invis];
-      condition2 -> condition5 [style=invis];
-      condition5 -> condition8 [style=invis];
-      condition8 -> condition11 [style=invis];
+        block00 [label = "Result of selection"; shape=box; sides=4 ];
 
     }
+
+
+    block1 [label = "Looking into Load Balancers table for the records where Signaling IP is equal Remote IP address"; shape=box; sides=4 ];
+
+    block2 [label = "Call was received from Load Balancer?"; shape=diamond];
+
+    block3 [label = "Using special headers that were\n received from Load Balancer for\n receiving information about real\n Remote IP address, port and\n Transport protocol"; shape=box; sides=4];
+
+    condition1 [label = "IP address of Customer\n Auth record contains or\n equals Remote\n IP address"; shape=box; sides=4];
+    condition2 [label = "Dst Prefix of Customer\n Auth record is in the\n prefix range of\n URI name"; shape=box; sides=4];
+    condition3 [label = "Src Prefix of Customer\n Auth record is in the\n prefix range of\n From name"; shape=box; sides=4];
+    condition4 [label = "PoP of Customer\n Auth record (if chosen)\n equals PoP that received\n the call"; shape=box; sides=4];
+    condition5 [label = "X-Yeti-Auth of Customer\n Auth record (if not\n empty) equals\n X-Yeti-Auth"; shape=box; sides=4];
+    condition6 [label = "URI domain of Customer\n Auth record (if not\n empty) equals\n URI domain"; shape=box; sides=4];
+    condition7 [label = "To domain of Customer\n Auth record (if not\n empty) equals\n To domain"; shape=box; sides=4];
+    condition8 [label = "From domain of\n Customer Auth record (if\n not empty) equals\n From domain"; shape=box; sides=4];
+    condition9 [label = "Transport protocol of\n Customer Auth record (if\n chosen) equals Transport\n protocol"; shape=box; sides=4];
+    condition10 [label = "Length of URI name is\n between Dst number min\n and max length values of\n Customer Auth record"; shape=box; sides=4];
+    condition11 [label = "\nCustomer Auth\n record is enabled\n "; shape=box; sides=4];
+    condition12 [label = "Contractor that is\n associated with\n Customer Auth record\n has Customer status"; shape=box; sides=4];
+
+    block4 [label = "Exit from authentication procedure with\n Disconnect Code 110\n (Can't find Customer or Customer locked)"; shape=box; sides=4];
+
+    block5 [label = "Sorting of Customer Auth records with following rules: records with\n the longest mask of IP address first; records with chosen Transport\n protocol, PoP and with entered Uri domain, To domain and From\n domain values first; records with longest Dst and Src Prefixes first"; shape=box; sides=4];
+
+    block6 [label = "Continuation of routing procedure with using first record from the\n sorted list of Customer Auth records that was received"; shape=box; sides=4];
+
+    block1 -> block2;
+    block2 -> block3 [ label = "Yes"; fontcolor = "darkgreen" ];
+    block2 -> block0 [ label = "No" ; fontcolor = "tomato"];
+    block3 -> block0;
+
+    condition11 -> block00 [style=invis];
+
+    block00 -> block4 [ label = "Not\n Found"; fontcolor = "tomato" ];
+    block00 -> block5 [ label = "Found"; fontcolor = "darkgreen" ];
+    block5 -> block6;
+
+
+    block0 -> condition2 [style=invis];
+    condition2 -> condition5 [style=invis];
+    condition5 -> condition8 [style=invis];
+    condition8 -> condition11 [style=invis];
+
+}
