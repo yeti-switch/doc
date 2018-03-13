@@ -30,98 +30,98 @@ On the second step of authentication algorithm Yeti is looking into *Customer Au
 
     .. note:: Examples:
 
-       IP address of *Customer Auth* record = *0.0.0.0/0* ; **Remote IP address** = *8.8.8.8* => **TRUE**
-       IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.1.1* => **TRUE**
-       IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.2.1* => **FALSE**
-       IP address of *Customer Auth* record = *192.168.1/24, 192.168.2.1* ; **Remote IP address** = *192.168.2.1* => **TRUE**
-       IP address of *Customer Auth* record = *192.168.1/24, 192.168.2.1* ; **Remote IP address** = *195.5.30.10* => **FALSE**
+       -    IP address of *Customer Auth* record = *0.0.0.0/0* ; **Remote IP address** = *8.8.8.8* => **TRUE**
+       -    IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.1.1* => **TRUE**
+       -    IP address of *Customer Auth* record = *192.168.1/24* ; **Remote IP address** = *192.168.2.1* => **FALSE**
+       -    IP address of *Customer Auth* record = *192.168.1/24, 192.168.2.1* ; **Remote IP address** = *192.168.2.1* => **TRUE**
+       -    IP address of *Customer Auth* record = *192.168.1/24, 192.168.2.1* ; **Remote IP address** = *195.5.30.10* => **FALSE**
 
 -   :ref:`Dst Prefix <customer_auth_dst_prefix>` of *Customer Auth* record is in the prefix range of **URI name**;
 
     .. note:: Examples:
 
-       Dst Prefix of *Customer Auth* record = ** ; **URI name** = *0662296132* => **TRUE**
-       Dst Prefix of *Customer Auth* record = *066* ; **URI name** = *0662296132* => **TRUE**
-       Dst Prefix of *Customer Auth* record = *066[1-3]* ; **URI name** = *0662296132* => **TRUE**
-       Dst Prefix of *Customer Auth* record = *066[1-3]* ; **URI name** = *0665296132* => **FALSE**
-       Dst Prefix of *Customer Auth* record = *066[1-3], 0665* ; **URI name** = *0665296132* => **TRUE**
-       Dst Prefix of *Customer Auth* record = *066[1-3], 0665* ; **URI name** = *0666296132* => **FALSE**
+       -    Dst Prefix of *Customer Auth* record = ** ; **URI name** = *0662296132* => **TRUE**
+       -    Dst Prefix of *Customer Auth* record = *066* ; **URI name** = *0662296132* => **TRUE**
+       -    Dst Prefix of *Customer Auth* record = *066[1-3]* ; **URI name** = *0662296132* => **TRUE**
+       -    Dst Prefix of *Customer Auth* record = *066[1-3]* ; **URI name** = *0665296132* => **FALSE**
+       -    Dst Prefix of *Customer Auth* record = *066[1-3], 0665* ; **URI name** = *0665296132* => **TRUE**
+       -    Dst Prefix of *Customer Auth* record = *066[1-3], 0665* ; **URI name** = *0666296132* => **FALSE**
 
 -   :ref:`Src Prefix <customer_auth_src_prefix>` of *Customer Auth* record is in the prefix range of **From name**;
 
     .. note:: Examples:
 
-           Src Prefix of *Customer Auth* record = ** ; **From name** = *0662296132* => **TRUE**
-           Src Prefix of *Customer Auth* record = *066* ; **From name** = *0662296132* => **TRUE**
-           Src Prefix of *Customer Auth* record = *066[1-3]* ; **From name** = *0662296132* => **TRUE**
-           Src Prefix of *Customer Auth* record = *066[1-3]* ; **From name** = *0665296132* => **FALSE**
-           Src Prefix of *Customer Auth* record = *066[1-3], 0665* ; **From name** = *0665296132* => **TRUE**
-           Src Prefix of *Customer Auth* record = *066[1-3], 0665* ; **From name** = *0666296132* => **FALSE**
+       -    Src Prefix of *Customer Auth* record = ** ; **From name** = *0662296132* => **TRUE**
+       -    Src Prefix of *Customer Auth* record = *066* ; **From name** = *0662296132* => **TRUE**
+       -    Src Prefix of *Customer Auth* record = *066[1-3]* ; **From name** = *0662296132* => **TRUE**
+       -    Src Prefix of *Customer Auth* record = *066[1-3]* ; **From name** = *0665296132* => **FALSE**
+       -    Src Prefix of *Customer Auth* record = *066[1-3], 0665* ; **From name** = *0665296132* => **TRUE**
+       -    Src Prefix of *Customer Auth* record = *066[1-3], 0665* ; **From name** = *0666296132* => **FALSE**
 
 -   :ref:`PoP <customer_auth_pop>` of *Customer Auth* record (if chosen) equals **PoP** that received the call;
 
     .. note:: Examples:
 
-       PoP of *Customer Auth* record = *Any* ; **PoP** = *ONAT.EDU.UA DC* => **TRUE**
-       PoP of *Customer Auth* record = *ONAT.EDU.UA DC* ; **PoP** = *ONAT.EDU.UA DC* => **TRUE**
-       PoP of *Customer Auth* record = *City* ; **PoP** = *ONAT.EDU.UA DC* => **FALSE**
+       -    PoP of *Customer Auth* record = *Any* ; **PoP** = *ONAT.EDU.UA DC* => **TRUE**
+       -    PoP of *Customer Auth* record = *ONAT.EDU.UA DC* ; **PoP** = *ONAT.EDU.UA DC* => **TRUE**
+       -    PoP of *Customer Auth* record = *City* ; **PoP** = *ONAT.EDU.UA DC* => **FALSE**
 
 
 -   :ref:`X-Yeti-Auth <customer_auth_x_yeti_auth>` of *Customer Auth* record (if not empty) equals **X-Yeti-Auth**;
 
     .. note:: Examples:
 
-       X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = *18unID* => **TRUE**
-       X-Yeti-Auth of *Customer Auth* record = *18unID* ; **X-Yeti-Auth** = *18unID* => **TRUE**
-       X-Yeti-Auth of *Customer Auth* record = *18unID* ; **X-Yeti-Auth** = ** => **FALSE**
-       X-Yeti-Auth of *Customer Auth* record = *18unID, 20Pd4A* ; **X-Yeti-Auth** = *20Pd4A* => **TRUE**
-       X-Yeti-Auth of *Customer Auth* record = *18unID, 20Pd4A* ; **X-Yeti-Auth** = *24578* => **FALSE**
+       -    X-Yeti-Auth of *Customer Auth* record = ** ; **X-Yeti-Auth** = *18unID* => **TRUE**
+       -    X-Yeti-Auth of *Customer Auth* record = *18unID* ; **X-Yeti-Auth** = *18unID* => **TRUE**
+       -    X-Yeti-Auth of *Customer Auth* record = *18unID* ; **X-Yeti-Auth** = ** => **FALSE**
+       -    X-Yeti-Auth of *Customer Auth* record = *18unID, 20Pd4A* ; **X-Yeti-Auth** = *20Pd4A* => **TRUE**
+       -    X-Yeti-Auth of *Customer Auth* record = *18unID, 20Pd4A* ; **X-Yeti-Auth** = *24578* => **FALSE**
 
 -   :ref:`URI domain <customer_auth_uri_domain>` of *Customer Auth* record (if not empty) equals **URI domain**;
 
     .. note:: Examples:
 
-       URI domain of *Customer Auth* record = ** ; **URI domain** = *onat.edu.ua* => **TRUE**
-       URI domain of *Customer Auth* record = *onat.edu.ua* ; **URI domain** = *onat.edu.ua* => **TRUE**
-       URI domain of *Customer Auth* record = *onat.edu.ua* ; **URI domain** = *yeti-switch.org* => **FALSE**
-       URI domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **URI domain** = *yeti-switch.org* => **TRUE**
-       URI domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **URI domain** = *demo.yeti-switch.org* => **FALSE**
+       -    URI domain of *Customer Auth* record = ** ; **URI domain** = *onat.edu.ua* => **TRUE**
+       -    URI domain of *Customer Auth* record = *onat.edu.ua* ; **URI domain** = *onat.edu.ua* => **TRUE**
+       -    URI domain of *Customer Auth* record = *onat.edu.ua* ; **URI domain** = *yeti-switch.org* => **FALSE**
+       -    URI domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **URI domain** = *yeti-switch.org* => **TRUE**
+       -    URI domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **URI domain** = *demo.yeti-switch.org* => **FALSE**
 
 -   :ref:`To domain <customer_auth_to_domain>` of *Customer Auth* record (if not empty) equals **To domain**;
 
     .. note:: Examples:
 
-       To domain of *Customer Auth* record = ** ; **To domain** = *onat.edu.ua* => **TRUE**
-       To domain of *Customer Auth* record = *onat.edu.ua* ; **To domain** = *onat.edu.ua* => **TRUE**
-       To domain of *Customer Auth* record = *onat.edu.ua* ; **To domain** = *yeti-switch.org* => **FALSE**
-       To domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **To domain** = *yeti-switch.org* => **TRUE**
-       To domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **To domain** = *demo.yeti-switch.org* => **FALSE**
+       -    To domain of *Customer Auth* record = ** ; **To domain** = *onat.edu.ua* => **TRUE**
+       -    To domain of *Customer Auth* record = *onat.edu.ua* ; **To domain** = *onat.edu.ua* => **TRUE**
+       -    To domain of *Customer Auth* record = *onat.edu.ua* ; **To domain** = *yeti-switch.org* => **FALSE**
+       -    To domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **To domain** = *yeti-switch.org* => **TRUE**
+       -    To domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **To domain** = *demo.yeti-switch.org* => **FALSE**
 
 -   :ref:`From domain <customer_auth_from_domain>` of *Customer Auth* record (if not empty) equals **From domain**;
 
     .. note:: Examples:
 
-       From domain of *Customer Auth* record = ** ; **From domain** = *onat.edu.ua* => **TRUE**
-       From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *onat.edu.ua* => **TRUE**
-       From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *yeti-switch.org* => **FALSE**
-       From domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **From domain** = *yeti-switch.org* => **TRUE**
-       From domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **From domain** = *demo.yeti-switch.org* => **FALSE**
+       -    From domain of *Customer Auth* record = ** ; **From domain** = *onat.edu.ua* => **TRUE**
+       -    From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *onat.edu.ua* => **TRUE**
+       -    From domain of *Customer Auth* record = *onat.edu.ua* ; **From domain** = *yeti-switch.org* => **FALSE**
+       -    From domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **From domain** = *yeti-switch.org* => **TRUE**
+       -    From domain of *Customer Auth* record = *onat.edu.ua, yeti-switch.org* ; **From domain** = *demo.yeti-switch.org* => **FALSE**
 
 -   :ref:`Transport protocol <customer_auth_transport_protocol>` of *Customer Auth* record (if chosen) equals **Transport protocol**;
 
     .. note:: Examples:
 
-       Transport protocol of *Customer Auth* record = *TCP* ; **Transport protocol** = *TCP* => **TRUE**
-       Transport protocol of *Customer Auth* record = *Any* ; **Transport protocol** = *UDP* => **TRUE**
-       Transport protocol of *Customer Auth* record = *UDP* ; **Transport protocol** = *TCP* => **FALSE**
+       -    Transport protocol of *Customer Auth* record = *TCP* ; **Transport protocol** = *TCP* => **TRUE**
+       -    Transport protocol of *Customer Auth* record = *Any* ; **Transport protocol** = *UDP* => **TRUE**
+       -    Transport protocol of *Customer Auth* record = *UDP* ; **Transport protocol** = *TCP* => **FALSE**
 
 -   Length of **URI name** is between :ref:`Dst number min and max length <customer_auth_dst_number_min_length>` values of *Customer Auth* record;
 
     .. note:: Examples:
 
-       Dst number min length of *Customer Auth* record = *3* ; Dst number max length of *Customer Auth* record = *15* ; **URI name** = *380662296132* => **TRUE**
-       Dst number min length of *Customer Auth* record = *7* ; Dst number max length of *Customer Auth* record = *7* ; **URI name** = *7050460* => **TRUE**
-       Dst number min length of *Customer Auth* record = *0* ; Dst number max length of *Customer Auth* record = *7* ; **URI name** = *0487050460* => **FALSE**
+       -    Dst number min length of *Customer Auth* record = *3* ; Dst number max length of *Customer Auth* record = *15* ; **URI name** = *380662296132* => **TRUE**
+       -    Dst number min length of *Customer Auth* record = *7* ; Dst number max length of *Customer Auth* record = *7* ; **URI name** = *7050460* => **TRUE**
+       -    Dst number min length of *Customer Auth* record = *0* ; Dst number max length of *Customer Auth* record = *7* ; **URI name** = *0487050460* => **FALSE**
 
 -   *Customer Auth* record is enabled;
 -   :ref:`Contractor <contractors>` that is associated with *Customer Auth* record has :ref:`Customer <contractor_customer>` status.
@@ -134,14 +134,14 @@ On the third step of authentication algorithm Yeti sorts of *Customer Auth* reco
 
     .. note:: Examples:
 
-       Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.1* will be higher than record with ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24*
-       Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24* will be higher than record with ref:`IP address <customer_auth_ip_address>` = *0.0.0.0/0*
-       Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24* will be on same level with record with ref:`IP address <customer_auth_ip_address>` = *195.5.30.0/24*
+       -    Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.1* will be higher than record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24*
+       -    Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24* will be higher than record with :ref:`IP address <customer_auth_ip_address>` = *0.0.0.0/0*
+       -    Record with :ref:`IP address <customer_auth_ip_address>` = *192.168.30.0/24* will be on same level with record with :ref:`IP address <customer_auth_ip_address>` = *195.5.30.0/24*
 
 
 -   records with chosen :ref:`Transport protocol <customer_auth_transport_protocol>`, :ref:`PoP <customer_auth_pop>` and with entered :ref:`URI domain <customer_auth_uri_domain>`, :ref:`To domain <customer_auth_to_domain>` and :ref:`From domain <customer_auth_from_domain>` values first;
 
--   records with longest :ref:`Dst Prefix <customer_auth_dst_prefix> and :ref:`Src Prefix <customer_auth_src_prefix>` first.
+-   records with longest :ref:`Dst Prefix <customer_auth_dst_prefix>` and :ref:`Src Prefix <customer_auth_src_prefix>` first.
 
 
 After sorting of *Customer Auth* records routing procedure will be continued with using first record from the sorted list of *Customer Auth* records that was received.
