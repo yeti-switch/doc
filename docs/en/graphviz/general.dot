@@ -1,0 +1,33 @@
+digraph General {
+
+    node [style=filled; fillcolor="#FCF9A5"];
+    graph [nodesep=1, ranksep=0.2, mindist=0.5];
+
+
+    block1 [label = "Authentication / Authorization"; shape=box; sides=4 ];
+    block2 [label = "Pre-Routing numbers translations"; shape=box; sides=4 ];
+    block3 [label = "Search customer rate in rateplan"; shape=box; sides=4 ];
+    block4 [label = "Detect routing algorithm for routing plan"; shape=box; sides=4 ];
+    block5 [label = "Make Query to LNP database (if needed)"; shape=box; sides=4 ];
+    block6 [label = "Search routes for a call"; shape=box; sides=4 ];
+    block7 [label = "Post-routing numbers translations"; shape=box; sides=4 ];
+    block8 [label = "Detect gateways capabilities"; shape=box; sides=4 ];
+    block9 [label = "Pass routes to switch node"; shape=box; sides=4 ];
+    block10 [label = "Switch node is trying to connect a call"; shape=box; sides=4 ];
+    block11 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
+    block12 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
+
+    block1 -> block2;
+    block2 -> block3;
+    block3 -> block4;
+    block4 -> block5;
+    block5 -> block6;
+    block6 -> block7;
+    block7 -> block8;
+    block8 -> block9;
+    block9 -> block10;
+    block10 -> block11;
+    block11 -> block12;
+
+
+}

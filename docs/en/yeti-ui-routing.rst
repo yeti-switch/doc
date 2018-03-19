@@ -4,6 +4,14 @@ Routing
 
 YETI WEB interface - Routing menu description. This section describes authentication and routing principles.
 
+
+General routing algorithm is represented on the picture below:
+
+ .. graphviz:: ../graphviz/general.dot
+
+On the first step of general routing algorithm :ref:`authentication <customer_auth>` will be made.
+
+
 .. toctree::
    :maxdepth: 1
 
