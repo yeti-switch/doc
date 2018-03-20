@@ -5,17 +5,18 @@ digraph General {
 
 
     block1 [label = "Authentication / Authorization"; shape=box; sides=4 ];
-    block2 [label = "Pre-Routing numbers translations"; shape=box; sides=4 ];
-    block3 [label = "Search customer rate in rateplan"; shape=box; sides=4 ];
-    block4 [label = "Detect routing algorithm for routing plan"; shape=box; sides=4 ];
-    block5 [label = "Make Query to LNP database (if needed)"; shape=box; sides=4 ];
-    block6 [label = "Search routes for a call"; shape=box; sides=4 ];
-    block7 [label = "Post-routing numbers translations"; shape=box; sides=4 ];
-    block8 [label = "Detect gateways capabilities"; shape=box; sides=4 ];
-    block9 [label = "Pass routes to switch node"; shape=box; sides=4 ];
-    block10 [label = "Switch node is trying to connect a call"; shape=box; sides=4 ];
-    block11 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
-    block12 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
+    block2 [label = "Checking balance of Customer"; shape=box; sides=4 ];
+    block3 [label = "Pre-Routing numbers translations"; shape=box; sides=4 ];
+    block4 [label = "Search customer rate in rateplan"; shape=box; sides=4 ];
+    block5 [label = "Detect routing algorithm for routing plan"; shape=box; sides=4 ];
+    block6 [label = "Make Query to LNP database (if needed)"; shape=box; sides=4 ];
+    block7 [label = "Search routes for a call"; shape=box; sides=4 ];
+    block8 [label = "Post-routing numbers translations"; shape=box; sides=4 ];
+    block9 [label = "Detect gateways capabilities"; shape=box; sides=4 ];
+    block10 [label = "Pass routes to switch node"; shape=box; sides=4 ];
+    block11 [label = "Switch node is trying to connect a call"; shape=box; sides=4 ];
+    block12 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
+    block13 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
 
     block1 -> block2;
     block2 -> block3;
@@ -28,6 +29,7 @@ digraph General {
     block9 -> block10;
     block10 -> block11;
     block11 -> block12;
+    block12 -> block13;
 
 
 }

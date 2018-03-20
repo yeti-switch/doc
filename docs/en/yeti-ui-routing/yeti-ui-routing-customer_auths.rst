@@ -171,7 +171,7 @@ General **Customers Auth**'s attributes:
     .. _customer_check_account_balance:
 
     Check account balance
-        If this flag is enabled Yeti will check current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this Customer Auth record. If current balance is out of limits (less than :ref:`Min balance <account_min_balance>`, or more than :ref:`Max balance <account_max_balance>`) call will dropped.
+        If this flag is enabled Yeti will check current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this Customer Auth record. If current balance is less than :ref:`Min balance <account_min_balance>` call will dropped.
     Gateway
         Gateway which related to this Customer Auth. That gateway (its parameters),
         will be used for media handling on the A-leg of a call.
