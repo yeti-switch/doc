@@ -171,7 +171,7 @@ General **Customers Auth**'s attributes:
     .. _customer_check_account_balance:
 
     Check account balance
-        If this flag is enabled Yeti will check current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this Customer Auth record. If current balance is less than :ref:`Min balance <account_min_balance>` call will dropped.
+        If this flag is enabled Yeti will check current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this Customer Auth record. If current balance is less than :ref:`Min balance <account_min_balance>` call will dropped with *Disconnect code 8000 (No enought customer balance)*.
     Gateway
         Gateway which related to this Customer Auth. That gateway (its parameters),
         will be used for media handling on the A-leg of a call.
@@ -276,6 +276,8 @@ Match condition **Customers Auth**'s options
     X Yeti Auth
         It's possible to define the custom SIP-header **X-Yeti-Auth** or array of headers (separated by comma(,)) for the customer's calls and specify its value in YETI. In case they match, YETI passes such calls with using this Customer Auth entity for authentication.
 
+    .. _number_translation_settings:
+
 Number translation **Customers Auth**'s options
 ```````````````````````````````````````````````
 
@@ -298,7 +300,7 @@ Number translation **Customers Auth**'s options
         This field should contain a regular expression for changing the Source-number within SIP-signalization.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src rewrite result
-        The result of changing the Name field in the Source-number, using the Src rewrite rule above.
+        The result of changing the Source-number, using the Src rewrite rule above.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst rewrite rule
         This field should contain a regular expression for changing the Destination-number within SIP-signalization.
@@ -306,6 +308,8 @@ Number translation **Customers Auth**'s options
     Dst rewrite result
         The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+    .. _radius_options:
 
 Radius **Customers Auth**'s options
 ```````````````````````````````````

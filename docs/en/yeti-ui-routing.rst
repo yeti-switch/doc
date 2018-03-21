@@ -9,9 +9,11 @@ General routing algorithm is represented on the picture below:
 
  .. graphviz:: graphviz/general.dot
 
-On the first step of general routing algorithm :ref:`authentication <customer_auth>` will be made.
+On the first step of general routing algorithm :ref:`authentication <customer_auth>` will be made. As a result of this step :ref:`Customer Auth <customer_auth>` record will be selected for incoming call or call will be dropped with *Disconnect Code 110 (Can't find Customer or Customer locked)*.
 
-On the second step of general routing algorithm Yeti will check Customer's balance if :ref:`Check account balance <customer_check_account_balance>` flag of :ref:`Customer Auth <customer_auth>` record is enabled.
+On the second step of algorithm Yeti will check Customer's balance if :ref:`Check account balance <customer_check_account_balance>` flag of selected :ref:`Customer Auth <customer_auth>` record is enabled. If current balance is less than :ref:`Min balance <account_min_balance>` call will dropped with *Disconnect code 8000 (No enought customer balance)*.
+
+On the third step of general routing algorithm Yeti makes pre-Routing numbers translations. Yeti rewrites (if necessary) Name field in the Source-number, Source-number and Destination-number for incoming call (by :ref:`using POSIX Regular Expressions <posix_regular_expressions2>`) with using :ref:`Number translation settings <number_translation_settings>` of  :ref:`Customer Auth <customer_auth>` record that was selected. On this step Yeti also rewrites (if necessary) Source and Destination numbers which will be send to Radius-server if it's required (by :ref:`using POSIX Regular Expressions <posix_regular_expressions2>`) with using :ref:`Radius options <radius_options>` of  :ref:`Customer Auth <customer_auth>` record that was selected.
 
 YETI WEB interface - Routing menu description.
 
