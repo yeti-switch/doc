@@ -8,7 +8,7 @@ Upgrading from 1.5 branch to 1.6
 Changelog
 ~~~~~~~~~
 
-- Multiple tags for call
+- Multiple routing tags can be applied for a call
 - Multiple IP,src_prefix and dst_prefix values allowed at same Customer Auth record
 - Ability to override Disconnect codes/reasons on capacity overload. See System->Disconnect codes menu
 - At CDR database additination PGQ queue **cdr_streaming** was added to allow external system read full CDR
