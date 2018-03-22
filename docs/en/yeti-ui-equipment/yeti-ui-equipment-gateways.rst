@@ -233,20 +233,28 @@ Translations **Gateway**'s attributes:
         Policy to process Diversion header.
     Diversion rewrite rule
         Regular expression pattern for Diversion.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Diversion rewrite result
         Regular expression replacement for Diversion.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src name rewrite rule
         Regular expression pattern for From display-name part.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src name rewrite result
         Regular expression replacement for From display-name part.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src rewrite rule
         Regular expression pattern for From user part.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Src rewrite result
         Regular expression replacement for From user part.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst rewrite rule
         Regular expression pattern for To and RURI user part.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Dst rewrite result
         Regular expression replacement for To and RURI user part.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
 
 Media **Gateway**'s attributes:
 ```````````````````````````````
