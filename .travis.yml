@@ -4,6 +4,6 @@ python:
 
 install:
   - "pip install sphinx"
-  - "apt install graphviz"
+  - "sudo apt install graphviz"
 
 script: "cd docs&&make"
