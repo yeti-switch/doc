@@ -1,4 +1,6 @@
 
+.. _load_balancers:
+
 Load Balancers
 ~~~~~~~~~~~~~~
 
@@ -10,6 +12,9 @@ Load Balancers are used as proxy-servers for SIP-signaling between  :ref:`Gatewa
        Load Balancer's id.
     Name
         Load Balancer's name.
+
+    .. _load_balancers_signalling_ip:
+
     Signalling IP
         Signalling IP address for this *Load Balancer*.
 
