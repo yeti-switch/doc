@@ -19,6 +19,7 @@ Contents:
    headers-filtering
    upgrade-to-1.4
    upgrade-to-1.5
+   upgrade-to-1.6
    best-practices
 
 
