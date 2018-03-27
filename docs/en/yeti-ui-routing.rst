@@ -19,6 +19,7 @@ On the fourth step of general routing algorithm Yeti makes processing of destina
 
 On the fifth step of general routing algorithm Yeti makes processing of source :ref:`Numberlist <numberlists>` if this :ref:`Numberlist <numberlists>` was setted up in the :ref:`Customer Auth <customer_auth>` record. Depending on chosen :ref:`mode <numberlists_mode>` Yeti is going via all related :ref:`Numberlist items <numberlist_items>` and makes some :ref:`actions <numberlists_action>`. As a result of this step Yeti could drop the call with *Disconnect code 8002 (Source blacklisted)* or just rewrite (if necessary) Source and Destination numbers (by :ref:`using POSIX Regular Expressions <posix_regular_expressions2>`) with using :ref:`rewrite rules <numberlist_items_rewrite_rules>` of  :ref:`Numberlist items <numberlist_items>` record or :ref:`rewrite rules <numberlists_rewrite_rules>` relevant :ref:`Numberlist <numberlists>` record.
 
+On the sixth step of general routing algorithm Yeti will be looking for :ref:`Areas <areas>` (by using :ref:`Area prefixes <area_prefixes>`) that are related to the Source number (**From name**) and Destination number (**URI name**) after them processing and translation on the previous steps.  :ref:`Area <areas>` records that were found (if any), are used for detecting :ref:`Routing Tag <routing_tag>` for the call on the basis :ref:`Routing Tag detection Rules <routing_tag_detection_rules>`.
 
 
 YETI WEB interface - Routing menu description.
