@@ -3,6 +3,22 @@ digraph General {
     node [style=filled; fillcolor="#FCF9A5"];
     graph [nodesep=1, ranksep=0.2, mindist=0.5];
 
+    subgraph cluster_DC {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=red];
+
+        reason1 [label = "Disconnect Code 110 \n (Can't find Customer or Customer locked)"; shape=box; sides=4 ];
+        reason2 [label = "Disconnect code 8000 \n (No enought customer balance)"; shape=box; sides=4 ];
+        reason3 [label = "Disconnect code 8001 \n(Destination blacklisted)"; shape=box; sides=4 ];
+        reason4 [label = "Disconnect code 8002 \n(Source blacklisted)"; shape=box; sides=4 ];
+
+        reason1->reason2 [style=invis];
+        reason2->reason3 [style=invis];
+        reason3->reason4 [style=invis];
+        label = "Disconnect Reasons";
+    }
+
 
     block1 [label = "Authentication / Authorization"; shape=box; sides=4 ];
     block2 [label = "Checking balance of Customer"; shape=box; sides=4 ];
@@ -22,21 +38,33 @@ digraph General {
     block16 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
     block17 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
 
-    block1 -> block2;
-    block2 -> block3;
-    block3 -> block4;
-    block4 -> block5;
-    block5 -> block6;
-    block6 -> block7;
-    block7 -> block8;
-    block8 -> block9;
-    block9 -> block10;
-    block10 -> block11;
-    block11 -> block12;
-    block12 -> block13;
-    block13 -> block14;
-    block14 -> block15;
-    block15 -> block16;
-    block16 -> block17;
+    block1 -> block2 [color=green];
+    block1 -> reason1 [color=red];
+    block1 -> Customer_Auth [style=invis];
+    block2 -> block3 [color=green];
+    block2 -> reason2 [color=red];
+    block3 -> block4 [color=green];
+    block4 -> block5 [color=green];
+    block4 -> reason3 [color=red];
+    block5 -> block6 [color=green];
+    block5 -> reason4 [color=red];
+    block6 -> block7 [color=green];
+    block7 -> block8 [color=green];
+    block8 -> block9 [color=green];
+    block9 -> block10 [color=green];
+    block10 -> block11 [color=green];
+    block11 -> block12 [color=green];
+    block12 -> block13 [color=green];
+    block13 -> block14 [color=green];
+    block14 -> block15 [color=green];
+    block15 -> block16 [color=green];
+    block16 -> block17 [color=green];
+
+    Customer_Auth [
+        label = "Customer Auth",
+            shape=Msquare,
+            fillcolor="orange:blue",
+            style=radial,
+            gradientangle=90];
 
 }

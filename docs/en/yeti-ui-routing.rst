@@ -21,6 +21,8 @@ On the fifth step of general routing algorithm Yeti makes processing of source :
 
 On the sixth step of general routing algorithm Yeti will be looking for :ref:`Areas <areas>` (by using :ref:`Area prefixes <area_prefixes>`) that are related to the Source number (**From name**) and Destination number (**URI name**) after them processing and translation on the previous steps.  :ref:`Area <areas>` records that were found (if any), are used for detecting :ref:`Routing Tag <routing_tag>` for the call on the basis :ref:`Routing Tag detection Rules <routing_tag_detection_rules>`.
 
+On the seventh step of general routing algorithm Yeti will be selecting :ref:`Routing Plan <routing_plan>` that was chosen for :ref:`Customer Auth <customer_auth>` record.
+
 
 YETI WEB interface - Routing menu description.
 
