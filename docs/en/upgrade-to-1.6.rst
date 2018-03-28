@@ -25,6 +25,12 @@ Changelog
 - https://github.com/yeti-switch/yeti-web/issues/150
 - https://github.com/yeti-switch/yeti-web/issues/209
 
+~~~~~~~~~~~~~~~~~~~~
+Incompatible changes
+~~~~~~~~~~~~~~~~~~~~
+
+Since version 1.6.0 Yeti allow mark a call by multiple tags. In previous versions not tagged Destinations and Dialpeers can be used by calls with any tag or without tag. Since version 1.6.0 not tagged Destinations/Dialpeers will be selected only for not tagged calls.
+
 
 ~~~~~~~~~~~~~~~~~
 Upgrade procedure
