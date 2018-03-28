@@ -28,10 +28,19 @@ General **Destination**'s attributes:
         If this flag is activated, when the corresponding number is received with this Direction during the routing procedure, the call will be rejected.
     Rateplan
         Rateplan to which this Destination is related.
+
+    .. _destination_routing_tag:
+
     Routing Tag
         :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this Destination.
+
+    .. _destination_valid_from:
+
     Valid From
         Time and date that determine the time from which this Destination participates (will participate) in the routing procedure.
+
+    .. _destination_valid_to:
+
     Valid Till
         Time and date that determine the point in time to which this Destination will participate in the routing procedure.
 
