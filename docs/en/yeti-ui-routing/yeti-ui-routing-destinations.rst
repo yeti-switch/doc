@@ -24,6 +24,9 @@ General **Destination**'s attributes:
         Maximum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is more than value of this field.
     Enabled
         If this flag is activated, the Direction will participate in the routing procedure.
+
+    .. _destination_reject_calls:
+
     Reject Calls
         If this flag is activated, when the corresponding number is received with this Direction during the routing procedure, the call will be rejected.
     Rateplan
