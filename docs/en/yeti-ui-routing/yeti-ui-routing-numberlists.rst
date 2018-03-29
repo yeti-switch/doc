@@ -13,6 +13,9 @@ Numberlists are used for describing common parameters that can be applied for se
         Unique Numberlist's id.
     Name
         Unique Numberlist's name.
+
+.. _numberlists_mode:
+
     Mode
         Mode of comparison :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` and with source (A) or destination (B) number of the call:
 
@@ -20,12 +23,16 @@ Numberlists are used for describing common parameters that can be applied for se
 
         **Prefix match**    - In this mode :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` should contain Prefix. Only in case of matching *Prefix* with first symbols of the source (A) or destination (B) number - according  action will be applied to the call.
 
+.. _numberlists_action:
+
     Default action
         This action will be applied to the call by default in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*. You can rewrite this action for concrete :ref:`Numberlist item <numberlist_items>` by specifying action in the :ref:`Numberlist item <numberlist_items>` attributes:
 
         **Reject call** -   Reject call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
 
         **Allow call** -  Allow call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
+
+.. _numberlists_rewrite_rules:
 
     Default src rewrite rule
         *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used source number (number A), as a *Replacement* parameter of **regexp_replace** function is used value from *Default src rewrite result* bellow. Returned value of **regexp_replace** function will be used as source number (number A) for the call during future routing. It helps to change format of the source number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.

@@ -26,6 +26,8 @@ Numberlist items allow to do something with source or destination number or reje
 
         **Allow call** - Allow call in case of conformity source (A) or destination (B) number and the Key field (according to the Mode that was chosen  in the :ref:`Numberlist <numberlists>`). Action from the :ref:`Numberlist <numberlists>`) will be ignored in case of choosing this action.
 
+.. _numberlist_items_rewrite_rules:
+
     Src rewrite rule
         *Pattern* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used source number (number A), as a *Replacement* parameter of **regexp_replace** function is used value from *Src rewrite result* bellow. Returned value of **regexp_replace** function will be used as source number (number A) for the call during future routing. It helps to change format of the source number for providing compatibility.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.

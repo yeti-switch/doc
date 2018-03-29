@@ -32,6 +32,8 @@ Routing Plans are used for describing common parameters that can be applied for 
 
             **Static only, No ACD&ASR control** - Sorting only on the basis of :ref:`Priority <routing_plan_static_route_priority>` of the :ref:`Routing plan static route <routing_plan_static_route>` (if this static route is present in this *Routing plan*) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`. Routes with highest priorities will be on the top of rating. Routing will be done only in case of presence of :ref:`Routing plan static route <routing_plan_static_route>` record and :ref:`Dialpeer <dialpeers>` record that are related to this *Routing plan*.
 
+    .. _routing_plan_use_lnp:
+
     Use Lnp
         If this flag is enabled to all calls with ported numbers that are associated with this *Routing plan* via :ref:`Customer Auth <customer_auth>` record, will be applied local number portability procedure (receiving information from :ref:`LNP Cache <lnp_caches>` or sending request to :ref:`LNP Database <lnp_databases>`.
 
