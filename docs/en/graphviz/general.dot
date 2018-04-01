@@ -15,6 +15,7 @@ digraph General {
         reason5 [label = "Disconnect code 8003 \n(No response from LNP DB)"; shape=box; sides=4 ];
         reason6 [label = "Disconnect Code 111 \n(Can't find destination prefix)"; shape=box; sides=4 ];
         reason7 [label = "Disconnect Code 112 \n(Rejected by destination)"; shape=box; sides=4 ];
+        reason8 [label = "Disconnect Code 113 \n(No routes)"; shape=box; sides=4 ];
 
         reason1->reason2 [style=invis];
         reason2->reason3 [style=invis];
@@ -22,6 +23,7 @@ digraph General {
         reason4->reason5 [style=invis];
         reason5->reason6 [style=invis];
         reason6->reason7 [style=invis];
+        reason7->reason8 [style=invis];
         label = "Disconnect Reasons";
     }
 
@@ -37,16 +39,19 @@ digraph General {
     block9 [label = "Search Destination for a call"; shape=box; sides=4 ];
     block10 [label = "Detect routing algorithm for routing plan"; shape=box; sides=4 ];
     block11 [label = "Search routes for a call"; shape=box; sides=4 ];
-    block12 [label = "Post-routing numbers translations"; shape=box; sides=4 ];
+
+    block12 [label = "List of selected dialpeers sorted by chosen routing algorithm"; shape=hexagon];
     block13 [label = "Detect gateways capabilities"; shape=box; sides=4 ];
     block14 [label = "Pass routes to switch node"; shape=box; sides=4 ];
     block15 [label = "Switch node is trying to connect a call"; shape=box; sides=4 ];
-    block16 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
-    block17 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
+    block16 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
+    block17 [label = "Post-routing numbers translations"; shape=box; sides=4 ];
+    block18 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
+    end [shape=Msquare];
 
     block1 -> block2 [color=green];
     block1 -> reason1 [color=red];
-    block1 -> Customer_Auth [style=invis];
+
     block2 -> block3 [color=green];
     block2 -> reason2 [color=red];
     block3 -> block4 [color=green];
@@ -63,17 +68,15 @@ digraph General {
     block9 -> reason7 [color=red];
     block10 -> block11 [color=green];
     block11 -> block12 [color=green];
+    block11 -> reason8 [color=red];
     block12 -> block13 [color=green];
     block13 -> block14 [color=green];
     block14 -> block15 [color=green];
     block15 -> block16 [color=green];
     block16 -> block17 [color=green];
+    block17 -> block18 [color=green];
+    block18 -> block12 [color=green];
+    block12 -> end [color=green];
 
-    Customer_Auth [
-        label = "Customer Auth",
-            shape=Msquare,
-            fillcolor="orange:blue",
-            style=radial,
-            gradientangle=90];
 
 }
