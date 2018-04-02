@@ -62,6 +62,24 @@ If no records were found during searching of :ref:`Destination <destinations>` Y
 
 If :ref:`Reject Calls <destination_reject_calls>` flag is enabled for the :ref:`Destination <destinations>` record that was chosen Yeti will drop the call with  **Disconnect Code 112** (Rejected by destination).
 
+
+On the tenth step of general routing algorithm Yeti will search routes (:ref:`Dialpeers <dialpeers>`) for a call on the basis :ref:`routing (sorting) algorithm <routing_plan_sorting>` that was chosen for :ref:`Routing Plan <routing_plan>` record. If no records were found during searching of :ref:`Dialpeers <dialpeers>` Yeti will drop the call with  **Disconnect Code 113** (No routes).
+
+On the last (eleventh) step of general routing algorithm Yeti will pass through list of selected :ref:`Dialpeers <dialpeers>`) that is sorted by chosen :ref:`routing (sorting) algorithm <routing_plan_sorting>`. For each :ref:`Dialpeer <dialpeers>` following actions will be applied:
+
+    - Detect gateways capabilities;
+
+    - Pass routes to switch node;
+
+    - Switch node is trying to connect a call;
+
+    - Change customer's and vendor's balance at billing subsystem;
+
+    - Post-routing numbers translations;
+
+    - Writing CDR for each termination attempt + writing statistic for route/gateway.
+
+
 YETI WEB interface - Routing menu description.
 
 .. toctree::

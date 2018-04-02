@@ -9,7 +9,7 @@ digraph General {
         node [style=filled,color=red];
 
         reason1 [label = "Disconnect Code 110 \n(Can't find Customer or Customer locked)"; shape=box; sides=4 ];
-        reason2 [label = "Disconnect code 8000 \n(No enought customer balance)"; shape=box; sides=4 ];
+        reason2 [label = "Disconnect code 8000 \n(Not enough customer balance)"; shape=box; sides=4 ];
         reason3 [label = "Disconnect code 8001 \n(Destination blacklisted)"; shape=box; sides=4 ];
         reason4 [label = "Disconnect code 8002 \n(Source blacklisted)"; shape=box; sides=4 ];
         reason5 [label = "Disconnect code 8003 \n(No response from LNP DB)"; shape=box; sides=4 ];
@@ -28,25 +28,24 @@ digraph General {
     }
 
 
-    block1 [label = "Authentication / Authorization"; shape=box; sides=4 ];
-    block2 [label = "Checking balance of Customer"; shape=box; sides=4 ];
-    block3 [label = "Pre-Routing numbers translations"; shape=box; sides=4 ];
-    block4 [label = "DST Numberlist processing"; shape=box; sides=4 ];
-    block5 [label = "SRC Numberlist processing"; shape=box; sides=4 ];
-    block6 [label = "Areas and Tag detection"; shape=box; sides=4 ];
-    block7 [label = "Routing plan searching"; shape=box; sides=4 ];
-    block8 [label = "Make Query to LNP database (if needed)"; shape=box; sides=4 ];
-    block9 [label = "Search Destination for a call"; shape=box; sides=4 ];
-    block10 [label = "Detect routing algorithm for routing plan"; shape=box; sides=4 ];
-    block11 [label = "Search routes for a call"; shape=box; sides=4 ];
+    block1 [label = "Authentication / Authorization"; xlabel = "Step 1"; shape=box; sides=4 ];
+    block2 [label = "Checking balance of Customer"; xlabel = "Step 2   "; shape=box; sides=4 ];
+    block3 [label = "Pre-Routing numbers translations"; xlabel = "Step 3   "; shape=box; sides=4 ];
+    block4 [label = "DST Numberlist processing"; xlabel = "Step 4  "; shape=box; sides=4 ];
+    block5 [label = "SRC Numberlist processing"; xlabel = "Step 5"; shape=box; sides=4 ];
+    block6 [label = "Areas and Tag detection"; xlabel = "Step 6"; shape=box; sides=4 ];
+    block7 [label = "Routing plan searching"; xlabel = "Step 7"; shape=box; sides=4 ];
+    block8 [label = "Make Query to LNP database (if needed)"; xlabel = "Step 8"; shape=box; sides=4 ];
+    block9 [label = "Search Destination for a call"; xlabel = "              Step 9"; shape=box; sides=4 ];
+    block10 [label = "Search routes for a call on the basis routing algorithm for routing plan"; xlabel = "           Step 10"; shape=box; sides=4 ];
 
-    block12 [label = "List of selected dialpeers sorted by chosen routing algorithm"; shape=hexagon];
-    block13 [label = "Detect gateways capabilities"; shape=box; sides=4 ];
-    block14 [label = "Pass routes to switch node"; shape=box; sides=4 ];
-    block15 [label = "Switch node is trying to connect a call"; shape=box; sides=4 ];
-    block16 [label = "Change customer's and vendor's balance at billing subsystem"; shape=box; sides=4 ];
-    block17 [label = "Post-routing numbers translations"; shape=box; sides=4 ];
-    block18 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; shape=box; sides=4 ];
+    block11 [label = "List of selected dialpeers that is sorted by chosen routing algorithm"; xlabel = "                Step 11"; shape=hexagon];
+    block12 [label = "Detect gateways capabilities"; xlabel = "Step 11.1"; shape=box; sides=4 ];
+    block13 [label = "Pass routes to switch node"; xlabel = "Step 11.2   "; shape=box; sides=4 ];
+    block14 [label = "Switch node is trying to connect a call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
+    block15 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 11.4    "; shape=box; sides=4 ];
+    block16 [label = "Post-routing numbers translations"; xlabel = "Step 11.5    "; shape=box; sides=4 ];
+    block17 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; xlabel = "Step 11.6    "; shape=box; sides=4 ];
     end [shape=Msquare];
 
     block1 -> block2 [color=green];
@@ -54,29 +53,28 @@ digraph General {
 
     block2 -> block3 [color=green];
     block2 -> reason2 [color=red];
-    block3 -> block4 [color=green];
+    block3 -> block4 [color=black];
     block4 -> block5 [color=green];
     block4 -> reason3 [color=red];
     block5 -> block6 [color=green];
     block5 -> reason4 [color=red];
-    block6 -> block7 [color=green];
-    block7 -> block8 [color=green];
+    block6 -> block7 [color=black];
+    block7 -> block8 [color=black];
     block8 -> block9 [color=green];
     block8 -> reason5 [color=red];
     block9 -> block10 [color=green];
     block9 -> reason6 [color=red];
     block9 -> reason7 [color=red];
     block10 -> block11 [color=green];
-    block11 -> block12 [color=green];
-    block11 -> reason8 [color=red];
-    block12 -> block13 [color=green];
-    block13 -> block14 [color=green];
-    block14 -> block15 [color=green];
-    block15 -> block16 [color=green];
-    block16 -> block17 [color=green];
-    block17 -> block18 [color=green];
-    block18 -> block12 [color=green];
-    block12 -> end [color=green];
+    block10 -> reason8 [color=red];
+    block11 -> block12 [color=black];
+    block12 -> block13 [color=black];
+    block13 -> block14 [color=black];
+    block14 -> block15 [color=black];
+    block15 -> block16 [color=black];
+    block16 -> block17 [color=black];
+    block17 -> block11 [color=black];
+    block11 -> end [color=black];
 
 
 }

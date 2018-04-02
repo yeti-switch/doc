@@ -15,6 +15,9 @@ Routing Plans are used for describing common parameters that can be applied for 
         Unique Routing Plan's id.
     Name
         Unique Routing Plan name.
+
+    .. _routing_plan_sorting:
+
     Sorting
         This field is used for setting sorting method for the routes (Dialpeers) within Routing Plan. The following algorithms (sorting methods) are available:
 
