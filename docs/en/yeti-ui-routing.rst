@@ -67,7 +67,8 @@ On the tenth step of general routing algorithm Yeti will search routes (:ref:`Di
 
 On the last (eleventh) step of general routing algorithm Yeti will pass through list of selected :ref:`Dialpeers <dialpeers>`) that is sorted by chosen :ref:`routing (sorting) algorithm <routing_plan_sorting>`. For each :ref:`Dialpeer <dialpeers>` following actions will be applied:
 
-    - Detect gateways capabilities;
+    - Detect gateways capabilities. If :ref:`Gateway <gateways>` was chosen for :ref:`Dialpeer <dialpeers>` record Yeti will check :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` and compare it with :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>`. In case if :ref:`Is shared <gateways>` flag of :ref:`Gateway <gateways>` record wasn't chosen and :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and  :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record aren't same - Yeti will stop process this :ref:`Dialpeer <dialpeers>` and will go to next record in the sorted list of :ref:`Dialpeers <dialpeers>`.
+    If :ref:`Gateway <gateways>` was chosen for :ref:`Dialpeer <dialpeers>` record Yeti will select all :ref:`Gateways <gateways>` from :ref:`Gateway group <gateway_groups>` that was chosen for :ref:`Dialpeer <dialpeers>`;
 
     - Pass routes to switch node;
 

@@ -28,6 +28,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
         :ref:`Routing Group <routing_group>` that is related to this Dialpeer.
     Routing Tag
         :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
+
+    .. _dialpeer_vendor:
+
     Vendor
        :ref:`Contractor <contractors>` that is related to this *Dialpeer*. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Account
@@ -73,6 +76,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
 
     Reverse billing
         In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be removed** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
+
+    .. _dialpeer_gateway:
+
     Gateway
         :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group

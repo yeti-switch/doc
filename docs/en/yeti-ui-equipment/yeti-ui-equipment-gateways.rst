@@ -23,10 +23,16 @@ General **Gateway**'s attributes:
         ID of Gateway that was initialized via API by external system. It used for associating internal unique Gateway ID with its ID on external system.
     Enabled
         Disabled gateways will be ignored.
+
+    .. _gateway_contractor:
+
     Contractor
-        Gateway's owner.        
+        Gateway's owner.
+
+    .. _gateway_is_shared:
+
     Is shared       
-        Allows gateway to be used as origination equipment for any customer.
+        Allows *Gateway* to be used as origination equipment for any customer or as termination equipment for any vendor.
     Gateway group
         gateways can be grouped.
         Choose group from the list to add gateway to the group.
