@@ -21,6 +21,9 @@ General **Gateway**'s attributes:
 
     External
         ID of Gateway that was initialized via API by external system. It used for associating internal unique Gateway ID with its ID on external system.
+
+    .. _gateway_enabled:
+
     Enabled
         Disabled gateways will be ignored.
 
@@ -40,6 +43,9 @@ General **Gateway**'s attributes:
     Priority
         Gateway priority in the gateway group.
         In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
+
+    .. _gateway_pop:
+
     Pop
         Point of Presence of the gateway. It used to force prioritization when :ref:`prefer same POP <gateway_group_prefer_same_pop>` option enabled for gateway group.
     Allow origination
