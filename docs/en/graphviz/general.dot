@@ -27,6 +27,16 @@ digraph General {
         label = "Disconnect Reasons";
     }
 
+    subgraph cluster_DC2 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=red];
+
+        reason9 [label = "Disconnect code 8000 \n(Not enough customer balance)"; shape=box; sides=4 ];
+
+        label = "Disconnect Reasons";
+    }
+
 
     block1 [label = "Authentication / Authorization"; xlabel = "Step 1"; shape=box; sides=4 ];
     block2 [label = "Checking balance of Customer"; xlabel = "Step 2   "; shape=box; sides=4 ];
@@ -40,12 +50,18 @@ digraph General {
     block10 [label = "Search routes for a call on the basis routing algorithm for routing plan"; xlabel = "           Step 10"; shape=box; sides=4 ];
 
     block11 [label = "List of selected dialpeers that is sorted by chosen routing algorithm"; xlabel = "                Step 11"; shape=hexagon];
-    block12 [label = "Detect gateways capabilities"; xlabel = "Step 11.1"; shape=box; sides=4 ];
-    block13 [label = "Pass routes to switch node"; xlabel = "Step 11.2   "; shape=box; sides=4 ];
-    block14 [label = "Switch node is trying to connect a call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
-    block15 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 11.4    "; shape=box; sides=4 ];
-    block16 [label = "Post-routing numbers translations"; xlabel = "Step 11.5    "; shape=box; sides=4 ];
-    block17 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; xlabel = "Step 11.6    "; shape=box; sides=4 ];
+
+    block12 [label = "Search termination gateways for selected Dialpeer"; xlabel = "Step 11.1     "; shape=box; sides=4 ];
+
+    block13 [label = "List of selected gateways (for Dialpeer) that is sorted by priority"; xlabel = "                Step 11.2"; shape=hexagon];
+
+    block14 [label = "Calculating of allowed time for the call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
+
+    block15 [label = "Pass routes to switch node"; xlabel = "       Step 11.4   "; shape=box; sides=4 ];
+    block16 [label = "Switch node is trying to connect a call"; xlabel = "\nStep 11.5     "; shape=box; sides=4 ];
+    block17 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 11.6    "; shape=box; sides=4 ];
+    block18 [label = "Post-routing numbers translations"; xlabel = "Step 11.7    "; shape=box; sides=4 ];
+    block19 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; xlabel = "Step 11.8    "; shape=box; sides=4 ];
     end [shape=Msquare];
 
     block1 -> block2 [color=green];
@@ -69,12 +85,16 @@ digraph General {
     block10 -> reason8 [color=red];
     block11 -> block12 [color=black];
     block12 -> block13 [color=black];
-    block12 -> block11 [color=blue];
     block13 -> block14 [color=black];
     block14 -> block15 [color=black];
+    block14 -> reason9 [color=red];
     block15 -> block16 [color=black];
     block16 -> block17 [color=black];
-    block17 -> block11 [color=black];
+    block17 -> block18 [color=black];
+    block18 -> block19 [color=black];
+    block19 -> block13 [color=blue];
+    block13 -> block11 [color=blue];
+
     block11 -> end [color=black];
 
 

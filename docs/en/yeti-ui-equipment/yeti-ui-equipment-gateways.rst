@@ -39,7 +39,10 @@ General **Gateway**'s attributes:
     Gateway group
         gateways can be grouped.
         Choose group from the list to add gateway to the group.
-        Gateways groups can be managed at *Billing->Gateway Groups*.            
+        Gateways groups can be managed at *Billing->Gateway Groups*.
+
+    .. _gateway_priority:
+
     Priority
         Gateway priority in the gateway group.
         In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
