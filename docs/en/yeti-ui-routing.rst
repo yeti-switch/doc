@@ -7,7 +7,7 @@ This section describes authentication and routing principles.
 
 General routing algorithm is represented on the picture below:
 
- .. graphviz:: graphviz/general.dot
+ .. graphviz:: graphviz/routing.dot
 
 On the first step of general routing algorithm :ref:`authentication <customer_auth>` will be made. As a result of this step :ref:`Customer Auth <customer_auth>` record will be selected for incoming call or call will be dropped with *Disconnect Code 110 (Can't find Customer or Customer locked)*.
 
