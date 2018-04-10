@@ -7,7 +7,7 @@ CLI utility installation
 
 Server requirements:
 
-- OS Debian 8 Wheezy with amd64 architecture
+- OS Debian 8 or Debian 9 with amd64 architecture
 - Python 2.7
 
 Packages installation

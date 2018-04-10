@@ -58,7 +58,7 @@ After installation you can change any parameters by editing files:
 /etc/kamailio/dispatcher.list and /etc/kamailio/lb.conf
 
 
-
+.. warning:: You should register your Load balancer instance as trusted load balancer. See :ref:`System->Load balancers <load_balancers>` menu.
 
 
 
