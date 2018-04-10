@@ -57,10 +57,11 @@ digraph Routing {
 
     block14 [label = "Calculating of allowed time for the call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
 
-    block15 [label = "Pass routes to switch node"; xlabel = "       Step 11.4   "; shape=box; sides=4 ];
-    block16 [label = "Switch node is trying to connect a call"; xlabel = "\nStep 11.5     "; shape=box; sides=4 ];
-    block17 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 11.6    "; shape=box; sides=4 ];
-    block18 [label = "Post-routing numbers translations"; xlabel = "Step 11.7    "; shape=box; sides=4 ];
+    block15 [label = "Post-routing numbers translations"; xlabel = "Step 11.4    "; shape=box; sides=4 ];
+
+    block16 [label = "Pass route to switch node"; xlabel = "       Step 11.5   "; shape=box; sides=4 ];
+    block17 [label = "Switch node is trying to connect a call"; xlabel = "\nStep 11.6     "; shape=box; sides=4 ];
+    block18 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 11.7    "; shape=box; sides=4 ];
     block19 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; xlabel = "Step 11.8    "; shape=box; sides=4 ];
     end [shape=Msquare];
 

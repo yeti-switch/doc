@@ -12,16 +12,21 @@ digraph General {
 
         r_block2 [label = "Creating List of Call Profiles\n(on the basis of selected Dialpeers\n and allowed Gateways) for call termination"; shape=box; sides=4];
 
-        r_block31 [label = "Call Profile 1"; shape=box; sides=4];
-        r_block32 [label = "Call Profile 2"; shape=box; sides=4];
-        r_block33 [label = "Call Profile .."; shape=box; sides=4];
-        r_block34 [label = "Call Profile N"; shape=box; sides=4];
+        r_block31 [label = "Call Profile 1\nCheck Customer balance"; shape=box; sides=4];
+
+        r_block32 [label = "Call Profile 2\nCheck Customer balance"; shape=box; sides=4];
+
+        r_block33 [label = "Call Profile ..\nCheck Customer balance"; shape=box; sides=4];
+
+        r_block34 [label = "Call Profile N\nCheck Customer balance"; shape=box; sides=4];
+
 
         r_block1 -> r_block2 [color=green];
         r_block2 -> r_block31 [style=invis];
         r_block31 -> r_block32 [style=invis];
         r_block32 -> r_block33 [style=invis];
         r_block33 -> r_block34 [style=invis];
+
 
         label = "Routing DB";
     }
@@ -31,18 +36,22 @@ digraph General {
         color=lightgrey;
         node [style=filled,color=green];
 
-        s_block1 [label = "Receiving call from \n Originator (or Load Balancer)"; shape=Msquare];
+        s_block1 [label = "Receiving call from \n Originator (or Load Balancer)"; shape=box; sides=4];
 
         s_block2 [label = "Initial SIP processing\n of incoming call"; shape=box; sides=4];
 
+        s_block_end21 [label = "Closing SIP session"; shape=box; sides=4; color=red];
+
+        s_block2 -> s_block_end21 [style=invis];
+
         s_block31 [label = "Attempt 1 of terminate call with Profile 1"; shape=box; sides=4];
-        s_block_end31 [label = "End"; shape=Msquare];
+        s_block_end31 [label = "Closing SIP session"; shape=box; sides=4; color=black];
         s_block32 [label = "Attempt 2 of terminate call with Profile 2"; shape=box; sides=4];
-        s_block_end32 [label = "End"; shape=Msquare];
+        s_block_end32 [label = "Closing SIP session"; shape=box; sides=4; color=black];
         s_block33 [label = "Attempt .. of terminate call with Profile .."; shape=box; sides=4];
-        s_block_end33 [label = "End"; shape=Msquare];
+        s_block_end33 [label = "Closing SIP session"; shape=box; sides=4; color=black];
         s_block34 [label = "Attempt N of terminate call with Profile N"; shape=box; sides=4];
-        s_block_end34 [label = "End"; shape=Msquare];
+        s_block_end34 [label = "Closing SIP session"; shape=box; sides=4; color=black];
 
         s_block1 -> s_block2 [color=green];
         s_block2 -> s_block31 [style=invis];
@@ -75,13 +84,8 @@ digraph General {
         label = "CDR DB";
     }
 
-    s_block1 -> r_block1 [color=black];
-    r_block1 -> s_block2 [color=red; label = "Disconnect Code XXXX"];
-
-    r_block31 -> s_block31 [color=black];
-    r_block32 -> s_block32 [color=black];
-    r_block33 -> s_block33 [color=black];
-    r_block34 -> s_block34 [color=black];
+    s_block2 -> r_block1 [color=black];
+    r_block1 -> s_block_end21 [color=red; label = "Disconnect Code XXXX"];
 
     s_block31 -> c_block1 [color=black];
     s_block32 -> c_block2 [color=black];
@@ -92,6 +96,14 @@ digraph General {
     s_block32 -> r_block33 [color=red];
     s_block33 -> r_block34 [color=red];
 
+    r_block31 -> s_block31 [color=black];
+    r_block32 -> s_block32 [color=black];
+    r_block33 -> s_block33 [color=black];
+    r_block34 -> s_block34 [color=black];
 
+    r_block31 -> s_block_end31 [color=red;];
+    r_block32 -> s_block_end32 [color=red;];
+    r_block33 -> s_block_end33 [color=red;];
+    r_block34 -> s_block_end34 [color=red;];
 
 }
