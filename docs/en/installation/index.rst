@@ -6,7 +6,7 @@
 Installation and operation manual
 =================================
 
-Supported OS is Debian GNU/Linux 8, the only supported architecture is amd64
+Supported Operating systems is Debian GNU/Linux 8 and 9, the only supported architecture is amd64
 
 Components:
 
