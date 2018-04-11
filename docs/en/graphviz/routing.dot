@@ -38,6 +38,30 @@ digraph Routing {
     }
 
 
+    subgraph cluster_SEMS {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=blue];
+
+        block_l0 [label = "List of Call Profiles that is received from routing procedure"; xlabel = "                Step 12"; shape=hexagon];
+
+        block_l1 [label = "Pass route to switch node"; xlabel = "       Step 12.1   "; shape=box; sides=4 ];
+        block_l2 [label = "Switch node is trying to connect a call"; xlabel = "\nStep 12.2     "; shape=box; sides=4 ];
+
+        block_l3 [label = "Writing CDR + writing statistic for route/gateway"; xlabel = "Step 12.3    "; shape=box; sides=4 ];
+
+        block_l4 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 12.4    "; shape=box; sides=4 ];
+
+        block_l0 -> block_l1 [color=black];
+        block_l1 -> block_l2 [color=black];
+        block_l2 -> block_l3 [color=black];
+        block_l3 -> block_l4 [color=black];
+        block_l4 -> block_l0 [color=black];
+
+        label = "Yeti/SEMS Node";
+    }
+
+
     block1 [label = "Authentication / Authorization"; xlabel = "Step 1"; shape=box; sides=4 ];
     block2 [label = "Checking balance of Customer"; xlabel = "Step 2   "; shape=box; sides=4 ];
     block3 [label = "Pre-Routing numbers translations"; xlabel = "Step 3   "; shape=box; sides=4 ];
@@ -57,12 +81,16 @@ digraph Routing {
 
     block14 [label = "Calculating of allowed time for the call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
 
-    block15 [label = "Post-routing numbers translations"; xlabel = "Step 11.4    "; shape=box; sides=4 ];
 
-    block16 [label = "Pass route to switch node"; xlabel = "       Step 11.5   "; shape=box; sides=4 ];
-    block17 [label = "Switch node is trying to connect a call"; xlabel = "\nStep 11.6     "; shape=box; sides=4 ];
-    block18 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 11.7    "; shape=box; sides=4 ];
-    block19 [label = "Writing CDR for each termination attempt + writing statistic for route/gateway"; xlabel = "Step 11.8    "; shape=box; sides=4 ];
+    block15 [label = "Won't min limit on Customer's balance be reached?"; xlabel = "           Step 11.4 "; shape=Mdiamond];
+
+    block16 [label = "Won't max limit on Vendors's balance be reached?"; xlabel = "                 Step 11.5"; shape=Mdiamond];
+
+    block17 [label = "Post-routing numbers translations"; xlabel = "Step 11.6    "; shape=box; sides=4 ];
+
+    block18 [label = "Adding Call Profile to the Array"; xlabel = "Step 11.7    "; shape=box; sides=4 ];
+
+
     end [shape=Msquare];
 
     block1 -> block2 [color=green];
@@ -87,16 +115,20 @@ digraph Routing {
     block11 -> block12 [color=black];
     block12 -> block13 [color=black];
     block13 -> block14 [color=black];
+    block13 -> block11 [color=black];
     block14 -> block15 [color=black];
-    block14 -> reason9 [color=red];
-    block15 -> block16 [color=black];
-    block16 -> block17 [color=black];
+    block15 -> reason9 [color=red];
+    block15 -> block16 [color=green];
+    block16 -> block17 [color=green];
+    block16 -> block13 [color=red];
     block17 -> block18 [color=black];
-    block18 -> block19 [color=black];
-    block19 -> block13 [color=blue];
-    block13 -> block11 [color=blue];
+    block18 -> block13 [color=black];
 
-    block11 -> end [color=black];
+
+    block11 -> block_l0 [color=black];
+
+
+    block_l0 -> end [color=black];
 
 
 }
