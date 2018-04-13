@@ -44,22 +44,36 @@ digraph Routing {
 
         block_l0 [label = "List of Call Profiles that is received from routing procedure"; xlabel = "                Step 12"; shape=hexagon];
 
-        block_l1 [label = "Is Disconnect Code for Call Profile initialized?"; xlabel = "           Step 11.4 "; shape=Mdiamond];
+        block_l1 [label = "Is Disconnect Code for Call Profile initialized?"; xlabel = "           Step 12.1 "; shape=Mdiamond];
 
-        block_l2 [label = "Pass route to switch node"; xlabel = "       Step 12.1   "; shape=box; sides=4 ];
-        block_l3 [label = "Switch node is trying to connect a call"; xlabel = "\nStep 12.2     "; shape=box; sides=4 ];
 
-        block_l4 [label = "Writing CDR + writing statistic for route/gateway"; xlabel = "Step 12.3    "; shape=box; sides=4 ];
+        block_l2 [label = "Writing CDR + writing statistic for route/gateway"; xlabel = "Step 12.2    "; shape=box; sides=4 ];
 
-        block_l1 [label = "Won't min limit on Customer's balance be reached?"; xlabel = "           Step 11.4 "; shape=Mdiamond];
+        block_l3 [label = "Change customer's and vendor's balance at billing subsystem (if necessary)"; xlabel = "Step 12.3    "; shape=box; sides=4 ];
 
-        block_l5 [label = "Change customer's and vendor's balance at billing subsystem"; xlabel = "Step 12.4    "; shape=box; sides=4 ];
+        block_l4 [label = "Disconnect from Originator"; xlabel = "       Step 12.4   "; shape=box; sides=4; color = red ];
+
+        block_l5 [label = "Trying to connect a call"; xlabel = "\nStep 12.5     "; shape=box; sides=4 ];
+
+        block_l6 [label = "Writing CDR + writing statistic for route/gateway"; xlabel = "Step 12.6    "; shape=box; sides=4 ];
+
+        block_l7 [label = "Change customer's and vendor's balance at billing subsystem (if necessary)"; xlabel = "Step 12.7    "; shape=box; sides=4 ];
+
+
+        block_l8 [label = "Call was successful?"; xlabel = "           Step 12.8 "; shape=Mdiamond];
+
 
         block_l0 -> block_l1 [color=black];
-        block_l1 -> block_l2 [color=black];
+        block_l1 -> block_l2 [color=green];
         block_l2 -> block_l3 [color=black];
         block_l3 -> block_l4 [color=black];
-        block_l4 -> block_l0 [color=black];
+        block_l1 -> block_l5 [color=red];
+        block_l5 -> block_l6 [color=black];
+        block_l6 -> block_l7 [color=black];
+        block_l7 -> block_l8 [color=black];
+
+        block_l8 -> block_l4 [color=green];
+        block_l8 -> block_l0 [color=red];
 
         label = "Yeti/SEMS Node";
     }
@@ -152,4 +166,6 @@ digraph Routing {
     block_wrong1 -> block_l0 [color=black];
 
     block_wrong2-> block13 [color=black];
+
+    block_l4 -> end [color=black];
 }
