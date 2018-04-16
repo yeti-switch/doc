@@ -65,19 +65,36 @@ If :ref:`Reject Calls <destination_reject_calls>` flag is enabled for the :ref:`
 
 On the tenth step of general routing algorithm Yeti will search routes (:ref:`Dialpeers <dialpeers>`) for a call on the basis :ref:`routing (sorting) algorithm <routing_plan_sorting>` that was chosen for :ref:`Routing Plan <routing_plan>` record. If no records were found during searching of :ref:`Dialpeers <dialpeers>` Yeti will drop the call with  **Disconnect Code 113** (No routes).
 
-On the last (eleventh) step of general routing algorithm Yeti will pass through list of selected :ref:`Dialpeers <dialpeers>`) that is sorted by chosen :ref:`routing (sorting) algorithm <routing_plan_sorting>`. For each :ref:`Dialpeer <dialpeers>` following actions will be applied:
+On the eleventh step of general routing algorithm Yeti will pass through list of selected :ref:`Dialpeers <dialpeers>`) that is sorted by chosen :ref:`routing (sorting) algorithm <routing_plan_sorting>`. For each :ref:`Dialpeer <dialpeers>` following actions will be applied:
 
-    - Detect gateways capabilities. If :ref:`Gateway <gateways>` was chosen for :ref:`Dialpeer <dialpeers>` record (and this :ref:`Gateway <gateways>` is :ref:`Enabled <gateway_enabled>`)  Yeti will check :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` and compares it with :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>`. In case if :ref:`Is shared <gateways>` flag of :ref:`Gateway <gateways>` record wasn't chosen and :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record aren't same - Yeti will stop process this :ref:`Dialpeer <dialpeers>` and will go to next record in the sorted list of :ref:`Dialpeers <dialpeers>`. Otherwise :ref:`Gateway <gateways>` that was chosen for :ref:`Dialpeer <dialpeers>` record will be used for attempt of the call termination. If :ref:`Gateway <gateways>` wasn't chosen for :ref:`Dialpeer <dialpeers>` record Yeti will select all :ref:`enabled <gateway_enabled>` :ref:`Gateways <gateways>` from :ref:`Gateway group <gateway_groups>` that was chosen for :ref:`Dialpeer <dialpeers>` where :ref:`Point of Presence <gateway_pop>` of the termination and origination :ref:`Gateways <gateways>` are same AND :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record are same. If :ref:`Gateways <gateways>` from the same :ref:`Point of Presence <gateway_pop>` weren't found - Yeti will select all :ref:`enabled <gateway_enabled>` :ref:`Gateways <gateways>` from :ref:`Gateway group <gateway_groups>` that was chosen for :ref:`Dialpeer <dialpeers>` regardless :ref:`Point of Presence <gateway_pop>`, but where :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record are same. All selected by this way :ref:`Gateways <gateways>` will be used for attempts of the call termination. The quantity of attempts of the call termination for each :ref:`Dialpeer <dialpeers>` record from the sorted list of :ref:`Dialpeers <dialpeers>` is determined by quantity of selected :ref:`Gateways <gateways>` that are sorted by following rules: :ref:`Gateways <gateways>` from the same (related to origination) :ref:`Point of Presence <gateway_pop>` are first, :ref:`Gateways <gateways>` with higher :ref:`Priority <gateway_priority>` are first, random :ref:`Gateway <gateways>` will be chosen first in case of equal :ref:`Priorities <gateway_priority>` for two or more :ref:`Gateways <gateways>` in the list;
+    - Search termination :ref:`Gateways <gateways>` for selected :ref:`Dialpeer <dialpeers>` (Step 11.1). If :ref:`Gateway <gateways>` was chosen for :ref:`Dialpeer <dialpeers>` record (and this :ref:`Gateway <gateways>` is :ref:`Enabled <gateway_enabled>`)  Yeti will check :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` and compares it with :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>`. In case if :ref:`Is shared <gateways>` flag of :ref:`Gateway <gateways>` record wasn't chosen and :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record aren't same - Yeti will stop process this :ref:`Dialpeer <dialpeers>` and will go to next record in the sorted list of :ref:`Dialpeers <dialpeers>`. Otherwise :ref:`Gateway <gateways>` that was chosen for :ref:`Dialpeer <dialpeers>` record will be used for attempt of the call termination. If :ref:`Gateway <gateways>` wasn't chosen for :ref:`Dialpeer <dialpeers>` record Yeti will select all :ref:`enabled <gateway_enabled>` :ref:`Gateways <gateways>` from :ref:`Gateway group <gateway_groups>` that was chosen for :ref:`Dialpeer <dialpeers>` where :ref:`Point of Presence <gateway_pop>` of the termination and origination :ref:`Gateways <gateways>` are same AND :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record are same. If :ref:`Gateways <gateways>` from the same :ref:`Point of Presence <gateway_pop>` weren't found - Yeti will select all :ref:`enabled <gateway_enabled>` :ref:`Gateways <gateways>` from :ref:`Gateway group <gateway_groups>` that was chosen for :ref:`Dialpeer <dialpeers>` regardless :ref:`Point of Presence <gateway_pop>`, but where :ref:`Vendor <dialpeer_vendor>` property of :ref:`Dialpeer <dialpeers>` record and :ref:`Contractor <gateway_contractor>` property of :ref:`Gateway <gateways>` record are same. All selected by this way :ref:`Gateways <gateways>` will be used for attempts of the call termination. The quantity of attempts of the call termination for each :ref:`Dialpeer <dialpeers>` record from the sorted list of :ref:`Dialpeers <dialpeers>` is determined by quantity of selected :ref:`Gateways <gateways>` that are sorted by following rules: :ref:`Gateways <gateways>` from the same (related to origination) :ref:`Point of Presence <gateway_pop>` are first, :ref:`Gateways <gateways>` with higher :ref:`Priority <gateway_priority>` are first, random :ref:`Gateway <gateways>` will be chosen first in case of equal :ref:`Priorities <gateway_priority>` for two or more :ref:`Gateways <gateways>` in the list;
 
-    - Pass routes to switch node;
+    - Yeti will pass through list of selected :ref:`Gateways <gateways>` that is sorted by priority (Step 11.2). For each :ref:`Gateway <gateways>` from the list following actions will be applied:
 
-    - Switch node is trying to connect a call;
+      -  Calculating of allowed time for the call (Step 11.3); **TODO**
 
-    - Change customer's and vendor's balance at billing subsystem;
+      -  Checking if Customer's min balance will be reached during the call (Step 11.4); **TODO**
 
-    - Post-routing numbers translations;
+      -  Checking if Vendor's max balance will be reached during the call (Step 11.5); **TODO**
 
-    - Writing CDR for each termination attempt + writing statistic for route/gateway.
+      -  Post-routing numbers translations (Step 11.6); **TODO**
+
+      -  Adding Call Profile to the Array (Step 11.7); **TODO**
+
+
+On the twelfth step of general routing algorithm Yeti will pass through list of Call Profiles that was received on previous step (Step 12). For each Call Profile following actions will be applied:
+
+   -  Checking Disconnect Code (Step 12.1); **TODO**
+
+   -  Writing CDR + writing statistic for route/gateway (Step 12.2, 12.6); **TODO**
+
+   -  Change customer's and vendor's balance at billing subsystem (if necessary) (Step 12.3, 12.7); **TODO**
+
+   -  Trying to connect a call (Step 12.5); **TODO**
+
+   -  Disconnect from Originator (Step 12.4). **TODO**
+
+
 
 
 
