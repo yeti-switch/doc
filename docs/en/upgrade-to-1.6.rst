@@ -4,9 +4,32 @@
 Upgrading from 1.5 branch to 1.6
 ================================
 
-~~~~~~~~~
-Changelog
-~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changelog for version 1.6.3
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Fix call termination by CallsMonitoring scheduler
+- Fix call VAT calculation by CallsMonitoring scheduler
+- Fix shared termination gateway processing
+- Admin API endpoint for Routing::AreaPrefix backported from master branch
+- Destinations/Dialpeers/RoutingTagDetectionRules filtering by routing tag IDs
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changelog for version 1.6.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Fix writing vendor_id attribute to CDR
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changelog for version 1.6.1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Smallint validation fix
+- Database initialisation fix.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changelog for version 1.6.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 - Multiple routing tags can be applied for a call
 - Multiple IP,src_prefix and dst_prefix values allowed at same Customer Auth record
