@@ -99,10 +99,9 @@ digraph Routing {
 
     block13 [label = "List of selected gateways (for Dialpeer) that is sorted by priority"; xlabel = "                Step 11.2"; shape=hexagon];
 
-    block14 [label = "Calculating of allowed time for the call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
+    block14 [label = "Won't min limit on Customer's balance be reached?"; xlabel = "           Step 11.3 "; shape=Mdiamond];
 
-
-    block15 [label = "Won't min limit on Customer's balance be reached?"; xlabel = "           Step 11.4 "; shape=Mdiamond];
+    block15 [label = "Calculating of allowed time for the call"; xlabel = "Step 11.4   "; shape=box; sides=4 ];
 
     block16 [label = "Won't max limit on Vendors's balance be reached?"; xlabel = "                 Step 11.5"; shape=Mdiamond];
 
@@ -138,9 +137,10 @@ digraph Routing {
     block12 -> block13 [color=black];
     block13 -> block14 [color=black];
     block13 -> block11 [color=black];
-    block14 -> block15 [color=black];
-    block15 -> reason9 [color=red];
-    block15 -> block16 [color=green];
+
+    block14 -> reason9 [color=red];
+    block14 -> block15 [color=green];
+    block15 -> block16 [color=black];
     block16 -> block17 [color=green];
     block16 -> block13 [color=red];
     block17 -> block18 [color=black];

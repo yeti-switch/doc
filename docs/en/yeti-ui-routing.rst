@@ -11,7 +11,7 @@ General routing algorithm is represented on the picture below:
 
 On the first step of general routing algorithm :ref:`authentication <customer_auth>` will be made. As a result of this step :ref:`Customer Auth <customer_auth>` record will be selected for incoming call or call will be dropped with *Disconnect Code 110 (Can't find Customer or Customer locked)*.
 
-On the second step of algorithm Yeti will check Customer's balance if :ref:`Check account balance <customer_check_account_balance>` flag of selected :ref:`Customer Auth <customer_auth>` record is enabled. If current balance is less than :ref:`Min balance <account_min_balance>` call will dropped with **Disconnect code 8000** (No enought customer balance).
+On the second step of algorithm Yeti will check Customer's balance if :ref:`Check account balance <customer_check_account_balance>` flag of selected :ref:`Customer Auth <customer_auth>` record is enabled. If current balance is less than :ref:`Min balance <account_min_balance>` call will dropped with **Disconnect code 8000** (No enough customer balance).
 
 On the third step of general routing algorithm Yeti makes pre-Routing numbers translations. Yeti rewrites (if necessary) Name field in the Source-number, Source-number and Destination-number for incoming call (by :ref:`using POSIX Regular Expressions <posix_regular_expressions2>`) with using :ref:`Number translation settings <number_translation_settings>` of  :ref:`Customer Auth <customer_auth>` record that was selected. On this step Yeti also rewrites (if necessary) Source and Destination numbers which will be send to Radius-server if it's required (by :ref:`using POSIX Regular Expressions <posix_regular_expressions2>`) with using :ref:`Radius options <radius_options>` of  :ref:`Customer Auth <customer_auth>` record that was selected.
 
@@ -71,9 +71,9 @@ On the eleventh step of general routing algorithm Yeti will pass through list of
 
     - Yeti will pass through list of selected :ref:`Gateways <gateways>` that is sorted by priority (Step 11.2). For each :ref:`Gateway <gateways>` from the list following actions will be applied:
 
-      -  Calculating of allowed time for the call (Step 11.3); **TODO**
+      -  Checking if Customer's min balance will be reached during the call (Step 11.3). On this stage Yeti will check if :ref:`Connect Fee <destination_connect_fee>` of :ref:`Destination <destinations>` record that was selected for this call is bigger than the result of subtracting :ref:`Balance <account_balance>` of the :ref:`Customer's Account <accounts>` and :ref:`Min balance <account_min_balance>` of the :ref:`Customer's Account <accounts>`. If no enough money on :ref:`Customer's Account <accounts>` for make connection and for calling during :ref:`Initial Interval <destination_initial_interval>` of :ref:`Destination <destinations>` record that was selected for this call - call will dropped with **Disconnect code 8000** (No enough customer balance);
 
-      -  Checking if Customer's min balance will be reached during the call (Step 11.4); **TODO**
+      -  Calculating of allowed time for the call (Step 11.4). If :ref:`Next Rate <destination_next_rate>` AND :ref:`Next Interval <destination_next_interval>` of the :ref:`Destination <destinations>` record that was selected for this call are not zero: allowed time for the call will be calculated as sum of :ref:`Initial Interval <destination_initial_interval>` of this :ref:`Destination <destinations>` record and length of call that can be made within amount of money available on :ref:`Customer's Account <accounts>`. Otherwise value :ref:`Max Call Duration <system_global_configuration_max_call_duration>` from :ref:`Global configuration <global_configuration>` will be used for setting allowed time for the call;
 
       -  Checking if Vendor's max balance will be reached during the call (Step 11.5); **TODO**
 

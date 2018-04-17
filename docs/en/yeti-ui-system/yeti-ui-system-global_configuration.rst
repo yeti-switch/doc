@@ -46,6 +46,9 @@ Active Calls Show Chart
 
 Active Calls Autorefresh Enable
     If **true** YETI will refresh *RT data -> Active Calls* page every 20 seconds.
+
+.. _system_global_configuration_max_call_duration:
+
 Max Call Duration
     Global parameter of maximum call duration (seconds).
 Random Disconnect Enable
