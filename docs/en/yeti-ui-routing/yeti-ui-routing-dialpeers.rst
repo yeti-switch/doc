@@ -100,7 +100,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Short Calls Limit
         The Short Calls ratio limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this *Dialpeer*. If this ration for this *Dialpeer* will stay less than *Short Calls Limit* this *Dialpeer* will be excluding from call routing process.
     Capacity
-        Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed bia this *Dialpeer* at same time.
+        Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed via this *Dialpeer* at same time.
 
     .. _dialpeer_number_translation_settings:
 
