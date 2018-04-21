@@ -88,7 +88,7 @@ On the eleventh step of general routing algorithm Yeti will pass through list of
 
 On the twelfth step of general routing algorithm Yeti/SEMS node will pass through list of Call Profiles that was received on previous step (Step 12). For each Call Profile following actions will be applied:
 
-   -  Checking Disconnect Code (Step 12.1). On this step Yeti will check if Disconnect Code for Call Profile was initialized (not NULL). If yes Yeti will initiate disconnecting (Step 12.4) from Originator (with using received Disconnect Code) after writing CDR & statistic for route/gateway (Step 12.2) and changing customer's and vendor's balance (Step 12.3);
+   -  Checking Disconnect Code (Step 12.1). On this step Yeti will check if Disconnect Code for Call Profile was initialized (not NULL). If yes - Yeti will initiate disconnecting (Step 12.7) from Originator (with using received Disconnect Code) after writing CDR & statistic for route/gateway (Step 12.2);
 
    -  Writing CDR + writing statistic for route/gateway (Step 12.2, 12.6). Information about call will be stored to the :ref:`CDR Table <cdr_tables>` and current statistical parameters (count of answered telephone calls, general length of telephone calls) will be updated for :ref:`Dialpeer <dialpeers>` record that was selected for this call and for the :ref:`Gateway <gateways>` that was used for this call;
 
