@@ -47,18 +47,18 @@ digraph Routing {
         block_l1 [label = "Is Disconnect Code for Call Profile initialized?"; xlabel = "           Step 12.1 "; shape=Mdiamond];
 
 
-        block_l2 [label = "Writing not success CDR + statistic for route/gateway"; xlabel = "Step 12.2    "; shape=box; sides=4; color = red ];
+        block_l2 [label = "Writing not success CDR + statistic for route/gateway"; xlabel = "Step 12.3a    "; shape=box; sides=4; color = red ];
 
-        block_l4 [label = "Disconnect from Originator"; xlabel = "       Step 12.7   "; shape=box; sides=4; color = red ];
+        block_l4 [label = "Disconnect from Originator"; xlabel = "       Step 12.6   "; shape=box; sides=4; color = red ];
 
-        block_l5 [label = "Trying to connect a call"; xlabel = "\nStep 12.3     "; shape=box; sides=4 ];
+        block_l5 [label = "Trying to connect a call"; xlabel = "\nStep 12.2     "; shape=box; sides=4 ];
 
-        block_l6 [label = "Writing CDR + writing statistic for route/gateway"; xlabel = "Step 12.4    "; shape=box; sides=4 ];
+        block_l6 [label = "Writing CDR + writing statistic for route/gateway"; xlabel = "Step 12.3b    "; shape=box; sides=4 ];
 
-        block_l7 [label = "Change customer's and vendor's balance at billing subsystem "; xlabel = "Step 12.5    "; shape=box; sides=4 ];
+        block_l7 [label = "Change customer's and vendor's balance at billing subsystem "; xlabel = "Step 12.4    "; shape=box; sides=4 ];
 
 
-        block_l8 [label = "Call was successful?"; xlabel = "           Step 12.6 "; shape=Mdiamond];
+        block_l8 [label = "Call was successful?"; xlabel = "           Step 12.5 "; shape=Mdiamond];
 
 
         block_l0 -> block_l1 [color=black];

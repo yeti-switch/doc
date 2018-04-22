@@ -88,15 +88,19 @@ On the eleventh step of general routing algorithm Yeti will pass through list of
 
 On the twelfth step of general routing algorithm Yeti/SEMS node will pass through list of Call Profiles that was received on previous step (Step 12). For each Call Profile following actions will be applied:
 
-   -  Checking Disconnect Code (Step 12.1). On this step Yeti will check if Disconnect Code for Call Profile was initialized (not NULL). If yes - Yeti will initiate disconnecting (Step 12.7) from Originator (with using received Disconnect Code) after writing CDR & statistic for route/gateway (Step 12.2);
+   -  Checking Disconnect Code (Step 12.1). On this step Yeti will check if Disconnect Code for Call Profile was initialized (not NULL). If yes - Yeti will initiate disconnecting (Step 12.6) from Originator (with using received Disconnect Code) after writing CDR & statistic for route/gateway (Step 12.3a);
 
-   -  Writing CDR + writing statistic for route/gateway (Step 12.2, 12.6). Information about call will be stored to the :ref:`CDR Table <cdr_tables>` and current statistical parameters (count of answered telephone calls, general length of telephone calls) will be updated for :ref:`Dialpeer <dialpeers>` record that was selected for this call and for the :ref:`Gateway <gateways>` that was used for this call;
+   -  Trying to connect a call (Step 12.2). On this step Yeti will try to make a connection with LegB via :ref:`Gateway <gateways>` that was selected for current Call Profile. Regardless from call result (successful or not, length of call etc.) Yeti will write CDR & statistic for route/gateway (Step 12.3b) and will change customer's and vendor's balance at billing subsystem (in case of successful call with non-zero length) on Step 12.4. After the checking of call result (Step 12.5) Yeti will disconnect from Originator (Step 12.6) in case of successful call or will go the next Call Profile in the list (Step 12). Yeti will exit from the loop only when call had been made successfully or when all Call Profiles had been used;
 
-   -  Change customer's and vendor's balance at billing subsystem (if necessary) (Step 12.3, 12.7); **TODO**
+   -  Writing CDR + writing statistic for route/gateway (Step 12.3 (a & b)). Information about call will be stored to the :ref:`CDR Table <cdr_tables>` and current statistical parameters (count of answered telephone calls, general length of telephone calls) will be updated for :ref:`Dialpeer <dialpeers>` record that was selected for this call and for :ref:`Gateway <gateways>` that was used for this call;
 
-   -  Trying to connect a call (Step 12.5); **TODO**
+   -  Change Customer's and Vendor's balance at billing subsystem (if necessary) (Step 12.4). On this step Yeti will change Customer's and Vendor's :ref:`balance <account_balance>` in case of successful call with non-zero length. For calculating prices of the call for Customer and Vendor following rules are used:
 
-   -  Disconnect from Originator (Step 12.4). **TODO**
+      -  **Customer's price calculation rules**. For calculate Customer's price for the call Yeti will summarize :ref:`Connect Fee <destination_connect_fee>` (in currency units) of :ref:`Destination <destinations>` record that was selected for this call, price of initial interval of call that is calculated as multiplication of :ref:`Initial Interval <destination_initial_interval>` (in seconds) of :ref:`Destination <destinations>` record to the :ref:`Initial Rate <destination_initial_interval>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds), and (in case of calls that are longer than :ref:`Initial Interval <destination_initial_interval>`)  price of next interval of call that is calculated as multiplication amount of :ref:`Next Intervals <destination_next_interval>` of :ref:`Destination <destinations>` record that was selected for this call that were placed in the duration of the call after :ref:`Initial Interval <destination_initial_interval>` to the :ref:`Next Rate <destination_next_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds);
+
+      -  **Vendor's price calculation rules**. **TODO** + note about reverse billing
+
+   -  Disconnect from Originator (Step 12.6).
 
 
 
