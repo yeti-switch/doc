@@ -75,7 +75,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_reverse_billing:
 
     Reverse billing
-        In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be removed** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
+        In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be subtracted** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
 
     .. _dialpeer_gateway:
 
