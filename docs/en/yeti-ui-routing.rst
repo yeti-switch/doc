@@ -96,7 +96,7 @@ On the twelfth step of general routing algorithm Yeti/SEMS node will pass throug
 
    -  Change Customer's and Vendor's balance at billing subsystem (if necessary) (Step 12.4). On this step Yeti will change Customer's and Vendor's :ref:`balance <account_balance>` in case of successful call with non-zero length. For calculating prices of the call for Customer and Vendor following rules are used:
 
-      -  **Customer's price calculation rules**. For calculate Customer's price for the call Yeti will summarize :ref:`Connect Fee <destination_connect_fee>` (in currency units) of :ref:`Destination <destinations>` record that was selected for this call, price of initial interval of call that is calculated as multiplication of :ref:`Initial Interval <destination_initial_interval>` (in seconds) of :ref:`Destination <destinations>` record to the :ref:`Initial Rate <destination_initial_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds), and (in case of calls that are longer than :ref:`Initial Interval <destination_initial_interval>`)  price of next interval of call that is calculated as multiplication amount of :ref:`Next Intervals <destination_next_interval>` of :ref:`Destination <destinations>` record that was selected for this call that were placed in the duration of the call after :ref:`Initial Interval <destination_initial_interval>` to the :ref:`Next Rate <destination_next_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds). At the last step Customer's price that was calculated will be increased on the value of value-added tax (VAT) that was specified for the Customer's :ref:`Account <accounts>`;
+      -  **Customer's price calculation rules**. For calculate Customer's price for the call Yeti will summarize :ref:`Connect Fee <destination_connect_fee>` (in currency units) of :ref:`Destination <destinations>` record that was selected for this call, price of initial interval of call that is calculated as multiplication of :ref:`Initial Interval <destination_initial_interval>` (in seconds) of :ref:`Destination <destinations>` record to the :ref:`Initial Rate <destination_initial_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds), and (in case of calls that are longer than :ref:`Initial Interval <destination_initial_interval>`)  price of next interval of call that is calculated as multiplication amount of :ref:`Next Intervals <destination_next_interval>` of :ref:`Destination <destinations>` record that was selected for this call that were placed in the duration of the call after :ref:`Initial Interval <destination_initial_interval>` to the :ref:`Next Rate <destination_next_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds). At the last step Customer's price that was calculated will be increased on the value of value-added tax (VAT) that was specified for the Customer's :ref:`Account <accounts>`.
 
       -  **Vendor's price calculation rules**. For calculate Vendor's price for the call Yeti will summarize :ref:`Connect Fee <dialpeer_connect_fee>` (in currency units) of :ref:`Dialpeer <dialpeers>` record that was selected for this call, price of initial interval of call that is calculated as multiplication of :ref:`Initial Interval <dialpeer_initial_interval>` (in seconds) of :ref:`Dialpeer <dialpeers>` record to the :ref:`Initial Rate <dialpeer_initial_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds), and (in case of calls that are longer than :ref:`Initial Interval <dialpeer_initial_interval>`)  price of next interval of call that is calculated as multiplication amount of :ref:`Next Intervals <dialpeer_next_interval>` of :ref:`Dialpeer <dialpeers>` record that was selected for this call that were placed in the duration of the call after :ref:`Initial Interval <dialpeer_initial_interval>` to the :ref:`Next Rate <dialpeer_next_rate>` (in currency units per minute) that was divided on length of a minute in seconds (60 seconds);
 
@@ -104,10 +104,25 @@ On the twelfth step of general routing algorithm Yeti/SEMS node will pass throug
 
          In normal mode changing Customer's and Vendor's balance at billing subsystem will be made **by subtraction** of the Customer's price that was calculated on this step from the Customer's :ref:`balance <account_balance>` and **by addition** Vendor's price to the Vendor's :ref:`balance <account_balance>`.
          But in case of enabling :ref:`Reverse billing <destination_reverse_billing>` flag of :ref:`Destination <destinations>` record that was selected for this call - Yeti **will add** Customer's price that was calculated on this step to the Customer's :ref:`balance <account_balance>`, and in case of enabling :ref:`Reverse billing <dialpeer_reverse_billing>` flag of ref:`Dialpeer <dialpeers>` record that was selected for this call - Yeti **will subtract** Vendor's price from the Vendor's :ref:`balance <account_balance>`.
+         Following formula is used for calculation both Customer's and Vendor's prices:
 
+         .. math::
+
+            \begin{equation}
+            Price = (CF + II(\frac{IR}{60}) + [\frac{(CD-II)}{NI}]NI(\frac{NR}{60}))(1 + \frac{VAT}{100})
+            \end{equation}
+
+         where:
+               -  Price - Customer's or Vendor's price;
+               -  CF -    *Connect Fee* of :ref:`Destination <destinations>` (for Customer's price) or :ref:`Dialpeer <dialpeers>` (for Vendor's price), currency units;
+               -  II - *Initial Interval* of :ref:`Destination <destinations>` (for Customer's price) or :ref:`Dialpeer <dialpeers>` (for Vendor's price), seconds;
+               -  IR - *Initial Rate* of :ref:`Destination <destinations>` (for Customer's price) or :ref:`Dialpeer <dialpeers>` (for Vendor's price), currency units per minute;
+               -  CD - *Call duration*, seconds;
+               -  NI - *Next Interval* of :ref:`Destination <destinations>` (for Customer's price) or :ref:`Dialpeer <dialpeers>` (for Vendor's price), seconds;
+               -  NR - *Next Rate* of :ref:`Destination <destinations>` (for Customer's price) or :ref:`Dialpeer <dialpeers>` (for Vendor's price), currency units per minute;
+               -  VAT - Value-added tax, percents. VAT = 0 for calculating Vendor's price.
 
    -  Disconnect from Originator (Step 12.6).
-
 
 
 

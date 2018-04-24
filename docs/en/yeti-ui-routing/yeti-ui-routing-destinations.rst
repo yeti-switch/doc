@@ -60,7 +60,6 @@ General **Destination**'s attributes:
 
     Reverse billing
         In case of enabling this flag money for the call that was calculated according :ref:`Rate Policy <rate_policy_id>` **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record that is used for this call.
-        Also the call won't be dropped even if :ref:`Check account balance <customer_check_account_balance>` property of :ref:`Customer Auth <customer_auth>` that is used for this call is enabled and current :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with Customer Auth record is less than :ref:`Min balance <account_min_balance>`.
 
     .. _destination_initial_interval:
 
