@@ -40,6 +40,10 @@ Numberlist items allow to do something with source or destination number or reje
     Dst rewrite result
         *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Dst rewrite rule* above. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+    Tag action  **TODO**
+    Tag action value    **TODO**
+
     Created At
         Date and time of this Numberlist item creation.
     Updated At

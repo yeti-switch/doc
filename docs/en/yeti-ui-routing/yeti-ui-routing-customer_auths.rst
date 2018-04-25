@@ -331,4 +331,8 @@ Radius **Customers Auth**'s options
     Radius accounting profile
         Must be specified if the radius accounting is required.
     
+Routing Tags **Customers Auth**'s options
+`````````````````````````````````````````
+    Tag action  **TODO**
+    Tag action value    **TODO**
 

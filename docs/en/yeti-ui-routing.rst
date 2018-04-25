@@ -54,16 +54,17 @@ On the ninth step of general routing algorithm Yeti will be searching :ref:`Dest
 
 -  current date&time is less than :ref:`Valid To <destination_valid_to>` value of :ref:`Destination <destinations>` record;
 
--  :ref:`Routing Tags <routing_tag>` that were chosen for the call (during the sixth step of general routing algorithm) are included in the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for:ref:`Destination <destinations>` record.
+-  at least one :ref:`Routing Tag <routing_tag>` (from the list of :ref:`Routing Tags <routing_tag>` that were chosen for the call during the sixth step of general routing algorithm) is included in the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for:ref:`Destination <destinations>` record.
 
 If more than one record was found during searching of :ref:`Destination <destinations>` Yeti sorts records with following rules: records with the longest :ref:`Prefix <destination_prefix>` of :ref:`Destination <destinations>` on the top; records with biggest amount of :ref:`Routing Tags <destination_routing_tag>` that were chosen for the call (during the sixth step of general routing algorithm) and are included in the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for:ref:`Destination <destinations>` record on the top. Only first record from sorted list will be chosen.
+**TODO**
 
 If no records were found during searching of :ref:`Destination <destinations>` Yeti will drop the call with  **Disconnect Code 111** (Can't find destination prefix).
 
 If :ref:`Reject Calls <destination_reject_calls>` flag is enabled for the :ref:`Destination <destinations>` record that was chosen Yeti will drop the call with  **Disconnect Code 112** (Rejected by destination).
 
 
-On the tenth step of general routing algorithm Yeti will search routes (:ref:`Dialpeers <dialpeers>`) for a call on the basis :ref:`routing (sorting) algorithm <routing_plan_sorting>` that was chosen for :ref:`Routing Plan <routing_plan>` record. If no records were found during searching of :ref:`Dialpeers <dialpeers>` Yeti will drop the call with  **Disconnect Code 113** (No routes).
+On the tenth step of general routing algorithm Yeti will search routes (:ref:`Dialpeers <dialpeers>`) for a call on the basis :ref:`routing (sorting) algorithm <routing_plan_sorting>` that was chosen for :ref:`Routing Plan <routing_plan>` record. If no records were found during searching of :ref:`Dialpeers <dialpeers>` Yeti will drop the call with  **Disconnect Code 113** (No routes). **TODO**
 
 On the eleventh step of general routing algorithm Yeti will pass through list of selected :ref:`Dialpeers <dialpeers>`) that is sorted by chosen :ref:`routing (sorting) algorithm <routing_plan_sorting>`. For each :ref:`Dialpeer <dialpeers>` following actions will be applied:
 

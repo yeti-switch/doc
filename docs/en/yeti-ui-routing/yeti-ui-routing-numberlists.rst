@@ -46,6 +46,10 @@ Numberlists are used for describing common parameters that can be applied for se
     Default dst rewrite result
         *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Default dst rewrite rule* above. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+    Tag action  **TODO**
+    Tag action value    **TODO**
+
     Created At
         Date and time of this Numberlist creation.
     Updated At
