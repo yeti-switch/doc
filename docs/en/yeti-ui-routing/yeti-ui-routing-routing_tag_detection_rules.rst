@@ -10,11 +10,16 @@ Routing Tag detection Rules are used for choosing :ref:`Routing tag <routing_tag
 ````````````````````````````````````````````
     Id
        Unique Routing Tag detection Rule's id.
+
     Routing tag ids **TODO**
+
     Src area
         Source :ref:`Area <areas>` (could be empty).
+
     Dst area
         Destination :ref:`Area <areas>` (could be empty).
+
     Tag action  **TODO**
+
     Tag action value    **TODO**
 
