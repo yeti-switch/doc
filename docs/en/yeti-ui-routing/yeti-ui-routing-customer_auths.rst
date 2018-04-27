@@ -342,7 +342,7 @@ Routing Tags **Customers Auth**'s options
 
             -   **Append selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call;
 
-            -   **Intersection with selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call in case of their absence in the current set of :ref:`Routing Tags <routing_tag>` and removes :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) from the call in case of their presence in the current set of :ref:`Routing Tags <routing_tag>`.
+            -   **Intersection with selected tags**. Yeti leaves as is :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) in the call in case of their presence in the current set of :ref:`Routing Tags <routing_tag>` and removes any other :ref:`Routing Tags <routing_tag>` from the call.
 
 
     Tag action value
