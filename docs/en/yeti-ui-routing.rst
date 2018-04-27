@@ -104,7 +104,7 @@ On the twelfth step of general routing algorithm Yeti/SEMS node will pass throug
       .. note:: Important notice:
 
          In normal mode changing Customer's and Vendor's balance at billing subsystem will be made **by subtraction** of the Customer's price that was calculated on this step from the Customer's :ref:`balance <account_balance>` and **by addition** Vendor's price to the Vendor's :ref:`balance <account_balance>`.
-         But in case of enabling :ref:`Reverse billing <destination_reverse_billing>` flag of :ref:`Destination <destinations>` record that was selected for this call - Yeti **will add** Customer's price that was calculated on this step to the Customer's :ref:`balance <account_balance>`, and in case of enabling :ref:`Reverse billing <dialpeer_reverse_billing>` flag of ref:`Dialpeer <dialpeers>` record that was selected for this call - Yeti **will subtract** Vendor's price from the Vendor's :ref:`balance <account_balance>`.
+         But in case of enabling :ref:`Reverse billing <destination_reverse_billing>` flag of :ref:`Destination <destinations>` record that was selected for this call - Yeti **will add** Customer's price that was calculated on this step to the Customer's :ref:`balance <account_balance>`, and in case of enabling :ref:`Reverse billing <dialpeer_reverse_billing>` flag of :ref:`Dialpeer <dialpeers>` record that was selected for this call - Yeti **will subtract** Vendor's price from the Vendor's :ref:`balance <account_balance>`.
          Following formula is used for calculation both Customer's and Vendor's prices:
 
          .. math::
