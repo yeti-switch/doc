@@ -333,6 +333,18 @@ Radius **Customers Auth**'s options
     
 Routing Tags **Customers Auth**'s options
 `````````````````````````````````````````
-    Tag action  **TODO**
-    Tag action value    **TODO**
+    Tag action
+        Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. Usually *Authentication* it is first step where :ref:`Routing Tags <routing_tag>` can be added to the call. Following actions can be selected in this field:
+
+            -   **Clear tags**. Removes all :ref:`Routing Tags <routing_tag>` from the call (if any were added early);
+
+            -   **Remove selected tags**. Removes only :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) from the call;
+
+            -   **Append selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call;
+
+            -   **Intersection with selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call in case of their absence in the current set of :ref:`Routing Tags <routing_tag>` and removes :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) from the call in case of their presence in the current set of :ref:`Routing Tags <routing_tag>`.
+
+
+    Tag action value
+        In this field :ref:`Routing Tags <routing_tag>` for making some *Tag action* above could be chosen.
 

@@ -10,7 +10,7 @@ Headers filtering
 Filtering headers allows to configure the transfer of SIP headers from one Leg of the call to another. After  the routing, YETI performs filtering twice: for the origination :ref:`Gateway <gateways>` and for the termination :ref:`Gateway <gateways>`.
 Gateway's parameter **Transit headers from origination** describes the transfer of headers from LegA to LegB, the parameter **Transit headers from termination** - from LegB to LegA.
 
-For example, an incoming call arrives at the :ref:`Gateway <gateways>` **orig_gw** and terminates in the :ref:`Gateway <gateways>` **term_gw** with the corresponding settings.
+For example, an incoming call arrives via the :ref:`Gateway <gateways>` **orig_gw** and terminates via the :ref:`Gateway <gateways>` **term_gw** with the corresponding settings.
 
 orig_gw:
     * Transit headers from origination= X-TEST-HEADER, X-YETI*
@@ -28,7 +28,7 @@ Then in case of receiving INVITE from **orig_gw** with such headers:
     X-YETI-AUTH-HEADER: 333
 
 
-It will be filtered sequentially twice (with the filter X-TEST-HEADER, X-YETI* and X-TEST-HEADER) and, after filtering, INVITE will be formed to the **term_gw** with such hiders:
+It will be filtered sequentially twice (with the filter X-TEST-HEADER, X-YETI* and X-TEST-HEADER) and, after filtering, INVITE will be formed to the **term_gw** with such headers:
 ::
 
     X-TEST-HEADER: 123
