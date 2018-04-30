@@ -21,19 +21,34 @@ General **Gateway**'s attributes:
 
     External
         ID of Gateway that was initialized via API by external system. It used for associating internal unique Gateway ID with its ID on external system.
+
+    .. _gateway_enabled:
+
     Enabled
         Disabled gateways will be ignored.
+
+    .. _gateway_contractor:
+
     Contractor
-        Gateway's owner.        
+        Gateway's owner.
+
+    .. _gateway_is_shared:
+
     Is shared       
-        Allows gateway to be used as origination equipment for any customer.
+        Allows *Gateway* to be used as origination equipment for any customer or as termination equipment for any vendor.
     Gateway group
         gateways can be grouped.
         Choose group from the list to add gateway to the group.
-        Gateways groups can be managed at *Billing->Gateway Groups*.            
+        Gateways groups can be managed at *Billing->Gateway Groups*.
+
+    .. _gateway_priority:
+
     Priority
         Gateway priority in the gateway group.
         In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
+
+    .. _gateway_pop:
+
     Pop
         Point of Presence of the gateway. It used to force prioritization when :ref:`prefer same POP <gateway_group_prefer_same_pop>` option enabled for gateway group.
     Allow origination

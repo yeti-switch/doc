@@ -46,6 +46,21 @@ Numberlists are used for describing common parameters that can be applied for se
     Default dst rewrite result
         *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Default dst rewrite rule* above. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+    Tag action
+        Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. *Numberlist* it is second step (after *Authentication*) where :ref:`Routing Tags <routing_tag>` can be added to (or removed from) the call. Destination *Numberlist* is processed before the Source *Numberlist*. This field and field bellow are used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*. Following actions can be selected in this field:
+
+            -   **Clear tags**. Removes all :ref:`Routing Tags <routing_tag>` from the call (if any were added early);
+
+            -   **Remove selected tags**. Removes only :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) from the call;
+
+            -   **Append selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call;
+
+            -   **Intersection with selected tags**. Yeti leaves as is :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) in the call in case of their presence in the current set of :ref:`Routing Tags <routing_tag>` and removes any other :ref:`Routing Tags <routing_tag>` from the call.
+
+    Tag action value
+        In this field :ref:`Routing Tags <routing_tag>` for making some *Tag action* above could be chosen.
+
     Created At
         Date and time of this Numberlist creation.
     Updated At

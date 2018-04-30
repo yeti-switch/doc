@@ -28,6 +28,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
         :ref:`Routing Group <routing_group>` that is related to this Dialpeer.
     Routing Tag
         :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
+
+    .. _dialpeer_vendor:
+
     Vendor
        :ref:`Contractor <contractors>` that is related to this *Dialpeer*. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Account
@@ -72,7 +75,10 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_reverse_billing:
 
     Reverse billing
-        In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be removed** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
+        In case of enabling this flag money for the call that was calculated according settings of this Dialpeer **will be subtracted** from the :ref:`Balance <account_balance>` of :ref:`Account <accounts>` that is associated with this *Dialpeer* of the Vendor that is used for this call. In normal mode (when this flag is disabled) money **will be added** to the :ref:`Balance <account_balance>` of :ref:`Account <accounts>`.
+
+    .. _dialpeer_gateway:
+
     Gateway
         :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group
@@ -94,7 +100,10 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Short Calls Limit
         The Short Calls ratio limit for this *Dialpeer* (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this *Dialpeer*. If this ration for this *Dialpeer* will stay less than *Short Calls Limit* this *Dialpeer* will be excluding from call routing process.
     Capacity
-        Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed bia this *Dialpeer* at same time.
+        Termination capacity limit for this *Dialpeer*. This value regulates maximum amount of calls that are allowed via this *Dialpeer* at same time.
+
+    .. _dialpeer_number_translation_settings:
+
     Src Name Rewrite Rule
         This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization. It will affect all calls that are terminated according this *Dialpeer*.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.

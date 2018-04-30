@@ -1,0 +1,69 @@
+digraph Routing {
+
+    node [style=filled; fillcolor="#FCF9A5"];
+    graph [nodesep=1, ranksep=0.2, mindist=0.5];
+
+
+    subgraph cluster_DC2 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=red];
+
+        reason9 [label = "Disconnect code 8000 \n(Not enough customer balance)"; shape=box; sides=4 ];
+
+        label = "Disconnect Reasons";
+    }
+
+
+    block_wrong2 [label = "Adding Call Profile with initialized Disconnect Code to the Array"; shape=box; sides=4; color=red];
+
+
+    block11 [label = "List of selected dialpeers that is sorted by chosen routing algorithm"; xlabel = "Step 11"; shape=hexagon];
+
+    block12 [label = "Search termination gateways for selected Dialpeer"; xlabel = "Step 11.1     "; shape=box; sides=4 ];
+
+    block13 [label = "List of selected gateways (for Dialpeer) that is sorted by priority"; xlabel = "                Step 11.2"; shape=hexagon];
+
+    block14 [label = "Calculating of allowed time for the call"; xlabel = "Step 11.3   "; shape=box; sides=4 ];
+
+
+    block15 [label = "Won't min limit on Customer's balance be reached?"; xlabel = "           Step 11.4 "; shape=Mdiamond];
+
+    block16 [label = "Won't max limit on Vendors's balance be reached?"; xlabel = "                 Step 11.5"; shape=Mdiamond];
+
+    block17 [label = "Post-routing numbers translations"; xlabel = "Step 11.6    "; shape=box; sides=4 ];
+
+    block18 [label = "Adding Call Profile to the Array"; xlabel = "Step 11.7    "; shape=box; sides=4; color=green ];
+
+
+    block20 [label = "Processing Call Profiles by Yeti/SEMS Nodes"; xlabel = "Step 12    "; shape=box; sides=4];
+
+
+    end [shape=Msquare];
+
+
+    block11 -> block12 [color=black];
+    block12 -> block13 [color=black];
+    block13 -> block14 [color=black];
+    block13 -> block11 [color=black];
+    block14 -> block15 [color=black];
+    block15 -> reason9 [color=red];
+    block15 -> block16 [color=green];
+    block16 -> block17 [color=green];
+    block16 -> block13 [color=red];
+    block17 -> block18 [color=black];
+    block18 -> block13 [color=black];
+
+
+    block11 -> block20 [color=black];
+
+
+
+    reason9 -> block_wrong2 [color=black];
+
+
+    block_wrong2-> block13 [color=black];
+
+    block20 -> end[color=black];
+
+}

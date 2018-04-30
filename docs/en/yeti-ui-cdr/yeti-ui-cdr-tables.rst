@@ -1,4 +1,6 @@
 
+.. _cdr_tables:
+
 Tables
 ~~~~~~
 

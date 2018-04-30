@@ -15,7 +15,10 @@ Routing Plans are used for describing common parameters that can be applied for 
         Unique Routing Plan's id.
     Name
         Unique Routing Plan name.
-    Sorting
+
+    .. _routing_plan_sorting:
+
+    Sorting **TODO** - Routing Tags
         This field is used for setting sorting method for the routes (Dialpeers) within Routing Plan. The following algorithms (sorting methods) are available:
 
             **LCR, No ACD&ASR control** - Sorting only on the basis of least-cost routing (LCR) algorithm (routes with lowest price will be on the top of rating) without control of :ref:`Acd Limit <dialpeer_acd_limit>` and :ref:`Asr Limit <dialpeer_asr_limit>` parameters of :ref:`Dialpeer <dialpeers>`.

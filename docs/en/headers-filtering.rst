@@ -7,10 +7,10 @@ Headers filtering
 
 .. _headers_fitering:
 
-Фильтрация заголовков позволяет настроить передачу SIP заголовков с одного лега звонка на другой. После вычисления маршрутизации YETI выполняет фильтрацию два раза - для оригинационного гейтвея и для терминационного.
-Параметр гейтвея **Transit headers from origination** описывает передачу залоговков от LegA к LegB, параметр **Transit headers from termination** - от LegB к LegA.
+Filtering headers allows to configure the transfer of SIP headers from one Leg of the call to another. After  the routing, YETI performs filtering twice: for the origination :ref:`Gateway <gateways>` and for the termination :ref:`Gateway <gateways>`.
+Gateway's parameter **Transit headers from origination** describes the transfer of headers from LegA to LegB, the parameter **Transit headers from termination** - from LegB to LegA.
 
-Например входящий звонок приходит на гейтвей **orig_gw** и терминируется в гейтвей **term_gw** c с соответствующими настройками
+For example, an incoming call arrives via the :ref:`Gateway <gateways>` **orig_gw** and terminates via the :ref:`Gateway <gateways>` **term_gw** with the corresponding settings.
 
 orig_gw:
     * Transit headers from origination= X-TEST-HEADER, X-YETI*
@@ -19,29 +19,28 @@ orig_gw:
 term_gw:
     * Transit headers from origination= X-TEST-HEADER
     * Transit headers from termination= X-YETI-AUTH*
-    
 
-
-Тогда при получении INVITE от orig_gw с такими заголовками:
+Then in case of receiving INVITE from **orig_gw** with such headers:
 ::
 
     X-TEST-HEADER: 123
     X-YETI-HEADER1: 321
     X-YETI-AUTH-HEADER: 333
 
-Он будет отфильтрован последовательно два раза(фильтром  X-TEST-HEADER, X-YETI* и X-TEST-HEADER) и после фильтрации будет сформирован INVITE к term_gw с такими хидерами:
+
+It will be filtered sequentially twice (with the filter X-TEST-HEADER, X-YETI* and X-TEST-HEADER) and, after filtering, INVITE will be formed to the **term_gw** with such headers:
 ::
 
     X-TEST-HEADER: 123
 
 
-При этом если от term_gw будет получено 200OK сообщение с хидерами:
+Thus, in case if from **term_gw** will be received **200OK** message with hiders:
 ::
 
     X-YETI-AUTH-324: 333
     X-YETI-TEST: 333
 
-Заголовки будут фильтроваться два раза(фильтром X-YETI-AUTH*, в а затем фильтром  X-YETI*) и после фильтрации будет сформировано 200OK сообщение к orig_gw с такими заголовками:
+The headers will be filtered twice (by the filter X-YETI-AUTH*, and then by the X-YETI* filter) and after filtering, a **200OK** message will be generated to **orig_gw** with the following headers:
 ::
 
     X-YETI-AUTH-324: 333
