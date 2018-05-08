@@ -18,6 +18,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
 
     Prefix
         This field is used for setting prefix for filtering dialpeers by destination number (number B). *Dialpeer* will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under bottom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more dialpeers from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one *Dialpeer* will be selected for call routing on the basis longest prefix match algorithm.
+
+    .. _dialpeer_dst_number_min_length:
+
     Dst number min length
         Minimum length of number for this *Dialpeer*. Dialpeer won't be chosen to the list of routing for the call where destination number (number B) length is less than value of this field.
     Dst number max length
@@ -86,6 +89,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
         :ref:`Gateway <gateways>` that will be used for termination of the calls for this *Dialpeer*. :ref:`Termination attributes on Signaling Tab of Gateway properties <gateway_signaling_termination>` should be configured for this :ref:`Gateway <gateways>`.
     Gateway Group
         :ref:`Gateway Group <gateway_groups>` that will be used for termination of the calls for this *Dialpeer* in case of using multiple gateways for traffic termination to the same Vendor.
+
+    .. _dialpeer_valid_dates:
+
     Valid From
         Date and time from that this *Dialpeer* will be active and can be used for routing call.
     Valid Till
