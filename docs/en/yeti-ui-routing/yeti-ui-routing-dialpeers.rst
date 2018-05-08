@@ -26,8 +26,11 @@ Dialpeers identify call destination endpoint and define the billing characterist
         *Dialpeer* can be used in the dialpeers selection process (for routing calls) only in case of enabling this flag.
     Routing Group
         :ref:`Routing Group <routing_group>` that is related to this Dialpeer.
-    Routing Tag
-        :ref:`Routing Tag <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
+
+    .. _dialpeer_routing_tag_ids:
+
+    Routing tag ids
+        :ref:`Routing Tags <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
 
     .. _dialpeer_vendor:
 
