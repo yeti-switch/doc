@@ -1,0 +1,49 @@
+digraph General {
+
+    node [style=filled; fillcolor="#FCF9A5"];
+    graph [nodesep=1, ranksep=0.2, mindist=0.5];
+
+    subgraph cluster_Settings {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        s_1 [label = "Customer Auth's Tag action: \n **Append selected tags** \n Customer Auth's Tag action value: Tag1; Tag2"; shape=box; sides=4];
+
+        s_2 [label = "Destination Numberlist's Tag action: \n **Remove selected tags** \n Destination Numberlist's Tag action value: Tag2"; shape=box; sides=4];
+
+        label = "Settings";
+    }
+
+    subgraph cluster_Procedure {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        p_1 [label = "Customer Auth Tags Processing"; shape=box; sides=4];
+        p_2 [label = "Destination Numberlist Tags Processing"; shape=box; sides=4];
+
+        label = "Procedures";
+    }
+
+    subgraph cluster_RT {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        rt_1 [label = "State of call's Routing Tags:\n **null**"; shape=box; sides=4];
+        rt_2 [label = "State of call's Routing Tags:\n Tag1; Tag2"; shape=box; sides=4];
+        rt_3 [label = "State of call's Routing Tags:\n Tag1"; shape=box; sides=4];
+
+
+        label = "Routing Tags";
+    }
+
+    rt_1 -> p_1;
+    s_1 -> p_1;
+    p_1 -> rt_2;
+    rt_2 -> p_2;
+    s_2 -> p_2;
+    p_2 -> rt_3;
+
+}

@@ -19,7 +19,7 @@ Routing Plans are used for describing common parameters that can be applied for 
     .. _routing_plan_sorting:
 
     Sorting
-        This field is used for setting sorting method for the routes (Dialpeers) within *Routing Plan*. Independently from sorting method all :ref:`Dialpeers <dialpeers>`  within *Routing Plan* will be filtered by using following rules:
+        This field is used for setting sorting method for the routes (Dialpeers) within *Routing Plan*. Regardless from the sorting method all :ref:`Dialpeers <dialpeers>`  within *Routing Plan* will be filtered by using following rules:
 
     -   :ref:`Prefix <dialpeer_prefix>` of :ref:`Dialpeer <dialpeers>` record is in the prefix range of **URI name** (destination) that was processed by Number translations procedures (if any);
 
@@ -46,7 +46,19 @@ Routing Plans are used for describing common parameters that can be applied for 
 
     -   :ref:`Contractor <contractors>` that :ref:`was chosen <dialpeer_vendor>` for the :ref:`Dialpeer <dialpeers>` is enabled and has type: **Vendor**;
 
-    -   :ref:`Routing tags <routing_tag>` that were chosen for the call at the previous steps (Authentication, Numberlist processing etc.) and :ref:`Routing tags <routing_tag>` that were chosen in this field :ref:`Routing tag ids <dialpeer_routing_tag_ids>` of :ref:`Dialpeer <dialpeers>` are matched to each other.
+    -   :ref:`Routing tags <routing_tag>` that were chosen for the call at the previous steps (Authentication, Numberlist processing etc.) and :ref:`Routing tags <routing_tag>` that were chosen in the field :ref:`Routing tag ids <dialpeer_routing_tag_ids>` of :ref:`Dialpeer <dialpeers>` are matched to each other.
+
+     .. note:: Examples:
+
+        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that
+         were chosen: **null**  =>  **TRUE** (matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **null**  =>  **FALSE** (not matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **Tag1**  =>  **FALSE** (not matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **Tag2**  =>  **FALSE** (not matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **Tag2**  =>  **TRUE** (matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**, **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **TRUE** (matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag1**, **Tag2**  =>  **TRUE** (matched);
+
 
         The following algorithms (sorting methods) are available:
 
