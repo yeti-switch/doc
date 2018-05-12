@@ -18,6 +18,8 @@ Authentication process is based on using following parameters:
 -   **To domain** – Domain part of the URI in the To header;
 -   **X-Yeti-Auth** - Custom SIP-header value.
 
+.. _customer_auth_algorithm:
+
 Authentication algorithm is represented on the picture below:
 
  .. graphviz:: ../graphviz/auth.dot
@@ -330,7 +332,9 @@ Radius **Customers Auth**'s options
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
     Radius accounting profile
         Must be specified if the radius accounting is required.
-    
+
+    .. _routing_tags_options:
+
 Routing Tags **Customers Auth**'s options
 `````````````````````````````````````````
     Tag action

@@ -50,12 +50,11 @@ Routing Plans are used for describing common parameters that can be applied for 
 
      .. note:: Examples:
 
-        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that
-         were chosen: **null**  =>  **TRUE** (matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **null**  =>  **FALSE** (not matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **Tag1**  =>  **FALSE** (not matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **Tag2**  =>  **FALSE** (not matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that          were chosen: **Tag2**  =>  **TRUE** (matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **null**  =>  **TRUE** (matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **null**  =>  **FALSE** (not matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag1**  =>  **FALSE** (not matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **FALSE** (not matched);
+        -  :ref:`Routing tags <routing_tag>` of the call: **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **TRUE** (matched);
         -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**, **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **TRUE** (matched);
         -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag1**, **Tag2**  =>  **TRUE** (matched);
 
