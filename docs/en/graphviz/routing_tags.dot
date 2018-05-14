@@ -8,11 +8,11 @@ digraph General {
         color=lightgrey;
         node [style=filled,color=orange];
 
-        s_1 [label = "Customer Auth's Tag action: \n **Append selected tags** \n Customer Auth's Tag action value: Tag1; Tag2"; shape=box; sides=4];
+        s_1 [label = "Customer Auth's Tag action: \n **Append selected tags** \n Customer Auth's Tag action value: Tag1; Tag2; Tag3"; shape=box; sides=4];
 
         s_2 [label = "Destination Numberlist's Tag action: \n **Remove selected tags** \n Destination Numberlist's Tag action value: Tag2"; shape=box; sides=4];
 
-        s_3 [label = "Source Numberlist's Tag action: \n **Intersection with selected tags** \n Source Numberlist's Tag action value: Tag1, Tag3, Tag4"; shape=box; sides=4];
+        s_3 [label = "Source Numberlist's Tag action: \n **Intersection with selected tags** \n Source Numberlist's Tag action value: Tag2, Tag3, Tag4"; shape=box; sides=4];
 
         s_4 [label = "Routing Tag detection Rule's Tag action: \n **Clear tags** \n Routing Tag detection Rule's Tag action value: **null**"; shape=box; sides=4];
 
@@ -45,9 +45,9 @@ digraph General {
         node [style=filled,color=blue];
 
         rt_1 [label = "**null**"; shape=Msquare; sides=4];
-        rt_2 [label = "Tag1; Tag2"; shape=Msquare; sides=4];
-        rt_3 [label = "Tag1"; shape=Msquare; sides=4];
-        rt_4 [label = "Tag3, Tag4"; shape=Msquare; sides=4];
+        rt_2 [label = "Tag1; Tag2; Tag3"; shape=Msquare; sides=4];
+        rt_3 [label = "Tag1; Tag3"; shape=Msquare; sides=4];
+        rt_4 [label = "Tag3"; shape=Msquare; sides=4];
         rt_5 [label = "**null**"; shape=Msquare; sides=4];
 
         rt_1 -> rt_2 [style=invis];

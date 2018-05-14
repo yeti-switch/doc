@@ -20,6 +20,8 @@ Routing Tag detection Rules are used for changing set of :ref:`Routing tags <rou
     Dst area
         Destination :ref:`Area <areas>` (could be empty).
 
+.. _routing_tag_detection_rules_tag_action:
+
     Tag action
         Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. *Routing Tag detection Rule* it is third (and last) step (after *Numberlists*) where :ref:`Routing Tags <routing_tag>` can be added to (or removed from) the call.  Following actions can be selected in this field:
 
