@@ -14,6 +14,9 @@ Routing Tag detection Rules are used for changing set of :ref:`Routing tags <rou
     Routing tag ids
        Allows to choose :ref:`Routing tags <routing_tag>` that should be set for the call at the previous steps (Authentication, Numberlist processing etc.). In case of matching between :ref:`Routing tags <routing_tag>` that were chosen for the call and :ref:`Routing tags <routing_tag>` that were chosen in this field - Yeti will check :ref:`Area <areas>` (source and destination) and will apply (if any) *Tag actions* bellow.
 
+    Routing tag mode
+       Allows to choose mode (**OR** or **AND**) of :ref:`Routing tags <routing_tag>` comparison.
+
     Src area
        Source :ref:`Area <areas>` (could be empty).
 

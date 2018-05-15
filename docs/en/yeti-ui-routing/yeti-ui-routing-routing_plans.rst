@@ -29,8 +29,6 @@ Routing Plans are used for describing common parameters that can be applied for 
        -    Prefix of :ref:`Dialpeer <dialpeers>` record = *066* ; **URI name** = *0662296132* => **TRUE**
        -    Prefix of :ref:`Dialpeer <dialpeers>` record = *066[1-3]* ; **URI name** = *0662296132* => **TRUE**
        -    Prefix of :ref:`Dialpeer <dialpeers>` record = *066[1-3]* ; **URI name** = *0665296132* => **FALSE**
-       -    Prefix of :ref:`Dialpeer <dialpeers>` record = *066[1-3], 0665* ; **URI name** = *0665296132* => **TRUE**
-       -    Prefix of :ref:`Dialpeer <dialpeers>` record = *066[1-3], 0665* ; **URI name** = *0666296132* => **FALSE**
 
     -   Length of **URI name** (destination)  that was processed by Number translations procedures (if any) is between :ref:`Dst number min and max length <dialpeer_dst_number_min_length>` values of :ref:`Dialpeer <dialpeers>` record;
 

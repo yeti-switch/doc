@@ -35,6 +35,9 @@ Dialpeers identify call destination endpoint and define the billing characterist
     Routing tag ids
         :ref:`Routing Tags <routing_tag>` can be selected from the list for adding additional routing issue to this *Dialpeer*.
 
+    Routing tag mode
+       Allows to choose mode (**OR** or **AND**) of :ref:`Routing tags <routing_tag>` comparison.
+
     .. _dialpeer_vendor:
 
     Vendor
