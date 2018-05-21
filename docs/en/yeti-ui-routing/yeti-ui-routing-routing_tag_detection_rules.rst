@@ -4,20 +4,26 @@
 Routing Tag detection Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Routing Tag detection Rules are used for choosing :ref:`Routing tag <routing_tag>` (that is used for routing of calls) by source and destination :ref:`Areas <areas>` that are determined via :ref:`Area prfixes <area_prefixes>` table.
+Routing Tag detection Rules are used for changing set of :ref:`Routing tags <routing_tag>` (that are used for routing of calls) by source and destination :ref:`Areas <areas>` that are determined via :ref:`Area prefixes <area_prefixes>` table.
 
 **Routing Tag detection Rule**'s attributes:
 ````````````````````````````````````````````
     Id
        Unique Routing Tag detection Rule's id.
 
-    Routing tag ids **TODO**
+    Routing tag ids
+       Allows to choose :ref:`Routing tags <routing_tag>` that should be set for the call at the previous steps (Authentication, Numberlist processing etc.). In case of matching between :ref:`Routing tags <routing_tag>` that were chosen for the call and :ref:`Routing tags <routing_tag>` that were chosen in this field - Yeti will check :ref:`Area <areas>` (source and destination) and will apply (if any) *Tag actions* bellow.
+
+    Routing tag mode
+       Allows to choose mode (**OR** or **AND**) of :ref:`Routing tags <routing_tag>` comparison.
 
     Src area
-        Source :ref:`Area <areas>` (could be empty).
+       Source :ref:`Area <areas>` (could be empty).
 
     Dst area
         Destination :ref:`Area <areas>` (could be empty).
+
+.. _routing_tag_detection_rules_tag_action:
 
     Tag action
         Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. *Routing Tag detection Rule* it is third (and last) step (after *Numberlists*) where :ref:`Routing Tags <routing_tag>` can be added to (or removed from) the call.  Following actions can be selected in this field:
