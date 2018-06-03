@@ -14,6 +14,7 @@ Contents:
    general
    installation/index.rst
    yeti-ui
+   quick_start
    yeti-cli
    disconnect-codes
    headers-filtering
