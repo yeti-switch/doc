@@ -1,0 +1,156 @@
+digraph Dependencies {
+
+    node [style=filled; fillcolor="#FCF9A5"];
+    graph [nodesep=1, ranksep=0.2, mindist=0.5];
+
+    subgraph cluster_Billing {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        b_block1 [label = "Contractors"; shape=box; sides=4];
+        b_block2 [label = "Contacts"; shape=box; sides=4];
+        b_block3 [label = "Accounts"; shape=box; sides=4];
+        b_block4 [label = "Payments"; shape=box; sides=4];
+        b_block5 [label = "Invoices"; shape=box; sides=4];
+        b_block6 [label = "Invoice Templates"; shape=box; sides=4];
+
+
+        b_block1 -> b_block2 [style=invis];
+        b_block2 -> b_block3 [style=invis];
+        b_block3 -> b_block4 [style=invis];
+        b_block4 -> b_block5 [style=invis];
+        b_block5 -> b_block6 [style=invis];
+
+
+        label = "Billing";
+    }
+
+    subgraph cluster_Equipment {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        e_block1 [label = "Gateway Groups"; shape=box; sides=4];
+        e_block2 [label = "Gateways"; shape=box; sides=4];
+        e_block3 [label = "Disconnect Policies"; shape=box; sides=4];
+        e_block4 [label = "Disconnect Policy Codes"; shape=box; sides=4];
+        e_block5 [label = "Registrations"; shape=box; sides=4];
+        e_block6 [label = "Codec Groups"; shape=box; sides=4];
+        e_block7 [label = "LNP Databases"; shape=box; sides=4];
+        e_block8 [label = "RADIUS Auth Profile"; shape=box; sides=4];
+        e_block9 [label = "RADIUS Accounting Profile"; shape=box; sides=4];
+
+
+        e_block1 -> e_block2 [style=invis];
+        e_block2 -> e_block3 [style=invis];
+        e_block3 -> e_block4 [style=invis];
+        e_block4 -> e_block5 [style=invis];
+        e_block5 -> e_block6 [style=invis];
+        e_block6 -> e_block7 [style=invis];
+        e_block7 -> e_block8 [style=invis];
+        e_block8 -> e_block9 [style=invis];
+
+
+        label = "Equipment";
+    }
+
+
+    subgraph cluster_Routing {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        r_block1 [label = "Customer Auth"; shape=box; sides=4];
+        r_block2 [label = "Rateplans"; shape=box; sides=4];
+        r_block3 [label = "Destinations"; shape=box; sides=4];
+        r_block4 [label = "Routing Groups"; shape=box; sides=4];
+        r_block5 [label = "Dialpeers"; shape=box; sides=4];
+        r_block6 [label = "Routing plans"; shape=box; sides=4];
+        r_block7 [label = "Routing plan static routes"; shape=box; sides=4];
+        r_block8 [label = "Routing plan LNP rules"; shape=box; sides=4];
+        r_block9 [label = "LNP Cache"; shape=box; sides=4];
+        r_block10 [label = "Numberlists"; shape=box; sides=4];
+        r_block11 [label = "Numberlist items"; shape=box; sides=4];
+        r_block12 [label = "Routing Tags"; shape=box; sides=4];
+        r_block13 [label = "Areas"; shape=box; sides=4];
+        r_block14 [label = "Area Prefixes"; shape=box; sides=4];
+        r_block15 [label = "Routing Tag Detection"; shape=box; sides=4];
+        r_block16 [label = "Routing simulation"; shape=box; sides=4];
+
+
+        r_block1 -> r_block2 [style=invis];
+        r_block2 -> r_block3 [style=invis];
+        r_block3 -> r_block4 [style=invis];
+        r_block4 -> r_block5 [style=invis];
+        r_block5 -> r_block6 [style=invis];
+        r_block6 -> r_block7 [style=invis];
+        r_block7 -> r_block8 [style=invis];
+        r_block8 -> r_block9 [style=invis];
+        r_block9 -> r_block10 [style=invis];
+        r_block10 -> r_block11 [style=invis];
+        r_block11 -> r_block12 [style=invis];
+        r_block12 -> r_block13 [style=invis];
+        r_block13 -> r_block14 [style=invis];
+        r_block14 -> r_block15 [style=invis];
+        r_block15 -> r_block16 [style=invis];
+
+
+        label = "Routing";
+    }
+
+    b_block1 -> b_block2 [color=blue];
+    b_block1 -> b_block3 [color=red];
+    b_block2 -> b_block3 [color=blue];
+    b_block3 -> b_block4 [color=red];
+    b_block1 -> b_block5 [color=red];
+    b_block3 -> b_block5 [color=red];
+    b_block6 -> b_block3 [color=blue];
+
+    b_block1 -> e_block1 [color=red; xlabel="Vendor"];
+    b_block1 -> e_block2 [color=red];
+    e_block1 -> e_block2 [color=blue];
+    e_block8 -> e_block2 [color=blue];
+    e_block3 -> e_block2 [color=blue];
+    e_block3 -> e_block4 [color=blue];
+    e_block6 -> e_block2 [color=red];
+
+    b_block1 -> r_block1  [color=red; xlabel="Customer"];
+    b_block3 -> r_block1  [color=red];
+    e_block2 -> r_block1  [color=red];
+    r_block2 -> r_block1  [color=red];
+    r_block6 -> r_block1  [color=red];
+    r_block10 -> r_block1  [color=blue];
+    e_block8 -> r_block1  [color=blue];
+    e_block9 -> r_block1  [color=blue];
+    r_block12 -> r_block1  [color=blue];
+
+    b_block2 -> r_block2  [color=blue];
+    r_block2 -> r_block3  [color=red];
+    r_block12 -> r_block3  [color=blue];
+
+    r_block4 -> r_block5  [color=red];
+    r_block12 -> r_block5  [color=blue];
+    b_block1 -> r_block5  [color=red; xlabel="Vendor"];
+    b_block3 -> r_block5  [color=red];
+    e_block2 -> r_block5  [color=blue];
+    e_block1 -> r_block5  [color=blue];
+
+    r_block4 -> r_block6  [color=blue];
+
+    r_block6 -> r_block7  [color=red];
+    b_block1 -> r_block7  [color=red; xlabel="Vendor"];
+
+    r_block6 -> r_block8  [color=red];
+    e_block7 -> r_block8  [color=red];
+
+    r_block12 -> r_block10  [color=blue];
+
+    r_block10 -> r_block11  [color=red];
+    r_block12 -> r_block11  [color=blue];
+
+    r_block13 -> r_block14  [color=red];
+
+    r_block12 -> r_block15  [color=blue];
+    r_block13 -> r_block15  [color=blue];
+}
