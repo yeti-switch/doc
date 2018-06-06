@@ -69,7 +69,7 @@ digraph Dependencies {
         r_block6 [label = "Routing plans"; shape=box; sides=4];
         r_block7 [label = "Routing plan static routes"; shape=box; sides=4];
         r_block8 [label = "Routing plan LNP rules"; shape=box; sides=4];
-        r_block9 [label = "LNP Cache"; shape=box; sides=4];
+
         r_block10 [label = "Numberlists"; shape=box; sides=4];
         r_block11 [label = "Numberlist items"; shape=box; sides=4];
         r_block12 [label = "Routing Tags"; shape=box; sides=4];
@@ -86,8 +86,7 @@ digraph Dependencies {
         r_block5 -> r_block6 [style=invis];
         r_block6 -> r_block7 [style=invis];
         r_block7 -> r_block8 [style=invis];
-        r_block8 -> r_block9 [style=invis];
-        r_block9 -> r_block10 [style=invis];
+        r_block8 -> r_block10 [style=invis];
         r_block10 -> r_block11 [style=invis];
         r_block11 -> r_block12 [style=invis];
         r_block12 -> r_block13 [style=invis];
@@ -97,6 +96,66 @@ digraph Dependencies {
 
 
         label = "Routing";
+    }
+
+    subgraph cluster_CRD {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+
+        c_block3 [label = "CDR Exports"; shape=box; sides=4];
+
+
+        label = "CDR";
+    }
+
+
+    subgraph cluster_Reports {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        rep_block1 [label = "Custom CDR Report"; shape=box; sides=4];
+        rep_block2 [label = "Customer traffic"; shape=box; sides=4];
+        rep_block3 [label = "Vendor traffic"; shape=box; sides=4];
+        rep_block4 [label = "Interval CDR Report"; shape=box; sides=4];
+
+
+        rep_block1 -> rep_block2 [style=invis];
+        rep_block2 -> rep_block3 [style=invis];
+        rep_block3 -> rep_block4 [style=invis];
+
+
+        label = "Reports";
+    }
+
+
+    subgraph cluster_System {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        s_block1 [label = "Admin Users"; shape=box; sides=4];
+        s_block2 [label = "API Access"; shape=box; sides=4];
+        s_block3 [label = "PoPs"; shape=box; sides=4];
+        s_block4 [label = "Nodes"; shape=box; sides=4];
+        s_block5 [label = "Countries"; shape=box; sides=4];
+        s_block6 [label = "Networks"; shape=box; sides=4];
+        s_block7 [label = "Network Prefixes"; shape=box; sides=4];
+        s_block8 [label = "SMTP Connections"; shape=box; sides=4];
+
+
+        s_block1 -> s_block2 [style=invis];
+        s_block2 -> s_block3 [style=invis];
+        s_block3 -> s_block4 [style=invis];
+        s_block4 -> s_block5 [style=invis];
+        s_block5 -> s_block6 [style=invis];
+        s_block6 -> s_block7 [style=invis];
+        s_block7 -> s_block8 [style=invis];
+
+
+        label = "System";
     }
 
     b_block1 -> b_block2 [color=blue];
@@ -153,4 +212,38 @@ digraph Dependencies {
 
     r_block12 -> r_block15  [color=blue];
     r_block13 -> r_block15  [color=blue];
+
+    b_block1 -> c_block3  [color=blue; xlabel="Customer"];
+
+    b_block1 -> rep_block1  [color=blue];
+    b_block2 -> rep_block1  [color=blue];
+
+    b_block1 -> rep_block2  [color=red; xlabel="Customer"];
+    b_block2 -> rep_block2  [color=blue];
+
+    b_block1 -> rep_block3  [color=red; xlabel="Vendor"];
+    b_block2 -> rep_block3  [color=blue];
+
+    b_block2 -> rep_block4  [color=blue];
+
+    s_block8 -> b_block1  [color=blue];
+
+    s_block1 -> b_block2  [color=blue];
+
+    s_block3 -> e_block2  [color=blue];
+
+    s_block3 -> e_block5  [color=blue; xlabel=">0"];
+    s_block4 -> e_block5  [color=blue; xlabel=">0"];
+
+    s_block3 -> r_block1  [color=blue];
+
+    s_block3 -> r_block16  [color=blue];
+
+    b_block1 -> s_block2  [color=red; xlabel="Customer"];
+    b_block3 -> s_block2  [color=blue];
+
+    s_block4 -> s_block3  [color=red];
+
+    s_block5 -> s_block7  [color=blue];
+    s_block6 -> s_block7  [color=red];
 }
