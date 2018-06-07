@@ -72,8 +72,33 @@ At the second step it is necessary to configure two :ref:`Account's <accounts>` 
 
 Step 3. Creation of Gateways
 
-**TODO**
+At the third step it is necessary to configure two :ref:`Gateway's <gateways>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor).
 
+.. table:: Example of records filling
+   :widths: auto
+
+   ==============================  ================  =================
+           Field name                  Customer           Vendor
+   ==============================  ================  =================
+                     **General**                           **Tab**
+   ------------------------------------------------  -----------------
+            Name                       Gateway A         Gateway B
+            Enabled                       True             True
+          Contractor                   Contractor A      Contractor B
+            Is shared                     False             False
+          Gateway group                    -                -
+           Priority                       100               100
+               PoP                        -                  -
+       Allow origination                  True               False
+        Allow termination                 False              True
+       Origination capacity                5                 -
+       Termination capacity                -                 5
+         Acd limit                         0.0               0.0
+         Asr limit                         0.0               0.0
+      Short calls limit                    1.0               1.0
+   ==============================  ================  =================
+
+**TODO**
 
 Step 4. Creation of Routing plans, Routing groups and Dialpeers
 
