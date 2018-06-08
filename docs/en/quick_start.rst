@@ -86,49 +86,51 @@ At the fourth step it is necessary to configure:
 
  - at least one :ref:`Routing Group's <routing_group>` record;
 
-.. table:: Example of records filling
-   :widths: auto
+   .. table:: Example of records filling
+      :widths: auto
 
-   ==============================  ================
-              Field name                Value
-   ==============================  ================
-            Name                        My RG
-   ==============================  ================
+      ==============================  =====================
+                 Field name                   Value
+      ==============================  =====================
+               Name                      My RoutingGroup
+      ==============================  =====================
+
 
 
  - at least one :ref:`Routing Plan's <routing_plan>` record;
 
-.. table:: Example of records filling (only fields that should be changed from default values are shown)
-   :widths: auto
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
 
-   ==============================  ================
-           Field name                    Value
-   ==============================  ================
-            Name                       My RP
-          Sorting                       *By default*
-       Routing groups                  My RG
-   ==============================  ================
+      ==============================  =====================
+              Field name                       Value
+      ==============================  =====================
+               Name                     My RoutingPlan
+          Routing groups                My RoutingGroup
+      ==============================  =====================
+
 
 
  - at least one :ref:`Dialpeer's <dialpeers>` record;
 
-.. table:: Example of records filling (only fields that should be changed from default values are shown)
-   :widths: auto
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
 
-   ==============================  ================
-           Field name                    Value
-   ==============================  ================
-            Prefix                       000
-     Dst number min length                3
-     Dst number max length                15
-     Enabled                             True
-      Routing group                     My RG
-      Vendor                          Contractor B
-      Account                         Account B
-       Initial Rate                      2
-      Next Rate                           1
-      Gateway                          Gateway B
-   ==============================  ================
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+               Prefix                       000
+        Dst number min length                3
+        Dst number max length                15
+        Enabled                             True
+         Routing group                   My RoutingGroup
+         Vendor                          Contractor B
+         Account                         Account B
+          Initial Rate                      2
+         Next Rate                           1
+         Gateway                          Gateway B
+      ==============================  =====================
+
 
 
 Step 5. Creation of Rateplan and Destinations
@@ -137,17 +139,76 @@ At the fifth step it is necessary to configure:
 
  - at least one :ref:`Rateplan's <rateplans>` record;
 
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+               Name                        My RatePlan
+      ==============================  =====================
+
 
 
  - at least one :ref:`Destination's <destinations>` record;
 
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+             **New Destination**           **Section**
+      ------------------------------  ---------------------
+               Prefix                       0000
+           Dst number min length              3
+           Dst number max length              15
+            Enabled                           True
+           Rateplan                          My RatePlan
+      ------------------------------  ---------------------
+      ------------------------------  ---------------------
+             **Fixed rating**           **Section**
+      ------------------------------  ---------------------
+          Initial rate                        3
+          Next rate                           1.5
+      ==============================  =====================
+
+
 
 Step 6. Creation of Customer Auth
 
-**TODO**
+At the sixth step it is necessary to configure at least one :ref:`Customers Auth's <customer_auth>` record.
+
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  =====================
+           Field name                      Value
+   ==============================  =====================
+          **General**                   **Tab**
+   ------------------------------  ---------------------
+            Name                      My CustomerAuth
+           Customer                    Contractor A
+            Account                     Account A
+            Gateway                       Gateway A
+             Rateplan                     My RatePlan
+        Routing plan                     My RoutingGroup
+   ==============================  =====================
+
 
 Step 7. Test the call
 
-**TODO**
+At the last step it is necessary to create some :ref:`Payment's <payments>` record for topping up the balance of Account A and test the call.
+
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  =====================
+           Field name                       Value
+   ==============================  =====================
+            Account                    Account A
+            Amount                        50
+   ==============================  =====================
+
 
 
