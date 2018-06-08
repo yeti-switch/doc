@@ -20,7 +20,7 @@ Step 1. Creation of Contractors
 At the first step it is necessary to configure two :ref:`Contractor's <contractors>` records: one with type :ref:`Customer <contractor_customer>` and second with type :ref:`Vendor <contractor_vendor>`.
 
 
-.. table:: Example of records filling
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
 
    =================  ================  =================
@@ -30,10 +30,6 @@ At the first step it is necessary to configure two :ref:`Contractor's <contracto
        Enabled           True               True
         Vendor           False              True
        Customer          True               False
-    Description          *Blank*             *Blank*
-     Address             *Blank*             *Blank*
-      Phones             *Blank*             *Blank*
-    SMTP connection         -                   -
    =================  ================  =================
 
 .. note::
@@ -45,13 +41,12 @@ Step 2. Creation of Accounts
 
 At the second step it is necessary to configure two :ref:`Account's <accounts>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor).
 
-.. table:: Example of records filling
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
 
    ==============================  ================  =================
            Field name                  Customer           Vendor
    ==============================  ================  =================
-            Uuid                          1                  2
             Name                       Account A         Account B
           Contractor                   Contractor A      Contractor B
           Min balance                     100                0
@@ -60,13 +55,6 @@ At the second step it is necessary to configure two :ref:`Account's <accounts>` 
        Balance high threshold             200               100
       Origination capacity                 5                 -
        Termination capacity                -                 5
-    Vendor invoice period                  -                 -
-    Customer invoice period                -                 -
-    Vendor invoice template                -                 -
-    Customer invoice template              -                 -
-    Send invoices to                       -                 -
-    Send balance notifications to          -                 -
-    Timezone                              UTC               UTC
    ==============================  ================  =================
 
 
@@ -74,7 +62,7 @@ Step 3. Creation of Gateways
 
 At the third step it is necessary to configure two :ref:`Gateway's <gateways>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor).
 
-.. table:: Example of records filling
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
 
    ==============================  ================  =================
@@ -85,28 +73,74 @@ At the third step it is necessary to configure two :ref:`Gateway's <gateways>` r
             Name                       Gateway A         Gateway B
             Enabled                       True             True
           Contractor                   Contractor A      Contractor B
-            Is shared                     False             False
-          Gateway group                    -                -
-           Priority                       100               100
-               PoP                        -                  -
        Allow origination                  True               False
         Allow termination                 False              True
        Origination capacity                5                 -
        Termination capacity                -                 5
-         Acd limit                         0.0               0.0
-         Asr limit                         0.0               0.0
-      Short calls limit                    1.0               1.0
    ==============================  ================  =================
 
-**TODO**
 
 Step 4. Creation of Routing plans, Routing groups and Dialpeers
 
-**TODO**
+At the fourth step it is necessary to configure:
+
+ - at least one :ref:`Routing Group's <routing_group>` record;
+
+.. table:: Example of records filling
+   :widths: auto
+
+   ==============================  ================
+              Field name                Value
+   ==============================  ================
+            Name                        My RG
+   ==============================  ================
+
+
+ - at least one :ref:`Routing Plan's <routing_plan>` record;
+
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  ================
+           Field name                    Value
+   ==============================  ================
+            Name                       My RP
+          Sorting                       *By default*
+       Routing groups                  My RG
+   ==============================  ================
+
+
+ - at least one :ref:`Dialpeer's <dialpeers>` record;
+
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  ================
+           Field name                    Value
+   ==============================  ================
+            Prefix                       000
+     Dst number min length                3
+     Dst number max length                15
+     Enabled                             True
+      Routing group                     My RG
+      Vendor                          Contractor B
+      Account                         Account B
+       Initial Rate                      2
+      Next Rate                           1
+      Gateway                          Gateway B
+   ==============================  ================
+
 
 Step 5. Creation of Rateplan and Destinations
 
-**TODO**
+At the fifth step it is necessary to configure:
+
+ - at least one :ref:`Rateplan's <rateplans>` record;
+
+
+
+ - at least one :ref:`Destination's <destinations>` record;
+
 
 Step 6. Creation of Customer Auth
 
