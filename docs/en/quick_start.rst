@@ -49,10 +49,8 @@ At the second step it is necessary to configure two :ref:`Account's <accounts>` 
    ==============================  ================  =================
             Name                       Account A         Account B
           Contractor                   Contractor A      Contractor B
-          Min balance                     100                0
-           Max balance                    200               100
-       Balance low threshold              100                0
-       Balance high threshold             200               100
+          Min balance                      0                0
+           Max balance                    100               100
       Origination capacity                 5                 -
        Termination capacity                -                 5
    ==============================  ================  =================
@@ -77,6 +75,11 @@ At the third step it is necessary to configure two :ref:`Gateway's <gateways>` r
         Allow termination                 False              True
        Origination capacity                5                 -
        Termination capacity                -                 5
+   ------------------------------------------------  -----------------
+   ------------------------------------------------  -----------------
+                     **Signaling**                        **Tab**
+   ------------------------------------------------  -----------------
+            Host                          -              127.0.0.1
    ==============================  ================  =================
 
 
@@ -120,8 +123,6 @@ At the fourth step it is necessary to configure:
               Field name                      Value
       ==============================  =====================
                Prefix                       000
-        Dst number min length                3
-        Dst number max length                15
         Enabled                             True
          Routing group                   My RoutingGroup
          Vendor                          Contractor B
@@ -161,8 +162,6 @@ At the fifth step it is necessary to configure:
              **New Destination**           **Section**
       ------------------------------  ---------------------
                Prefix                       0000
-           Dst number min length              3
-           Dst number max length              15
             Enabled                           True
            Rateplan                          My RatePlan
       ------------------------------  ---------------------
@@ -192,7 +191,7 @@ At the sixth step it is necessary to configure at least one :ref:`Customers Auth
             Account                     Account A
             Gateway                       Gateway A
              Rateplan                     My RatePlan
-        Routing plan                     My RoutingGroup
+        Routing plan                  My RoutingPlan
    ==============================  =====================
 
 
