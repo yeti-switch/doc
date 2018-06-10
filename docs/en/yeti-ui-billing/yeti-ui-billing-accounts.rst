@@ -4,6 +4,7 @@
 Accounts
 ~~~~~~~~
 
+**TODO**
 Initial balance for newly created account is always zero.
 Balance can be changed as result of calls billing or new payments.
 

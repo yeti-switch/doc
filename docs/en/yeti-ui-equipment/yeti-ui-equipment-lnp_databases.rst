@@ -7,6 +7,7 @@ see https://en.wikipedia.org/wiki/Local_number_portability
 
 Yeti supports interaction with LNP databases by SIP and HTTP REST protocols.
 We welcome requests to implement additional protocols or LNP database specific formats.
+**TODO**
 
 **LNP database**'s attributes:
 ``````````````````````````````

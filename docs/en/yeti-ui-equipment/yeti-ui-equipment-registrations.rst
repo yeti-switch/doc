@@ -5,6 +5,7 @@ Registrations
 ~~~~~~~~~~~~~
 
 YETI allows to use outgoing SIP registrations on remote vendor's or customer's equipment.
+**TODO**
 
 **Registration**'s attributes:
 ``````````````````````````````

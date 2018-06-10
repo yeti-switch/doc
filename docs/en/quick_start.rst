@@ -51,8 +51,6 @@ At the second step it is necessary to configure two :ref:`Account's <accounts>` 
           Contractor                   Contractor A      Contractor B
           Min balance                      0                0
            Max balance                    100               100
-      Origination capacity                 5                 -
-       Termination capacity                -                 5
    ==============================  ================  =================
 
 
@@ -73,8 +71,6 @@ At the third step it is necessary to configure two :ref:`Gateway's <gateways>` r
           Contractor                   Contractor A      Contractor B
        Allow origination                  True               False
         Allow termination                 False              True
-       Origination capacity                5                 -
-       Termination capacity                -                 5
    ------------------------------------------------  -----------------
    ------------------------------------------------  -----------------
                      **Signaling**                        **Tab**
@@ -209,5 +205,17 @@ At the last step it is necessary to create some :ref:`Payment's <payments>` reco
             Amount                        50
    ==============================  =====================
 
+Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  =====================
+           Field name                       Value
+   ==============================  =====================
+           Remote ip                   127.0.0.1
+           Remote port                     1000
+           Src number                    0000123
+            Dst number                    00001234
+   ==============================  =====================
 

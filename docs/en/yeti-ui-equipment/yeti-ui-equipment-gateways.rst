@@ -4,7 +4,7 @@
 Gateways
 ~~~~~~~~
 
-Gateways are used for sending VoIP traffic.
+Gateways are used for sending VoIP traffic. **TODO**
 
 General **Gateway**'s attributes:
 `````````````````````````````````

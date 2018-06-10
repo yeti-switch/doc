@@ -1,3 +1,4 @@
+.. _routing_simulation:
 
 Routing Simulation
 ~~~~~~~~~~~~~~~~~~
