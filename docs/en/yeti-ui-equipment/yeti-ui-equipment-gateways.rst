@@ -4,7 +4,8 @@
 Gateways
 ~~~~~~~~
 
-Gateways are used for sending VoIP traffic. **TODO**
+Gateways are used for configuring parameters of sending VoIP traffic to the Vendor.
+For configure *Gateway* it is necessary to configure :ref:`Contractor's <contractors>` record. Also it is necessary to choose some :ref:`Codec group <codec_groups>`.
 
 General **Gateway**'s attributes:
 `````````````````````````````````
@@ -37,7 +38,7 @@ General **Gateway**'s attributes:
     Is shared       
         Allows *Gateway* to be used as origination equipment for any customer or as termination equipment for any vendor.
     Gateway group
-        gateways can be grouped.
+        Gateways can be grouped.
         Choose group from the list to add gateway to the group.
         Gateways groups can be managed at *Billing->Gateway Groups*.
 

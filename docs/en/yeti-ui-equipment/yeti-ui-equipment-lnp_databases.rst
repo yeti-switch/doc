@@ -7,7 +7,8 @@ see https://en.wikipedia.org/wiki/Local_number_portability
 
 Yeti supports interaction with LNP databases by SIP and HTTP REST protocols.
 We welcome requests to implement additional protocols or LNP database specific formats.
-**TODO**
+
+LNP databases are used for specify characteristics of the LNP service, that will be used by Yeti if it is configured in the :ref:`Routing Plan LNP rules <routing_plan_lnp_rules>` record.
 
 **LNP database**'s attributes:
 ``````````````````````````````

@@ -4,9 +4,9 @@
 Accounts
 ~~~~~~~~
 
-**TODO**
+Accounts are used for describing separate billing account of some :ref:`Contractor <contractors>`. :ref:`Contractor <contractors>` could have more than one *Account*. It is necessary to configure :ref:`Contractor <contractors>` before creating *Account*.
 Initial balance for newly created account is always zero.
-Balance can be changed as result of calls billing or new payments.
+Balance can be changed as result of calls billing or new :ref:`payments <payments>`.
 
 For each call:
 account balance will be **decreased** on call cost if it uses account for **origination** (customer)
