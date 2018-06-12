@@ -15,7 +15,7 @@ Contact:
     Contractor
         Choose :ref:`Contractor <contractors>` if this contact belongs to them.
     Admin user
-        :ref:`Administrative user <admin_users>` which may own contact. 
+        :ref:`Administrative user <admin_users>` which may own contact.
     E-mail
         Address for notifications, invoices and other emails.
     Notes
