@@ -14,13 +14,15 @@ Yeti is user-friendly application and it very easy for configuration. You can se
 This Guideline contains step-by-step description of Yeti's configuration that will help to start it quickly just after finishing of the :ref:`installation process <install>`.
 For configuration purposes :ref:`Yeti Web interface <web>` could be used.
 
+.. _quick_start_chapter1:
+
 Chapter 1.  Basic configuration
 ===============================
 
 
-In this Chapter we'll configure Yeti for receiving calls on IP address **127.0.0.1** (any port, UDP) and switching them (in case if B-number starts from **380**) to the Gateway with IP address **128.0.0.1**. In our example we'll pay one monetary unit per minute  to the Vendor after the initial interval (by default - 1 minute) and 2 monetary units during initial interval. From other side we'll receive 1.5 monetary units per minute from Cutomer after the initial interval and 3 monetary units during initial interval. So, in case of call with ten minutes length the profit will be (3-2)+(10-1)*(1.5-1) = 5.5 monetary units (16.5 will be received from the Customer and 11 will be paid to the Vendor).
+In this Chapter we'll configure Yeti for receiving calls on IP address **127.0.0.1** (any port, UDP) and switching them (in case if B-number starts from **380**) to the Gateway with IP address **128.0.0.1**.
 
-Step 1. Creation of Contractors
+**Step 1. Creation of Contractors**
 
 At the first step it is necessary to configure two :ref:`Contractor's <contractors>` records: one with type :ref:`Customer <contractor_customer>` and second with type :ref:`Vendor <contractor_vendor>`. Both records should be *Enabled*.
 
@@ -32,9 +34,9 @@ At the first step it is necessary to configure two :ref:`Contractor's <contracto
      Field name           Customer           Vendor
    =================  ================  =================
         Name             Contractor A       Contractor B
-       Enabled           True               True
-        Vendor           False              True
-       Customer          True               False
+       Enabled              True               True
+        Vendor             False              True
+       Customer             True               False
    =================  ================  =================
 
 .. note::
@@ -42,9 +44,9 @@ At the first step it is necessary to configure two :ref:`Contractor's <contracto
    It is possible to use one record instead two by enabling both (:ref:`Customer <contractor_customer>` and :ref:`Vendor <contractor_vendor>`) flags.
 
 
-Step 2. Creation of Accounts
+**Step 2. Creation of Accounts**
 
-At the second step it is necessary to configure two :ref:`Account's <accounts>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). You should also set *Max balance* parameter for the Vendor to the some value that allow to make a call at least during initial interval (in our example we'll set 100 monetary units).
+At the second step it is necessary to configure two :ref:`Account's <accounts>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). You should also set *Max balance* parameter for the Vendor to the some value that allow to make a call (current balance will be less than *Max balance* value). In our example we'll set 100 monetary units.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -58,9 +60,9 @@ At the second step it is necessary to configure two :ref:`Account's <accounts>` 
    ==============================  ================  =================
 
 
-Step 3. Creation of Gateways
+**Step 3. Creation of Gateways**
 
-At the third step it is necessary to configure two :ref:`Gateway's <gateways>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor).
+At the third step it is necessary to configure two :ref:`Gateway's <gateways>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). Both records should be *Enabled*. It is also important to allow origination at the *Gateway A* and termination to the *Gateway B*.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -83,7 +85,7 @@ At the third step it is necessary to configure two :ref:`Gateway's <gateways>` r
    ==============================  ================  =================
 
 
-Step 4. Creation of Routing plans, Routing groups and Dialpeers
+**Step 4. Creation of Routing plans, Routing groups and Dialpeers**
 
 At the fourth step it is necessary to configure:
 
@@ -100,7 +102,7 @@ At the fourth step it is necessary to configure:
 
 
 
- - at least one :ref:`Routing Plan's <routing_plan>` record;
+ - at least one :ref:`Routing Plan's <routing_plan>` record that is associated with :ref:`Routing Group <routing_group>` above;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -114,7 +116,7 @@ At the fourth step it is necessary to configure:
 
 
 
- - at least one :ref:`Dialpeer's <dialpeers>` record;
+ - at least one :ref:`Dialpeer's <dialpeers>` record that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>` and :ref:`Vendor's Gateway <gateways>` that were configured above. In our example we use **380** (international code of Ukraine) as *Prefix* and we'll pay one monetary unit per minute to the Vendor after the initial interval (by default - 1 minute) and 2 monetary units during initial interval;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -122,7 +124,7 @@ At the fourth step it is necessary to configure:
       ==============================  =====================
               Field name                      Value
       ==============================  =====================
-               Prefix                       000
+               Prefix                       380
         Enabled                             True
          Routing group                   My RoutingGroup
          Vendor                          Contractor B
@@ -134,7 +136,7 @@ At the fourth step it is necessary to configure:
 
 
 
-Step 5. Creation of Rateplan and Destinations
+**Step 5. Creation of Rateplan and Destinations**
 
 At the fifth step it is necessary to configure:
 
@@ -151,7 +153,7 @@ At the fifth step it is necessary to configure:
 
 
 
- - at least one :ref:`Destination's <destinations>` record;
+ - at least one :ref:`Destination's <destinations>` record that should be associated with with :ref:`Rateplan <rateplans>` above. In our example we also use **380** (international code of Ukraine) as *Prefix*  and we'll receive 1.5 monetary units per minute from Customer after the initial interval and 3 monetary units during initial interval. So, in case of call with ten minutes length the profit will be (3-2)+(10-1)*(1.5-1) = 5.5 monetary units (16.5 will be received from the Customer and 11 will be paid to the Vendor);
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -161,7 +163,7 @@ At the fifth step it is necessary to configure:
       ==============================  =====================
              **New Destination**           **Section**
       ------------------------------  ---------------------
-               Prefix                       0000
+               Prefix                       380
             Enabled                           True
            Rateplan                          My RatePlan
       ------------------------------  ---------------------
@@ -174,9 +176,9 @@ At the fifth step it is necessary to configure:
 
 
 
-Step 6. Creation of Customer Auth
+**Step 6. Creation of Customer Auth**
 
-At the sixth step it is necessary to configure at least one :ref:`Customers Auth's <customer_auth>` record.
+At the sixth step it is necessary to configure at least one :ref:`Customers Auth's <customer_auth>` record that should be associated with :ref:`Customer <contractors>`, :ref:`Customer's Account <accounts>` and :ref:`Customer's Gateway <gateways>`, :ref:`Rateplan <rateplans>` and :ref:`Routing Group <routing_group>` that were configured above.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -195,9 +197,9 @@ At the sixth step it is necessary to configure at least one :ref:`Customers Auth
    ==============================  =====================
 
 
-Step 7. Test the call
+**Step 7. Test the call**
 
-At the last step it is necessary to create some :ref:`Payment's <payments>` record for topping up the balance of Account A and test the call.
+At the last step it is necessary to create some :ref:`Payment's <payments>` record for topping up the balance of Account A and test the call (Customer's balance should be greater than *Min balance* value).
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -218,8 +220,23 @@ Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_s
            Field name                       Value
    ==============================  =====================
            Remote ip                   127.0.0.1
-           Remote port                     1000
-           Src number                    0000123
-            Dst number                    00001234
+           Remote port                     10000
+           Src number                    001234567890
+            Dst number                   380662296132
    ==============================  =====================
+
+As a result two records will be shown (where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call). Full log of call processing also will be shown under the resulting records.
+
+.. note::
+
+   If you don't see necessary results, please, make sure that you enter everything correctly.
+
+.. _quick_start_chapter2:
+
+Chapter 2.  Additional Dialpeers
+================================
+
+In this Chapter we'll improve basic configuration that is described in :ref:`Chapter 1 <quick_start_chapter2>` above by adding new :ref:`Dialpeers <dialpeers>` that will help to spend less money for calling to the numbers that have some prefixes.
+
+In our new example the same :ref:`Vendor <contractors>` (Contractor B from basic configuration) proposed us special price for all calls that will be made to the numbers that start from **38048** (regional code of Odessa city in Ukraine).
 
