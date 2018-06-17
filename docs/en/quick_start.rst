@@ -307,17 +307,37 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter3:
 
-Chapter 3.  Alternative Gateway for calls from selected Destination
-===================================================================
+Chapter 3.  Alternative Gateway for calls to the specific numbers
+=================================================================
 
-In this Chapter we'll improve configuration that is described in :ref:`Chapter 2 <quick_start_chapter2>` above by adding new :ref:`Vendor's Gateway <gateways>` that will be used for terminating calls that were received from specific :ref:`Destination <destinations>`.
+In this Chapter we'll improve configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding new :ref:`Vendor's Gateway <gateways>` that will be used for terminating calls that are sent to the specific numbers (to the numbers that start from **38048705**).
 
-**Step 1. Creation of Gateway Group and new termination Gateway**
+**Step 1. Creation of new termination Gateway**
 
-At the first step we'll configure:
+At the first step we'll configure one additional termination :ref:`Gateway's <gateways>` record that will be linked to Contractor B (Vendor).
 
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
 
-- one :ref:`Gateway group's <gateway_groups>` record;
+   ==============================  =====================
+           Field name                  Value
+   ==============================  =====================
+                     **General**         **Tab**
+   -----------------------------------------------------
+            Name                       Gateway C
+            Enabled                       True
+          Contractor                   Contractor B
+       Allow origination                  False
+   -----------------------------------------------------
+   -----------------------------------------------------
+                     **Signaling**       **Tab**
+   -----------------------------------------------------
+            Host                        129.0.0.1
+   ==============================  =====================
+
+**Step 2. Creation of additional Dialpeer**
+
+At the second step we'll configure one additional :ref:`Dialpeer's <dialpeers>` record that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>`  that were configured in :ref:`Chapter 1 <quick_start_chapter1>` above and also with :ref:`Vendor's Gateway C <gateways>` that was configured at Step 1 above. In our example we use **38048705** as *Prefix* and we'll pay 0.5 monetary unit per minute to the Vendor after the initial interval (by default - 1 minute) and 1 monetary units during initial interval;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -325,29 +345,41 @@ At the first step we'll configure:
       ==============================  =====================
               Field name                      Value
       ==============================  =====================
-               Name                     My Gateway Group
-               Vendor                     Contractor B
+               Prefix                       38048705
+        Enabled                             True
+         Routing group                   My RoutingGroup
+         Vendor                          Contractor B
+         Account                         Account B
+          Initial Rate                      1
+         Next Rate                          0.5
+         Gateway                          Gateway C
       ==============================  =====================
 
+**Step 3. Test the call**
 
-- one additional termination :ref:`Gateway's <gateways>` record that will be linked to Contractor B (Vendor).
+Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
 
-   ==============================  ================
-           Field name                  Value
-   ==============================  ================
-                     **General**         **Tab**
-   ------------------------------------------------
-            Name                       Gateway B
-            Enabled                       True
-          Contractor                   Contractor B
-       Allow origination                  False
-        Allow termination                 True
-   ------------------------------------------------
-   ------------------------------------------------
-                     **Signaling**       **Tab**
-   ------------------------------------------------
-            Host                        129.0.0.1
-   ==============================  ================
+   ==============================  =====================
+           Field name                       Value
+   ==============================  =====================
+           Remote ip                   127.0.0.1
+           Remote port                     10000
+           Src number                    001234567890
+            Dst number                   380487050321
+   ==============================  =====================
+
+As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile uses Gateway C for termination the call. Full log of call processing also will be shown under the resulting records.
+
+.. note::
+
+   If you don't see necessary results, please, make sure that you enter everything correctly.
+
+.. _quick_start_chapter4:
+
+Chapter 4.  Original based billing
+==================================
+
+
