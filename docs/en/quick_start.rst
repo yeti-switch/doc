@@ -233,8 +233,8 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter2:
 
-Chapter 2.  Additional Dialpeers
-================================
+Chapter 2.  Additional Dialpeer
+===============================
 
 In this Chapter we'll improve basic configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding new :ref:`Dialpeers <dialpeers>` that will help to spend less money for calling to the numbers that have some prefixes.
 
@@ -260,30 +260,7 @@ At the first step we'll configure one additional :ref:`Dialpeer's <dialpeers>` r
          Gateway                          Gateway B
       ==============================  =====================
 
-**Step 2. Creation of Destination**
-
-At the second step we'll  configure :ref:`Destination's <destinations>` record that should be associated with with :ref:`Rateplan <rateplans>` that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. In our example we also use **38048** as *Prefix*  and we'll receive 0.75 monetary units per minute from Customer after the initial interval and 1.5 monetary units during initial interval. So, in case of call with ten minutes length the profit will be (1.5-1)+(10-1)*(0.75-0.5) = 2.75 monetary units (8.25 will be received from the Customer and 5.5 will be paid to the Vendor);
-
-   .. table:: Example of records filling (only fields that should be changed from default values are shown)
-      :widths: auto
-
-      ==============================  =====================
-              Field name                      Value
-      ==============================  =====================
-             **New Destination**           **Section**
-      ------------------------------  ---------------------
-               Prefix                       38048
-            Enabled                           True
-           Rateplan                          My RatePlan
-      ------------------------------  ---------------------
-      ------------------------------  ---------------------
-             **Fixed rating**           **Section**
-      ------------------------------  ---------------------
-          Initial rate                        1.5
-          Next rate                           0.75
-      ==============================  =====================
-
-**Step 3. Test the call**
+**Step 2. Test the call**
 
 Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
@@ -299,7 +276,7 @@ Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_s
             Dst number                   380487050321
    ==============================  =====================
 
-As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile has Initial and Next Rates of Dealpeer and Destination that were newly created. Full log of call processing also will be shown under the resulting records.
+As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile has Initial and Next Rates of Dealpeer that was newly created. Full log of call processing also will be shown under the resulting records. In our example we'll still receive 1.5 monetary units per minute from Customer after the initial interval and 3 monetary units during initial interval, but will pay less to the Vendor. So, in case of call with ten minutes length the profit will be (3-1)+(10-1)*(1.5-0.5) = 11 monetary units (16.5 will be received from the Customer and 5.5 will be paid to the Vendor).
 
 .. note::
 
@@ -379,7 +356,119 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter4:
 
-Chapter 4.  Original based billing
-==================================
+Chapter 4.  Origin based billing
+================================
+
+In this Chapter we'll improve configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding origin based billing. In our example we'll configure lower price (0.25 monetary unit per minute after the initial interval and 0.5 monetary units during initial interval) for calling to Ukraine (to the numbers that start from **380**) from France (from the numbers that start from **33**).
+
+**Step 1. Adding Areas and Area Prfixes**
+
+At the first step it is necessary to configure:
+
+ - two :ref:`Area's <areas>` records (one for France and one for Ukraine);
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================  =====================
+              Field name                      Value                  Value
+      ==============================  =====================  =====================
+               Name                           France                 Ukraine
+      ==============================  =====================  =====================
 
 
+
+ - two :ref:`Area prefix's <area_prefixes>` records that should be associated with :ref:`Areas <areas>`  above.
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================  =====================
+              Field name                      Value                  Value
+      ==============================  =====================  =====================
+               Prefix                         33                     380
+               Area                           France                 Ukraine
+      ==============================  =====================  =====================
+
+
+**Step 2. Adding Routing Tag and Routing Tag Detection Rule**
+
+At the second step it is necessary to configure:
+
+ -  one :ref:`Routing Tag's <routing_tag>` record;
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+               Name                        From_FR_to_UA
+      ==============================  =====================
+
+
+ -  one :ref:`Routing Tag detection Rule's <routing_tag_detection_rules>` record;
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  ======================
+              Field name                      Value
+      ==============================  ======================
+             Src area                       France
+             Dst area                       Ukraine
+             Tag action                Append selected tags
+            Tag action value              From_FR_to_UA
+      ==============================  ======================
+
+**Step 3. Creation of Destination**
+
+At the third step we'll  configure :ref:`Destination's <destinations>` record that should be associated with  :ref:`Rateplan <rateplans>` that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. In our example we will use **380** as *Prefix* and we'll receive 0.25 monetary units per minute from Customer after the initial interval and 0.5 monetary units during initial interval. So, in case of call with ten minutes length the lesion will be (0.5-1)+(10-1)*(0.25-0.5) = -2.75 monetary units (2.75 will be received from the Customer and 5.5 will be paid to the Vendor);
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+             **New Destination**           **Section**
+      ------------------------------  ---------------------
+               Prefix                       380
+            Enabled                           True
+           Rateplan                          My RatePlan
+          Routing tag ids                From_FR_to_UA
+      ------------------------------  ---------------------
+      ------------------------------  ---------------------
+             **Fixed rating**           **Section**
+      ------------------------------  ---------------------
+          Initial rate                        0.5
+          Next rate                           0.25
+      ==============================  =====================
+
+
+**Step 2. Changing the Dialpeer**
+
+At the fourth step we'll edit :ref:`Dialpeer's <dialpeers>` record that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. It is necessary to change :ref:`Routing tag ids <dialpeer_routing_tag_ids>` to the value **any tag**.
+
+
+**Step 5. Test the call**
+
+Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  =====================
+           Field name                       Value
+   ==============================  =====================
+           Remote ip                   127.0.0.1
+           Remote port                     10000
+           Src number                    331234567890
+            Dst number                   380487050321
+   ==============================  =====================
+
+As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile uses newly created :ref:`Destination's <destinations>` as a basis for Customer's billing. Full log of call processing also will be shown under the resulting records.
+
+.. note::
+
+   If you don't see necessary results, please, make sure that you enter everything correctly.
