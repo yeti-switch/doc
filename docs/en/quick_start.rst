@@ -395,35 +395,35 @@ At the first step it is necessary to configure:
 
 At the second step it is necessary to configure:
 
- -  one :ref:`Routing Tag's <routing_tag>` record;
+ -  two :ref:`Routing Tag's <routing_tag>` records - one for describing all calls to Ukraine and one for describing calls from France to Ukraine only;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
 
-      ==============================  =====================
-              Field name                      Value
-      ==============================  =====================
-               Name                        From_FR_to_UA
-      ==============================  =====================
+      ==============================  =====================  =====================
+              Field name                      Value                  Value
+      ==============================  =====================  =====================
+               Name                        From_FR_to_UA             to_UA
+      ==============================  =====================  =====================
 
 
- -  one :ref:`Routing Tag detection Rule's <routing_tag_detection_rules>` record;
+ -  two :ref:`Routing Tag detection Rule's <routing_tag_detection_rules>` records;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
 
-      ==============================  ======================
-              Field name                      Value
-      ==============================  ======================
-             Src area                       France
-             Dst area                       Ukraine
-             Tag action                Append selected tags
-            Tag action value              From_FR_to_UA
-      ==============================  ======================
+      ==============================  ======================  ======================
+              Field name                      Value                   Value
+      ==============================  ======================  ======================
+             Src area                       France                    -
+             Dst area                       Ukraine                 Ukraine
+             Tag action                Append selected tags    Append selected tags
+            Tag action value              From_FR_to_UA              to_UA
+      ==============================  ======================  ======================
 
-**Step 3. Creation of Destination**
+**Step 3. Creation of new Destination and editing of existing**
 
-At the third step we'll  configure :ref:`Destination's <destinations>` record that should be associated with  :ref:`Rateplan <rateplans>` that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. In our example we will use **380** as *Prefix* and we'll receive 0.25 monetary units per minute from Customer after the initial interval and 0.5 monetary units during initial interval. So, in case of call with ten minutes length the lesion will be (0.5-1)+(10-1)*(0.25-0.5) = -2.75 monetary units (2.75 will be received from the Customer and 5.5 will be paid to the Vendor);
+At the third step we'll  configure :ref:`Destination's <destinations>` record that should be associated with  :ref:`Rateplan <rateplans>` that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. In our example we will use **380** as *Prefix* and we'll receive 0.25 monetary units per minute from Customer after the initial interval and 0.5 monetary units during initial interval. So, in case of call with ten minutes length the lesion will be (0.5-1)+(10-1)*(0.25-0.5) = -2.75 monetary units (2.75 will be received from the Customer and 5.5 will be paid to the Vendor).
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -445,8 +445,10 @@ At the third step we'll  configure :ref:`Destination's <destinations>` record th
           Next rate                           0.25
       ==============================  =====================
 
+Also at this step it is necessary to edit :ref:`Destination's <destinations>` record that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above by adding **to_UA** :ref:`Routing Tag's <routing_tag>` to the **Routing tag ids** field.
 
-**Step 2. Changing the Dialpeer**
+
+**Step 4. Changing the Dialpeer**
 
 At the fourth step we'll edit :ref:`Dialpeer's <dialpeers>` record that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. It is necessary to change :ref:`Routing tag ids <dialpeer_routing_tag_ids>` to the value **any tag**.
 
@@ -467,7 +469,91 @@ Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_s
             Dst number                   380487050321
    ==============================  =====================
 
-As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile uses newly created :ref:`Destination's <destinations>` as a basis for Customer's billing. Full log of call processing also will be shown under the resulting records.
+As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile uses newly created :ref:`Destination <destinations>` as a basis for Customer's billing. Full log of call processing also will be shown under the resulting records.
+
+.. note::
+
+   If you don't see necessary results, please, make sure that you enter everything correctly.
+
+.. _quick_start_chapter5:
+
+Chapter 5.  Emergency calls
+===========================
+
+In this Chapter we'll change configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding possibility to make free call to the emergency number (**112**) even in case of zero balance of Customer's account.
+
+
+**Step 1. Editing of the Customer Auth record**
+
+At the first step it is necessary to edit :ref:`Customers Auth's <customer_auth>` record that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above by disabling **Check account balance** flag.
+
+
+**Step 2. Adding new Destination for emergency calls**
+
+At the second step we'll  configure :ref:`Destination's <destinations>` record that should be associated with  :ref:`Rateplan <rateplans>` that was configured in :ref:`Chapter 1 <quick_start_chapter1>` above. In our example we will use **112** as *Prefix* and we'll receive 0 monetary units per minute from Customer after the initial interval and 0 monetary units during initial interval. It is also important to set value of the **Profit control mode** field into the **no control** value.
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+             **New Destination**           **Section**
+      ------------------------------  ---------------------
+               Prefix                       112
+        Dst number min length                3
+         Dst number max length              3
+            Enabled                           True
+           Rateplan                          My RatePlan
+      ------------------------------  ---------------------
+      ------------------------------  ---------------------
+             **Fixed rating**           **Section**
+      ------------------------------  ---------------------
+          Initial rate                        0
+          Next rate                           0
+        Profit control mode                 no control
+      ==============================  =====================
+
+**Step 3. Creation new Dialpeer for emergency calls**
+
+At the third step we'll configure one additional :ref:`Dialpeer's <dialpeers>` record that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>`, :ref:`Vendor's Gateway B <gateways>`   that were configured in :ref:`Chapter 1 <quick_start_chapter1>`. In our example we use **112** as *Prefix* and we'll pay 0 monetary unit per minute to the Vendor after the initial interval (by default - 1 minute) and 0 monetary units during initial interval.
+
+   .. table:: Example of records filling (only fields that should be changed from default values are shown)
+      :widths: auto
+
+      ==============================  =====================
+              Field name                      Value
+      ==============================  =====================
+               Prefix                       112
+        Dst number min length                3
+         Dst number max length              3
+        Enabled                             True
+         Routing group                   My RoutingGroup
+         Vendor                          Contractor B
+         Account                         Account B
+          Initial Rate                      0
+         Next Rate                          0
+         Gateway                          Gateway B
+      ==============================  =====================
+
+
+**Step 4. Test the call**
+
+Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+
+.. table:: Example of records filling (only fields that should be changed from default values are shown)
+   :widths: auto
+
+   ==============================  =====================
+           Field name                       Value
+   ==============================  =====================
+           Remote ip                   127.0.0.1
+           Remote port                     10000
+           Src number                    331234567890
+            Dst number                      112
+   ==============================  =====================
+
+As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile uses newly created :ref:`Destination's <destinations>` and :ref:`Dialpeer's <dialpeers>` records as a basis for Customer's and Vendor's billing and will work also in case zero balance of Customer's Account. Full log of call processing also will be shown under the resulting records.
 
 .. note::
 
