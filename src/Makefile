@@ -1,4 +1,4 @@
-langs=en ru
+langs=en
 
 all: $(langs)
 
