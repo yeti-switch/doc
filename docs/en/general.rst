@@ -1,8 +1,8 @@
 .. :maxdepth: 2
 
-========================
+===================
 General information
-========================
+===================
 
 :Site: https://yeti-switch.org/
 
@@ -18,7 +18,7 @@ Softswitch handles SIP signalization and RTP traffic.Supports transcoding, detai
 Yeti supports intelligent LCR/ASR/ACD routing by various criteria. Below is short list of supported features.
 
 Signalling and RTP processing
--------------------------------
+-----------------------------
 - SIP v.2.0.
 - sending/receiving DTMF (SIP INFO application/dtmf, SIP INFO application/dtmf-relay, RTP telephone-event) with ability to transcode between them in any combination.
 - Automatic call disconnect on RTP timeout configurable per gateway

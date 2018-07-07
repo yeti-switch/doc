@@ -1,4 +1,6 @@
 
+.. _codec_groups:
+
 Codec groups
 ~~~~~~~~~~~~
 

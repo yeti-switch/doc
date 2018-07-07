@@ -5,6 +5,7 @@ Registrations
 ~~~~~~~~~~~~~
 
 YETI allows to use outgoing SIP registrations on remote vendor's or customer's equipment.
+Registrations are used for describing parameters of outgoing SIP registration. For configure *Registration* it is necessary to configure at least one :ref:`Points of Presence <pops>` and at least one :ref:`Node <nodes>` records first.
 
 **Registration**'s attributes:
 ``````````````````````````````
