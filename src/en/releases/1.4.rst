@@ -1,10 +1,14 @@
 .. :maxdepth: 2
 
-==================================
-Upgrading from 1.2 branch to 1.4.0
-==================================
+===========
+Version 1.4
+===========
 
-:Site: https://yeti-switch.org/
+~~~~~~~~~~~~~~~~~
+Upgrade procedure
+~~~~~~~~~~~~~~~~~
+
+This manual describes how to upgrade to version 1.4 from versions 1.2.29
 
 Upgrade yeti-web package to 1.2.29
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

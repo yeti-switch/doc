@@ -1,8 +1,10 @@
 .. :maxdepth: 2
 
-================================
+===========
+Version 1.6
+===========
+
 Upgrading from 1.5 branch to 1.6
-================================
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Changelog for version 1.6.3
@@ -62,7 +64,7 @@ Upgrade procedure
 Upgrade your databases
 ~~~~~~~~~~~~~~~~~~~~~~
 
-You should add PGDG APT repository, See :doc:`installation/repositories` for details. Then you should upgrade your postgresql packages to latest versions and install additional package **postgresql-9.4-pgq-ext**. You have to check that packages:
+You should add PGDG APT repository, See :doc:`/installation/repositories` for details. Then you should upgrade your postgresql packages to latest versions and install additional package **postgresql-9.4-pgq-ext**. You have to check that packages:
 
 - postgresql-9.4
 - postgresql-9.4-client
@@ -85,7 +87,7 @@ is installed from YETI repository. You can check it using command:
 Upgrade pgqd on CDR database
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You should remove packages **skytools3** and **skytools3-ticker** and instead install package **pgqd**. Configure pgqd by changing file **/etc/pgqd.ini**. See :doc:`installation/cdr-database` for details. Kill all previous instances of pgqd and start service:
+You should remove packages **skytools3** and **skytools3-ticker** and instead install package **pgqd**. Configure pgqd by changing file **/etc/pgqd.ini**. See :doc:`/installation/cdr-database` for details. Kill all previous instances of pgqd and start service:
 
 .. code-block:: console
 

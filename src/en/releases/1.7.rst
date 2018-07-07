@@ -1,0 +1,95 @@
+.. :maxdepth: 2
+
+===========
+Version 1.7
+===========
+
+Upgrading from 1.6.3 to 1.7.0
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Changelog for version 1.7.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Incoming call authorization by username and password
+- Weigth based balancing between Gateways in GatewayGroup and between Vendors(only for Static Routing)
+- Migration to Rails 5.1
+- Improve UI performance
+- Routing tag compate mode AND(previously we have only OR)
+- Ability to import Numberlist and Numberlist Items from CSV
+- src_prefix and dst_prefix selector at RoutingTagDetectionRules
+- Configurable Customer price rounding in CDRs
+- Multiple tests improvements
+- Inbound DTFM filtering
+- CDR batch writing
+- Multiple bugfixes
+
+~~~~~~~~~~~~~~~~~~~~
+Incompatible changes
+~~~~~~~~~~~~~~~~~~~~
+
+??
+
+
+~~~~~~~~~~~~~~~~~
+Upgrade procedure
+~~~~~~~~~~~~~~~~~
+
+
+Upgrade yeti-web package to 1.7.0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+	root@yeti:/# apt update
+	root@yeti:/# apt install yeti-web=1.7.0
+
+
+Apply first stage of migrations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+	root@yeti:/# cd /home/yeti-web
+	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
+	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+	....SKIPPED...
+	== 20180212105355 MultipleMatchingConditions: migrated (2.0862s) ==============
+
+	IMPORTANT: Now update and restart your servers. And after that run `rake db:migrate` again.
+	root@yeti:/home/yeti-web# 
+    
+Notification ``IMPORTANT: Now update and restart your servers. And after that run `rake db:migrate` again.`` will inform you that migration is not finished. You should apply next part of migrations after SEMS upgrade.
+
+
+Switch to new routing schema
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Change at /etc/yeti/system.cfg switch routing schema to **switch16** from **switch15** on your yeti-management server and restart yeti-management server
+
+
+SEMS servers
+~~~~~~~~~~~~
+
+Upgrade your SEMS nodes to new version
+
+
+Apply second stage of migrations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+	root@yeti:/# cd /home/yeti-web
+	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
+	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+
+    
+Restart all components of yeti-web
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+	root@yeti:/# systemctl restart yeti-web
+	root@yeti:/# systemctl restart yeti-cdr-billing@cdr_billing
+	root@yeti:/# systemctl restart yeti-delayed-job
+
+

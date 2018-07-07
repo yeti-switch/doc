@@ -1,10 +1,15 @@
 .. :maxdepth: 2
 
-==================================
-Upgrading from 1.4 branch to 1.5
-==================================
+===========
+Version 1.5
+===========
 
-:Site: https://yeti-switch.org/
+~~~~~~~~~~~~~~~~~
+Upgrade procedure
+~~~~~~~~~~~~~~~~~
+
+Upgrading from 1.4 branch to 1.5
+
 
 Upgrade yeti-web package to 1.5
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

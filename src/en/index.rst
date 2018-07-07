@@ -18,9 +18,7 @@ Contents:
    yeti-cli
    disconnect-codes
    headers-filtering
-   upgrade-to-1.4
-   upgrade-to-1.5
-   upgrade-to-1.6
+   releases/index.rst
    best-practices
 
 
