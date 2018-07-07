@@ -288,6 +288,5 @@ html_context = {
     'current_language': 'English',
     'languages': [
         ('English','../en'),
-        (u'Русский','../ru')
     ]
 }
