@@ -1,8 +1,8 @@
 .. :maxdepth: 2
 
-===========
-Version 1.6
-===========
+====================
+Version 1.6 (Stable)
+====================
 
 Upgrading from 1.5 branch to 1.6
 
