@@ -22,6 +22,7 @@ WEB interface
 .. toctree::
    :maxdepth: 2
 
+   yeti-ui-general
    yeti-ui-dashboard
    yeti-ui-billing
    yeti-ui-equipment
