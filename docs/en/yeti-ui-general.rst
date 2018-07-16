@@ -24,8 +24,8 @@ General Information
 Header & Menu line
 ==================
 
-    Header line includes Yeti's logo, string of menu and current date&time.
-String of menu consists from following 11 sections (buttons):
+    Header line includes Yeti's logo, string of menu and current date&time. String of menu consists from following 11 sections (buttons).
+
 
 .. toctree::
    :maxdepth: 1
