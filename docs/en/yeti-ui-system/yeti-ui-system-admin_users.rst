@@ -23,4 +23,6 @@ Users that have access to this YETI WEB interface.
     Stateful filters
         ****TODO**** - need to clarify
 
+You can also disable user by pressing **Disable** button in the top-right corner of the Working Area or enable it back by pressing **Enable** button.
+
 
