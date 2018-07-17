@@ -46,7 +46,7 @@ Header & Menu line
 Working Area
 ============
 
-    Working Area it is main component of the YETI Web interface that is used for configuration and controlling of the Yeti's state.   
+    Working Area it is main component of the YETI Web interface that is used for configuration and controlling of the Yeti's state.
 
 
 Footer line
