@@ -54,7 +54,8 @@ Working Area
 
     Working Area it is main component of the YETI Web interface that is used for configuration and controlling of the Yeti's state. Content of this area depends on chosen section (command of menu), but usually it contains two blocks:
 
-    -   *General management line*. This line (is on the top of Working Area) that contains information (at the left side of the line) about object (or set of objects) that was chosen by user and (sometimes) the buttons (at the right side of the line) for managing of objects (creating, importing etc.);
+ -   *General management line*. This line (is on the top of Working Area) that contains information (at the left side of the line) about object (or set of objects) that was chosen by user and (sometimes) the buttons (at the right side of the line) for managing of objects (creating, importing etc.);
+
 
  .. figure:: images/managementline.png
         :scale: 300 %
@@ -62,13 +63,8 @@ Working Area
         :alt: YETI Web interface - general management line
 
 
-    -   *Working Space*. Structure of this block depends on concrete menu item, but usually it could consists from following sections:
 
- .. figure:: images/workingspace.png
-        :scale: 300 %
-        :align: center
-        :alt: YETI Web interface - working space
-
+ -   *Working Space*. Structure of this block depends on concrete menu item, but usually it could consists from following sections:
 
         -   :ref:`Filters <type_of_controls-filters>`;
         -   :ref:`List of Objects <type_of_controls-listofobjects>`;
@@ -78,6 +74,11 @@ Working Area
         -   :ref:`Links <type_of_controls-history>`;
         -   :ref:`History <type_of_controls-informationaltabs>`;
         -   :ref:`Informational Tabs <type_of_controls-informationaltabs>`.
+
+ .. figure:: images/workingspace.png
+        :scale: 300 %
+        :align: center
+        :alt: YETI Web interface - working space
 
 
 Footer line
@@ -96,7 +97,7 @@ Filters
 -------
 
  .. figure:: images/toc_filters.png
-        :scale: 300 %
+        :scale: 100 %
         :align: center
         :alt: YETI Web interface - Filters
 
@@ -109,7 +110,7 @@ List of Objects
 ---------------
 
  .. figure:: images/toc_list_of_objects.png
-        :scale: 300 %
+        :scale: 100 %
         :align: center
         :alt: YETI Web interface - List of Objects
 
@@ -122,7 +123,7 @@ Collection Actions
 ------------------
 
  .. figure:: images/toc_collection_actions.png
-        :scale: 300 %
+        :scale: 100 %
         :align: center
         :alt: YETI Web interface - Collection Actions
 
