@@ -2,7 +2,6 @@
 User's profile
 ==============
 
-.. _user_profile:
 
 User's profile allows to review and edit details of :ref:`Admin User <admin_users>` that is currently logged in. You can see following parameters of the user:
 

@@ -2,7 +2,10 @@
 Logout
 ======
 
-.. _logout:
+
+ **Logout** is used for exit from Yeti Web Interface.
+
+
 
 
 
