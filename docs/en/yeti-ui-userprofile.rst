@@ -1,3 +1,5 @@
+.. _user_profile:
+
 ==============
 User's profile
 ==============
@@ -19,8 +21,8 @@ User's profile allows to review and edit details of :ref:`Admin User <admin_user
     -   **created at** - Date & Time of the creation of current User's profile;
     -   **ssh key** - SSH key that is used for authentication (*Empty* - if SSH key doesn't used);
     -   **visible columns** - **TODO**;
-    -   **per page** - numbers of entities for different objects that will be shown in the Working Area during the listing;
-    -   **saved filters** - **TODO**.
+    -   **per page** - Numbers of entities for different objects that will be shown in the Working Area during the listing;
+    -   **saved filters** - List of the permanent filters that were saved by user via enabling **Persist** checkbox in the top-right part of *Filters* section in different object-lists.
 
 For editing details of current :ref:`Admin User <admin_users>` you should press button **Edit Admin User** in the top-right corner of the Working Area.
 

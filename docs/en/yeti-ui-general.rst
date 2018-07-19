@@ -102,6 +102,16 @@ Filters
         :alt: YETI Web interface - Filters
 
 
+          Filters are used for selecting necessary objects from the whole list of objects, by using specific parameters. Usually filters contain three types of controls:
+
+            -       Drop-down selection list. It can be used for selecting objects where necessary parameter is equal parameter that was selected in this list. If you don't want to use filtering by this parameter you can just leave (or choose) value: **Any** in the list;
+            -       Numeric-based filter. It can be used for selecting objects where numeric value of necessary parameter  equals, greater or less than value that you entered in;
+            -       String-based filter. It can be used for selecting objects where string value of necessary parameter contains, equals, starts or ends with necessary value.
+
+.. note::
+   You can enable **Persist** checkbox in the top-right part of *Filters* section for using these filters on the permanent basis. In this case next time when you back to the objects list the saved filters will be automatically applied. You can review the Information about stored filters on the :ref:`User's profile page <user_profile>`.
+
+
 
 .. _type_of_controls-listofobjects:
 
@@ -136,17 +146,35 @@ Form for entering information
 -----------------------------
 
 
+.. figure:: images/toc_form_for_entering.png
+       :scale: 100 %
+       :align: center
+       :alt: YETI Web interface - Form for entering information
+
+
 .. _type_of_controls-graph:
 
 
 Graph
 -----
 
+
+.. figure:: images/toc_graph.png
+       :scale: 100 %
+       :align: center
+       :alt: YETI Web interface - Graph
+
+
 .. _type_of_controls-links:
 
 
 Links
 -----
+
+.. figure:: images/toc_links.png
+       :scale: 100 %
+       :align: center
+       :alt: YETI Web interface - Links
 
 
 .. _type_of_controls-history:
@@ -155,10 +183,21 @@ Links
 History
 -------
 
+.. figure:: images/toc_history.png
+       :scale: 100 %
+       :align: center
+       :alt: YETI Web interface - History
+
+
 
 .. _type_of_controls-informationaltabs:
 
 
 Informational Tabs
 ------------------
+
+.. figure:: images/toc_inform_tabs.png
+       :scale: 100 %
+       :align: center
+       :alt: YETI Web interface - Informational Tabs
 
