@@ -102,11 +102,12 @@ Filters
         :alt: YETI Web interface - Filters
 
 
-          Filters are used for selecting necessary objects from the whole list of objects, by using specific parameters. Usually filters contain three types of controls:
 
-            -       Drop-down selection list. It can be used for selecting objects where necessary parameter is equal parameter that was selected in this list. If you don't want to use filtering by this parameter you can just leave (or choose) value: **Any** in the list;
-            -       Numeric-based filter. It can be used for selecting objects where numeric value of necessary parameter  equals, greater or less than value that you entered in;
-            -       String-based filter. It can be used for selecting objects where string value of necessary parameter contains, equals, starts or ends with necessary value.
+ Filters are used for selecting necessary objects from the whole list of objects, by using specific parameters. Usually filters contain three types of controls:
+
+      -       **Drop-down selection list**. It can be used for selecting objects where necessary parameter is equal parameter that was selected in this list. If you don't want to use filtering by this parameter you can just leave (or choose) value: **Any** in the list;
+      -       **Numeric-based filter**. It can be used for selecting objects where numeric value of necessary parameter  equals, greater or less than value that you entered in;
+      -       **String-based filter**. It can be used for selecting objects where string value of necessary parameter contains, equals, starts or ends with necessary value.
 
 .. note::
    You can enable **Persist** checkbox in the top-right part of *Filters* section for using these filters on the permanent basis. In this case next time when you back to the objects list the saved filters will be automatically applied. You can review the Information about stored filters on the :ref:`User's profile page <user_profile>`.
@@ -125,18 +126,20 @@ List of Objects
         :alt: YETI Web interface - List of Objects
 
 
-        List of Objects in Yeti usually consists of three sections:
 
-            -   Selection & group actions line. Controls of this line could be used for instant selection of objects, that have a some common property (f.e. all enabled object, all locked etc.), from the list bellow. Sometimes it also contains controls for batch actions (delete selected, disable selected etc.) that can be used for doing the same actions for the group of chosen objects;
-            -   Page scrolling lines. These lines is located on the top and at the bottom of table with objects. Controls of these lines could be used for the listing of objects in the table  in page by page mode. Also them could be used for changing amount of objects that will be shown in table at same time;
+ List of Objects in Yeti usually consists of three sections:
+
+      -   **Selection & group actions line**. Controls of this line could be used for instant selection of objects, that have a some common property (f.e. all enabled object, all locked etc.), from the list bellow. Sometimes it also contains controls for batch actions (delete selected, disable selected etc.) that can be used for doing the same actions for the group of chosen objects;
+      -   **Page scrolling lines**. These lines is located on the top and at the bottom of table with objects. Controls of these lines could be used for the listing of objects in the table  in page by page mode. Also them could be used for changing amount of objects that will be shown in table at same time;
+      -   **Table of objects**. The table section consist of header, that can be used for the sorting of objects in the table, and list of objects where each line contains not only some properties of object, but also controls for managing them (like view, edit and delete). Just press on the link with necessary command for applying it.
 
 .. note::
    Selected amount of objects (per page) for all types of objects can be reviewed on the :ref:`User's profile page <user_profile>`. Once chosen this information will be stored in system up to the next changing.
 
+
 .. note::
    You can also download all data from the table in the comma-separated values format by clicking on **CSV** link that is usually located at the bottom scrolling line together with information about general amount of objects that were displayed.
 
-            -   Table of objects. The table section consist of header, that can be used for the sorting of objects in the table, and list of objects where each line contains not only some properties of object, but also controls for managing them (like view, edit and delete). Just press on the link with necessary command for applying it.
 
 .. note::
    Sometimes information about some related objects could be displayed as a link in the table of objects. In this case you can press on this link for moving to the viewing properties of this related object.
