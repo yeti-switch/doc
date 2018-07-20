@@ -24,7 +24,7 @@ General Information
 Header & Menu line
 ==================
 
- Header line includes Yeti's logo, string of menu and current date&time. String of menu consists from following 11 sections (buttons).
+ Header line includes Yeti's logo, string of menu and current date&time. String of menu consists of following 11 sections (buttons).
 
  .. figure:: images/header.png
         :scale: 300 %
@@ -64,7 +64,7 @@ Working Area
 
 
 
- -   *Working Space*. Structure of this block depends on concrete menu item, but usually it could consists from following sections:
+ -   *Working Space*. Structure of this block depends on concrete menu item, but usually it could consists of following sections:
 
         -   :ref:`Filters <type_of_controls-filters>`;
         -   :ref:`List of Objects <type_of_controls-listofobjects>`;
@@ -125,6 +125,21 @@ List of Objects
         :alt: YETI Web interface - List of Objects
 
 
+        List of Objects in Yeti usually consists of three sections:
+
+            -   Selection & group actions line. Controls of this line could be used for instant selection of objects, that have a some common property (f.e. all enabled object, all locked etc.), from the list bellow. Sometimes it also contains controls for batch actions (delete selected, disable selected etc.) that can be used for doing the same actions for the group of chosen objects;
+            -   Page scrolling lines. These lines is located on the top and at the bottom of table with objects. Controls of these lines could be used for the listing of objects in the table  in page by page mode. Also them could be used for changing amount of objects that will be shown in table at same time;
+
+.. note::
+   Selected amount of objects (per page) for all types of objects can be reviewed on the :ref:`User's profile page <user_profile>`. Once chosen this information will be stored in system up to the next changing.
+
+.. note::
+   You can also download all data from the table in the comma-separated values format by clicking on **CSV** link that is usually located at the bottom scrolling line together with information about general amount of objects that were displayed.
+
+            -   Table of objects. The table section consist of header, that can be used for the sorting of objects in the table, and list of objects where each line contains not only some properties of object, but also controls for managing them (like view, edit and delete). Just press on the link with necessary command for applying it.
+
+.. note::
+   Sometimes information about some related objects could be displayed as a link in the table of objects. In this case you can press on this link for moving to the viewing properties of this related object.
 
 .. _type_of_controls-collectionactions:
 
