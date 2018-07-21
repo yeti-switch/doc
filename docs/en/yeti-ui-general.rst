@@ -156,6 +156,9 @@ Collection Actions
         :alt: YETI Web interface - Collection Actions
 
 
+**TODO**
+
+
 
 .. _type_of_controls-formforentering:
 
@@ -168,6 +171,18 @@ Form for entering information
        :scale: 100 %
        :align: center
        :alt: YETI Web interface - Form for entering information
+
+
+
+Forms for entering information are used for creation or editing information about some objects. Controls for entering information sometimes are divided into tabs or/and sections. Following types of controls are used for entering information in Yeti:
+
+        -   **Textual input field** is used for entering some textual information like object name, IP-address, URI etc.;
+        -   **Numeric input field**;
+        -   **True/False checkbox**;
+        -   **Single-record selection list**;
+        -   **Multiple-records selection list**;
+        -   **Date&Time input field**.
+
 
 
 .. _type_of_controls-graph:
