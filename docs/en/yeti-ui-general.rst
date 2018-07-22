@@ -177,11 +177,11 @@ Form for entering information
 Forms for entering information are used for creation or editing information about some objects. Controls for entering information sometimes are divided into tabs or/and sections. Following types of controls are used for entering information in Yeti:
 
         -   **Textual input field** is used for entering some textual information like object name, IP-address, URI etc.;
-        -   **Numeric input field**;
-        -   **True/False checkbox**;
-        -   **Single-record selection list**;
-        -   **Multiple-records selection list**;
-        -   **Date&Time input field**.
+        -   **Numeric input field** is used for entering some digital information like port-number, priority etc. You also can use special controls on the right side of the input field for increasing or decreasing value by the 1;
+        -   **True/False checkbox** is used for enabling or disabling some properties of objects;
+        -   **Single-record selection list** is used for choosing some value from the list of possible variants. Sometimes it is possible to choose **None** or **Any**;
+        -   **Multiple-records selection list** is used for choose more than one value from the list. At any time you can remove chosen value from the list of selected;
+        -   **Date&Time input field** is used for entering information about date & time like *Valid from* and *Valid to* fields.
 
 
 
@@ -198,6 +198,9 @@ Graph
        :alt: YETI Web interface - Graph
 
 
+Graphs (or charts) could be used for displaying of changes some data on the period of time. Typically they used for displaying the real-time data like an active calls.
+
+
 .. _type_of_controls-links:
 
 
@@ -209,6 +212,8 @@ Links
        :align: center
        :alt: YETI Web interface - Links
 
+
+Links are usually used in the object's view mode for quick reference to the other objects that are related to the object that is currently displayed. For example, if you will click on the link **Payments** in the :ref:`Account's <accounts>` view mode the all payments that were made for this *Account* will be displayed.
 
 .. _type_of_controls-history:
 
@@ -222,6 +227,7 @@ History
        :alt: YETI Web interface - History
 
 
+History is used for reviewing information about changes of some objects in the Yeti's database during from the time of creation. You can view the history of changes for the object, but can't return back to the one of the previous versions.
 
 .. _type_of_controls-informationaltabs:
 
@@ -234,3 +240,5 @@ Informational Tabs
        :align: center
        :alt: YETI Web interface - Informational Tabs
 
+
+Informational tabs are used for switching between sections of data in the creation or editing mode for the complex objects in Yeti.
