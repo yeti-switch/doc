@@ -18,9 +18,20 @@ Configuration files
 /etc/sems/sems.conf
 ~~~~~~~~~~~~~~~~~~~
 
+Add new node to the routing database using web interface
+[ System -> Nodes -> New Node ].
+Use id of newly created node as value for **node_id** parameter
+
+node_id
+    unique signaling node id.
+    
+.. warning:: You should create Node at web interface and use ID from web interface at **node_id** variable. See :ref:`System->Nodes <nodes>` menu.
+
 Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 
 .. code-block:: ini
+
+    node_id = <id of created node>
 
     interfaces=intern
     sip_ip_intern=<SIGNALLING_IP> 
@@ -29,7 +40,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
     rtp_low_port_intern=20000 
     rtp_high_port_intern=50000
     plugin_path=/usr/lib/sems/plug-in/ 
-    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;yeti;session_timer;uac_auth;di_log;registrar_client;jsonrpc
+    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;sctp_bus;yeti;session_timer;uac_auth;di_log;registrar_client;jsonrpc
     application = yeti
     plugin_config_path=/etc/sems/etc/
     fork=yes
@@ -51,30 +62,20 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 /etc/sems/etc/yeti.conf
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Add new node to the routing database using web interface
-[ System -> Nodes -> New Node ].
-Use id of newly created node as value for **node_id** parameter
 
-node_id
-    unique signaling node id.
-    
-.. warning:: You should create Node at web interface and use ID from web interface at **node_id** variable. See :ref:`System->Nodes <nodes>` menu.
 
 cfg_timeout
     timeout of waiting response from management node
-cfg_urls
-    list of comma separated names for management node addresses
-cfg_url_<name>
-    management node address to fetch configuration ([sub:/etc/yeti/management.cfg])
+cfg_host
+    IP address of management node
+cfg_port
+    SCPT port of management node
 
 .. code-block:: ini
 
-    node_id = <id of created node>
-    
     cfg_timeout = 1000
-    
-    cfg_urls = main
-    cfg_url_main = tcp://127.0.0.1:4444
+    cfg_host = 127.0.0.1
+    cfg_port = 4444
     core_options_handling=yes
     
 

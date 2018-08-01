@@ -15,7 +15,7 @@ Most of servers you can use same repositories set, for Debian 8::
 And for Debian 9::
 
     deb http://ftp.us.debian.org/debian/ stretch main contrib non-free
-    deb http://ftp.us.debian.org/debian/ stretct-updates main
+    deb http://ftp.us.debian.org/debian/ stretch-updates main
     deb http://security.debian.org/ stretch/updates main
     deb http://pkg.yeti-switch.org/debian/stretch 1.6 main
 
