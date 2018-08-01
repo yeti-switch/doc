@@ -25,7 +25,7 @@ or for Debian 9 and Postgresql 10:
 
 .. code-block:: console
 
-    # apt update && apt install postgresql-10 postgresql-contrib-10 postgresql-10-prefix postgresql-10-pgq3 postgresql-10-pgq-ext postgresql-10-yeti pgqd
+    # apt update && apt install postgresql-10 postgresql-10-prefix postgresql-10-pgq3 postgresql-10-pgq-ext postgresql-10-yeti pgqd
     
     
 .. warning:: Since  yeti-web version 1.6.0 it is important to install Postgresql from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details

@@ -35,6 +35,16 @@ Possible log_level values are: (1 - error, 2 - info, 3 - debug)
       listen = {
         "tcp://0.0.0.0:4444"
       }
+      
+      sctp {
+            address = "127.0.0.1"
+            port = 4444
+      }
+      
+      http {
+            address = "127.0.0.1"
+            port = 3000
+      }
       log_level = 2
     }
 
@@ -65,7 +75,7 @@ Example of minimal configuration file for node with id 8
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
           routing {
-            schema = switch15
+            schema = switch16
             function = route_release
             init = init
             master_pool {
@@ -121,6 +131,8 @@ Example of minimal configuration file for node with id 8
            failover_requeue = true
            failover_to_file = false
            serialize_dynamic_fields = true
+           batch_size = 1
+           batch_timeout = 5000
          }
          resources {
            reject_on_error = false
@@ -141,7 +153,7 @@ Example of minimal configuration file for node with id 8
            check_interval = 5000
          }
          rpc {
-           calls_show_limit = 1000
+           calls_show_limit = 10000
          }
        }
       }

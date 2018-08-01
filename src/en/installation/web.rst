@@ -63,8 +63,8 @@ To initialize empty databases:
 .. code-block:: console
 
     # cd /home/yeti-web 
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:create db:structure:load db:migrate
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:create db:second_base:structure:load db:second_base:migrate
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:structure:load db:migrate
+    # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:structure:load db:second_base:migrate
     # RAILS_ENV=production ./bin/bundle.sh exec rake db:seed
  
     
