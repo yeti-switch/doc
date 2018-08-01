@@ -10,14 +10,14 @@ Most of servers you can use same repositories set, for Debian 8::
     deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
     deb http://ftp.us.debian.org/debian/ jessie-updates main
     deb http://security.debian.org/ jessie/updates main
-    deb http://pkg.yeti-switch.org/debian/jessie 1.6 main
+    deb http://pkg.yeti-switch.org/debian/jessie 1.7 main
     
 And for Debian 9::
 
     deb http://ftp.us.debian.org/debian/ stretch main contrib non-free
     deb http://ftp.us.debian.org/debian/ stretch-updates main
     deb http://security.debian.org/ stretch/updates main
-    deb http://pkg.yeti-switch.org/debian/stretch 1.6 main
+    deb http://pkg.yeti-switch.org/debian/stretch 1.7 main
 
     
 System repositories can be changed by editing of file: /etc/apt/sources.list. Since we use our own package repository you have add our key to trusted. 
