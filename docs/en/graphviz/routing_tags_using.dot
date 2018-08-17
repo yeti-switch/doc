@@ -1,0 +1,65 @@
+digraph General {
+
+    node [style=filled; fillcolor="#FCF9A5"];
+    graph [nodesep=1, ranksep=0.2, mindist=0.5];
+
+    subgraph cluster_RT1 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=blue];
+
+        rt_1_1 [label = "Tag1; Tag2; Tag3"; shape=Msquare; sides=4];
+
+        label = "State of call's Routing Tags:";
+    }
+
+    subgraph cluster_Procedure1 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=green];
+
+        p_1_1 [label = "Destinations selection"; shape=box; sides=4];
+        p_1_2 [label = "Dialpeers selection"; shape=box; sides=4];
+
+        p_1_1 -> p_1_2 [style=invis];
+
+        label = "Procedures";
+    }
+
+
+    subgraph cluster_Settings1 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=orange];
+
+        s_1_1 [label = "Tag mode value for Destination 1: \n **AND** \n Tag ids value for Destination 1: Tag1; Tag2; Tag3"; shape=box; sides=4];
+        s_1_2 [label = "Tag mode value for Destination 2: \n **OR** \n Tag ids value for Destination 1: Tag1"; shape=box; sides=4];
+        s_1_3 [label = "Tag mode value for Destination 3: \n **AND** \n Tag ids value for Destination 1: Tag1"; shape=box; sides=4];
+
+        s_1_4 [label = "Tag mode value for Dialpeer 1: \n **AND** \n Tag ids value for Dialpeer 1: Tag1; Tag2; Tag3"; shape=box; sides=4];
+        s_1_5 [label = "Tag mode value for Dialpeer 2: \n **AND** \n Tag ids value for Dialpeer 1: Tag2"; shape=box; sides=4];
+
+
+        s_1_1 -> s_1_2 [style=invis];
+        s_1_2 -> s_1_3 [style=invis];
+        s_1_3 -> s_1_4 [style=invis];
+        s_1_4 -> s_1_5 [style=invis];
+
+        label = "Settings";
+    }
+
+
+
+
+    rt_1_1 -> p_1_1;
+    rt_1_1 -> p_1_2;
+
+    s_1_1 -> p_1_1;
+    s_1_2 -> p_1_1;
+    s_1_3 -> p_1_1;
+
+    s_1_4 -> p_1_2;
+    s_1_5 -> p_1_2;
+
+
+}

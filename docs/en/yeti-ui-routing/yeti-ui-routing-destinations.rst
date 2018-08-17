@@ -39,7 +39,7 @@ General **Destination**'s attributes:
 
     .. _destination_routing_tag_mode:
     Routing tag mode
-       Allows to choose mode (**OR** or **AND**) of :ref:`Routing tags <routing_tag>` comparison. In the **OR** mode at least one :ref:`Routing Tag <routing_tag>` (from the list of :ref:`Routing Tags <routing_tag>` that were chosen for the call during the routing algorithm) should be included in the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for this *Destination* record. In the **AND** mode all :ref:`Routing Tags <routing_tag>` (that were chosen for the call during the routing algorithm) should be same with the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for this *Destination* record. **TODO**
+       Allows to choose :ref:`Routing tags <routing_tag>` comparison mode (**OR** or **AND**). In the **OR** mode at least one :ref:`Routing Tag <routing_tag>` (from the list of :ref:`Routing Tags <routing_tag>` that were chosen for the call during the routing algorithm) should be included in the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for this *Destination* record. In the **AND** mode all :ref:`Routing Tags <routing_tag>` (that were chosen for the call during the routing algorithm) should be the same with the set of :ref:`Routing Tags <destination_routing_tag>` that are chosen for this *Destination* record.
 
     .. _destination_valid_from:
 
