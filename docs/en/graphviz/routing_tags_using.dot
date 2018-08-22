@@ -38,16 +38,34 @@ digraph General {
 
         s_1_4 [label = "Tag mode value for Dialpeer 1: \n **AND** \n Tag ids value for Dialpeer 1: Tag1; Tag2; Tag3"; shape=box; sides=4];
         s_1_5 [label = "Tag mode value for Dialpeer 2: \n **AND** \n Tag ids value for Dialpeer 1: Tag2"; shape=box; sides=4];
+        s_1_6 [label = "Tag mode value for Dialpeer 3: \n **AND** \n Tag ids value for Dialpeer 1: Tag1; Tag2; Tag3; Tag4"; shape=box; sides=4];
 
 
         s_1_1 -> s_1_2 [style=invis];
         s_1_2 -> s_1_3 [style=invis];
         s_1_3 -> s_1_4 [style=invis];
         s_1_4 -> s_1_5 [style=invis];
+        s_1_5 -> s_1_6 [style=invis];
 
         label = "Settings";
     }
 
+    subgraph cluster_Selected1 {
+        style=filled;
+        color=lightgrey;
+        node [style=filled,color=orange];
+
+        sl_1_1 [label = "Destination 1"; shape=box; sides=4];
+        sl_1_2 [label = "Destination 2"; shape=box; sides=4];
+
+        sl_1_4 [label = "Dialpeer 1"; shape=box; sides=4];
+
+
+        sl_1_1 -> sl_1_2 [style=invis];
+        sl_1_2 -> sl_1_4 [style=invis];
+
+        label = "Selected Records";
+    }
 
 
 
@@ -60,6 +78,12 @@ digraph General {
 
     s_1_4 -> p_1_2;
     s_1_5 -> p_1_2;
+    s_1_6 -> p_1_2;
+
+    p_1_1 -> sl_1_1;
+    p_1_1 -> sl_1_2;
+
+    p_1_2 -> sl_1_4;
 
 
 }

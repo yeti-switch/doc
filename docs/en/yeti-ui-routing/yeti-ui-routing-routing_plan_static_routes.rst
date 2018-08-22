@@ -19,6 +19,10 @@ Routing plan static routes are used only for two methods of sorting that could b
 
     Priority
         Value of this field (numeric) is used during building of routing rating for routing call. Route with biggest  value of *Priority* will be put into top of rating. Value of this field will be used for rewriting of the :ref:`Priority <dialpeer_priority>` of the related :ref:`Dialpeers <dialpeers>` in case of using **QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control** mode of sorting in the framework of :ref:`Routing plan <routing_plan>`.
+
+    Weight
+
+
     Vendor
         :ref:`Contractor <contractors>` that is related to this static route. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
     Updated At
