@@ -21,7 +21,28 @@ Routing plan static routes are used only for two methods of sorting that could b
         Value of this field (numeric) is used during building of routing rating for routing call. Route with biggest  value of *Priority* will be put into top of rating. Value of this field will be used for rewriting of the :ref:`Priority <dialpeer_priority>` of the related :ref:`Dialpeers <dialpeers>` in case of using **QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control** mode of sorting in the framework of :ref:`Routing plan <routing_plan>`.
 
     Weight
-        Value of this field (numeric) is used during randomized taking decision about final route (:ref:`Dialpeer <dialpeers>`) for the routing the call in case of selecting two or more routes with same :ref:`Priority <routing_plan_static_route_priority>`. It uses only in case of using **QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control** mode of sorting in the framework of :ref:`Routing plan <routing_plan>`. Probability to choose the route is bigger for routes where *Weight* value is bigger.
+        Value of this field (numeric) is used during randomized taking decision about order of final routes (:ref:`Dialpeers <dialpeers>`) for the routing the call in case of selecting two or more routes with same :ref:`Priority <routing_plan_static_route_priority>`. It uses only in case of using **QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control** mode of sorting in the framework of :ref:`Routing plan <routing_plan>`. Probability of putting the route on the top of routing set is bigger for routes where *Weight* value is bigger.
+
+    .. note:: Example:
+
+       During routing algorithm four :ref:`Dialpeers <dialpeers>` were selected (all selected Dialpeers are linked with the same :ref:`Routing plan <routing_plan>` via common :ref:`Routing Group <routing_group>`):
+
+            -   Dialpeer 1 (Vendor A, Priority 100);
+            -   Dialpeer 2 (Vendor B, Priority 100);
+            -   Dialpeer 3 (Vendor C, Priority 101);
+            -   Dialpeer 4 (Vendor D, Priority 102).
+
+        In case of using **Static only, No ACD&ASR control** mode of sorting in the framework of related :ref:`Routing plan <routing_plan>` and in case of storing following *Static Routes* in the Yeti's Database:
+
+            -   Static Route 1 (Vendor A, Priority 103, Weight 40);
+            -   Static Route 2 (Vendor B, Priority 103, Weight 50);
+            -   Static Route 3 (Vendor C, Priority 103, Weight 10).
+
+        the algorithm of sorting resulting routes will consist from the following steps:
+
+            1.  With using generator of random numbers the first route will be selected from the routes with same priorities. For example: the probability of choosing route based on Dialpeer 2 is 50% (via relation of weight value for the Static Route 2 (that has the same Vendor with Dialpeer 2) to the sum of weights of all static routes with same priorities (50/(40+50+10)*100% = 50%).
+            2.  **TODO**
+
 
     Vendor
         :ref:`Contractor <contractors>` that is related to this static route. Only Contractor that was marked as :ref:`Vendor <contractor_vendor>` can be chosen in this field.
