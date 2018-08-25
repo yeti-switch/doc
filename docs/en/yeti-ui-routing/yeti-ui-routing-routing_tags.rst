@@ -21,13 +21,13 @@ The next step where Routing Tags can be changed - :ref:`Source Numberlist <numbe
 The last step where Routing Tags can be changed - :ref:`Routing Tag detection Rule <routing_tag_detection_rules>` Tags Processing procedure. As it shown on picture (example) above :ref:`Routing Tag detection Rule <routing_tag_detection_rules>` settings contain **Clear tags** in the :ref:`Routing Tags options <routing_tag_detection_rules_tag_action>` with **Tag action value** = **null**. As a result of :ref:`Routing Tag detection Rule <routing_tag_detection_rules>` Tags Processing procedure Yeti will remove from the call all Routing Tags. Resulting state of call's Routing Tags after this procedure is: **null**.
 
 
-Example of using *Routing Tags* for selecting ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` records  for the call routing is represented on the picture below:
+Example of using *Routing Tags* for selecting :ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` records  for the call routing is represented on the picture below:
 
  .. graphviz:: ../graphviz/routing_tags_using.dot
 
 
 As you can see on this picture above, after the routing procedure Call has three Tags: **Tag1; Tag2; Tag3**.
-At same time in the Yeti's Database three ref:`Destinations <destinations>` and three :ref:`Dialpeers <dialpeers>` records are stored:
+At same time in the Yeti's Database three :ref:`Destinations <destinations>` and three :ref:`Dialpeers <dialpeers>` records are stored:
 
     -   Destination 1 is marked by three Tags **Tag1; Tag2; Tag3** and **AND** mode used for the comparision of *Routing Tags*;
     -   Destination 2 is marked by **Tag1** only and **OR** mode used for the comparision of  *Routing Tags*;
@@ -39,7 +39,7 @@ At same time in the Yeti's Database three ref:`Destinations <destinations>` and 
 After selection procedures with using parameters above only two Destinations (Destination 1 and Destination 2) and one Dialpeer (Dialpeer 1) records were selected via following reasons:
 
     -   Destination 3 wasn't selected because in **AND** mode of comparision record should contain the same set of *Routing Tags*, but in the example above it contains only one Tag;
-    -   Dialpeer 2 wasn't selected by the same reasons (in **AND** mode of comparision record should contain the same (with a call) set of *Routing Tags*;
+    -   Dialpeer 2 wasn't selected by the same reasons (in **AND** mode of comparision record should contain the same (with a call) set of *Routing Tags*);
     -   Dialpeer 3 wasn't selected because this record contains one additional Tag (**Tag4**) and could not be selected in the **AND** mode.
 
 

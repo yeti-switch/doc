@@ -36,12 +36,22 @@ Routing plan static routes are used only for two methods of sorting that could b
 
             -   Static Route 1 (Vendor A, Priority 103, Weight 40);
             -   Static Route 2 (Vendor B, Priority 103, Weight 50);
-            -   Static Route 3 (Vendor C, Priority 103, Weight 10).
+            -   Static Route 3 (Vendor C, Priority 103, Weight 10),
 
         the algorithm of sorting resulting routes will consist from the following steps:
 
-            1.  With using generator of random numbers the first route will be selected from the routes with same priorities. For example: the probability of choosing route based on Dialpeer 2 is 50% (via relation of weight value for the Static Route 2 (that has the same Vendor with Dialpeer 2) to the sum of weights of all static routes with same priorities (50/(40+50+10)*100% = 50%).
-            2.  **TODO**
+            1.  With using generator of random numbers the first route will be selected from the routes with same (biggest) priorities. Because using of **Static only, No ACD&ASR control** mode of sorting was configured and three *Static Routes* have biggest priority (103) they will be used for choosing three first possible routes. For example: the probability of choosing route based on Dialpeer 2 is 50% (via relation of weight value for the Static Route 2 (that has the same Vendor with Dialpeer 2) to the sum of weights of all static routes with same priorities (50/(40+50+10)*100% = 50%)); the probability of choosing route based on Dialpeer 1 is 40%; and the probability of choosing route based on Dialpeer 3 is 10%.
+            2.  In case of choosing (by generator of random numbers) route that is based on Dialpeer 2 & Static Route 2 (both of them are related to Vendor B) this route will be put on the top of rating. The second route will be chosen between Dialpeer 1 & Static Route 1 (both of them are related to Vendor A) or Dialpeer 3 & Static Route 3 (both of them are related to Vendor C). During this choosing probabilities will be recalculated without already chosen route. For example: the probability of choosing route based on Dialpeer 1 is 80% (via relation of weight value for the Static Route 1 (that has the same Vendor with Dialpeer 1) to the sum of weights of all rest static routes with same priorities (40/(40+10)*100% = 80%)); the probability of choosing route based on Dialpeer 3 is 20%.
+            3.  In case of choosing (by generator of random numbers) route that is based on Dialpeer 1 & Static Route 1 (both of them are related to Vendor A) this route will be put on the second place of rating and route that is based on Dialpeer 3 & Static Route 3 (both of them are related to Vendor C) will be put on the third place of rating.
+            4.  On the last (fourth) place of rating will be put route that is based on Dialpeer 4 (Vendor D), because it has lowest priority 102 (after rewriting priorities of Dialpeers 1, 2 and 3 by Priorities from the Static Routes).
+
+        The final view of routing rating in our example could be following:
+        1.  Route that is based on  Dialpeer 2 (Vendor B)
+        2.  Route that is based on  Dialpeer 1 (Vendor A)
+        3.  Route that is based on  Dialpeer 3 (Vendor C)
+        4.  Route that is based on  Dialpeer 4 (Vendor D)
+
+        Routes 2-4 will be used only in case of wrong result for route 1.
 
 
     Vendor
