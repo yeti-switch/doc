@@ -48,6 +48,9 @@ General **Gateway**'s attributes:
         Gateway priority in the gateway group.
         In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
 
+    Weigth
+        **TODO**
+
     .. _gateway_pop:
 
     Pop
@@ -331,6 +334,7 @@ Dtmf **Gateway**'s attributes:
 ``````````````````````````````
     Force dtmf relay
         Don't process telephone-event (RFC2833) packets and relay them 'as is'.
+
     Dtmf send mode
         The way to send dtmf to remote gateway. possible values:
 
@@ -338,6 +342,7 @@ Dtmf **Gateway**'s attributes:
             - RFC 2833 (telephone-event)
             - SIP INFO application/dtmf-relay
             - SIP INFO application/dtmf
+
     Dtmf receive mode
         Allowed ways to receive DTMF from remote gateway. If the way is not allowed it will be ignored.
         Possible values:
@@ -345,6 +350,22 @@ Dtmf **Gateway**'s attributes:
             - RFC 2833 (telephone-event)
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
+
+    Rx inband dtmf filtering mode
+        **TODO**
+        Possible values:
+
+            -  Inherit configuration from other call leg
+            -  Disable
+            -  Remove DTMF
+
+    Tx inband dtmf filtering mode
+        **TODO**
+        Possible values:
+
+            -  Inherit configuration from other call leg
+            -  Disable
+            -  Remove DTMF
 
 Radius **Gateway**'s attributes:
 ````````````````````````````````
