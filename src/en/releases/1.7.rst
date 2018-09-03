@@ -93,7 +93,9 @@ Change at /etc/yeti/system.cfg switch routing schema to **switch16** from **swit
 SEMS servers
 ~~~~~~~~~~~~
 
-Upgrade your SEMS nodes to new version
+Upgrade your SEMS nodes to new version.
+In new version module **sctp_bus** is required, so you should add it to load_plugins(/etc/sems/sems.conf) **before** module yeti. Also node_id should be defined at /etc/sems/sems.conf. See :ref:`sems.conf <sems_conf>` and  :ref:`yeti.conf <yeti_conf>` for details.
+
 
 
 Apply second stage of migrations

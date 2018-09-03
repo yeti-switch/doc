@@ -15,6 +15,8 @@ Install packages
 Configuration files
 -------------------
 
+.. _sems_conf:
+
 /etc/sems/sems.conf
 ~~~~~~~~~~~~~~~~~~~
 
@@ -58,6 +60,8 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
     sip_timer_B = 8000 
     default_bl_ttl=0
     registrations_enabled=no
+    
+.. _yeti_conf:
 
 /etc/sems/etc/yeti.conf
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -69,7 +73,7 @@ cfg_timeout
 cfg_host
     IP address of management node
 cfg_port
-    SCPT port of management node
+    SCTP port of management node
 
 .. code-block:: ini
 
