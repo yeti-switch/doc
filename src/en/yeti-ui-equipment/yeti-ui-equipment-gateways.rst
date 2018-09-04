@@ -48,6 +48,16 @@ General **Gateway**'s attributes:
         Gateway priority in the gateway group.
         In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
 
+    .. _gateway_weight:
+
+    Weight
+         Value of this field (numeric) is used during randomized taking decision about *Gateway* that will be used for  routing the call in case of selecting :ref:`Gateway group <gateway_groups>` that contains two or more *Gateways* with same :ref:`Priority <gateway_priority>`. Probability to choose the *Gateway* is bigger for routes where *Weight* value is bigger.
+
+
+    .. note:: Example:
+
+       **TODO**
+
     .. _gateway_pop:
 
     Pop
