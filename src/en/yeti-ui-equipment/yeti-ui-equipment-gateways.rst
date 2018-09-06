@@ -48,6 +48,35 @@ General **Gateway**'s attributes:
         Gateway priority in the gateway group.
         In case of termination to the group, gateways will be arranged according to this priority. If few gateways have same priority, calls will be  balanced between them.
 
+    .. _gateway_weight:
+
+    Weight
+         Value of this field (numeric) is used during randomized taking decision about *Gateway* that will be used for  routing the call in case of selecting :ref:`Gateway group <gateway_groups>` that contains two or more *Gateways* with same :ref:`Priority <gateway_priority>`. Probability to choose the *Gateway* is bigger for routes where *Weight* value is bigger.
+
+
+    .. note:: Example:
+
+       During routing algorithm :ref:`Dialpeer <dialpeers>` that is associated with :ref:`Gateway group A <gateway_groups>` was selected.  At same time :ref:`Gateway group A <gateway_groups>` contains four *Gateway*'s records:
+
+            -   Gateway 1 (Priority 100, Weight 0);
+            -   Gateway 2 (Priority 101, Weight 40);
+            -   Gateway 3 (Priority 101, Weight 50);
+            -   Gateway 4 (Priority 101, Weight 10).
+
+        The algorithm of sorting *Gateways* (within selected :ref:`Dialpeer <dialpeers>`) for terminating the call will consist from the following steps:
+
+        1.  With using generator of random numbers the first *Gateway* will be selected from the *Gateways* with same (biggest) priorities. Because Gateway 2, Gateway 3 and Gateway 4 have biggest priority (101) they will be used for choosing three first possible termination *Gateways*. For example: the probability of choosing Gateway 3 is 50% (via relation of weight value for the Gateway 2 to the sum of weights of all Gateways with same priorities (50/(40+50+10)*100% = 50%)); the probability of choosing Gateway 2 is 40%; and the probability of choosing Gateway 4 is 10%.
+        2.  In case of choosing (by generator of random numbers) Gateway 3 it will be put on the top of rating for the selected :ref:`Dialpeer <dialpeers>`. The second Gateway will be chosen between Gateway 2 or Gateway 4. During this choosing probabilities will be recalculated without already chosen Gateway. For example: the probability of choosing Gateway 2 is 80% (via relation of weight value for the Gateway 2 to the sum of weights of all rest Gateways with same priorities (40/(40+10)*100% = 80%)); the probability of choosing Gateway 4 is 20%.
+        3.  In case of choosing (by generator of random numbers) Gateway 2 this Gateway will be put on the second place of rating (for the selected :ref:`Dialpeer <dialpeers>`) and Gateway 4 will be put on the third place of rating.
+        4.  On the last (fourth) place of rating will be Gateway 1 because it has lowest priority 100.
+
+        The final view of Gateway's rating in our example could be following:
+
+        1.  Gateway 3
+        2.  Gateway 2
+        3.  Gateway 4
+        4.  Gateway 1
+
     .. _gateway_pop:
 
     Pop
