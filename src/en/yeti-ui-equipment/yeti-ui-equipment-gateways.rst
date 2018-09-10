@@ -374,6 +374,24 @@ Dtmf **Gateway**'s attributes:
             - RFC 2833 (telephone-event)
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
+    Rx inband dtmf filtering mode
+        Could be used for setting mode of processing of the DTMF signals in the incoming RTP-flow that is received from this *Gateway*. Could have following values:
+
+        -   Inherit configuration from other call's leg. Will be used value from the *Gateway* that is associated with other call leg. F.e. for termination Gateway - value from origination Gateway will be used.
+        -   Disable. DTMF signals will be ignored and will be forwarded as is.
+        -   Remove DTMF. DTMF signals will be replaced by "silence" signal in the incoming RTP-flow that is received from this *Gateway*.
+
+    Tx inband dtmf filtering mode
+        Could be used for setting mode of processing of the DTMF signals in the outgoing RTP-flow that will be sent via this *Gateway*. Could have following values:
+
+        -   Inherit configuration from other call's leg. Will be used value from the *Gateway* that is associated with other call leg. F.e. for termination Gateway - value from origination Gateway will be used.
+        -   Disable. DTMF signals will be ignored and will be forwarded as is.
+        -   Remove DTMF. DTMF signals will be replaced by "silence" signal in the outgoing RTP-flow that will be sent via this *Gateway*.
+
+     .. note::
+
+        This features (Rx/Tx inband dtmf filtering mode) are useful when it necessary to remove DTMF transmission, or when remote Gateway sends DTMF to both inband and as RTP-event simultaneously. Enabling the corresponding function will remove duplicate information from inbound.
+
 
 Radius **Gateway**'s attributes:
 ````````````````````````````````
