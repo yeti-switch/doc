@@ -375,6 +375,31 @@ Dtmf **Gateway**'s attributes:
             - SIP INFO application/dtmf-relay OR application/dtmf
             - RFC 2833 OR SIP INFO
 
+    .. _rx_inband_dtmf_filtering_mode:
+
+    Rx inband dtmf filtering mode
+        Could be used for setting mode of processing of the inband DTMF signals (DTMF audio tones in the RTP stream) in the incoming RTP-flow that is received from this *Gateway*. Could have following values:
+
+        -   Inherit configuration from other call's leg. Will be used :ref:`Tx inband dtmf filtering mode <tx_inband_dtmf_filtering_mode>` value from the *Gateway* that is associated with other call leg. F.e. for termination Gateway - value from origination Gateway will be used.
+        -   Disable. DTMF signals will be ignored and will be forwarded as is.
+        -   Remove DTMF. DTMF signals will be replaced by "silence" signal in the incoming RTP-flow that is received from this *Gateway*.
+
+
+    .. _tx_inband_dtmf_filtering_mode:
+
+
+    Tx inband dtmf filtering mode
+        Could be used for setting mode of processing of the inband DTMF signals (DTMF audio tones in the RTP stream) in the outgoing RTP-flow that will be sent to this *Gateway*. Could have following values:
+
+        -   Inherit configuration from other call's leg. Will be used :ref:`Rx inband dtmf filtering mode <rx_inband_dtmf_filtering_mode>` value from the *Gateway* that is associated with other call leg. F.e. for termination Gateway - value from origination Gateway will be used.
+        -   Disable. DTMF signals will be ignored and will be forwarded as is.
+        -   Remove DTMF. DTMF signals will be replaced by "silence" signal in the outgoing RTP-flow that will be sent to this *Gateway*.
+
+     .. note::
+
+        This features (Rx/Tx inband dtmf filtering mode) are useful when it necessary to remove DTMF transmission, or when remote Gateway sends DTMF to both inband and as RTP-event simultaneously. Enabling the corresponding function will remove duplicate information from inbound.
+
+
 Radius **Gateway**'s attributes:
 ````````````````````````````````
     Radius accounting profile
