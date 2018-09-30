@@ -150,5 +150,6 @@ YETI WEB interface - Routing menu description.
    yeti-ui-routing/yeti-ui-routing-area_prefixes
    yeti-ui-routing/yeti-ui-routing-routing_tag_detection_rules
    yeti-ui-routing/yeti-ui-routing-routing_simulation
+   yeti-ui-routing/yeti-ui-routing-tags_truth_table
 
 
