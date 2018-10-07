@@ -397,7 +397,7 @@ Dtmf **Gateway**'s attributes:
 
      .. note::
 
-        This features (Rx/Tx inband dtmf filtering mode) are useful when it necessary to remove DTMF transmission, or when remote Gateway sends DTMF to both inband and as RTP-event simultaneously. Enabling the corresponding function will remove duplicate information from inbound.
+        This features (Rx/Tx inband dtmf filtering mode) are useful when it necessary to remove DTMF transmission, or when remote Gateway sends DTMF to both inband and as RTP-event simultaneously. Enabling the corresponding function will remove duplicate information from inband.
 
 
 Radius **Gateway**'s attributes:

@@ -44,17 +44,7 @@ Routing Plans are used for describing common parameters that can be applied for 
 
     -   :ref:`Contractor <contractors>` that :ref:`was chosen <dialpeer_vendor>` for the :ref:`Dialpeer <dialpeers>` is enabled and has type: **Vendor**;
 
-    -   :ref:`Routing tags <routing_tag>` that were chosen for the call at the previous steps (Authentication, Numberlist processing etc.) and :ref:`Routing tags <routing_tag>` that were chosen in the field :ref:`Routing tag ids <dialpeer_routing_tag_ids>` of :ref:`Dialpeer <dialpeers>` are matched to each other.
-
-     .. note:: Examples:
-
-        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **null**  =>  **TRUE** (matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **null**  =>  **FALSE** (not matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **null**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag1**  =>  **FALSE** (not matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **FALSE** (not matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **TRUE** (matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**, **Tag2**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag2**  =>  **TRUE** (matched);
-        -  :ref:`Routing tags <routing_tag>` of the call: **Tag1**; :ref:`Routing tag ids <dialpeer_routing_tag_ids>` that were chosen: **Tag1**, **Tag2**  =>  **TRUE** (matched);
+    -   :ref:`Routing tags <routing_tag>` that were chosen for the call at the previous steps (Authentication, Numberlist processing etc.) and :ref:`Routing tags <routing_tag>` that were chosen in the field :ref:`Routing tag ids <dialpeer_routing_tag_ids>` of :ref:`Dialpeer <dialpeers>` are matched to each other. Principles of the :ref:`Routing tags <routing_tag>` matching are described in this :ref:`Example (Truth table for tags) <tags_truth_table>`.
 
 
         The following algorithms (sorting methods) are available:
