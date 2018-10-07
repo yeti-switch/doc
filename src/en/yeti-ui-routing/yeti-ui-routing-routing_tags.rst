@@ -21,7 +21,9 @@ The next step where Routing Tags can be changed - :ref:`Source Numberlist <numbe
 The last step where Routing Tags can be changed - :ref:`Routing Tag detection Rule <routing_tag_detection_rules>` Tags Processing procedure. As it shown on picture (example) above :ref:`Routing Tag detection Rule <routing_tag_detection_rules>` settings contain **Clear tags** in the :ref:`Routing Tags options <routing_tag_detection_rules_tag_action>` with **Tag action value** = **null**. As a result of :ref:`Routing Tag detection Rule <routing_tag_detection_rules>` Tags Processing procedure Yeti will remove from the call all Routing Tags. Resulting state of call's Routing Tags after this procedure is: **null**.
 
 
-Example of using *Routing Tags* for selecting ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` records  for the call routing is represented on the picture below:
+Principles of the :ref:`Routing tags <routing_tag>` matching are described in this :ref:`Example (Truth table for tags) <tags_truth_table>`.
+
+Example of using *Routing Tags* for selecting :ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` records  for the call routing is represented on the picture below:
 
  .. graphviz:: ../graphviz/routing_tags_using.dot
 
