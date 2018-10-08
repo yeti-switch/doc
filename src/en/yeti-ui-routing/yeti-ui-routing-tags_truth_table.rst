@@ -4,7 +4,7 @@
 Truth table for tags
 ~~~~~~~~~~~~~~~~~~~~
 
-Truth table for :ref:`tags <routing_tag>` is used for better understanding how different modes of routing tag comparation are used for selecting dialpeers that are related to the current call. Rows, in the table bellow, represent eight different states of Dialpeer Tags each of them are presented by two comparation modes (OR & AND). At same time, columns represent four different states of Call Tags. In the cells at the intersection of these states different levels of coincidence are presented. The highest level of coincidence is 3, the lowest level is 0. During selection of Dialpeers, in case if two or more Dialpeers have level of coincidence with current call (by comparation Dialpeer Tags and Call Tags) more than 0, Dialpeers with highest level of coincidence will be selected.
+Truth table for :ref:`tags <routing_tag>` is used for better understanding how different modes of routing tag comparation are used for selecting dialpeers that are related to the current call. Rows, in the table bellow, represent eight different states of Dialpeer Tags each of them are presented by two comparation modes (OR & AND). At same time, columns represent four different states of Call Tags. In the cells at the intersection of these states different levels of matching are presented. The highest level of matching is 3, the lowest level is 0. During selection of Dialpeers, in case if two or more Dialpeers have level of matching with current call (by comparation Dialpeer Tags and Call Tags) more than 0, Dialpeers with highest level of matching will be selected.
 
 +------------------+-------------+-----------------+-----------------+-----------------+-----------------+
 |                  | Comparation |                              Call Tags                                |
@@ -45,7 +45,7 @@ Truth table for :ref:`tags <routing_tag>` is used for better understanding how d
 +------------------+-------------+-----------------+-----------------+-----------------+-----------------+
 
 
-    .. note:: Levels of coincidence:
+    .. note:: Levels of matching:
 
               - 0 - Dialpeer does not match;
 
