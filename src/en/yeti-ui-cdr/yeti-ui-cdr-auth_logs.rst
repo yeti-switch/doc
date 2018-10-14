@@ -29,9 +29,9 @@ Auth Logs are used for review authorization attempts that were fixed by Yeti.
     Local Socket
         **TODO**
     PoP
-        **TODO**
+        :ref:`Point of Presence (PoPs) <pops>` that was associated with authorization attempt.
     Node
-        **TODO**
+        :ref:`Node <nodes>` that was associated with authorization attempt.
     Username
         **TODO**
     Realm
@@ -39,11 +39,11 @@ Auth Logs are used for review authorization attempts that were fixed by Yeti.
     Request Method
         **TODO**
     Ruri
-        **TODO**
+        "R-URI" field of SIP header that was received from remote host during authorization attempt.
     From Uri
-        **TODO**
+        From field of SIP header that was received from remote host during authorization attempt.
     To Uri
-        **TODO**
+        To field of SIP header that was received from remote host during authorization attempt.
     Call
         **TODO**
     Nonce
@@ -51,7 +51,7 @@ Auth Logs are used for review authorization attempts that were fixed by Yeti.
     Response
         **TODO**
     X Yeti Auth
-        **TODO**
+        Value of the custom SIP-header **X-Yeti-Auth** that was received from remote host during authorization attempt.
     Diversion
         Value of SIP Diversion header that is received from remote host during authorization attempt.
     Pai
