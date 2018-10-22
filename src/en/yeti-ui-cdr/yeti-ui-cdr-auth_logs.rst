@@ -23,21 +23,19 @@ Auth Logs are used for review authorization attempts that were fixed by Yeti.
     Internal Reason
         Internal Reason of the result of authorization attempt (for example success - "Response matched" or failure - "User mismatch").
     Originator
-        **TODO**
+        URI of the host that is initiated authorization attempt. Format of this fields includes information about used network protocol, IP-address and network port.
     Remote Socket
-        **TODO**
+        URI of the remote host (for example URI of :ref:`Load Balancer <load_balancers>`) from that the authorization attempt was received. Format of this fields includes information about used network protocol, IP-address and network port.
     Local Socket
-        **TODO**
+        IP-address and network port that were used by Yeti for receiving authorization attempt.
     PoP
         :ref:`Point of Presence (PoPs) <pops>` that was associated with authorization attempt.
     Node
         :ref:`Node <nodes>` that was associated with authorization attempt.
     Username
-        **TODO**
-    Realm
-        **TODO**
+        Username that was received from remote host during authorization attempt.
     Request Method
-        **TODO**
+        SIP request method that was used by remote host during authorization attempt.
     Ruri
         "R-URI" field of SIP header that was received from remote host during authorization attempt.
     From Uri
@@ -45,11 +43,11 @@ Auth Logs are used for review authorization attempts that were fixed by Yeti.
     To Uri
         To field of SIP header that was received from remote host during authorization attempt.
     Call
-        **TODO**
+        Value of the *Call id* SIP header that was received from remote host during authorization attempt.
     Nonce
-        **TODO**
+        Value of the *Nonce* parameter in the SIP Proxy-Authentication header that was received from remote host during authorization attempt.
     Response
-        **TODO**
+        Value of the *Response* parameter in the SIP Proxy-Authentication header that was received from remote host during authorization attempt.
     X Yeti Auth
         Value of the custom SIP-header **X-Yeti-Auth** that was received from remote host during authorization attempt.
     Diversion
