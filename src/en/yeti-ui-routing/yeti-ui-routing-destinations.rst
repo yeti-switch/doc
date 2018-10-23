@@ -18,6 +18,11 @@ General **Destination**'s attributes:
 
     Prefix
         This field is used for setting prefix for choosing *Destination* by destination number (number B). Destination will be choosed for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
+        You can enter two or more *Prefixes* that are separated by comma in this field. In this case Yeti will create two or more independent *Destination* records that are had same parameters, except *Prefix*.
+
+        .. note:: Principles of matching *Prefix* field of *Destination* and destination number (number B) could be found
+:ref:`here <prefix_truth_table>`.
+
     Dst number min length
         Minimum length of number for this Destination. Destination won't be chosen for the call where destination number (number B) length is less than value of this field.
     Dst number max length

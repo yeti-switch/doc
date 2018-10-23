@@ -18,6 +18,10 @@ Dialpeers identify call destination endpoint and define the billing characterist
 
     Prefix
         This field is used for setting prefix for filtering dialpeers by destination number (number B). *Dialpeer* will be selected to the list of possible dialpeers for call routing only in case of matching this *Prefix* with first symbols of destination number. Under bottom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more dialpeers from one :ref:`Vendor <contractors>` will match the destination number by this parameter (prefix) only one *Dialpeer* will be selected for call routing on the basis longest prefix match algorithm.
+        You can enter two or more *Prefixes* that are separated by comma in this field. In this case Yeti will create two or more independent *Dialpeer* records that are had same parameters, except *Prefix*.
+
+        .. note:: Principles of matching *Prefix* field of *Dialpeer* and destination number (number B) could be found
+:ref:`here <prefix_truth_table>`.
 
     .. _dialpeer_dst_number_min_length:
 
