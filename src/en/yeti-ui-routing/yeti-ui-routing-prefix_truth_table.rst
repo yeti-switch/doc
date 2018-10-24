@@ -4,8 +4,8 @@
 Truth table for prefixes
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Truth table for prefixes is used for better understanding how matching between Prefix field of :ref:`Destinations <destinations>` or/and :ref:`Dialpeers <dialpeers>` and destination number (number B) for the current call is worked.
-Rows, in the table bellow, represent seven different examples of the destination number for the current call. At same time, columns represent five different examples of the Prefix field of :ref:`Destinations <destinations>` or/and :ref:`Dialpeers <dialpeers>`. In the cells at the intersection of these rows & columns states of matching are presented (T - true, F - false).
+Truth table for prefixes is used for better understanding how matching between Prefix field of :ref:`Destinations <destinations>` or/and :ref:`Dialpeers <dialpeers>` and destination number (number B) for the current call is working.
+Rows, in the table bellow, represent different examples of the destination number for the current call. At same time, columns represent examples of the Prefix field of :ref:`Destinations <destinations>` or/and :ref:`Dialpeers <dialpeers>`. In the cells at the intersection of these rows & columns states of matching are presented (T - true, F - false).
 
 +------------------+-------------+-----------------+-----------------+-----------------+-----------------+
 |   Destination    |                                  Prefix value                                       |
