@@ -34,6 +34,8 @@ Auth Logs are used for review authorization attempts that were fixed by Yeti.
         :ref:`Node <nodes>` that was associated with authorization attempt.
     Username
         Username that was received from remote host during authorization attempt.
+    Realm
+        Value of the *Realm* parameter of *Authorization* SIP header that was received from remote host during authorization attempt.
     Request Method
         SIP request method that was used by remote host during authorization attempt.
     Ruri
