@@ -127,3 +127,10 @@ Quality notifications configuration of **Destination**'s attributes:
         The Short Calls ratio limit for this Destination (in percents, where 1.0 = 100%, 0.5 = 50% etc). Lower limit of the percentage of answered telephone calls with length less than :ref:`Short Call Length <short_call_length>` value of :ref:`Global configuration <global_configuration>` with respect to the total call volume on this Destination. If this ration for this Destination will stay less than *Short Calls Limit* Quality notification will be send to the Contact that is configured in the Rateplan configuration window.
 
 
+.. _destinations_new_rates:
+
+**Destination**'s New Rates:
+````````````````````````````
+
+    New Rates are used for setting rates that will be applied for this *Destination* via some period of time. You can set following parameters: Initial interval, Next interval, Initial rate, Next rate, Connect fee and choose time of applying of these New Rates.
+    To create New Rates object for *Destination* you should press **New Rate** button in the Destination's view mode.
