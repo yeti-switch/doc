@@ -143,7 +143,6 @@ YETI WEB interface - Routing menu description.
    yeti-ui-routing/yeti-ui-routing-destinations
    yeti-ui-routing/yeti-ui-routing-routing_groups
    yeti-ui-routing/yeti-ui-routing-dialpeers
-   yeti-ui-routing/yeti-ui-routing-new_rates
    yeti-ui-routing/yeti-ui-routing-routing_plans
    yeti-ui-routing/yeti-ui-routing-routing_plan_static_routes
    yeti-ui-routing/yeti-ui-routing-routing_plan_lnp_rules

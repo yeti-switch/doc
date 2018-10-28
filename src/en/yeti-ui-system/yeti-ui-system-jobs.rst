@@ -26,7 +26,7 @@ You could press "Run" link for execute some procedure or "Unlock" in case of som
 
     -   **TerminationQualityCheck** - procedure of checking of the quality parameters of :ref:`Dialpeers <dialpeers>`. :ref:`Dialpeer <dialpeers>` will be locked in case of overcoming of threshold for quality parameters (Acd Limit, Asr Limit or Short Calls Limit) of the :ref:`Dialpeer <dialpeers>`.
 
-    -   **DialpeerRatesApply** - procedure of applying :ref:`New Rates <new_rates>` for :ref:`Dialpeers <dialpeers>`.
+    -   **DialpeerRatesApply** - procedure of applying New Rates for :ref:`Dialpeers <dialpeers_new_rates>` and :ref:`Destinations <destinations_new_rates>`.
 
     -   **AccountBalanceNotify** - procedure of sending :ref:`Account Balance Notifications <account_balance_low_threshold>`.
 

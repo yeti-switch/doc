@@ -141,3 +141,11 @@ Dialpeers identify call destination endpoint and define the billing characterist
         Date and time creation of this *Dialpeer*.
 
 
+.. _dialpeers_new_rates:
+
+**Dialpeer**'s New Rates:
+`````````````````````````
+
+    New Rates are used for setting rates that will be applied for this *Dialpeer* via some period of time. You can set following parameters: Initial interval, Next interval, Initial rate, Next rate, Connect fee and choose time of applying of these New Rates.
+    To create New Rates object for *Dialpeer* you should press **New Rate** button in the Dialpeer's view mode.
+
