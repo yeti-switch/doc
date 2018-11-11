@@ -4,7 +4,7 @@
 Routing Tag detection Rules
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Routing Tag detection Rules are used for changing set of :ref:`Routing tags <routing_tag>` (that are used for routing of calls) by source and destination :ref:`Areas <areas>` that are determined via :ref:`Area prefixes <area_prefixes>` table.
+Routing Tag detection Rules are used for changing set of :ref:`Routing tags <routing_tag>` (that are used for routing of calls) by source and destination :ref:`Areas <areas>` that are determined via :ref:`Area prefixes <area_prefixes>` table and by source and destination prefixes. Rule will be chosen only in case of matching all conditions (Src & Dst Areas, Src & Dst prefixes) that are not empty.
 
 **Routing Tag detection Rule**'s attributes:
 ````````````````````````````````````````````
@@ -22,6 +22,12 @@ Routing Tag detection Rules are used for changing set of :ref:`Routing tags <rou
 
     Dst area
         Destination :ref:`Area <areas>` (could be empty).
+
+    Src prefix
+        This field is used for setting prefix of source number (A-number). This *Rule* will be chosen only in case of matching this Prefix with first symbols of A-number (together with other conditions). This field could be empty.
+
+    Dst prefix
+        This field is used for setting prefix of source number (B-number). This *Rule* will be chosen only in case of matching this Prefix with first symbols of B-number (together with other conditions). This field could be empty.
 
 .. _routing_tag_detection_rules_tag_action:
 
