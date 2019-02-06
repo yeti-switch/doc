@@ -13,6 +13,7 @@ Contents:
 
    general
    installation/index.rst
+   installation-1.8/index.rst
    yeti-ui
    quick_start
    yeti-cli
