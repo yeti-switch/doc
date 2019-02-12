@@ -31,73 +31,107 @@ node_id
 
 Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 
-.. code-block:: ini
+.. code-block:: c
 
-    node_id = <id of created node>
+    general {
+        daemon = yes
+        stderr = no
+        syslog_loglevel = 3
+        syslog_facility = LOCAL0
 
-    interfaces=intern
-    sip_ip_intern=<SIGNALLING_IP> 
-    sip_port_intern=5061 
-    media_ip_intern=<MEDIA_IP> 
-    rtp_low_port_intern=20000 
-    rtp_high_port_intern=50000
-    plugin_path=/usr/lib/sems/plug-in/ 
-    load_plugins=wav;ilbc;speex;gsm;adpcm;l16;g722;sctp_bus;yeti;session_timer;uac_auth;di_log;registrar_client;jsonrpc
-    application = yeti
-    plugin_config_path=/etc/sems/etc/
-    fork=yes
-    stderr=no
-    syslog_loglevel=2
-    max_shutdown_time = 10
+        node_id = 8
 
-    session_processor_threads=20
-    media_processor_threads=2
-    session_limit="4000;509;Node overloaded"
-    shutdown_mode_reply="508 Node in shutdown mode"
-    options_session_limit="900;503;Warning, server soon overloaded"
-    # cps_limit="100;503;Server overload"
-    use_raw_sockets=yes 
-    sip_timer_B = 8000 
-    default_bl_ttl=0
-    registrations_enabled=no
+        shutdown_mode {
+            code = 508
+            reason = "Test"
+            allow_uac = true
+        }
+        #~ pcap_upload_queue = pcap
+
+        media_processor_threads = 1
+        session_processor_threads = 1
+
+        dead_rtp_time=30
+    }
+
+
+    signaling-interfaces {
+        interface input {
+            default-media-interface = input
+            ip4 {
+                sip-udp {
+                    address = <SIGNALLING_IP>
+                    port = 5061
+                    use-raw-sockets = off
+                }
+                sip-tcp {
+                    address = <SIGNALLING_IP>
+                    port = 5061
+                    connect-timeout = 2000
+                    static-client-port = on
+                    idle-timeout=900000
+                    use-raw-sockets = off
+                }
+            }
+        }
+    }
+
+    media-interfaces {
+        interface input {
+            ip4 {
+                rtp {
+                    address = <SIGNALLING_IP>
+                    low-port = 16384
+                    high-port = 32767
+                    dscp = 46
+                    use-raw-sockets = off
+                }
+            }
+        }
+    }
+
+    modules {
+        module "mp3"{}
+        module "opus"{}
+        module "wav"{}
+        module "gsm"{}
+        module "ilbc"{}
+        module "adpcm"{}
+        module "l16"{}
+        module "g722"{}
     
-.. _yeti_conf_1.8:
+        module "registrar_client" {}
+        module "sctp_bus"{}
+        module "http_client"{}
+        module "session_timer"{}
+        module "jsonrpc"{
+            listen{
+                address = 127.0.0.1 
+                port = 7080
+            }
+            server_threads=1
+        }
 
-/etc/sems/etc/yeti.conf
-~~~~~~~~~~~~~~~~~~~~~~~
+        module-global "uac_auth" { }
+
+        module "yeti" {
+            mgmt {
+                host = 127.0.0.1
+                port = 4444
+                timeout = 60000
+            }
+            core_options_handling = yes
+            registrations_enabled = yes
+        }
+    }
+
+    routing { 
+        application = yeti
+    }
 
 
 
-cfg_timeout
-    timeout of waiting response from management node
-cfg_host
-    IP address of management node
-cfg_port
-    SCTP port of management node
-
-.. code-block:: ini
-
-    cfg_timeout = 1000
-    cfg_host = 127.0.0.1
-    cfg_port = 4444
-    core_options_handling=yes
     
-
-.. _jsonrpc_1.8:
-
-/etc/sems/etc/jsonrpc.conf
-~~~~~~~~~~~~~~~~~~~~~~~~~~    
-
-Such file used for RPC configuration
-
-.. code-block:: ini
-
-    jsonrpc_listen=127.0.0.1 
-    jsonrpc_port=7080
-    server_threads=1
-    
-RPC socket should be available from WEB interface server. You should place your real IP address if you run SEMS node on dedicated server.
-
 .. warning:: RPC allows shutdown SEMS node or make it non-operational. RPC interface should be secured by firewall to prevent connections from not trusted hosts. In YETI systems only two components should have ability to connect to RPC - WEB interface and yeti-cli console
 
 Launch traffic switch
