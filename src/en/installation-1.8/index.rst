@@ -3,10 +3,10 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. _install:
+.. _install_1.8:
 
-Installation and operation manual
-=================================
+Installation and operation manual. 1.8
+======================================
 
 Supported Operating systems is Debian GNU/Linux 8 and 9, the only supported architecture is amd64
 
@@ -26,4 +26,5 @@ Components:
    call-trace
    cli-utility
    database-tuning
+   upgrade-from-1.7
 
