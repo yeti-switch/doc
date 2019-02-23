@@ -4,7 +4,7 @@
 Upgrade instructions
 ====================
 
-This instuctions describe how to upgrade Yeti system from version 1.7.14 to version 1.8. If you have any other Yeti version you should previously upgrade it to 1.7.14
+This instuctions describe how to upgrade Yeti system from version 1.7.15 to version 1.8. If you have any other Yeti version you should previously upgrade it to 1.7.15
 
 
 Upgrade yeti-web package to 1.8.0
