@@ -15,7 +15,7 @@ Routing logic changes in 1.8 version
     * **Routeset Discriminators** allows to have few routeset from same vendor. Yeti will try to use few routes from same vendor if such routes have different Routeset Discriminator. Previously it was not possible to have two different routeset of same vendor in same Routing Plan.
     * Ability to define maximum rerouting attempts per routing plan. Previously  maximum rerouting attempts was hardcoded to 10
     * New balancing modes for Gateway Group
-    * Numberlist processing at termination gateway(after rotuing). Now it is possible configure massive number rewrite before call termination to specific gateway.
+    * Numberlist processing at termination gateway(after routing). Now it is possible configure massive number rewrite before call termination to specific gateway.
 
 SEMS changes in 1.8 version
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
