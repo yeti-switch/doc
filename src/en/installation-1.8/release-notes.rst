@@ -25,3 +25,13 @@ SEMS changes in 1.8 version
     * IPv6 support and flexible protocol priority configuration
     * **sips** SIP schema support
     * SRTP with DTLS and SDES mechanisms
+    * RTCP processing
+    * RTCP/RTP statistics saving to database. It is possible to analyze calls quality using statistics data.
+    
+    
+Admin UI changes
+~~~~~~~~~~~~~~~~
+    * Rails was upgraded to 5.2
+    * ActiveAdmin was upgrade
+    * Role Based Access Control. It is possible to limit access level of system operator
+    
