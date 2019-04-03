@@ -50,6 +50,8 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 
         media_processor_threads = 1
         session_processor_threads = 1
+        #sip_udp_server_threads = 1
+        #sip_tcp_server_threads = 1
 
         dead_rtp_time=30
     }
@@ -115,8 +117,8 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
         module-global "uac_auth" { }
 
         module "yeti" {
-            mgmt {
-                host = 127.0.0.1
+            management {
+                address = 127.0.0.1
                 port = 4444
                 timeout = 60000
             }
