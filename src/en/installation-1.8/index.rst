@@ -26,5 +26,6 @@ Components:
    call-trace
    cli-utility
    database-tuning
+   release-notes
    upgrade-from-1.7
 
