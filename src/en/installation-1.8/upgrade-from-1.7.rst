@@ -18,11 +18,12 @@ Upgrade yeti-web package to 1.8.0
 
 Postgresql 11 installation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
-You should install postgresql-11 packages, see .. and  create appropriate databases
+You should install postgresql-11 packages, as described at  :doc:`routing-database` and :doc:`cdr-database` and create appropriate databases.
 
  
 Run new instances of Postgresql(version 11) 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+New postgresql instances should run on different ports:
 
 .. code-block:: console
 
@@ -34,17 +35,37 @@ Run new instances of Postgresql(version 11)
     11  routing 5436 online postgres /var/lib/postgresql/11/routing  /var/log/postgresql/postgresql-11-routing.log           <<< NEW routing database
 
 
-Stop CDR writing to old Postgresql CDR instances
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+    
 Shutdown CDR billing process and other pgq-processor consumers
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: console
+
+    # systemctl stop yeti-cdr-billing@cdr_billing
+    # systemctl stop yeti-delayed-job
+    
+    
+Stop CDR writing to old Postgresql CDR instances
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+To stop CDR writing change **listen_address** to '127.0.0.1' at postgresql.conf Configuration for old postgresql instances and restart postgresql
+
 
 Copy data from old databases to new instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+You should dump your databases using pg_dump and then restore data to new instances:
+
+.. code-block:: console
+
+    root@yeti-postgresql-9:~# pg_dump -h 127.0.0.1 -p 5434 -U yeti -O -x -F c -f yeti.dmp yeti
+    root@yeti-postgresql-9:~# pg_restore -h 127.0.0.1 -p 5436 -U yeti -d yeti -e yeti.dmp
+    root@yeti-postgresql-9:~# pg_dump -h 127.0.0.1 -p 5435 -U cdr -O -x -F c -f yeti.dmp yeti
+    root@yeti-postgresql-9:~# pg_restore -h 127.0.0.1 -p 5437 -U cdr -d yeti -e yeti.dmp
+    
+
 Shutdown old databases and move new instances to their ports
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Change **port** at postgresql.conf of each postgresql cluster to move new instances to old ports. Restart postgresql.
+
 
 Apply first stage of migrations
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,17 +73,27 @@ Apply first stage of migrations
 .. code-block:: console
 
 	root@yeti:/# cd /home/yeti-web
-	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
-	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+	root@yeti:/# su -s /bin/bash yeti-web
+	yeti-web@demo-yeti:~$ RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
+	yeti-web@demo-yeti:~$ RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
 	....SKIPPED...
 	== 20180212105355 MultipleMatchingConditions: migrated (2.0862s) ==============
 
 	IMPORTANT: Now update and restart your servers. And after that run `rake db:migrate` again.
 	root@yeti:/home/yeti-web# 
     
-Notification ``IMPORTANT: Now update and restart your servers. And after that run `rake db:migrate` again.`` will inform you that migration is not finished. You should apply next part of migrations after SEMS upgrade.
+    
+Restart all components of yeti-web
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: console
+
+	root@yeti:/# systemctl restart yeti-web
+	root@yeti:/# systemctl restart yeti-cdr-billing@cdr_billing
+	root@yeti:/# systemctl restart yeti-delayed-job
 
 
+	
 Switch to new routing schema
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -74,25 +105,5 @@ SEMS servers
 
 Upgrade your SEMS nodes to new version. Configuration files format was changed, See :ref:`sems.conf <sems_conf_1.8>`  for details.
 
-
-
-Apply second stage of migrations
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: console
-
-	root@yeti:/# cd /home/yeti-web
-	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
-	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
-
-    
-Restart all components of yeti-web
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. code-block:: console
-
-	root@yeti:/# systemctl restart yeti-web
-	root@yeti:/# systemctl restart yeti-cdr-billing@cdr_billing
-	root@yeti:/# systemctl restart yeti-delayed-job
 
 
