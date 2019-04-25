@@ -5,8 +5,8 @@
 
 .. _install:
 
-Installation and operation manual
-=================================
+Installation and operation manual 1.7
+=====================================
 
 Supported Operating systems is Debian GNU/Linux 8 and 9, the only supported architecture is amd64
 

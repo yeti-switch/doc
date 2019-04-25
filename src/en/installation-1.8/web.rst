@@ -63,9 +63,10 @@ To initialize empty databases:
 .. code-block:: console
 
     # cd /home/yeti-web 
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:structure:load db:migrate
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:structure:load db:second_base:migrate
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:seed
+    # su -s /bin/bash yeti-web
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:structure:load db:migrate
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:structure:load db:second_base:migrate
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:seed
  
     
 To upgrade databases to the latest version:
@@ -73,8 +74,9 @@ To upgrade databases to the latest version:
 .. code-block:: console
 
     # cd /home/yeti-web 
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
-    # RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+    # su -s /bin/bash yeti-web
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
     
     
 Nginx configuration
