@@ -75,7 +75,7 @@ Example of minimal configuration file for node with id 8
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
           routing {
-            schema = switch16
+            schema = switch17
             function = route_release
             init = init
             master_pool {
