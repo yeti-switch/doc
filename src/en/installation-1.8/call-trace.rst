@@ -31,7 +31,7 @@ SEMS and Web located on different servers
 Configure nginx on WEB interface server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create directory **/var/www/dump** to store PCAP files.
+Create directory **/var/www/dump** with owner **www-data** to store PCAP files.
 
 Edit **/etc/nginx/sites-enabled/yeti-web** and add such server block::
 
@@ -75,21 +75,38 @@ Restart nginx service:
 Configure SEMS to upload traces to WEB interface server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add directive **pcap_upload_queue=pcap** to **/etc/sems/sems.conf**
+Add **http_client** module configuration to **modules** section of **/etc/sems/sems.conf**::
 
-Create configuration file **/etc/sems/etc/http_client.conf** with following content::
-
-    resend_interval=5000
-    resend_queue_max=10000
-
-    destinations=pcap
-
-    pcap_mode=put
-    pcap_url=http://<WEB INTERFACE IP>:8081/upload
-    pcap_succ_action=remove
-    pcap_fail_action=requeue
+    modules {
+        path = /usr/lib/sems/plug-in
+        config_path=/etc/sems/etc/
+    ...
+        module "http_client" {
+            resend_interval=5000
+            resend_queue_max=10000
+        
+            destination "pcap" {
+                mode=put
+                urls={ http://<WEB INTERFACE IP>:8081/upload }
+                on_success { 
+                    action = remove
+                }
+                on_failure { 
+                    action = requeue 
+                }
+            }
+        }
+    ...
+    }
     
-    
+Add **pcap_upload_queue=pcap** directive to section **general** of **/etc/sems/sems.conf**::
+
+    general {
+        ...
+        pcap_upload_queue=pcap
+        ...
+    }
+
 
 Restart SEMS:
     
