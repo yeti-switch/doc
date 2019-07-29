@@ -43,7 +43,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 
         shutdown_mode {
             code = 508
-            reason = "Test"
+            reason = "Yeti node in shutdown mode"
             allow_uac = true
         }
         #~ pcap_upload_queue = pcap
@@ -93,6 +93,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
     }
 
     modules {
+        module "di_log"{}
         module "mp3"{}
         module "opus"{}
         module "wav"{}

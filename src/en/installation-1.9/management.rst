@@ -75,7 +75,7 @@ Example of minimal configuration file for node with id 8
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
           routing {
-            schema = switch17
+            schema = switch18
             function = route_release
             init = init
             master_pool {
@@ -151,6 +151,13 @@ Example of minimal configuration file for node with id 8
          }
          registrations {
            check_interval = 5000
+         }
+         registrar {
+           enabled = true
+             redis {
+               host = 127.0.0.1
+               port = 6379
+            }
          }
          rpc {
            calls_show_limit = 10000
