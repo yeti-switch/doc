@@ -15,7 +15,7 @@ Install packages
 Configuration files
 -------------------
 
-.. _sems_conf_1.8:
+.. _sems_conf_1.9:
 
 /etc/sems/sems.conf
 ~~~~~~~~~~~~~~~~~~~

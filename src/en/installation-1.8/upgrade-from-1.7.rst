@@ -7,6 +7,22 @@ Upgrade instructions
 This instuctions describe how to upgrade Yeti system from version 1.7.15 to version 1.8. If you have any other Yeti version you should previously upgrade it to 1.7.15
 
 
+Get know your postgresql cluster epoch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PGQ components of CDR database require cluster epoch increment. To get know your cluster epoch, connect to CDR postgresql database using **psql** and run:
+
+.. code-block:: console
+
+	cdr=# SELECT (txid_current() >> 32) as epoch;
+	epoch 
+	-------
+		0
+	(1 row)
+    
+See https://github.com/markokr/skytools/blob/master/doc/faq.txt#L50 for details
+
+
 Upgrade yeti-web package to 1.8.0
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -47,6 +63,24 @@ Shutdown CDR billing process and other pgq-processor consumers
 Stop CDR writing to old Postgresql CDR instances
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 To stop CDR writing change **listen_address** to '127.0.0.1' at postgresql.conf Configuration for old postgresql instances and restart postgresql
+
+
+Change epoch of new postgresql CDR instance
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Shutdown new postgresql CDR cluster and change epoch:
+
+.. code-block:: console
+
+	# su - postgres
+	# /usr/lib/postgresql/11/bin/pg_resetwal -e 1 /var/lib/postgresql/11/cdr
+
+
+Where **1** is increased epoch - it should be greater then epoch of old intance
+
+See https://github.com/markokr/skytools/blob/master/doc/faq.txt#L50 for details
+
+Start new  postgresql CDD instance.
 
 
 Copy data from old databases to new instances
