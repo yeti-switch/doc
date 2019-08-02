@@ -21,9 +21,7 @@ Packages installation
 Databases connection configuration
 ----------------------------------
 
-To configure databases connection parameters edit /home/yeti-web/config/database.yml file
-
-Create database.yml file with the following content:
+To configure databases connection parameters create /opt/yeti-web/config/database.yml file with the following content:
 
 .. code-block:: yaml
 
@@ -57,12 +55,11 @@ Warning: you should specify correct addresses and credentials that were used in 
 Databases data initialization
 -----------------------------
 
-To simplify work with databases use utility yeti-db
-To initialize empty databases:
+To initialize empty databases during initial installation:
 
 .. code-block:: console
 
-    # cd /home/yeti-web 
+    # cd /opt/yeti-web 
     # su -s /bin/bash yeti-web
     $ RAILS_ENV=production ./bin/bundle.sh exec rake db:structure:load db:migrate
     $ RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:structure:load db:second_base:migrate
@@ -73,7 +70,7 @@ To upgrade databases to the latest version:
 
 .. code-block:: console
 
-    # cd /home/yeti-web 
+    # cd /opt/yeti-web 
     # su -s /bin/bash yeti-web
     $ RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
     $ RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
@@ -87,7 +84,7 @@ For basic configuration remove default config and copy yeti-web.dist.nginx:
 .. code-block:: console
 
     # rm /etc/nginx/sites-enabled/default
-    # cp /home/yeti-web/config/yeti-web.dist.nginx /etc/nginx/sites-enabled/yeti
+    # cp /opt/yeti-web/config/yeti-web.dist.nginx /etc/nginx/sites-enabled/yeti
     # nginx -t
     nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
     nginx: configuration file /etc/nginx/nginx.conf test is successful
@@ -129,8 +126,8 @@ Log files to check for possible warnings/errors:
 
 - /var/log/yeti-admin.log
 - /var/log/yeti-cdr-billing.log
-- /home/yeti-web/log/unicorn.stdout.log
-- /home/yeti-web/log/unicorn.stderr.log
+- /opt/yeti-web/log/unicorn.stdout.log
+- /opt/yeti-web/log/unicorn.stderr.log
 
 Try to open management interface in your favorite browser and login with default credentials:
 
@@ -172,7 +169,7 @@ Copy configuration from example file
 
 .. code-block:: console
 
-    # cp /home/yeti-web/config/ldap.yml.dist /home/yeti-web/config/ldap.yml
+    # cp /opt/yeti-web/config/ldap.yml.dist /opt/yeti-web/config/ldap.yml
 
 and edit it
 
