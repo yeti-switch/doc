@@ -59,10 +59,7 @@ which must have all possible values common for all nodes.
 Then there is named sections for each node_id which may contain
 values overriding ones set in global section.
 
-Note: even if your node does not have
-any specific values you have to define empty section
-for this node anyway, otherwise management node
-will not provide configuration for node with this id.
+.. note:: Even if your node does not have any specific values you have to define empty section for this node anyway, otherwise management node will not provide configuration for node with this id.
 
 Example of minimal configuration file for node with id 8
 

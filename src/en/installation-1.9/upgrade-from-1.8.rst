@@ -36,10 +36,10 @@ Apply migrations
 
 .. code-block:: console
 
-	root@yeti:/# cd /home/yeti-web
-	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
-	root@yeti:/home/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
-	root@yeti:/home/yeti-web# 
+	root@yeti:/# cd /opt/yeti-web
+	root@yeti:/opt/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
+	root@yeti:/opt/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
+	root@yeti:/opt/yeti-web# 
     
 
 Restart all components of yeti-web

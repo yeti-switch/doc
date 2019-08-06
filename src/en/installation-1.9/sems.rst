@@ -124,7 +124,6 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                 timeout = 60000
             }
             core_options_handling = yes
-            registrations_enabled = yes
         }
     }
 
