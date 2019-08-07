@@ -71,6 +71,8 @@ Example of minimal configuration file for node with id 8
           pop_id = 4
           msg_logger_dir = /var/spool/sems/dump
           log_dir = /var/spool/sems/logdump
+          audio_recorder_dir = /var/spool/sems/records
+          audio_recorder_compress = true
           routing {
             schema = switch18
             function = route_release
