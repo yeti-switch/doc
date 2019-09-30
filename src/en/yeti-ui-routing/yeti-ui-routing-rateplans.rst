@@ -4,7 +4,7 @@
 Rateplans
 ~~~~~~~~~
 
-Rateplans are used for describing common billing parameters that can be applied for concrete Customer. Rateplans include Destinations that are used for configuration of billing principles for particular call destinations.
+Rateplan is tariff used for call originator billing. Each Rateplans can include multiple Destinations that are used for describing billing rates and mode for specific call destination(based on prefix).
 
 **Rateplan**'s attributes:
 ``````````````````````````
@@ -12,7 +12,7 @@ Rateplans are used for describing common billing parameters that can be applied 
     .. _rateplan_id:
 
     Id
-       Unique Rateplan's id.
+       Unique Rateplan's identifier.
     Name
         Unique name of Rateplan.
 
@@ -20,7 +20,7 @@ Rateplans are used for describing common billing parameters that can be applied 
 
     Profit Control Mode
         Per call
-            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is bigger or equal (>=) than the price in the :ref:`Destination <destinations>` that was applied for this call.
+            In this mode Yeti will route calls only in case of receiving some profit from the call or not unprofitable calls. If this mode was chosen Yeti will select :ref:`Dialpeers <dialpeers>` (for routing the call) where price is less or equal (<=) than the price in the :ref:`Destination <destinations>` that was applied for this call.
         No Control
             In this mode Yeti won't control of receiving profit from the call (without comparison price in the applied :ref:`Destination <destinations>` and price in the chosen :ref:`Dialpeer <dialpeers>`).
     Send Quality Alarms To
