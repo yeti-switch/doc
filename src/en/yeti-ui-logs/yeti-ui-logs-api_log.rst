@@ -1,5 +1,5 @@
 
-.. _api_log:
+.. _api_logs:
 
 API Log
 ~~~~~~~

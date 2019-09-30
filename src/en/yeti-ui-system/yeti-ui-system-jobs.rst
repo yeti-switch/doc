@@ -6,14 +6,14 @@ Jobs
 Jobs are used for review schedulers of some regular procedures that are executed by system or could be executed manually.
 You could press "Run" link for execute some procedure or "Unlock" in case of some problems during its execution. Following procedures are available:
 
-    -   **CdrPartitioning** - procedure of creating new tables for storing CDRs;
+    -   **CdrPartitioning** - procedure of creating new tables for tables :ref:`CDR History <cdr_history>`, :ref:`Auth logs <cdr_auth_logs>`, :ref:`RTP Statistics <rtp_statistics>` and :ref:`API Logs <api_logs>`
 
     -   **EventProcessor** - procedure of sending :ref:`Events <events>` to the SEMS;
 
     -   **CdrBatchCleaner** - procedure of removing old batches of information from temporary table in Routing Database;
 
-    -   **CdrArchiving** - procedure of moving tables with CDRs from :ref:`History <cdr_history>` to :ref:`Archive <cdr_archive>`. CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.;
-
+    -   **PartitionRemoving** - procedure of removing partitions of tables :ref:`CDR History <cdr_history>`, :ref:`Auth logs <cdr_auth_logs>`, :ref:`RTP Statistics <rtp_statistics>` and :ref:`API Logs <api_logs>`. Storage period for each table defined at regulated by configurations pareter **partition_remove_delay** at /opt/yeti-web/config/yeti_web.yml
+    
     -   **CallsMonitoring** - procedure that is used for periodical (once per minute) calculation of cost for all active calls for each :ref:`Account <accounts>` and comparison their cost with current :ref:`Account Balance <account_balance>`. If account balance is less than cost of all active calls for the :ref:`Account <accounts>` all calls will be dropped by Yeti. This procedure also is used for calculating statistics for :ref:`Dushboard <dashboard>` and :ref:`Active calls <active_calls>`;
 
     -   **StatsClean** - procedure of removing statistics that are used for calculation of quality parameters (ACD, ASR and Short Calls) for :ref:`Gateways <gateways>` and :ref:`Dialpeers <dialpeers>`;

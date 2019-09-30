@@ -4,7 +4,7 @@
 CDR History
 ~~~~~~~~~~~
 
-Storage of Call Delivery Records (CDR) for all calls (or call attempts) what are passed via Yeti (without archived records). CDRs are moved to :ref:`CDR Archive <cdr_archive>` after some period of time that is regulated by :ref:`CDR Archive Delay parameter <system_global_configuration_cdr_archive_delay>` from Global Configurations.
+Storage of Call Delivery Records (CDR) for all calls (or call attempts) what are passed via Yeti (without archived records). CDRs are removed after some period of time that is regulated by  configurations setting **partition_remove_delay** at /opt/yeti-web/config/yeti_web.yml
 
 **CDR**'s attributes:
 `````````````````````
