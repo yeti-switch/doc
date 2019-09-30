@@ -8,6 +8,9 @@ $(langs:=-clean):
 $(langs):
 	make -C $@ html
 
+linkcheck:
+	make -C $(langs) linkcheck
+
 clean: $(langs:=-clean)
 
 dep:

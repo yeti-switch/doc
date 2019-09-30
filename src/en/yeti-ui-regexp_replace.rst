@@ -5,7 +5,7 @@
 Using of POSIX Regular Expressions
 ==================================
 
-`POSIX Regular Expressions <https://www.postgresql.org/docs/9.4/static/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_ used in many places of Yeti's configurations for changing format of phone numbers. It helps to provide compatibility between different VoIP platforms. This section describes general principles and examples of using POSIX Regular Expressions in Yeti.
+`POSIX Regular Expressions <https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_ used in many places of Yeti's configurations for changing format of phone numbers. It helps to provide compatibility between different VoIP platforms. This section describes general principles and examples of using POSIX Regular Expressions in Yeti.
 
 Arguments
 ~~~~~~~~~
