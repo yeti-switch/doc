@@ -16,11 +16,11 @@ Yeti calculates statistics for RTP streams processed by system. Such statistics 
     Id
         Records unique identifier
     Local Tag
-        Local tag of call leg related to this statistics
+        RTP stream owner session local_tag. Local tag Correlates with local_tag and  legb_local_tag fields of CDR
     Time Start
-        Start time of call
+        RTP stream instance create time
     Time End
-        Call end time
+        RTP stream instance end time (actually the time when statistics requested from stream)
     Pop
         Pop
     Node
@@ -30,17 +30,17 @@ Yeti calculates statistics for RTP streams processed by system. Such statistics 
     Gateway External
         External ID of remote gateway
     RTCP RTT Min
-        Minimal round trip time reported by remote gateway using RTCP protocol. |br|
-        Unit - **ms**
+        Minimal round trip time reported by remote gateway using RTCP protocol. RTT calculated as delay since last SR (DLSR): 32 bits. See `RFC <https://tools.ietf.org/html/rfc3550#section-6.4.1>`_ |br|
+        Unit - **μs**
     RTCP RTT Max
-        Unit: **ms** |br|
-        Maximal round trip time reported by remote gateway using RTCP protocol
+        Maximal round trip time reported by remote gateway using RTCP protocol |br|
+        Unit - **μs**    
     RTCP RTT Mean
-        Unit: **ms** |br|
-        `Mean <https://en.wikipedia.org/wiki/Mean>`_ round trip time reported by remote gateway using RTCP protocol
+        `Mean <https://en.wikipedia.org/wiki/Mean>`_ round trip time reported by remote gateway using RTCP protocol |br|
+        Unit - **μs**
     RTCP RTT Std
-        Unit: **ms** |br|
-        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of round trip time reported by remote gateway using RTCP protocol
+        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of round trip time reported by remote gateway using RTCP protocol |br|
+        Unit - **μs**
     Rx RTCP RR Count
         Count of `RTCP Receiver Reports <https://tools.ietf.org/html/rfc3550#section-6.4.2>`_ received from remote gateway. **Local data**.
     Rx RTCP Sr Count
@@ -73,41 +73,41 @@ Yeti calculates statistics for RTP streams processed by system. Such statistics 
     Rx Rtp Parse Errors
         Count of received RTP packets that was not parsed??  **Local data**.
     Rx Packet Delta Min
-        Unit: **ms** |br|
-        Minimal inter-packet interval on RX stream.  **Local data**.
+        Minimal inter-packet interval on RX stream.  **Local data**. |br|
+        Unit - **μs**
     Rx Packet Delta Max
-        Unit: **ms** |br|
-        Maximal inter-packet interval on RX stream.  **Local data**.
+        Maximal inter-packet interval on RX stream.  **Local data**. |br|
+        Unit - **μs**
     Rx Packet Delta Mean
-        Unit: **ms** |br|
-        Mean inter-packet interval for on RX stream.  **Local data**.v
+        Mean inter-packet interval for on RX stream.  **Local data**. |br|
+        Unit - **μs**
     Rx Packet Delta Std
-        Unit: **ms** |br|
-        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of inter-packet interval on RX stream.  **Local data**.
+        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of inter-packet interval on RX stream.  **Local data**. |br|
+        Unit - **μs**
     Rx Packet Jitter Min
-        Unit: **ms** |br|
-        Minimal RTP jitter calculated from inter-packet interval on RX stream. **Local data**.
+        Minimal RTP jitter calculated from inter-packet interval on RX stream. **Local data**. |br|
+        Unit - **μs**
     Rx Packet Jitter Max
-        Unit: **ms** |br|
-        Maximal RTP jitter calculated from inter-packet interval on RX stream. **Local data**.
+        Maximal RTP jitter calculated from inter-packet interval on RX stream. **Local data**. |br|
+        Unit - **μs**
     Rx Packet Jitter Mean
-        Unit: **ms** |br|
-        Mean RTP jitter calculated from inter-packet interval on RX stream. **Local data**.
+        Mean RTP jitter calculated from inter-packet interval on RX stream. **Local data**. |br|
+        Unit - **μs**
     Rx Packet Jitter Std
-        Unit: **ms** |br|
-        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of RS stream jitter. **Local data**.
+        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of RS stream jitter. **Local data**. |br|
+        Unit - **μs**
     Rx RTCP Jitter Min
-        Unit: **ms** |br|
-        Minimal RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream
+        Minimal RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream |br|
+        Unit - **μs**
     Rx RTCP Jitter Max
-        Unit: **ms** |br|
-        Maximal RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream
+        Maximal RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream |br|
+        Unit - **μs**
     Rx RTCP Jitter Mean
-        Unit: **ms** |br|
-        Mean RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream
+        Mean RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream |br|
+        Unit - **μs**
     Rx RTCP Jitter Std
-        Unit: **ms** |br|
-        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream
+        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on RX stream |br|
+        Unit - **μs**
     Tx Ssrc
         `SSRC <https://tools.ietf.org/html/rfc3550#section-5.1>`_ of transmitted stream. **Local data**.
     Tx Packets
