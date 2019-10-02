@@ -22,7 +22,7 @@ If your server is dedicated for postgresql set **shared_buffers** to 2/3 of your
 
 When configuration changed you should restart your postgresql instance using `service postgresql restart`
 
-.. seealso:: Read Postgresql manual https://www.postgresql.org/docs/9.4/static/ to understand postgresql architecture and features
+.. seealso:: Read Postgresql manual https://www.postgresql.org/docs/9.4/ to understand postgresql architecture and features
 
 
 

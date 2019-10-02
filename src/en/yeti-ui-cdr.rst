@@ -8,8 +8,6 @@ YETI WEB interface - CDR menu description. This section describes CDR storage en
    :maxdepth: 1
 
    yeti-ui-cdr/yeti-ui-cdr-auth_logs
-   yeti-ui-cdr/yeti-ui-cdr-tables
+   yeti-ui-cdr/yeti-ui-cdr-partitions
    yeti-ui-cdr/yeti-ui-cdr-history
-   yeti-ui-cdr/yeti-ui-cdr-cdr_archive
-
-
+   yeti-ui-cdr/yeti-ui-cdr-rtp-statistics

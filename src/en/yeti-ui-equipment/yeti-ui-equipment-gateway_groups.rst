@@ -1,6 +1,10 @@
 
 .. _gateway_groups:
 
+.. |br| raw:: html
+
+   <br />
+
 Gateway groups
 ~~~~~~~~~~~~~~
 
@@ -18,8 +22,11 @@ To terminate calls to Gateway group you should configure dialpeer to point to ga
     Vendor
         Gateway group owner. Gateway group should include only gateways with same vendor.
 
-    .. _gateway_group_prefer_same_pop:
+    .. _gateway_group_balancing_mode:
     
-    Prefer same pop
-        If enabled, firstly use termination gateways with the same POP as origination traffic has.
-
+    Balancing Mode
+        Algorithm of call distribution between gateways in this gateway group. |br|
+        **Priority/Weigth balancing** - Calls will be distributed based on Gateway priority/weight |br|
+        **Priority/Weigth balancing. Prefer gateways from same POP** - Gateways where POP = call POP will be prioritized  |br| 
+        **Priority/Weigth balancing. Exclude gateways from other POPs** - Gateways where POP != call POP will be excluded from routeset |br|
+    

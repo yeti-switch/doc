@@ -4,7 +4,7 @@
 Destinations
 ~~~~~~~~~~~~
 
-Destinations in YETI are designed to determine the prefixes that can be processed by the system and the order of calculating the cost of calls for the originator.
+Destination describes call originator billing configuration for specific call destination.
 
 General **Destination**'s attributes:
 `````````````````````````````````````
@@ -17,7 +17,7 @@ General **Destination**'s attributes:
     .. _destination_prefix:
 
     Prefix
-        This field is used for setting prefix for choosing *Destination* by destination number (number B). Destination will be choosed for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
+        This field is used for lookup *Destination* by destination number (number B). Destination will be choosed for call routing only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown.
         You can enter two or more *Prefixes* that are separated by comma in this field. In this case Yeti will create two or more independent *Destination* records that are had same parameters, except *Prefix*.
 
         .. note:: Principles of matching *Prefix* field of *Destination* and destination number (number B) could be found :ref:`here <prefix_truth_table>`.
