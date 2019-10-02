@@ -22,7 +22,7 @@ To terminate calls to Gateway group you should configure dialpeer to point to ga
     Vendor
         Gateway group owner. Gateway group should include only gateways with same vendor.
 
-    .. _gateway_group_prefer_same_pop:
+    .. _gateway_group_balancing_mode:
     
     Balancing Mode
         Algorithm of call distribution between gateways in this gateway group. |br|

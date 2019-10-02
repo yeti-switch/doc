@@ -80,7 +80,7 @@ General **Gateway**'s attributes:
     .. _gateway_pop:
 
     Pop
-        Point of Presence of the gateway. It used to force prioritization when :ref:`prefer same POP <gateway_group_prefer_same_pop>` option enabled for gateway group.
+        Point of Presence of the gateway. It used to force prioritization depending on :ref:`Balancing mode <gateway_group_balancing_mode>` chosen for gateway group.
     Allow origination
         Specifies if gateway allowed to originate calls.
     Allow termination
