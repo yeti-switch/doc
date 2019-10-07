@@ -36,7 +36,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
     general {
         daemon = yes
         stderr = no
-        syslog_loglevel = 3
+        syslog_loglevel = 2
         syslog_facility = LOCAL0
 
         node_id = 8
@@ -46,13 +46,15 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
             reason = "Yeti node in shutdown mode"
             allow_uac = true
         }
-        #~ pcap_upload_queue = pcap
+     
+        #pcap_upload_queue = pcap
 
-        media_processor_threads = 1
-        session_processor_threads = 1
-        #sip_udp_server_threads = 1
-        #sip_tcp_server_threads = 1
-
+        media_processor_threads = 2
+        rtp_receiver_threads = 2
+        session_processor_threads = 10
+        sip_udp_server_threads = 2
+        sip_tcp_server_threads = 2
+        
         dead_rtp_time=30
     }
 
