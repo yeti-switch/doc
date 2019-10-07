@@ -15,13 +15,13 @@ Contents:
    installation/index.rst
    installation-1.8/index.rst
    installation-1.9/index.rst
-   yeti-ui
-   quick_start
+   web-interface/yeti-ui.rst
+   quick-start/quick_start.rst
    yeti-cli
    disconnect-codes
    headers-filtering
    releases/index.rst
-   best-practices
+   best-practices/best-practices.rst
 
 
 Indices and tables
