@@ -58,6 +58,8 @@ and **increased** if it uses account for **termination** (vendor).
     Termination capacity
         Maximum capacity which can be terminated for this account.
         If outgoing calls number exceed origination capacity, then routes, which are belongs to this account, will not be used for new calls.
+    Total capacity
+        Shared capacity either for incoming or outgoing calls, i.e. summarized traffic in both directions (but not in particular one) is limited by this number.
     Vendor invoice period
         Automatic invoices generation period in case when account acts as vendor.
     Customer invoice period
