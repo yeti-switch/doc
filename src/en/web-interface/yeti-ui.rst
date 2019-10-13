@@ -32,5 +32,7 @@ WEB interface
    yeti-ui-rtd
    yeti-ui-logs
    yeti-ui-system
+   yeti-ui-userprofile
+   yeti-ui-logout
    yeti-ui-regexp_replace
 
