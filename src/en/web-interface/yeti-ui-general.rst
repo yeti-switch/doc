@@ -31,24 +31,6 @@ Header & Menu line
         :align: center
         :alt: YETI Web interface - header
 
-
-
-.. toctree::
-   :maxdepth: 1
-
-   yeti-ui-dashboard
-   yeti-ui-billing
-   yeti-ui-equipment
-   yeti-ui-routing
-   yeti-ui-cdr
-   yeti-ui-reports
-   yeti-ui-rtd
-   yeti-ui-logs
-   yeti-ui-system
-   yeti-ui-userprofile
-   yeti-ui-logout
-
-
 Working Area
 ============
 
