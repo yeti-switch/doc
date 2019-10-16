@@ -51,7 +51,7 @@ General **Gateway**'s attributes:
     .. _gateway_weight:
 
     Weight
-         Value of this field (numeric) is used during randomized taking decision about *Gateway* that will be used for  routing the call in case of selecting :ref:`Gateway group <gateway_groups>` that contains two or more *Gateways* with same :ref:`Priority <gateway_priority>`. Probability to choose the *Gateway* is bigger for routes where *Weight* value is bigger.
+         Value of this field (numeric) is used during randomized making decision about *Gateway* that will be used for  routing the call in case of selecting :ref:`Gateway group <gateway_groups>` that contains two or more *Gateways* with same :ref:`Priority <gateway_priority>`. Probability to choose the *Gateway* is bigger for routes where *Weight* value is bigger.
 
 
     .. note:: Example:
@@ -205,8 +205,10 @@ Signaling (Termination) **Gateway**'s attributes:
     Port
         Port of remote gateway to send SIP signaling.
         Leave it empty to enable DNS SRV resolving of name in **Host**.
+    Use registered aor
+        Used for gateway with dynamic IP address (for termination only). YETI sends call to R-URI received from remote UA during registration procedure. For incoming REGISTER request authentification YETI uses credentials specified in :ref:`Incoming auth username <incomming_auth_params>` and :ref:`Incoming auth password <incomming_auth_params>` fields.
     Resolve ruri
-        Indicates necessity to rewrite RURI domain part with resolved IP
+        Indicates necessity to rewrite R-URI domain part with resolved IP
 
         for example: `domain.com` has IP 1.1.1.1 and you set **Host** to `domain.com`:
 
