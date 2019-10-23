@@ -11,7 +11,7 @@ Arguments
 ~~~~~~~~~
 
 
-Yeti uses `REGEXP_REPLACE <http://www.postgresqltutorial.com/regexp_replace/>`_ function:
+Yeti uses `REGEXP_REPLACE <https://www.postgresql.org/docs/current/functions-matching.html>`_ function:
 
     .. note:: REGEXP_REPLACE(phonenumber, rewrite_rule, rewrite_result)
 
