@@ -9,6 +9,7 @@ YETI WEB interface - Realtime Data menu description. This section describes real
 
    yeti-ui-rtd/yeti-ui-rtd-active_calls
    yeti-ui-rtd/yeti-ui-rtd-nodes
+   yeti-ui-rtd/yeti-ui-rtd-incoming_registrations.rst
    yeti-ui-rtd/yeti-ui-rtd-outgoing_registrations
 
 
