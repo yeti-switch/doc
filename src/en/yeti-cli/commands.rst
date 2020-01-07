@@ -120,17 +120,17 @@ yeti.show.resource.state <type>/-1 <id>/-1 used
     Show usage of selected resource (For debbuging purposes)
 yeti.show.router.cdrwriter.opened-files
     Show opened files which used by router in order to write CDR
-yeti.show sensors
+yeti.show.sensors
     Show sensors of the system which are using to mirror traffic
 yeti.show.stats
     Show statistics of the system
 yeti.show.system.alarms
     Show system alarms
-yeti.show.system status
+yeti.show.system.status
     Show system status
 yeti.show.version
     Show current version of YETI module and SEMS core
-yeti.request.call disconnect <LOCAL-TAG>
+yeti.request.call.disconnect <LOCAL-TAG>
     Disconnect call selected by its <LOCAL-TAG>
 
 .. warning:: Not all commands described in this documentation. Use **loadtree/showtree** internal commands to display actual command list for your SEMS and loaded modules.

@@ -11,6 +11,9 @@ Demo Customer portal instance located at `<https://client.demo.yeti-switch.org>`
 
 .. note:: Any admin user of demo instance can change login/password at `<https://demo.yeti-switch.org/api_accesses>`_
 
+.. figure:: yeti-client.gif
+
+
 .. toctree::
    :maxdepth: 2
 
