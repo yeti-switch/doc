@@ -1,11 +1,8 @@
-
-
 .. _web:
 
-
-=============
-WEB interface
-=============
+======================================
+Admin WEB interface and  routing logic
+======================================
 
 :Site: https://yeti-switch.org/
 
