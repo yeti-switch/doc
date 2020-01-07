@@ -9,8 +9,10 @@ Call trace storage configuration
 SEMS and Web are running on same server
 ---------------------------------------
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$** with following content::
+Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$** with following content:
     
+.. code-block:: nginx
+
     location ~ ^/dump/(.*)$ {
         internal;
         set $filename $1;
@@ -20,9 +22,9 @@ Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$
     }
 
 Restart nginx service:
-    
-.. code-block:: console
 
+.. code-block:: console
+    
     # systemctl restart nginx
 
 SEMS and Web located on different servers
@@ -33,7 +35,9 @@ Configure nginx on WEB interface server
 
 Create directory **/var/www/dump** with owner **www-data** to store PCAP files.
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and add such server block::
+Edit **/etc/nginx/sites-enabled/yeti-web** and add such server block:
+
+.. code-block:: nginx
 
     server {
         listen <WEB INTERFACE IP>:8081;
@@ -50,13 +54,15 @@ Edit **/etc/nginx/sites-enabled/yeti-web** and add such server block::
             alias /var/www/dump;
             dav_methods PUT;
             dav_access group:rw all:r;
-            create_full_put_path  on;
+            create_full_put_path on;
             client_max_body_size 10000M;
         }
     }
     
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$** with following content::
+Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$** with following content:
+
+.. code-block:: nginx
     
     location ~ ^/dump/(.*)$ {
         internal;
