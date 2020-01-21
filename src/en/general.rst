@@ -37,6 +37,8 @@ Signalling and RTP processing
 - Special settings to work with systems which use non-standard SIP implementations.
 - Fax T.38
 - Outgoing SIP registrations.
+- Incoming SIP registrations(Registrar). Call termination to gateways with dynamic IP is supported
+
 
 Supported Codecs
 ----------------
@@ -72,13 +74,14 @@ Routing
 - Flexible LCR configuration (quiality control, prices limit).
   Possibility of the fast implementation of the any desired alternative algorithm
 - Capacity control for gateways, destinations, companies, accounts
-- Blacklist for the traffic
+- Source and Destination number based Blacklisting and per number translation rules
 - Possibility to rewrite/modify caller-id, DNIS at the any routing stage
 - Time-based routing
 - Statistic and quality control for the each destination
-- Gateways grouping for cases when supplier provides several gateways for the termination
+- Gateways grouping and load-balancing for cases when supplier provides several gateways for the termination
 - Possibility to silently reject unauthorized SIP INVITEs
   (Reduces parasitic traffic from  bots which are search for the vulnerabilities in telephone systems — actual for the work through Internet network)
+- Tag based routing to building flexible rules like origin-based routing and billing
 
 Billing
 -------
@@ -119,10 +122,12 @@ Administration
   Such configuration is fault tolerant to the network and hardware issues, and provides correct CDR billing after reconnection between system parts.
 - Convenient web-interface with possibility to find simply any system entities. Interface operators modifications logging allows to provide a high level of security. Supported export and import for all system configuration base objects.
 - Time-consuming tasks are performed in background to prevent blocking of the web-interface.
-- All components are developed and packaged for single platform (Debian GNU/Linux 9 amd64) and can be setup/upgraded using standart package manager (apt).
+- All components are developed and packaged for single platform (Debian GNU/Linux) and can be setup/upgraded using standart package manager (apt).
 - CLI interface for routing system. Allows to manage all routing nodes and use extended debugging tools.
 - Recording of the PCAP dumps for the calls to provide simple debugging. Recorded dumps are available through web-interface.
 - CDRs have big amount of the debugging info.
+- RTP statistic saving for each stream.
+- Automatic data retention.
 
 
 Components
@@ -141,5 +146,5 @@ Yeti consists of the following components:
 - CDRs billing and statistics calculation daemons based on PGQ
 
 YETI designed as cluster system, but you can run all components  on the one server, as well as on the different hosts.
-Supported OS is **Debian GNU/Linux 9**, the only supported architecture is **amd64**
+Supported OS is **Debian GNU/Linux**, the only supported architecture is **amd64**
 

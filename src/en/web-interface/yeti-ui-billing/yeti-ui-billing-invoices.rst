@@ -29,7 +29,13 @@ Invoice provides possibility to summarize billing information for mutual settlem
     Successful calls count
         Count of successful calls that are billed in the invoice.
     Calls duration
-        Duration (in seconds) of successful calls that are billed in the invoice.
+        Duration (in seconds) of successful calls that are billed in the invoice. Calculated as **sum(duration)** from CDRs.
+
+.. _invoice_billing_duration:
+
+
+    Billing duration
+	Billed calls duration calculated based on call duration and billing intervals(initial and next interval length). Calculated as sum(customer_duration) from CDRs.
     Type
         Generation of the invoice can be performed manually or automatically, if invoices autogeneration period for account was choosen.
         Three types of invoices are available: Auto, Auto partial and Manual.
