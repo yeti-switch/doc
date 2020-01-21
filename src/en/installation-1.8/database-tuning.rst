@@ -11,8 +11,9 @@ We recommends to change next configuration variables at /etc/postgresql/11/yeti/
 .. code-block:: ini
 
     shared_buffers = 10GB
-    work_mem = 8MB
+    work_mem = 32MB
     fsync = on
+    max_wal_size = 8GB
     checkpoint_timeout = 50min
 
     
