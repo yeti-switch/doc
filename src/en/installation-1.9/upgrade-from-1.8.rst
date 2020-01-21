@@ -37,6 +37,7 @@ Apply migrations
 .. code-block:: console
 
 	root@yeti:/# cd /opt/yeti-web
+	root@yeti:/# su -s /bin/bash yeti-web
 	root@yeti:/opt/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
 	root@yeti:/opt/yeti-web# RAILS_ENV=production ./bin/bundle.sh exec rake db:second_base:migrate
 	root@yeti:/opt/yeti-web# 
