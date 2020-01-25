@@ -7,27 +7,29 @@ Repositories configuration
 
 Most of servers may use same repositories set::
 
-    deb http://ftp.us.debian.org/debian/ stretch main contrib non-free
-    deb http://ftp.us.debian.org/debian/ stretch-updates main
-    deb http://security.debian.org/ stretch/updates main
-    deb http://pkg.yeti-switch.org/debian/stretch 1.10 main
-    deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
-
-or for Debian 10::
-
     deb http://ftp.us.debian.org/debian/ buster main contrib non-free
     deb http://ftp.us.debian.org/debian/ buster-updates main
     deb http://security.debian.org/ buster/updates main
     deb http://pkg.yeti-switch.org/debian/buster 1.10 main
     deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main
+    
+for Debian 9::
 
+    deb http://ftp.us.debian.org/debian/ stretch main contrib non-free
+    deb http://ftp.us.debian.org/debian/ stretch-updates main
+    deb http://security.debian.org/ stretch/updates main
+    deb http://pkg.yeti-switch.org/debian/stretch 1.10 main
+    deb http://apt.postgresql.org/pub/repos/apt/ stretch-pgdg main
+    deb http://ftp.debian.org/debian stretch-backports main
+    
+.. note:: Debian 9 stretch requires **stretch-backports** repository to be connected for successful installation.
     
 System repositories can be changed by editing of file: /etc/apt/sources.list. Since we use our own package repository you have add our key to trusted. 
 There is two ways to do it:
 
 .. code-block:: console
 
-	# apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
+    # apt-key adv --keyserver keys.gnupg.net --recv-key 9CEBFFC569A832B6
 
 or
 
