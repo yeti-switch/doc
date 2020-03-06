@@ -5,7 +5,7 @@
 CDR exports configuration
 =========================
 
-CDR export feature allow operator unload CDR from database to CSV file. Yeti using postgresql COPY method for CSV generation, so file will be saved on disk by postgresql.
+CDR export feature allow operator unload CDR from database to CSV file. Yeti using `Postgresql COPY <https://www.postgresql.org/docs/current/sql-copy.html>`_ method for CSV generation, so file will be saved on disk by postgresql.
 
 .. figure:: cdr-export-download.png
 
