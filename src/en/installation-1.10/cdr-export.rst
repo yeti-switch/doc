@@ -88,10 +88,4 @@ Restart nginx service:
 .. code-block:: console
 
     # systemctl restart nginx
-    
-
-    
-
-
-
 
