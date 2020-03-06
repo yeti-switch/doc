@@ -19,6 +19,7 @@ Components:
    sems
    load-balancer
    call-trace
+   cdr-export
    database-tuning
    sems-prometheus
    yeti-web-prometheus
