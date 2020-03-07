@@ -16,8 +16,6 @@ General Information
  General view of YETI Web interface is represented on the picture below:
 
  .. figure:: images/general.png
-        :scale: 300 %
-        :align: center
         :alt: YETI Web interface
 
 
@@ -27,8 +25,6 @@ Header & Menu line
  Header line includes Yeti's logo, string of menu and current date&time. String of menu consists of following 11 sections (buttons).
 
  .. figure:: images/header.png
-        :scale: 300 %
-        :align: center
         :alt: YETI Web interface - header
 
 Working Area
@@ -40,8 +36,6 @@ Working Area
 
 
  .. figure:: images/managementline.png
-        :scale: 300 %
-        :align: center
         :alt: YETI Web interface - general management line
 
 
@@ -58,7 +52,6 @@ Working Area
         -   :ref:`Informational Tabs <type_of_controls-informationaltabs>`.
 
  .. figure:: images/workingspace.png
-        :scale: 300 %
         :align: center
         :alt: YETI Web interface - working space
 
@@ -79,8 +72,6 @@ Filters
 -------
 
  .. figure:: images/toc_filters.png
-        :scale: 100 %
-        :align: center
         :alt: YETI Web interface - Filters
 
 
@@ -103,8 +94,6 @@ List of Objects
 ---------------
 
  .. figure:: images/toc_list_of_objects.png
-        :scale: 100 %
-        :align: center
         :alt: YETI Web interface - List of Objects
 
 
@@ -133,8 +122,6 @@ Collection Actions
 ------------------
 
  .. figure:: images/toc_collection_actions.png
-        :scale: 100 %
-        :align: center
         :alt: YETI Web interface - Collection Actions
 
 
@@ -150,8 +137,6 @@ Form for entering information
 
 
 .. figure:: images/toc_form_for_entering.png
-       :scale: 100 %
-       :align: center
        :alt: YETI Web interface - Form for entering information
 
 
@@ -175,8 +160,6 @@ Graph
 
 
 .. figure:: images/toc_graph.png
-       :scale: 100 %
-       :align: center
        :alt: YETI Web interface - Graph
 
 
@@ -190,8 +173,6 @@ Links
 -----
 
 .. figure:: images/toc_links.png
-       :scale: 100 %
-       :align: center
        :alt: YETI Web interface - Links
 
 
@@ -204,8 +185,6 @@ History
 -------
 
 .. figure:: images/toc_history.png
-       :scale: 100 %
-       :align: center
        :alt: YETI Web interface - History
 
 
@@ -218,8 +197,6 @@ Informational Tabs
 ------------------
 
 .. figure:: images/toc_inform_tabs.png
-       :scale: 100 %
-       :align: center
        :alt: YETI Web interface - Informational Tabs
 
 

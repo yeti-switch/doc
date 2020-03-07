@@ -16,7 +16,7 @@ Contents:
    installation-1.8/index.rst
    installation-1.9/index.rst
    installation-1.10/index.rst
-   web-interface/yeti-ui.rst
+   web-interface/index.rst
    yeti-cli/index.rst
    yeti-client/index.rst
    quick-start/quick_start.rst

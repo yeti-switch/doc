@@ -12,7 +12,7 @@ Features and technical characteristics
 
 YETI — class4 SIP softswitch with integrated billing and intelligent routing subsystem.
 Solution is intended to act as distributed SBC on the networks of the service providers which are working using protocol SIP.
-System supports a variety of intelligent routing algorythms.
+System supports a variety of intelligent routing algorithms.
 
 Softswitch handles SIP signalling and RTP traffic. Supports transcoding, detailed CDRs (more than 100 fields) allows to save all parameters which are needed for billing, debugging and analytic reports.
 Yeti supports intelligent LCR/ASR/ACD routing by various criteria. Below is short list of supported features.

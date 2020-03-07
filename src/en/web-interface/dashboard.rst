@@ -1,8 +1,9 @@
 =========
 Dashboard
 =========
-
 .. _dashboard:
+
+.. figure:: dashboard.png
 
 YETI WEB Displays different various indicators of the system state:
 
@@ -10,4 +11,6 @@ YETI WEB Displays different various indicators of the system state:
 - profitability and duration of the calls
 - billing status
 - state of the system replication
+
+
 

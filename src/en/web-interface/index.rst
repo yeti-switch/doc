@@ -19,12 +19,12 @@ Admin WEB interface and  routing logic
 .. toctree::
    :maxdepth: 2
 
-   yeti-ui-general
-   yeti-ui-dashboard
+   general
+   dashboard
    yeti-ui-billing
    yeti-ui-equipment
    yeti-ui-routing
-   yeti-ui-cdr
+   cdr
    yeti-ui-reports
    yeti-ui-rtd
    yeti-ui-logs
