@@ -81,7 +81,7 @@ Install **nginx** package and add the next server block to **/etc/nginx/nginx.co
 
 Where **/tmp** is **cdr_export dir_path** from **/opt/yeti-web/config/yeti_web.yml** config file and **<WEB INTERFACE SERVER ADDRESS>** is IP address of your web interface server.
 
-.. warning:: Make sure you configure **allow/deny** ACL properly. Wrong nginx configuration could cause data leak especially if CDR server uses public IP address(we recommend using private IP for CDR db server).
+.. warning:: Make sure you configure **allow/deny** ACL properly. Wrong nginx configuration will cause data leak especially if CDR server uses public IP address(we recommend using private IP for CDR db server).
 
 Restart nginx service:
     
