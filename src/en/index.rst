@@ -25,6 +25,7 @@ Contents:
    releases/index.rst
    best-practices/best-practices.rst
    customer-api/index.rst
+   sems/index.rst
 
 
 Indices and tables
