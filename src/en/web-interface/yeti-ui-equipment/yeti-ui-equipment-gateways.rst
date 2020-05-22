@@ -185,7 +185,7 @@ Signaling (Origination) **Gateway**'s attributes:
     Orig disconnect policy
         :ref:`Disconnect policiy <disconnect_policy>` that is related to this Origination's attribute of the Gateway.
 
-.. _incomming_auth_params:
+.. _incoming_auth_params:
 
     Incoming auth username
         This field should be filled by *username* for incoming authorization (if it necessary) of Gateway (in case of using Gateway as Originator of calls). Field is used only in case of enabling :ref:`Require incoming auth <require_incoming_auth>` flag from the General **Customers Auth**'s attributes (menu Routing).
@@ -200,13 +200,15 @@ Signaling (Termination) **Gateway**'s attributes:
 `````````````````````````````````````````````````
     Transport protocol
        Transport protocol that is used for Termination (User Datagram Protocol (UDP) or  Transmission Control Protocol (TCP)).
+       .. seealso:: SEMS interfaces should be properly configured , see :ref:`SEMS signaling interfaces configuration <sems_signaling_interfaces>`
+       
     Host
         IP address or DNS name of remote gateway to send SIP signaling (only for termination).
     Port
         Port of remote gateway to send SIP signaling.
         Leave it empty to enable DNS SRV resolving of name in **Host**.
     Use registered aor
-        Used for gateway with dynamic IP address (for termination only). YETI sends call to R-URI received from remote UA during registration procedure. For incoming REGISTER request authentification YETI uses credentials specified in :ref:`Incoming auth username <incomming_auth_params>` and :ref:`Incoming auth password <incomming_auth_params>` fields.
+        Used for gateway with dynamic IP address (for termination only). YETI sends call to R-URI received from remote UA during registration procedure. For incoming REGISTER request authentification YETI uses credentials specified in :ref:`Incoming auth username <incoming_auth_params>` and :ref:`Incoming auth password <incoming_auth_params>` fields.
     Resolve ruri
         Indicates necessity to rewrite R-URI domain part with resolved IP
 
@@ -356,7 +358,18 @@ Media **Gateway**'s attributes:
     Force one way early media
         If this checkbox is enabled Early Media (the ability of two SIP User Agents to communicate before a SIP call is actually established) will be blocked on the way from LegA (Originator) to LegB (Terminator) of the call. It helps to prevent fraud with using Early Media features for making non-billed calls.
     Rtp interface name
-        Attribute that is used for changing RTP interface name in the SEMS (SIP Express Media Server) configuration file (sems.conf).
+        Allows to force **Media interface** that will process RTP traffic from/to gateway. Interface with such name should be defined at :doc:`SEMS configuration <../../sems/index>`
+        
+    Media encryption mode
+        Defines RTP encryption mechanism, possible values:
+            
+            - Disable - Plain RTP will be used(no encryption)
+            - SRTP SDES - SRTP with `SDES <https://en.wikipedia.org/wiki/SDES>`_ key negotiation mechanism. In this mode SRTP keys will be sent in SIP SDP payload so it is important to secure SIP signalling by TLS or other secure transport.
+            - SRTP DTLS - SRTP with `DTLS <https://en.wikipedia.org/wiki/Datagram_Transport_Layer_SecurityS>`_ key negotiation mechanism. DTLS is RTP inband mechanism and it doesn't requeire secured SIP signalling.
+            - SRTP ZRTP - SRTP with `ZRTP <https://en.wikipedia.org/wiki/ZRTP>`_ key negotiation mechanism. ZRTP is not standard but sill widely used.
+        
+        .. seealso:: SEMS should be properly configured to support SRTP, see :ref:`SEMS media interfaces configuration <sems_media_interfaces>`
+    
 
 Dtmf **Gateway**'s attributes:
 ``````````````````````````````

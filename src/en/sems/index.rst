@@ -14,4 +14,8 @@ Components:
    sems
    sems-module-yeti
    sems-module-prometheus
+   sems-module-codecs
+   sems-module-di_log
+   sems-module-fileformats
+   sems-module-jsonrpc
 
