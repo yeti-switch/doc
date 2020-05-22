@@ -365,7 +365,7 @@ Media **Gateway**'s attributes:
             
             - Disable - Plain RTP will be used(no encryption)
             - SRTP SDES - SRTP with `SDES <https://en.wikipedia.org/wiki/SDES>`_ key negotiation mechanism. In this mode SRTP keys will be sent in SIP SDP payload so it is important to secure SIP signalling by TLS or other secure transport.
-            - SRTP DTLS - SRTP with `DTLS <https://en.wikipedia.org/wiki/Datagram_Transport_Layer_SecurityS>`_ key negotiation mechanism. DTLS is RTP inband mechanism and it doesn't requeire secured SIP signalling.
+            - SRTP DTLS - SRTP with `DTLS <https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security>`_ key negotiation mechanism. DTLS is RTP inband mechanism and it doesn't requeire secured SIP signalling.
             - SRTP ZRTP - SRTP with `ZRTP <https://en.wikipedia.org/wiki/ZRTP>`_ key negotiation mechanism. ZRTP is not standard but sill widely used.
         
         .. seealso:: SEMS should be properly configured to support SRTP, see :ref:`SEMS media interfaces configuration <sems_media_interfaces>`
