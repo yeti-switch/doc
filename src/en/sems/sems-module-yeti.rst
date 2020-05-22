@@ -1,9 +1,9 @@
 .. :maxdepth: 2
 
 
-===========
-yeti module
-===========
+===============
+Module **yeti**
+===============
 
 
 Module **yeti** implements SBC funtions for Yeti-switch project
@@ -20,13 +20,13 @@ Module **yeti** implements SBC funtions for Yeti-switch project
     }
         
   
-address
+management.address
 	IP address for system where yeti-management daemon is running
 
-port
+management.port
 	yeti-management SCTP port
 	
-timeout
+management.timeout
 	Configuration fetch timeout
 	
 core_options_handling

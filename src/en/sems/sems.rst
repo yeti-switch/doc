@@ -102,6 +102,8 @@ dead_rtp_time
 Section **signaling-interfaces**
 --------------------------------
 
+.. _sems_signaling_interfaces:
+
 .. code-block:: c
    :caption: signaling-interfaces configuration example
 
@@ -222,6 +224,8 @@ Section **signaling-interfaces**
 
 Section **media-interfaces**
 ----------------------------
+
+.. _sems_media_interfaces:
 
 .. code-block:: c
    :caption: media-interfaces configuration example
