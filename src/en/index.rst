@@ -24,7 +24,18 @@ Contents:
    headers-filtering
    releases/index.rst
    best-practices/best-practices.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Documentation
+
    customer-api/index.rst
+   admin-api/index.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: SEMS and internals components
+
    sems/index.rst
 
 
