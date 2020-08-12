@@ -5,9 +5,7 @@
 Redis installation
 ==================
 
-Redis is used to synchronize data between traffic switch instances.
-It stores information about used resources (e.g gateways capacity limits)
-to provide correct limitation among all nodes for distributed installations.
+Redis is used to synchronize data between traffic switch instances. It stores information about used resources (e.g gateways capacity limits) to provide correct limitation among all nodes for distributed installations.
 
 Install packages
 ================
@@ -15,6 +13,17 @@ Install packages
 .. code-block:: console
 
     # apt update && apt install redis-server
+    
+Configuration
+=============
+
+Add
+
+.. code-block::
+
+    notify-keyspace-events "Egx"
+    
+to your **/etc/redis/redis.conf** to enable notifications. This configuration required for incoming registrations functionality.
 
 Checks
 ======
