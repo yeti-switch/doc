@@ -8,10 +8,9 @@
 CDR History
 ~~~~~~~~~~~
 
-Storage of Call Delivery Records (CDR) for all calls (or call attempts) what are passed via Yeti. Yeti save CDR for every call termination attempt, so one received call on legA can cause multiple CDRs in case of rerouting. All CDRs related to one call will have same values of **Orig Call Id** and **Local tag**, **routing attempt** value indicates sequence number of CDR withing same call.
+Storage of Call Detail Records (CDR) for all calls (or call attempts) what are passed via Yeti. Yeti save CDR for every call termination attempt, so one received call on legA can cause multiple CDRs in case of rerouting. All CDRs related to one call will have same values of **Orig Call Id** and **Local tag**, **routing attempt** value indicates sequence number of CDR withing same call.
 
-
-CDRs are removed after some period of time that is regulated by  configurations setting **partition_remove_delay** at **/opt/yeti-web/config/yeti_web.yml**
+.. seealso:: There is built-in tool to provide RTP statistics retention, see :ref:`Data retention <data_retention>` documentation.
 
 **CDR**'s attributes:
 `````````````````````

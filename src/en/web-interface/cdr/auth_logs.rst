@@ -6,6 +6,8 @@ Auth Logs
 
 Auth Logs are used for review authorization attempts that were fixed by Yeti.
 
+.. seealso:: There is built-in tool to provide Auth Logs retention, see :ref:`Data retention <data_retention>` documentation.
+
 **Auth Logs**'s attributes:
 ```````````````````````````
     Id

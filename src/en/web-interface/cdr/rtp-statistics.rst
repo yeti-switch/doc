@@ -10,6 +10,8 @@ RTP Statistics
 
 Yeti calculates statistics for RTP streams processed by system. Such statistics usually based on two sources - internal RTP counters and remote statistics received by RTCP protocol. In case of lack of RTCP support on remote gateway, RTCP related measurement will be unavailable(empty). Other possible case - wrong RTCP implementation on remote side will cause invalid data in RTCP related counters. Attributes marked as **Local data** is not depend on remote RTCP implementation.
 
+.. seealso:: There is built-in tool to provide RTP statistics retention, see :ref:`Data retention <data_retention>` documentation.
+
 
 **RTP Statistics**'s attributes:
 ````````````````````````````````

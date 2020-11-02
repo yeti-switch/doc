@@ -17,12 +17,6 @@ CDR Unload Dir
 CDR Unload URI
     URL for external CDR viewer program. YETI redirects to that program from *CDR -> Tables* page when user press **Unloaded files** button.
 
-.. _system_global_configuration_cdr_archive_delay:
-
-CDR Archive Delay
-    Move CDRs to archive table after **N** months.
-CDR Remove Delay
-    Remove archived tables after **N** months.
 Max Records
     Maximum amount of records which YETI can save to CSV file on every list-type page (*Download: CSV* button at the bottom of page).
 Import Max Threads
