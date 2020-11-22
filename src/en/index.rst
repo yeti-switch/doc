@@ -24,6 +24,7 @@ Contents:
    headers-filtering
    releases/index.rst
    best-practices/best-practices.rst
+   data-retention/index.rst
 
 .. toctree::
    :maxdepth: 2

@@ -19,7 +19,7 @@ Configuration
 
 Add
 
-.. code-block::
+.. code-block:: ini
 
     notify-keyspace-events "Egx"
     

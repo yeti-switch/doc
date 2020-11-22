@@ -27,8 +27,8 @@ Admin WEB interface and  routing logic
    cdr
    yeti-ui-reports
    yeti-ui-rtd
-   yeti-ui-logs
-   yeti-ui-system
+   logs
+   system
    yeti-ui-userprofile
    yeti-ui-logout
    yeti-ui-regexp_replace

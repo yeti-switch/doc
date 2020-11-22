@@ -16,7 +16,7 @@ Attributes:
     Username
        Unique User's name.
     Roles
-        Access role, defines access level.
+        Access role, defines access level. Access roles and roles permissions can be defined in configuration file **/opt/yeti-web/config/policy_roles.yml**
     Visible columns
         Internal RO data describes tables columns visible for admin user.
     Per page
