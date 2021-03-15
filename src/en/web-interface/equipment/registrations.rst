@@ -4,11 +4,10 @@
 Registrations
 ~~~~~~~~~~~~~
 
-YETI is able to send outgoing SIP registrations to remote vendor's or customer's SIP registrar servers.
-For configure *Registration* it is necessary to configure at least one :ref:`Points of Presence <pops>` and at least one :ref:`Node <nodes>` records first.
+YETI is able to send outgoing SIP REGISTER requests(act as registrar client) to remote vendor's or customer's SIP registrar servers. This object allow to configure this registrar client behavior.
 
-**Registration**'s attributes
-`````````````````````````````
+Registration attributes
+```````````````````````
     Id
         Unique Registration's id.
     Name
@@ -18,7 +17,7 @@ For configure *Registration* it is necessary to configure at least one :ref:`Poi
     Pop
         Point of presence for registration requests.
     Node
-        Node which will hold registration.
+        Node which will send REGISTER requests.
     Transport protocol
         SIP transport protocol which will be used for send request.
     Domain
@@ -45,6 +44,8 @@ For configure *Registration* it is necessary to configure at least one :ref:`Poi
 	    Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occurred.
     Max attempts
 	    Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
+    Sip Interface Name
+        Name of signalling interface from sems.conf that will be used to build outgoing REGISTER request.
 
 
 Registration Flow without Proxy

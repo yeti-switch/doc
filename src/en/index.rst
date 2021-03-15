@@ -16,6 +16,7 @@ Contents:
    installation-1.8/index.rst
    installation-1.9/index.rst
    installation-1.10/index.rst
+   installation-1.11/index.rst
    web-interface/index.rst
    yeti-cli/index.rst
    yeti-client/index.rst
