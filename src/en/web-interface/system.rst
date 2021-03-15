@@ -15,12 +15,12 @@ YETI WEB interface - System menu description. This section describes general con
    system/yeti-ui-system-background_tasks
    system/yeti-ui-system-disconnect_codes
    system/yeti-ui-system-jobs
-   system/yeti-ui-system-pops
+   system/pops
    system/yeti-ui-system-countries
    system/yeti-ui-system-global_configuration
    system/yeti-ui-system-cdr_writer_configuration
    system/yeti-ui-system-load_balancers
-   system/yeti-ui-system-nodes
+   system/nodes
    system/yeti-ui-system-lnp_resolvers
    system/yeti-ui-system-networks
    system/yeti-ui-system-networks_prefixes

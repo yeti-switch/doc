@@ -22,7 +22,7 @@ Admin WEB interface and  routing logic
    general
    dashboard
    yeti-ui-billing
-   yeti-ui-equipment
+   equipment
    yeti-ui-routing
    cdr
    yeti-ui-reports
