@@ -12,11 +12,13 @@ Ring buffer size and string length can be customized at compile time, see DILog.
 
 .. code-block:: c
 
-    module "di_log" {}
+    module "di_log" {
+        loglevel = debug
+    }
     
-**di_log** module doesn't require any configuration.
 
-
+loglevel (since sems-modules-base 1.54.0)
+	min loglevel for messages to save. could be integer or text representation of the messages logging level. possible values: 0,error,1,warn,2,info,3,debug
 
 JSONRPC methods
 ===============
