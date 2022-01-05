@@ -23,7 +23,7 @@ jobs:
       - name: Save results as artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: deb11-package
+          name: doc-build
           path: src/_build/
 
       - name: configure
