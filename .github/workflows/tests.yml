@@ -17,10 +17,10 @@ jobs:
         run: sudo apt install graphviz
 
       - name: Run linkcheck
-        run: cd src && make linkcheck
+        run: make linkcheck
 
       - name: Run build
         env: 
           SPHINXOPTS: "-W --keep-going -n"
-        run: cd src && make
+        run: make
 

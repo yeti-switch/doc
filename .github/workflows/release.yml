@@ -18,17 +18,17 @@ jobs:
         run: sudo apt install graphviz rclone
 
       - name: Run make
-        run: cd src && make
+        run: make
 
       - name: Save results as artifacts
         uses: actions/upload-artifact@v2
         with:
           name: doc-build
-          path: src/_build/
+          path: _build/
 
       - name: configure
         run: rclone config create my-remote webdav url ${{secrets.WEBDAV_URL}} vendor other user '${{secrets.WEBDAV_USER}}'  pass '${{secrets.WEBDAV_PASSWORD}}'
 
       - name: deploy
-        run: "rclone sync src/_build my-remote:"
+        run: "rclone sync _build my-remote:"
 
