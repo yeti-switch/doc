@@ -1,0 +1,17 @@
+name: Tests
+on:
+  pull_request:
+  push:
+    branches: [ master ]
+
+jobs:
+  linkcheck:
+    name: "Link check"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: install sphinx
+        run: pip install sphinx
+      - name: Run linkcheck
+        run: cd src && make linkcheck
+
