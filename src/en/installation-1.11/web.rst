@@ -101,18 +101,19 @@ After successful configuration of databases you finally can run software using f
     # service yeti-web start 
     # service yeti-cdr-billing@cdr_billing start
     # service yeti-delayed-job start
+    # service yeti-scheduler start
 
-This will run web-interface and CDR processing workers
+This will run web-interface, schedulers, background tasks processors and CDR processing workers
 
 Checks
 ------
 
-check if unicorn listens on local socket:
+check if puma listens on local socket:
 
 .. code-block:: console
 
-    # netstat -lpn | grep unicorn
-    unix 2 [ ACC ] STREAM LISTENING 2535145 24728/unicorn.rb -E /tmp/yeti-unicorn.sock
+    # netstat -lpn | grep puma
+    unix  2      [ ACC ]     STREAM     LISTENING     16420    258/puma 5.5.2 (uni  /run/yeti/yeti-unicorn.sock
 
 check if nginx listens on correct TCP/IP addresses and ports:
 
