@@ -1,0 +1,25 @@
+name: Release
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: install sphinx
+        run: pip install sphinx
+
+      - name: Run make
+        run: cd src && make
+
+      - name: Save results as artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: deb11-package
+          path: _build/
+
