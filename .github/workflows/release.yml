@@ -15,7 +15,7 @@ jobs:
         run: pip install sphinx
       
       - name: install graphviz
-        run: apt install graphviz
+        run: sudo apt install graphviz
 
       - name: Run make
         run: cd src && make
