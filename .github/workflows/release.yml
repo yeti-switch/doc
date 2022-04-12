@@ -31,5 +31,5 @@ jobs:
         run: rclone config create my-remote webdav url ${{secrets.WEBDAV_URL}} vendor other user '${{secrets.WEBDAV_USER}}'  pass '${{secrets.WEBDAV_PASSWORD}}'
 
       - name: deploy
-        run: "rclone sync _build my-remote:"
+        run: "rclone -I sync _build my-remote:"
 
