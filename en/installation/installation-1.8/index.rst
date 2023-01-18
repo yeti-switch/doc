@@ -1,12 +1,7 @@
-.. yeti documentation master file, created by
-   sphinx-quickstart on Fri Oct  2 15:28:16 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 .. _install_1.8:
 
-Installation and operation manual. 1.8
-======================================
+Version 1.8
+===========
 
 Supported Operating systems is Debian GNU/Linux 8 and 9, the only supported architecture is amd64
 

@@ -147,7 +147,12 @@
       <div class="wy-nav-content">
         <div class="rst-content">
           {% include "breadcrumbs.html" %}
+
+            <img src="{{ pathto('_static/banner.svg', 1) }}"/>
+
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+
+
            <div itemprop="articleBody">
             {% block body %}{% endblock %}
            </div>
@@ -194,15 +199,14 @@
   {% endif %}
 
 {% block footer %}
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-47225565-1"></script>
-<script src="{{ pathto('_static/js/mscgen-inpage.js', 1) }}" defer></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1YGEQV43K8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-47225565-1');
+  gtag('config', 'G-1YGEQV43K8');
 </script>
 
 {% endblock %}

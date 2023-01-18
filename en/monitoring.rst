@@ -1,12 +1,17 @@
 .. :maxdepth: 2
 
 
-============================
-Yeti WEB Prometheus exporter
-============================
+==========
+Monitoring
+==========
+
+Yeti switch have designed to be used in pair with `Prometheus <https://prometheus.io/>`_ monitoring stack.
 
 
-It is possible to expose yeti-web ruby application internal metrics to `Prometheus <https://prometheus.io/>`_ metric storage.  You can enable exporter in **yeti_web.yml**:
+Yeti-web
+========
+
+To enable yeti-web prometheus exporter change configuration  in **yeti_web.yml**:
 
 .. code-block:: yaml
 
@@ -33,4 +38,9 @@ Prometheus exporter require additional daemon to be started. To start and enable
 
         root@yeti:/# systemctl start yeti-prometheus
         root@yeti:/# systemctl enable yeti-prometheus
+
+SEMS
+====
+
+See :ref:`SEMS prometheus module <sems_prometheus>` documentation for information how to enable SEMS prometheus exporter
 

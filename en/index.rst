@@ -1,31 +1,38 @@
-.. yeti documentation master file, created by
-   sphinx-quickstart on Fri Oct  2 15:28:16 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+
 
 Welcome to Yeti's documentation!
 ================================
-
-Contents:
-
 .. toctree::
    :maxdepth: 2
 
    general
+
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Administration
+
    installation/index.rst
-   installation-1.8/index.rst
-   installation-1.9/index.rst
-   installation-1.10/index.rst
-   installation-1.11/index.rst
-   web-interface/index.rst
+   call-trace.rst
+   cdr-export.rst
+   ldap.rst
+   pdf-documents.rst
    yeti-cli/index.rst
    yeti-client/index.rst
+   monitoring.rst
+   database-tuning.rst
+   data-retention/index.rst
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Operation
+
+   web-interface/index.rst
+
    quick-start/quick_start.rst
    disconnect-codes
    headers-filtering
-   releases/index.rst
    best-practices/best-practices.rst
-   data-retention/index.rst
 
 .. toctree::
    :maxdepth: 2
