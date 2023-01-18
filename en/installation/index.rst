@@ -1,29 +1,18 @@
-.. yeti documentation master file, created by
-   sphinx-quickstart on Fri Oct  2 15:28:16 2015.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
 
-.. _install:
+Base system installation
+========================
 
-Installation and operation manual 1.7
-=====================================
-
-Supported Operating systems is Debian GNU/Linux 8 and 9, the only supported architecture is amd64
+Supported Operating system is Debian GNU/Linux 11 the only supported architecture is amd64
 
 Components:
 
 .. toctree::
    :maxdepth: 2
 
-   repositories
-   routing-database
-   cdr-database
-   web
-   redis
-   management
-   sems
-   load-balancer
-   call-trace
-   cli-utility
-   database-tuning
+   installation-1.12/index
+   installation-1.11/index
+   installation-1.10/index
+   installation-1.9/index
+   installation-1.8/index
+   installation-1.7/index
 

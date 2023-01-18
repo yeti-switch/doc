@@ -1,5 +1,6 @@
 .. :maxdepth: 2
 
+.. _sems_prometheus:
 
 ==============================
 Module **prometheus_exporter**

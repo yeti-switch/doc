@@ -1,4 +1,5 @@
 .. :maxdepth: 2
+.. _database_tuning:
 
 ============================
 Databases performance tuning
@@ -6,7 +7,7 @@ Databases performance tuning
 
 By default Postgresql RDBMS configured to consume minimal system resources. This approach allows Postgresql to start on any server after installation. YETI as well as any other system uses Postgresql requires changing default configuration in order to archive best performance.
 
-We recommends to change next configuration variables at /etc/postgresql/11/yeti/postgresql.conf
+We recommends to change next configuration variables at /etc/postgresql/13/yeti/postgresql.conf
 
 .. code-block:: ini
 
