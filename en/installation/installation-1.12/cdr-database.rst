@@ -58,11 +58,7 @@ Create configuration file /etc/pgqd.ini
     base_connstr = host=127.0.0.1 port=5432 dbname=cdr user=cdr password=somepassword
     initial_database = cdr
     database_list = cdr
-    script = /usr/bin/pgqd
     pidfile = /var/run/postgresql/pgqd.pid
-    ticker_max_count=1
-    ticker_max_lag=3
-    ticker_idle_period=360
     
     
 Then you should start ticker:
