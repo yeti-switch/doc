@@ -1,3 +1,3 @@
-[![Build Status](https://travis-ci.org/yeti-switch/doc.svg?branch=master)](https://travis-ci.org/yeti-switch/doc)
+[![Build Status](https://github.com/yeti-switch/doc/actions/workflows/release.yml/badge.svg)]
 # doc
 Yeti-switch documentation
