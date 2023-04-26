@@ -68,7 +68,7 @@ To initialize empty databases during initial installation:
 
     # cd /opt/yeti-web 
     # su -s /bin/bash yeti-web
-    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:structure:load db:migrate
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake db:schema:load db:migrate
     $ RAILS_ENV=production ./bin/bundle.sh exec rake db:seed
  
     
