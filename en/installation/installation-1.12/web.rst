@@ -105,6 +105,7 @@ After successful configuration of databases you finally can run software using f
 
     # service yeti-web start 
     # service yeti-cdr-billing@cdr_billing start
+    # service yeti-cdr-billing@cdr_stats
     # service yeti-delayed-job start
     # service yeti-scheduler start
 

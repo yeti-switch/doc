@@ -24,3 +24,33 @@ Changes in 1.12 version
     * SRC and DST numbers validation mechanisms
     
 
+
+Upgrading to 1.12.79
+~~~~~~~~~~~~~~~~~~~~
+
+In yeti-web version 1.12.79 asynchronous CDR statistics calculation was introduced. This new mechanism requires additional configuration after system upgrade.
+
+Enable CDR Stats add configutation for CDR stats process to **/opt/yeti-web/config/pgq_processors.yml**:
+
+.. code-block:: yaml
+
+	cdr_stats:
+	  mode: production
+	  class: cdr_stat
+	  stored_procedure: switch.async_cdr_statistics
+	  syslog_program_name: "yeti-cdr-stats"
+	
+
+Enable CDR Stats pgq processor:
+
+.. code-block:: console
+
+        root@yeti:/# systemctl enable yeti-cdr-billing@cdr_stats
+
+
+Start cdr_stats pgq processor:
+
+.. code-block:: console
+
+        root@yeti:/# systemctl start yeti-cdr-billing@cdr_stats
+
