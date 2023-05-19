@@ -34,7 +34,7 @@ Restart all components of yeti-web
 
 .. code-block:: console
 
-	root@yeti:/# systemctl restart yeti-web yeti-cdr-billing@cdr_billing yeti-delayed-job yeti-scheduler
+	root@yeti:/# systemctl restart yeti-web yeti-cdr-billing@cdr_billing yeti-cdr-billing@cdr_stats yeti-delayed-job yeti-scheduler
 	
 	
 Upgrade SEMS
