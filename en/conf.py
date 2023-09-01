@@ -286,6 +286,7 @@ texinfo_documents = [
 # texinfo_no_detailmenu = False
 
 linkcheck_ignore = ["sip:sip-proxy.example.com"]
+linkcheck_anchors_ignore = ["L50"]
 
 html_context = {
     "current_language": "English",
