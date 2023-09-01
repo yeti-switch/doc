@@ -17,9 +17,10 @@ Packages installation
 .. code-block:: console
 
     # apt update && apt install yeti-web nginx
-
-Databases connection configuration
-----------------------------------
+    
+    
+Yeti-web configuration
+----------------------
 
 To configure databases connection parameters create /opt/yeti-web/config/database.yml file with the following content:
 
@@ -53,8 +54,16 @@ To configure databases connection parameters create /opt/yeti-web/config/databas
 
 .. warning:: You should specify correct addresses and credentials that were used in previous section
 
-Yeti-web configuration
-----------------------
+
+Configure security keys seed by creating /opt/yeti-web/config/secrets.yml with the following content:
+
+.. code-block:: yaml
+
+    production:
+      secret_key_base: <RANDOM_STRING>
+
+.. warning:: Replace **<RANDOM_STRING>** with randomly generated value. You can use **pwgen -s 128** to generate it.
+
 
 Copy configuration file example **/opt/yeti-web/config/yeti_web.yml.distr** to **/opt/yeti-web/config/yeti_web.yml**
 
