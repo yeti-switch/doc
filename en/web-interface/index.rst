@@ -25,7 +25,7 @@ Admin WEB interface and  routing logic
    equipment
    yeti-ui-routing
    cdr
-   yeti-ui-reports
+   reports/index
    yeti-ui-rtd
    logs
    system
