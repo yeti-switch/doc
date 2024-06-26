@@ -9,7 +9,7 @@ YETI Customer portal is `SPA <https://en.wikipedia.org/wiki/Single-page_applicat
 
 Demo Customer portal instance located at `<https://client.demo.yeti-switch.org>`_, current login/password is **test/test**.
 
-.. note:: Any admin user of demo instance can change login/password at `<https://demo.yeti-switch.org/api_accesses>`_
+.. note:: Any admin user of demo instance can change login/password at `<https://demo.yeti-switch.org/customer_portal_logins>`_
 
 .. figure:: yeti-client.gif
 
