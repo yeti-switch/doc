@@ -7,7 +7,7 @@ This section describes authentication and routing principles.
 
 General routing algorithm is represented on the picture below:
 
- .. graphviz:: graphviz/routing.dot
+ .. graphviz:: routing.dot
 
 On the first step of general routing algorithm :ref:`authentication <customer_auth>` will be made. As a result of this step :ref:`Customer Auth <customer_auth>` record will be selected for incoming call or call will be dropped with *Disconnect Code 110 (Can't find Customer or Customer locked)*.
 
@@ -138,23 +138,23 @@ YETI WEB interface - Routing menu description.
 .. toctree::
    :maxdepth: 1
 
-   yeti-ui-routing/yeti-ui-routing-customer_auths
-   yeti-ui-routing/yeti-ui-routing-rateplans
-   yeti-ui-routing/yeti-ui-routing-destinations
-   yeti-ui-routing/yeti-ui-routing-routing_groups
-   yeti-ui-routing/yeti-ui-routing-dialpeers
-   yeti-ui-routing/yeti-ui-routing-routing_plans
-   yeti-ui-routing/yeti-ui-routing-routing_plan_static_routes
-   yeti-ui-routing/yeti-ui-routing-routing_plan_lnp_rules
-   yeti-ui-routing/yeti-ui-routing-lnp_caches
-   yeti-ui-routing/yeti-ui-routing-numberlists
-   yeti-ui-routing/yeti-ui-routing-numberlist_items
-   yeti-ui-routing/yeti-ui-routing-routing_tags
-   yeti-ui-routing/yeti-ui-routing-areas
-   yeti-ui-routing/yeti-ui-routing-area_prefixes
-   yeti-ui-routing/yeti-ui-routing-routing_tag_detection_rules
-   yeti-ui-routing/yeti-ui-routing-routing_simulation
-   yeti-ui-routing/yeti-ui-routing-tags_truth_table
-   yeti-ui-routing/yeti-ui-routing-prefix_truth_table
+   yeti-ui-routing-customer_auths
+   yeti-ui-routing-rateplans
+   yeti-ui-routing-destinations
+   yeti-ui-routing-routing_groups
+   yeti-ui-routing-dialpeers
+   yeti-ui-routing-routing_plans
+   yeti-ui-routing-routing_plan_static_routes
+   yeti-ui-routing-routing_plan_lnp_rules
+   yeti-ui-routing-lnp_caches
+   numberlists
+   numberlist-items
+   yeti-ui-routing-routing_tags
+   yeti-ui-routing-areas
+   yeti-ui-routing-area_prefixes
+   yeti-ui-routing-routing_tag_detection_rules
+   yeti-ui-routing-routing_simulation
+   yeti-ui-routing-tags_truth_table
+   yeti-ui-routing-prefix_truth_table
 
 

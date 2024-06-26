@@ -1,7 +1,7 @@
 .. _api_access:
 
-API Accesses
-~~~~~~~~~~~~
+Customer Portal Logins
+~~~~~~~~~~~~~~~~~~~~~~
 
 This configuration section allow administrator define credentials and grant access to specific Contractor/Account information to Customer via :ref:`Customer API <customer_api>`
 
