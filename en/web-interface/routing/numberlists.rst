@@ -4,11 +4,13 @@
 Numberlists
 ~~~~~~~~~~~
 
-Numberlists are used for describing common parameters that can be applied for set of :ref:`Numberlist items <numberlist_items>`.
+Numberlist is configuration object that allow to configure actions depends on Source or Destination number. Depends on configuration numberlist may act as blocklist and allowlist of phone numbers.
+
+Numberlist object contains one or multiple :ref:`Numberlist items <numberlist_items>` to describe behavior for specific number.
 
 
-**Numberlist**'s attributes:
-````````````````````````````
+**Numberlist**'s attributes
+```````````````````````````
     Id
         Unique Numberlist's id.
     Name
@@ -17,20 +19,22 @@ Numberlists are used for describing common parameters that can be applied for se
 .. _numberlists_mode:
 
     Mode
-        Mode of comparison :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` and with source (A) or destination (B) number of the call:
-
+        Mode defines :ref:`Numberlist item <numberlist_items>` key lookup logic.
+        
         **Strict number match** - In this mode :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` should contain full source (A) or destination (B) number of the call.
 
-        **Prefix match**    - In this mode :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` should contain Prefix. Only in case of matching *Prefix* with first symbols of the source (A) or destination (B) number - according  action will be applied to the call.
+        **Prefix match** - In this mode :ref:`Key <numberlist_items_key>` field of :ref:`Numberlist item <numberlist_items>` should contain Prefix. Only in case of matching *Prefix* with first symbols of the source (A) or destination (B) number - according  action will be applied to the call.
+        
+        **Random** - Numberlist Item will be randomly selected. In this mode Numberlist Item always will be matched(if there are at least one Item in this Numberlist)
 
 .. _numberlists_action:
 
     Default action
-        This action will be applied to the call by default in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*. You can rewrite this action for concrete :ref:`Numberlist item <numberlist_items>` by specifying action in the :ref:`Numberlist item <numberlist_items>` attributes:
+        Default action will be applied in case when Numberlist Item was not found.
 
-        **Reject call** -   Reject call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
+        **Reject call** - Reject call in case of :ref:`Numberlist item <numberlist_items>` is not found
 
-        **Allow call** -  Allow call in case of conformity source (A) or destination (B) number and the :ref:`Key <numberlist_items_key>` field (according to the Mode that was chosen above) of :ref:`Numberlist item <numberlist_items>` that is associated with this *Numberlist*.
+        **Allow call** - Allow call in case of :ref:`Numberlist item <numberlist_items>` is not found
 
 .. _numberlists_rewrite_rules:
 
@@ -46,7 +50,7 @@ Numberlists are used for describing common parameters that can be applied for se
     Default dst rewrite result
         *Replacement* parameter of **regexp_replace** function from the `POSIX Regular Expressions <https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. As *Source* parameter of **regexp_replace** function is used destination number (number B), as a *Pattern* parameter of **regexp_replace** function is used value from *Default dst rewrite rule* above. Returned value of **regexp_replace** function will be used as destination number (number B) for the call during future routing. It helps to change format of the destination number for providing compatibility. This field is used only in case of missing specific :ref:`Numberlist item <numberlist_items>` for the call in the framework of this *Numberlist*.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-
+        
 .. _numberlists_routing_tags_options:
 
     Tag action
@@ -67,5 +71,20 @@ Numberlists are used for describing common parameters that can be applied for se
         Date and time of this Numberlist creation.
     Updated At
         Date and time of last updating of this Numberlist.
+        
+        
+**Numberlist**' Usage
+`````````````````````
+
+Numberlist may be used in Customer Auth object as SRC or DST Numberlist. In this case it will be used before call routing(during Customer auth processing).
+
+    * For SRC numberlist system will try to find Numberlist Item by key, comparing it with SRC number.
+    * For DST numberlist system will try to find Numberlist Item by key, comparing it with DST number.
+
+    
+Numberlist may be used in Routing Plan as SRC or DST Numberlist. Routing plan Numberlist processing processed on next step after Customer Auth Numberlist. Usual use case for Routing Plan Numberlist is global call blocking to/from some numbers.
+
+
+Numberlist may be used in termination gateways. In this mode it is possible to skip termination gw during routing process depends on numberlist item matching results.
 
 

@@ -21,9 +21,9 @@ Admin WEB interface and  routing logic
 
    general
    dashboard
-   yeti-ui-billing
+   billing/index
    equipment
-   yeti-ui-routing
+   routing/index
    cdr
    reports/index
    yeti-ui-rtd

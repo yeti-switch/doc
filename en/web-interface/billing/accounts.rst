@@ -66,16 +66,10 @@ and **increased** if it uses account for **termination** (vendor).
        :align: center
        :alt: YETI Account capacity
      
-    Vendor invoice period
-        Automatic invoices generation period in case when account acts as vendor.
-    Customer invoice period
-        Automatic invoices generation period in case when account acts as customer.
-    Vendor invoice template
-        Template for generation of PDF invoices for vendor.
-        (Templates can be configured at *Billing->Invoice templates*)
-    Customer invoice template
-        Template for generation of PDF invoices for customer.
-        (Templates can be configured at *Billing->Invoice templates*)
+    Invoice period
+        Automatic invoices generation period.
+    Invoice template
+        Template for generation of PDF invoice documents. (Templates can be configured at *Billing->Invoice templates*)
     Sent invoices to
         Contacts list to send invoices that were generated.
     Timezone
