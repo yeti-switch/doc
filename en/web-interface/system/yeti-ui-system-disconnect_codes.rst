@@ -21,7 +21,7 @@ Disconnect Codes are used for defining special actions for some SIP disconnect c
     Successnozerolen
         In case of enabling of this field this *Disconnect Code* will be recognized by Yeti as successful only for calls with no zero length.
     Stop hunting
-        In case of enabling of this field Yeti will stop going through Dialpeers rating for routing the call after receiving this *Disconnect Code*.
+        In case of enabling of this field Yeti will not re-route call after receiving this *Disconnect Code*.
     Pass reason to originator
         In case of enabling of this field Yeti will transfer reason from termination :ref:`Gateway <gateways>` to origination.
     Rewrited code
