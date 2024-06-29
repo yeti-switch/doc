@@ -82,7 +82,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                 rtp {
                     address = <MEDIA_IP>
                     low-port = 16384
-                    high-port = 32768
+                    high-port = 32769
                     dscp = 46
                     use-raw-sockets = off
                 }
