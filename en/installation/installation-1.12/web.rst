@@ -88,7 +88,15 @@ To upgrade databases to the latest version:
     # cd /opt/yeti-web 
     # su -s /bin/bash yeti-web
     $ RAILS_ENV=production ./bin/bundle.sh exec rake db:migrate
-    
+
+To load countries and networks information to database:
+
+.. code-block:: console
+
+    # cd /opt/yeti-web 
+    # su -s /bin/bash yeti-web
+    $ RAILS_ENV=production ./bin/bundle.sh exec rake custom_seeds[network_prefixes]
+
     
 Nginx configuration
 -------------------
