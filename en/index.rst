@@ -33,6 +33,7 @@ Welcome to Yeti's documentation!
    disconnect-codes
    headers-filtering
    best-practices/best-practices.rst
+   best-practices/teams-direct-routing.rst
 
 .. toctree::
    :maxdepth: 2
