@@ -31,5 +31,4 @@ Admin WEB interface and  routing logic
    system
    yeti-ui-userprofile
    yeti-ui-logout
-   yeti-ui-regexp_replace
 

@@ -1,14 +1,18 @@
 
 .. _posix_regular_expressions2:
 
-==================================
-Using of POSIX Regular Expressions
-==================================
+====================
+Numbers translations
+====================
 
-`POSIX Regular Expressions <https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_ used in many places of Yeti's configurations for changing format of phone numbers. It helps to provide compatibility between different VoIP platforms. This section describes general principles and examples of using POSIX Regular Expressions in Yeti.
+Yeti has flexible configuration of numbers modifications - it allows to change source and destination numbers before routing, after routing and before sending call to termination provider.
+In most cases numbers translations implemented using `POSIX Regular Expressions <https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_.
+
+This section describes general principles and examples of using POSIX Regular Expressions in Yeti.
+
 
 Arguments
-~~~~~~~~~
+=========
 
 
 Yeti uses `REGEXP_REPLACE <https://www.postgresql.org/docs/current/functions-matching.html>`_ function:
@@ -36,7 +40,7 @@ The REGEXP_REPLACE() function returns a new phonenumber with the elements, which
 
 
 Examples
-~~~~~~~~
+========
 
 1)  How to add one or more digits to the beginning of the phonenumber
 
