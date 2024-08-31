@@ -6,6 +6,9 @@ Incoming Registrations page contains up-to-date bindings between an address-of-r
 
 These are such items:
 
+    Node
+        Yeti node processed incoming REGISTER request. This node also sending OPTIONS ping requests during registration lifetime.
+
     Gateway
         Name and Id of the Gateway used by UA.
 
