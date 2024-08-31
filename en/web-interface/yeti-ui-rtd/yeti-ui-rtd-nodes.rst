@@ -2,27 +2,22 @@
 Nodes
 ~~~~~
 
-RealTime information about current state of the :ref:`Nodes <nodes>` (independent installations of YETI-SEMS).
+RealTime information about current state of the :ref:`Nodes <nodes>`. Web UI fetching information about nodes using JRPC connection.
 
-**Node**'s filtering parameters:
-````````````````````````````````
-    Name
-        Node's name. It is possible to use statement for this field (contains, equals, starts with, ends with).
-    POP
-        :ref:`Point of Presence <pops>` (PoP) that will be used for filtering Nodes. In case of specification - only Nodes that are related to selected PoP will be shown. For monitoring Nodes from all :ref:`Points of Presence <pops>`, please, choose "Any" in this field.
+Attributes:
 
-**Node**'s properties:
-``````````````````````
     Name
         Node's name.
     Active Calls Count
         Count of active calls that a currently going via :ref:`Node <nodes>`.
     Version
-        Version of SEMS that is used on :ref:`Node <nodes>`.
+        Version of SEMS Yeti module on :ref:`Node <nodes>`.
+    Core Version
+        Version of SEMS that on :ref:`Node <nodes>`.
     Shutdown Req Time
-        Time for requesting shutdown of the :ref:`Node <nodes>`. This is time for planned shutdown (or restart) of software. During period before this Time new calls will be rejected by the :ref:`Node <nodes>`. If this field is empty :ref:`Node <nodes>` is working in normal mode.
+        Time when node was switched to shutdown mode. If this field is empty node is working in normal mode. In shutdown mode node processing active calls but not accept new calls. In this mode load balancer routing calls to other nodes.
     Sessions Num
-        General amount of active sessions between Yeti and :ref:`Gateways <gateways>`.
+        General amount of active sessions between. Yeti creating separate session for each call leg so usually each active call requires 2 sessions.
     Uptime
         Time from last reboot for this :ref:`Node <nodes>`.
 
