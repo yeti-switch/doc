@@ -5,7 +5,7 @@ General Information
 .. _general_information:
 
 
- YETI Web interface allows you to manage all possible entities in the system including CDRs, reporting, billing, routing, sytem configuration and others. It was developed using the most poweful and flexible web frameworks such as `Ruby on Rails <https://rubyonrails.org/>`_ and `Active Admin <https://activeadmin.info/>`_.
+ YETI Web interface allows you to manage all possible entities in the system including CDRs, reporting, billing, routing, sytem configuration and others. It was developed using the most powerful and flexible web frameworks such as `Ruby on Rails <https://rubyonrails.org/>`_ and `Active Admin <https://activeadmin.info/>`_.
 
  General structure of the YETI Web interface includes tree main sections:
 
