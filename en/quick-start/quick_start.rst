@@ -1,7 +1,9 @@
 
-================================
-Guideline on Quick start of Yeti
-================================
+=========================
+Routing quick start guide
+=========================
+
+This document explains how to configure Yeti to route your fist test call.
 
 Yeti is user-friendly application and it very easy for configuration. You can see this by looking at the diagram of dependencies between objects :)
 

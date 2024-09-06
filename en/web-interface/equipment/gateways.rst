@@ -275,7 +275,8 @@ Signaling (Termination) **Gateway**'s attributes:
     Send lnp information
         If this checkbox is enabled (in case of using Gateway as Terminator of calls) Yeti will include Local number portability information (LNP) to the outgoing INVITE-request (by adding npdi and rn parameters to the R-URI) only in case of availability of this LNP information (it means if LNP information was successfully received from :ref:`LNP Database <lnp_databases>`). Rules of receiving LNP information from LNP Database are regulated in the :ref:`Routing plan LNP rules <routing_plan_lnp_rules>`.
 
-
+    .. _gateways_number_translation:
+        
 Translations **Gateway**'s attributes:
 ``````````````````````````````````````
     Diversion policy

@@ -31,9 +31,10 @@ Welcome to Yeti's documentation!
 
    quick-start/quick_start.rst
    disconnect-codes
-   headers-filtering
-   best-practices/best-practices.rst
+   best-practices/headers-transit.rst
+   best-practices/numbers-translations.rst
    best-practices/teams-direct-routing.rst
+   best-practices/using-routing-tags.rst
 
 .. toctree::
    :maxdepth: 2

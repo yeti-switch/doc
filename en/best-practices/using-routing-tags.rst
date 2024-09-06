@@ -1,8 +1,8 @@
 .. :orphan:
 
-=================================================
-Using Routing tags for the routing prioritization
-=================================================
+==================
+Using Routing tags
+==================
 The Yeti Switch has rich abilities for routing traffic. And one of them is tags.
 
 Let's imagine that you need to route some calls relying on their A or B numbers (or even both) - that's not a problem.

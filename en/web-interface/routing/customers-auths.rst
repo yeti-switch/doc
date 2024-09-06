@@ -278,7 +278,7 @@ Match condition **Customers Auth**'s options
     X Yeti Auth
         It's possible to define the custom SIP-header **X-Yeti-Auth** or array of headers (separated by comma(,)) for the customer's calls and specify its value in YETI. In case they match, YETI passes such calls with using this Customer Auth entity for authentication.
 
-    .. _number_translation_settings:
+    .. _customers_auth_number_translation:
 
 Number translation **Customers Auth**'s options
 ```````````````````````````````````````````````
