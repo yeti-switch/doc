@@ -26,6 +26,8 @@ Header & Menu line
 
  .. figure:: images/header.png
         :alt: YETI Web interface - header
+        
+**Logout** button is used for exit from Yeti Web Interface.
 
 Working Area
 ============

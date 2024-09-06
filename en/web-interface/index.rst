@@ -30,5 +30,4 @@ Admin WEB interface and  routing logic
    logs
    system
    yeti-ui-userprofile
-   yeti-ui-logout
 
