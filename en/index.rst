@@ -22,6 +22,7 @@ Welcome to Yeti's documentation!
    monitoring.rst
    database-tuning.rst
    data-retention/index.rst
+   load-balancer.rst
 
 .. toctree::
    :maxdepth: 2

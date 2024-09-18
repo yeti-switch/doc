@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install sphinx
-        run: pip install sphinx sphinx_rtd_theme
+        run: pip install sphinx sphinx_rtd_theme sphinxcontrib-mermaid
 
       - name: install graphviz
         run: sudo apt install graphviz

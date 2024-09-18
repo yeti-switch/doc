@@ -16,7 +16,6 @@ Components:
    web
    redis
    sems
-   load-balancer
    release-notes
    upgrade-from-1.11
 

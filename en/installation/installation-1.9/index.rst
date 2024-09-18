@@ -17,7 +17,6 @@ Components:
    redis
    management
    sems
-   load-balancer
    call-trace
    database-tuning
    release-notes
