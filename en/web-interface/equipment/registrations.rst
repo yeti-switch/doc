@@ -1,13 +1,14 @@
 
 .. _registrations:
 
+=============
 Registrations
-~~~~~~~~~~~~~
+=============
 
 YETI is able to send outgoing SIP REGISTER requests(act as registrar client) to remote vendor's or customer's SIP registrar servers. This object allow to configure this registrar client behavior.
 
 Registration attributes
-```````````````````````
+=======================
     Id
         Unique Registration's id.
     Name
@@ -49,71 +50,51 @@ Registration attributes
 
 
 Registration Flow without Proxy
-```````````````````````````````
+===============================
 
-.. raw:: html
+.. mermaid::
+	:align: center
 
-	<embed>
-	 <pre class='code xu mscgen_js' data-language='xu' data-named-style='basic'>
-	msc {
-  
-	  arcgradient=0, hscale=2;
- 
-	  C[label="YETI Node\n11.11.11.11"],
-	  S[label="SIP Registrar Server\n13.13.13.13"];
-  
-	  C => S [label="REGISTER"];
-	  S >> C [label="100 Trying(optional)"];
-	  S => C [label="401 Unauthorized + WWW-Authenticate header"];
-	  C => S [label="ACK"];
-	  C => S [label="REGISTER + Authorization header"];
-	  S >> C [label="100 Trying(optional)"];
-	  S => C [label="200 OK"];
-	  C => S [label="ACK"];
-
-	}
-
-    </pre>
-    </embed>
+	sequenceDiagram
+		participant N as Yeti Node
+		participant S as SIP Registrar server
+		N->>S: REGISTER
+		S->>N: 100 Trying
+		S->>N: 401 Unauthorized + WWW-Authenticate header
+		N->>S: ACK
+		Note over N: Authorization response calculation<br/>based on nonce, password
+		N->>S: REGISTER + Authorization header
+		S->>N: 100 Trying
+		S->>N: 200 OK
+		N->>S: ACK
 
     
 Registration Flow with Proxy
-````````````````````````````
+============================
+
 .. _registration_with_proxy:
 
-.. raw:: html
 
-	<embed>
-	 <pre class='code xu mscgen_js' data-language='xu' data-named-style='basic'>
-	msc {
-  
-	  arcgradient=0, hscale=2;
- 
-	  C[label="YETI Node\n11.11.11.11"],
-	  L[label="SIP Proxy\n12.12.12.12"],
-	  S[label="SIP Registrar Server\n13.13.13.13"];
-  
-	  C => L [label="REGISTER"];
-	  L >> C [label="100 Trying"];
-	  L => S [label="REGISTER"];
-	  S >> L [label="100 Trying"];
-	  S => L [label="401 Unauthorized + WWW-Authenticate header"];
-	  L => C [label="401 Unauthorized + WWW-Authenticate header"];
-	  C => L [label="ACK"];
-	  
+.. mermaid::
+	:align: center
 
-  	  C => L [label="REGISTER + Authorization header"];
-	  L >> C [label="100 Trying"];
-	  L => S [label="REGISTER + Authorization header"];
-	  S >> L [label="100 Trying"];
-	  S => L [label="200 OK"];
-	  L => C [label="200 OK"];
-	  C => L [label="ACK"];
-
-	}
-
-    </pre>
-    </embed>
-
-
-
+	sequenceDiagram
+		participant N as Yeti Node
+		participant P as SIP Proxy
+		participant S as SIP Registrar server
+		N->>P: REGISTER
+		P->>N: 100 Trying
+		P->>S: REGISTER
+		S->>P: 401 Unauthorized + WWW-Authenticate header
+		P->>N: 401 Unauthorized + WWW-Authenticate header
+		N->>P: ACK
+		P->>S: ACK
+		Note over N: Authorization response calculation<br/>based on nonce, password
+		N->>P: REGISTER + Authorization header
+		P->>N: 100 Trying
+		P->>S: REGISTER + Authorization header
+		S->>P: 100 Trying
+		S->>P: 200 OK
+		P->>N: 200 OK
+		N->>P: ACK
+		P->>S: ACK

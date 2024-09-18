@@ -16,7 +16,6 @@ Components:
    web
    redis
    sems
-   load-balancer
    call-trace
    cdr-export
    release-notes
