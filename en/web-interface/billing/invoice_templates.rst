@@ -85,7 +85,7 @@ Placeholder                         Description
 
 
 .. figure:: insert_placeholders.gif
-   :scale: 70 %
+   :scale: 60 %
    :alt: How to insert scalar placeholder to invoice template
    
    How to insert scalar placeholder to invoice template
@@ -109,6 +109,14 @@ INV_TERM_NETWORKS_TABLE         Calls terminated to account, groupped by destina
 INV_TERM_NETWORKS_SUCC_TABLE    Successful calls terminated to account, groupped by destination network
 INV_SRV_DATA_TABLE              Table of services related transactions
 =============================== =====================================================================================
+
+
+
+.. figure:: insert_table.gif
+   :scale: 60 %
+   :alt: How to insert table
+   
+   How to insert table
 
 INV_ORIG_DST_TABLE and INV_ORIG_DST_SUCC_TABLE
 ==============================================
