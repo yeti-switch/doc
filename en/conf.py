@@ -116,6 +116,10 @@ html_theme = "sphinx_rtd_theme"
 #html_theme_options = {
 #}
 
+# see ls ~/.venvs/envname/lib/python3.12/site-packages/pygments/styles
+#monokai, tango, friendly, lightbulb, manni, perldoc, rrt
+pygments_style = "friendly"
+
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = ["../themes"]
 
