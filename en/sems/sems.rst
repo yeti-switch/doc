@@ -476,4 +476,38 @@ SEMS is application server so it is possible to load multiple application at sam
         application = yeti
     }
 
+application (default: empty)
+    Specifies applications to handle initial SIP INVITE requests.
 
+    Format is the list of mappings separated by ``|``. Session factory will iterate mappings in order they were specified until one of them returned destination application
+
+    Each mapping can be one of:
+
+    * ``app_name``: explicit application name
+    * ``$(ruri.user)``: get application name from the INVITE RURI-user
+    * ``$(ruri.param)``: get application name from the INVITE RURI header ``app``
+    * ``$(apphdr)``: get application name from the INVITE ``P-App-Name`` header
+    * ``$(mapping)``: use regex mapping from the ``/etc/sems/etc/app_mapping.conf``
+
+        .. code-block:: bash
+
+            # sems application mapping
+            #
+            # the application mapping defined here is used,
+            # if application=$(mapping) is set in sems.conf.
+            #
+            # the first regular expression which matches on the
+            # request URI sets the application that is executed.
+            #
+            # format:
+            #  regexp=>application
+            #  lines starting with '#' and empty lines are ignored
+
+            ^sip:100=>echo
+            .*=>yeti
+
+register_application (default: empty)
+    Override application for REGISTER requests
+
+options_application (default: empty)
+    Override application for OPTIONS requests
