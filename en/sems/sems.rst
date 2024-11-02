@@ -449,9 +449,20 @@ Section modules describles which modules should be loaded. Module can optionally
             /* Module2 configuration */
         }
     }
-    
+
 SEMS will lookup modules(.so binary libraries) at ``/usr/lib/sems/plug-in/`` directory.
 
+path (default: /usr/lib/sems/plug-in/)
+    Path to lookup for modules \*.so files
+
+config_path (default: /etc/sems/etc/)
+    Path prefix for modules to lookup for the additional module-specific config files
+
+module "mod_name" { /\*cfg\*/ }
+    Load **mod_name** module with the specified configuration
+
+global-module "mod_name" { /\*cfg\*/ }
+    Similar to **module** but loads \*.so with RTLD_NOW | RTLD_GLOBAL flags. needed for some plug-ins which should export symbols globally
 
 Section **routing**
 -------------------
