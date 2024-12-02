@@ -100,7 +100,6 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
         module "adpcm" {}
         module "l16" {}
         module "g722" {}
-        module "g729bcg" {}
 
         module "registrar_client" {}
         module "sctp_bus" {}
