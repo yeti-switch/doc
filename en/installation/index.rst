@@ -2,9 +2,7 @@
 Base system installation
 ========================
 
-Supported Operating system is Debian GNU/Linux 11 the only supported architecture is amd64
-
-Components:
+Versions:
 
 .. toctree::
    :maxdepth: 2

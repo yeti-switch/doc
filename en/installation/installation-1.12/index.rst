@@ -5,7 +5,7 @@ Version 1.12
 
 Supported Operating system is Debian GNU/Linux 11 the only supported architecture is amd64
 
-Components:
+Steps:
 
 .. toctree::
    :maxdepth: 2
