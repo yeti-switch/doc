@@ -14,16 +14,10 @@ CDRs databases require similar set of packages as routing database
 
 .. code-block:: console
 
-    # apt update && apt install postgresql-9.4 postgresql-contrib-9.4 postgresql-9.4-prefix postgresql-9.4-pgq3 postgresql-9.4-pgq-ext postgresql-9.4-yeti pgqd
-    
-or for Debian 9 and Postgresql 10:
-
-.. code-block:: console
-
-    # apt update && apt install postgresql-10 postgresql-10-prefix postgresql-10-pgq3 postgresql-10-pgq-ext postgresql-10-yeti pgqd
+    # apt update && apt install postgresql-16 postgresql-contrib-16 postgresql-16-prefix postgresql-16-pgq3 postgresql-16-pgq-ext postgresql-16-yeti postgresql-16-pllua pgqd
     
     
-.. warning:: Since  yeti-web version 1.6.0 it is important to install Postgresql from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details
+.. warning:: It is important to install Postgresql from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details
   
   
 
@@ -64,11 +58,7 @@ Create configuration file /etc/pgqd.ini
     base_connstr = host=127.0.0.1 port=5432 dbname=cdr user=cdr password=somepassword
     initial_database = cdr
     database_list = cdr
-    script = /usr/bin/pgqd
     pidfile = /var/run/postgresql/pgqd.pid
-    ticker_max_count=1
-    ticker_max_lag=3
-    ticker_idle_period=360
     
     
 Then you should start ticker:
@@ -93,8 +83,8 @@ Check if databases were successfully created and are accessible:
     cdr=# \q
     root@cdr-server:/#
 
-Don't forget to make changes in /etc/postgresql/9.4/main/pg_hba.conf
+Don't forget to make changes in /etc/postgresql/16/main/pg_hba.conf
 and apply them if you plan to access this databases from other hosts and/or set up database replication
 
 
-.. seealso:: :doc:`database-tuning`
+.. seealso:: :ref:`Database tuning <database_tuning>`

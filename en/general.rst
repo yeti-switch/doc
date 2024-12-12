@@ -135,14 +135,14 @@ Components
 
 Yeti consists of the following components:
 
-- Traffic routing server (SEMS + YETI module)
-- Management daemon - used as configuration storage across cluster
+- Switch server (SEMS + YETI module)
 - Incoming traffic balancer (Kamailio)
 - Routing database (Postgresql)
 - CDR database (Postgresql)
 - Realtime data storage(Redis)
-- Web-interface (RoR, ruby)
+- Management Web-interface (RoR, ruby)
 - CLI interface (python) [optional]
+- Customer portal (VueJS SPA) [optional]
 - CDRs billing and statistics calculation daemons based on PGQ
 
 YETI designed as cluster system, but you can run all components  on the one server, as well as on the different hosts.
