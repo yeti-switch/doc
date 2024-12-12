@@ -12,14 +12,14 @@ Most of servers may use same repositories set::
     deb http://deb.debian.org/debian/ bookworm-backports main contrib non-free non-free-firmware
     deb http://security.debian.org/debian-security bookworm-security main contrib non-free non-free-firmware
 
-    deb http://deb.yeti-switch.org/debian/1.13 bookworm main
-    deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main
+    deb https://deb.yeti-switch.org/debian/1.13 bookworm main
+    deb https://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main
     
 System repositories can be changed in **/etc/apt/sources.list**. Since we use our own package repository you have add our key to trusted. 
 
 .. code-block:: console
 
-    # wget http://deb.yeti-switch.org/yeti.gpg -O /etc/apt/trusted.gpg.d/yeti-key.asc
+    # wget https://deb.yeti-switch.org/yeti.gpg -O /etc/apt/trusted.gpg.d/yeti-key.asc
 
 PGDG repository key also should be added to trusted list
 
