@@ -13,7 +13,7 @@ Yeti is user-friendly application and it very easy for configuration. You can se
    dependencies
 
 
-This Guideline contains step-by-step description of Yeti's configuration that will help to start it quickly just after finishing of the :ref:`installation process <install>`.
+This Guideline contains step-by-step description of Yeti's configuration that will help to start it quickly just after finishing of the :ref:`installation process <install_1.13>`.
 For configuration purposes :ref:`Yeti Web interface <web>` could be used.
 
 .. _quick_start_chapter1:

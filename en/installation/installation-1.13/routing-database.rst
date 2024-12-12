@@ -11,7 +11,7 @@ Routing database installation
 Supported versions
 ------------------
 
-The only supported postgresql version is 11.
+The only supported postgresql version is 16.
 
 
 Packages installation
@@ -19,11 +19,8 @@ Packages installation
 
 .. code-block:: console
 
-    # apt update && apt install postgresql-11 postgresql-contrib-11 postgresql-11-prefix postgresql-11-pgq3 postgresql-11-pgq-ext postgresql-11-yeti postgresql-11-pllua pgqd
+    # apt update && apt install postgresql-16 postgresql-contrib-16 postgresql-16-prefix postgresql-16-pgq3 postgresql-16-pgq-ext postgresql-16-yeti postgresql-16-pllua pgqd
        
-    
-.. warning:: Since  yeti-web version 1.6.0 it is important to install Postgresql from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details
-
 
 Databases creation
 ------------------
@@ -63,7 +60,7 @@ Check if databases were successfully created and are accessible::
     root@evial:/#
 
 
-Don't forget to make changes in /etc/postgresql/11/main/pg_hba.conf
+Don't forget to make changes in /etc/postgresql/16/main/pg_hba.conf
 and apply them if you plan to access this databases from other hosts and/or set up database replication
 
-.. seealso:: :doc:`database-tuning`
+.. seealso:: :ref:`Database tuning <database_tuning>`

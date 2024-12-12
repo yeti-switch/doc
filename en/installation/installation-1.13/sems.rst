@@ -15,7 +15,7 @@ Install packages
 Configuration files
 -------------------
 
-.. _sems_conf_1.11:
+.. _sems_conf_1.13:
 
 /etc/sems/sems.conf
 ~~~~~~~~~~~~~~~~~~~
@@ -29,7 +29,6 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 .. code-block::
 
     general {
-        daemon = yes
         stderr = no
         syslog_loglevel = 2
         syslog_facility = LOCAL0
@@ -42,24 +41,23 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
             allow_uac = true
         }
 
-
         media_processor_threads = 4
         rtp_receiver_threads = 4
         session_processor_threads = 20
         sip_udp_server_threads = 2
         sip_tcp_server_threads = 2
 
-        dead_rtp_time=30
+        dead_rtp_time = 30
 
-        default_bl_ttl=0
+        default_bl_ttl = 0
 
         symmetric_rtp_mode = packets
         symmetric_rtp_packets = 20
     }
 
     signaling-interfaces {
-        interface internal {
-            default-media-interface = internal
+        interface primary {
+            default-media-interface = primary
             ip4 {
                 sip-udp {
                     address = <SIGNALLING_IP>
@@ -79,12 +77,12 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
     }
 
     media-interfaces {
-        interface internal {
+        interface primary {
             ip4 {
                 rtp {
                     address = <MEDIA_IP>
                     low-port = 16384
-                    high-port = 32768
+                    high-port = 32769
                     dscp = 46
                     use-raw-sockets = off
                 }
@@ -94,6 +92,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 
     modules {
         module "di_log" {}
+
         module "mp3" {}
         module "opus" {}
         module "wav" {}
@@ -102,17 +101,17 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
         module "adpcm" {}
         module "l16" {}
         module "g722" {}
-        module "g729bcg" {}
 
         module "registrar_client" {}
-        module "sctp_bus" {}
+        module "postgresql" {}
+
         module "session_timer" {}
         module "jsonrpc" {
             listen{
                 address = 127.0.0.1
                 port = 7080
             }
-            server_threads=1
+            server_threads = 1
         }
 
         module "http_client" {}
@@ -122,23 +121,44 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
 
         module "radius_client" {}
 
+        module "redis" {
+            max_batch_size = 10
+            batch_timeout = 100
+            max_queue_size = 1000
+        }
+
+        module "registrar" {
+            redis {
+                use_functions = no
+                write {
+                    hosts = { 127.0.0.1:6379 }
+                }
+                read {
+                    hosts = { 127.0.0.1:6379 }
+                }
+           }
+        }
+
         module "yeti" {
-            pop_id = 4
+            pop_id = <POP_ID>
             lega_cdr_headers {
                 header(p-charge-info, string)
                 header(diversion, array)
             }
 
             auth {
-                realm = 127.0.0.1
+                realm = yeti-switch
             }
 
             msg_logger_dir = /var/spool/sems/dump
-            log_dir = /var/spool/sems/logdump
             audio_recorder_dir = /var/spool/sems/records
-            audio_recorder_compress = true
+            audio_recorder_compress = false
+
+            db_refresh_interval = 5
+            ip_auth_reject_if_no_matched = true
+
             routing {
-                schema = switch19
+                schema = switch21
                 function = route_release
                 init = init
                 master_pool {
@@ -150,7 +170,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                     size = 4
                     check_interval = 10
                     max_exceptions = 0
-                    statement_timeout=3000
+                    statement_timeout = 3000
                 }
                 failover_to_slave = false
                 slave_pool {
@@ -162,18 +182,14 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                     size = 4
                     check_interval = 10
                     max_exceptions = 0
-                    statement_timeout=3000
-                }
-                cache {
-                    enabled = false
-                    check_interval = 60
-                    buckets = 100000
+                    statement_timeout = 3000
                 }
             }
             cdr {
                 dir = /var/spool/sems/cdrs
                 completed_dir = /var/spool/sems/cdrs/completed
                 pool_size = 2
+                auth_pool_size = 2
                 schema = switch
                 function = writecdr
                 master {
@@ -196,31 +212,23 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                 serialize_dynamic_fields = true
                 batch_size = 1
                 batch_timeout = 5000
+                auth_batch_size = 1
+                auth_batch_timeout = 20000
             }
             resources {
                 reject_on_error = false
+                reduce_operations = true
                 write {
-                    host = 127.0.0.1
-                    port = 6379
-                    size = 2
+                    hosts = { 127.0.0.1:6379 }
                     timeout = 500
                 }
                 read {
-                    host = 127.0.0.1
-                    port = 6379
-                    size = 2
+                    hosts = { 127.0.0.1:6379 }
                     timeout = 1000
                 }
             }
             registrations {
                 check_interval = 5000
-            }
-            registrar {
-                enabled = true
-                redis {
-                    host = 127.0.0.1
-                    port = 6379
-                }
             }
             rpc {
                 calls_show_limit = 10000
@@ -234,7 +242,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
     }
 
 
-.. warning:: RPC allows shutdown SEMS node or make it non-operational. RPC interface should be secured by firewall to prevent connections from not trusted hosts. In YETI systems only two components should have ability to connect to RPC - WEB interface and yeti-cli console
+.. warning:: JRPC interface allows shutdown SEMS node or make it non-operational. JRPC interface should be secured by firewall to prevent connections from not trusted hosts. In YETI systems only two components should have ability to connect to RPC - WEB interface and yeti-cli console
 
 Launch traffic switch
 ---------------------
@@ -243,7 +251,7 @@ Launch configured traffic switch instance:
 
 .. code-block:: console
 
-    # service sems start
+    # systemctl sems start
 
 In case of errors it's useful to use **sems -E -D3** command
 which will launch daemon in foreground with debug logging level
@@ -255,6 +263,17 @@ Check if **sems** process exists and signaling/media/rpc sockets are opened:
 
 .. code-block:: console
 
+    # systemctl status sems
+    ● sems.service - SEMS for YETI project
+         Loaded: loaded (/lib/systemd/system/sems.service; enabled; preset: enabled)
+         Active: active (running) since Thu 2024-12-05 20:21:52 UTC; 5 days ago
+           Docs: https://yeti-switch.org/docs/
+       Main PID: 68166 (sems)
+          Tasks: 84 (limit: 154132)
+         Memory: 3.3G
+            CPU: 2d 18h 15min 51.113s
+         CGroup: /system.slice/sems.service
+                 └─68166 /usr/bin/sems -f /etc/sems/sems.conf
     # pgrep sems
     29749
     # netstat -lpn | grep sems
@@ -262,4 +281,11 @@ Check if **sems** process exists and signaling/media/rpc sockets are opened:
     udp 0    0 127.0.0.1:5061 0.0.0.0:*         29749/sems
     raw 2688 0 0.0.0.0:17     0.0.0.0:*  7      29749/sems
 
-Check logfile /var/log/sems/sems-main.log for possible errors
+Check logs using for possible errors:
+
+.. code-block:: console
+
+    # journalctls -u sems
+
+
+
