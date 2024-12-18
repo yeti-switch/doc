@@ -161,6 +161,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                 schema = switch21
                 function = route_release
                 init = init
+                pass_input_interface_name = true
                 master_pool {
                     host = 127.0.0.1
                     port = 5432
