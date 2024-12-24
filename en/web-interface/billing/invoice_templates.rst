@@ -112,11 +112,16 @@ INV_SRV_DATA_TABLE              Table of services related transactions
 
 
 
-.. figure:: insert_table.gif
-   :scale: 60 %
+.. video:: insert_table.webm
+   :width: 65%
    :alt: How to insert table
    
    How to insert table
+   
+
+   
+.. warning:: The first row of the table is interpreted as a header. You can't use table-level placeholders there.
+
 
 INV_ORIG_DST_TABLE and INV_ORIG_DST_SUCC_TABLE
 ==============================================
