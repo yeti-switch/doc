@@ -8,13 +8,14 @@ Data retention should be configured for heavy loaded production systems. Yeti ha
 
     
     partition_remove_delay:
-      cdr.cdr: 120
-      auth_log.auth_log: 7
-      rtp_statistics.streams: 3
-      logs.api_requests: 90
+      cdr.cdr: 120 days
+      auth_log.auth_log: 7 days
+      rtp_statistics.rx_streams: 3 days
+      rtp_statistics.tx_streams: 3 days
+      logs.api_requests: 90 days
+      
 
 This configuration defines how many historical **partitions** should be saved in database for each table.
 
-.. warning:: **cdr.cdr** table partitioned by months. So partition_remove_delay=120 means "save data for 120 months". All other tables are using per day partitioning.
 
-Admin WEB interface views :ref:`CDR -> CDR Partitions <cdr_partitions>` and :ref:`Logs -> Log partitions <log_partitions>` allows to see currently exists partitions in CDRs and Routing databases.
+Admin WEB interface views :ref:`CDR -> CDR Partitions <cdr_partitions>` and :ref:`Logs -> Log partitions <log_partitions>` allows to see existing partitions in CDRs and Routing databases.

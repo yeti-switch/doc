@@ -4,7 +4,7 @@
 ===================
 LDAP Authentication
 ===================
-Yeti's web-interface may use LDAP in order to authnticate users.
+Yeti's web-interface may use LDAP in order to authenticate users.
 
 Copy configuration from example file
 
@@ -12,19 +12,17 @@ Copy configuration from example file
 
     # cp /opt/yeti-web/config/ldap.yml.dist /opt/yeti-web/config/ldap.yml
 
-and edit it
+and edit it::
 
-.. code-block:: console
-
-    production:
-      host: yeti-host.com
-      port: 389 
-      ssl: false
-      attribute: uid
-      base: ou=employees,dc=yeti,dc=com
-      group_base: ou=groups,dc=yeti,dc=com
-      required_groups:
-        - ["member", "cn=yeti,ou=groups,dc=yeti,dc=com"]
+  production:
+    host: ldap-host.com
+    port: 389 
+    ssl: false
+    attribute: uid
+    base: ou=employees,dc=yeti,dc=com
+    group_base: ou=groups,dc=yeti,dc=com
+    required_groups:
+      - ["member", "cn=yeti,ou=groups,dc=yeti,dc=com"]
     
 * **host** - address of LDAP server
 * **port** - port of LDAP server
