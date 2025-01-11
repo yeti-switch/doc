@@ -11,10 +11,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: install sphinx
-        run: pip install sphinx sphinx_rtd_theme sphinxcontrib-mermaid sphinxcontrib.googleanalytics sphinxcontrib-video
+        run: pip install sphinx sphinx_rtd_theme sphinxcontrib-mermaid sphinxcontrib.googleanalytics sphinxcontrib-video sphinxcontrib.spelling
 
       - name: install graphviz
         run: sudo apt install graphviz
+
+      - name: Run spellcheck
+        run: make spellcheck
 
       - name: Run linkcheck
         run: make linkcheck

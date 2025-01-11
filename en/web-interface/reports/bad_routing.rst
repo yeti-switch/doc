@@ -14,7 +14,7 @@ Bad routing report is used for monitoring failed attempts of the call's routing 
     Customer
        :ref:`Customer <contractors>` that is related to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls from all Customers.
     Rateplan
-       :ref:`Rateplan <rateplans>` that was applied to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls for all Ratepalns.
+       :ref:`Rateplan <rateplans>` that was applied to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls for all Rateplans.
     Routing Plan
        :ref:`Routing plan <routing_plan>` that was applied to the calls (bad routing attempts) that will be used for selecting CDRs for this *Bad routing* report. Choose "Any" for selecting calls for all Routing plans.
     Internal Disconnect Code

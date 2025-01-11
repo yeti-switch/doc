@@ -13,7 +13,7 @@ Routing plan static routes are used only for two methods of sorting that could b
     Routing Plan
         :ref:`Routing plan <routing_plan>` that is related for this Routing plan static route.
     Prefix
-        This field is used for setting prefix for filtering static routes by destination number (number B). This record will be used during one of two methods of sorting in the framework of :ref:`Routing plan <routing_plan>` (**QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control**) only in case of matching this *Prefix* with first symbols of destination number. Under buttom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more routes will match the destination number by this parameter (prefix) only one record will be selected for sorting on the basis longest prefix match algorithm.
+        This field is used for setting prefix for filtering static routes by destination number (number B). This record will be used during one of two methods of sorting in the framework of :ref:`Routing plan <routing_plan>` (**QD-Static, LCR, ACD&ASR control** or **Static only, No ACD&ASR control**) only in case of matching this *Prefix* with first symbols of destination number. Under bottom of this field information about according :ref:`Network Prefix <network_prefixes>` record (if any) is shown. In case if two or more routes will match the destination number by this parameter (prefix) only one record will be selected for sorting on the basis longest prefix match algorithm.
 
     .. _routing_plan_static_route_priority:
 

@@ -18,19 +18,19 @@ Yeti has flexible configuration of numbers modifications - it allows to change s
 
 In most cases numbers translations implemented using `POSIX Regular Expressions <https://www.postgresql.org/docs/current/functions-matching.html#FUNCTIONS-POSIX-REGEXP>`_. This section describes general principles and examples of using POSIX Regular Expressions in Yeti. 
 
-Yeti uses Postgresql `REGEXP_REPLACE(phonenumber, rewrite_rule, rewrite_result) <https://www.postgresql.org/docs/current/functions-matching.html>`_ function with following arguments:
+Yeti uses PostgreSQL `REGEXP_REPLACE(phonenumber, rewrite_rule, rewrite_result) <https://www.postgresql.org/docs/current/functions-matching.html>`_ function with following arguments:
 
 phonenumber
     It is a phone number (source or destination) that replacement should be taken place.
 
 rewrite_rule
-    It is a POSIX regular expression for matching substrings that should be replaced.
+    It is a POSIX regular expression for matching sub-strings that should be replaced.
 
 rewrite_result
-    It is a string that to replace the substrings which match the *rewrite_rule*.
+    It is a string that to replace the sub-strings which match the *rewrite_rule*.
 
 
-The REGEXP_REPLACE() function returns a new phonenumber with the elements, which match a regular expression pattern, replaced by a new substring.
+The REGEXP_REPLACE() function returns a new phonenumber with the elements, which match a regular expression pattern, replaced by a new sub-string.
 
 
 Examples
@@ -43,7 +43,7 @@ How to add prefix 888 to number
     |br|
     **rewrite_result** = 888\\1
 
-    where ^ - matches at the beginning of the phonenumber, $ - matches at the end of the phonenumber, (.*) - regular expression matches a sequence of 0 or more characters, 888 - prefix to add, \\1 - first marked subexpression matched (in our case - it is phone number (source or destination) that replacement should be taken place). Some examples of adding digits to the beginning of the phonenumber with using different arguments are provided below:
+    where ^ - matches at the beginning of the phonenumber, $ - matches at the end of the phonenumber, (.*) - regular expression matches a sequence of 0 or more characters, 888 - prefix to add, \\1 - first marked sub-expression matched (in our case - it is phone number (source or destination) that replacement should be taken place). Some examples of adding digits to the beginning of the phonenumber with using different arguments are provided below:
 
        a) **original phone number** = 7335255 ;  **rewrite_rule** = ^(.*)$ ; **rewrite_result** = 0\\1 ; **resulting phone number**  = 07335255
        b) **original phone number** = 2296132 ;  **rewrite_rule** = ^(.*)$ ; **rewrite_result** = 066\\1 ; **resulting phone number**  = 0662296132

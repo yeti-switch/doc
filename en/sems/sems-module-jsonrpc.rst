@@ -27,7 +27,7 @@ listen.port
 	TCP port of JSONRPC socket
 	
 server_threads
-    How many worker threads will be forked for JSONRPC requets handling
+    How many worker threads will be forked for JSONRPC requests handling
     
     
 .. note:: :doc:`yeti-cli <../yeti-cli/index>` console is client for SEMS JSONRPC interface.

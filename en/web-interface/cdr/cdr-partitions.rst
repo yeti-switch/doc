@@ -21,5 +21,5 @@ CDR Partitions database view allow to see details for partitioned tables.
     Total Size
         Size of partition with indexes
     Approximate Row Count
-        Not pricese count row count based on internal Postgresql statistics
-        
+        Estimated row count based on internal PostgreSQL statistics
+

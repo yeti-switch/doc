@@ -6,7 +6,7 @@ Routing Tags
 
 Routing Tags are used for creating transparent routing rules within Yeti's routing logic. Routing Tags for every call are detected after processing call with using :ref:`Numberlists <numberlists>` on the basis :ref:`Routing Tag detection Rules <routing_tag_detection_rules>` and later they could be used for choosing :ref:`Destinations <destinations>` and :ref:`Dialpeers <dialpeers>` for the call routing.
 
-Example of using Routing Tags for markuping call is represented on the picture below:
+Example of using Routing Tags for marking calls is represented on the picture below:
 
  .. graphviz:: ../graphviz/routing_tags.dot
 
@@ -31,17 +31,17 @@ Example of using *Routing Tags* for selecting :ref:`Destinations <destinations>`
 As you can see on this picture above, after the routing procedure Call has three Tags: **Tag1; Tag2; Tag3**.
 At same time in the Yeti's Database three ref:`Destinations <destinations>` and three :ref:`Dialpeers <dialpeers>` records are stored:
 
-    -   Destination 1 is marked by three Tags **Tag1; Tag2; Tag3** and **AND** mode used for the comparision of *Routing Tags*;
-    -   Destination 2 is marked by **Tag1** only and **OR** mode used for the comparision of  *Routing Tags*;
-    -   Destination 3 is marked by **Tag1** only and **AND** mode used for the comparision of *Routing Tags*;
-    -   Dialpeer 1 is marked by **Tag1; Tag2; Tag3** and **AND** mode used for the comparision of *Routing Tags*;
-    -   Dialpeer 2 is marked by **Tag2** only and **AND** mode used for the comparision of *Routing Tags*;
-    -   Dialpeer 3 is marked by **Tag1; Tag2; Tag3; Tag4** and **AND** mode used for the comparision of *Routing Tags*.
+    -   Destination 1 is marked by three Tags **Tag1; Tag2; Tag3** and **AND** mode used for the comparison of *Routing Tags*;
+    -   Destination 2 is marked by **Tag1** only and **OR** mode used for the comparison of  *Routing Tags*;
+    -   Destination 3 is marked by **Tag1** only and **AND** mode used for the comparison of *Routing Tags*;
+    -   Dialpeer 1 is marked by **Tag1; Tag2; Tag3** and **AND** mode used for the comparison of *Routing Tags*;
+    -   Dialpeer 2 is marked by **Tag2** only and **AND** mode used for the comparison of *Routing Tags*;
+    -   Dialpeer 3 is marked by **Tag1; Tag2; Tag3; Tag4** and **AND** mode used for the comparison of *Routing Tags*.
 
 After selection procedures with using parameters above only two Destinations (Destination 1 and Destination 2) and one Dialpeer (Dialpeer 1) records were selected via following reasons:
 
-    -   Destination 3 wasn't selected because in **AND** mode of comparision record should contain the same set of *Routing Tags*, but in the example above it contains only one Tag;
-    -   Dialpeer 2 wasn't selected by the same reasons (in **AND** mode of comparision record should contain the same (with a call) set of *Routing Tags*;
+    -   Destination 3 wasn't selected because in **AND** mode of comparison record should contain the same set of *Routing Tags*, but in the example above it contains only one Tag;
+    -   Dialpeer 2 wasn't selected by the same reasons (in **AND** mode of comparison record should contain the same (with a call) set of *Routing Tags*;
     -   Dialpeer 3 wasn't selected because this record contains one additional Tag (**Tag4**) and could not be selected in the **AND** mode.
 
 

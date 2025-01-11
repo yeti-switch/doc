@@ -10,7 +10,7 @@ Background Tasks are used for storing records about ongoing tasks that are makin
         Priority of this *Background Task*.
     Attempts
         Current amount of attempts of make action for this *Background Task*.
-    Hadler
+    Handler
         Some serialized data that is related to this *Background Task*.
     Last Error
         Last Error of action's attempt for this *Background Task*.

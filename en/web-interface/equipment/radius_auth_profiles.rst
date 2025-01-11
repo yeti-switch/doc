@@ -12,7 +12,7 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
         Unique RADIUS Auth Profile's id.
     Name
         Unique name of Auth profile.
-        Uses for informational purposes and doesn't affect system behaviour.
+        Uses for informational purposes and doesn't affect system behavior.
     Server
         IP address or hostname of external RADIUS server.
     Port
@@ -36,11 +36,11 @@ Yeti supports additional authorization of incoming call on external RADIUS (Remo
             The Type of the RADIUS attribute (decimal value between 0 and 255). Regarding to the `RFC 2865:  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ values 192-223 are reserved for experimental use, values 224-240 are reserved for implementation-specific use, and values 241-255 are reserved and should not be used. A RADIUS server and client MAY ignore Attributes with an unknown Type.
         -   Name
             Name of attribute. It uses for information only and doesn't transfer in the RADIUS packet.
-        -   Is vsa
+        -   Is VSA
             If this checkbox is enabled it indicates that it is Vendor Specific Attribute and doesn't described by `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_.
-        -   Vsa vendor
+        -   VSA Vendor
             Decimal value (between 0 and (2^32 - 1)) of the Vendor's ID in the attribute. In the `RFC 2865 -  Remote Authentication Dial In User Service (RADIUS) <https://tools.ietf.org/html/rfc2865>`_ - the high-order octet is 0 and the low-order 3 octets are the SMI Network Management Private Enterprise Code of the Vendor in network byte order.
-        -   Vsa vendor type
+        -   VSA Vendor type
             Decimal value (between 0 and 255) of the specific Vendor type of attribute.
         -   Value
             String that is used as template for filling value of RADIUS Attribute with using pre-defined placeholders (variables) that are described in note bellow. It is possible to combine several placeholders together with pre-defined text to one string. Resulting value will be converted to the data of necessary *Format* (see below). In case of impossibility to convert resulting value to necessary *Format* an error will be occurred.

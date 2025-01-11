@@ -5,8 +5,8 @@ Release notes
 =============
 
     * Debian 12 support
-    * Postgresql 16 support
-    * Migration to new debian repo
+    * PostgreSQL 16 support
+    * Migration to new Debian repo
     * Ruby upgraded to 3.3.5
     * Improved privacy processing
     * Registrar scalability improvements

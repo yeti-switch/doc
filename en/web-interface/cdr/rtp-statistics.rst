@@ -113,12 +113,12 @@ Yeti calculates statistics for RTP streams processed by system. Such statistics 
     Tx Ssrc
         `SSRC <https://tools.ietf.org/html/rfc3550#section-5.1>`_ of transmitted stream. **Local data**.
     Tx Packets
-        Count of packets trasmitted by yeti to remote gateway. **Local data**.
+        Count of packets transmitted by yeti to remote gateway. **Local data**.
     Tx Bytes
         Unit: **byte** |br|
-        Data amount trasmitted by yeti to remote gateway.  **Local data**.
+        Data amount transmitted by yeti to remote gateway.  **Local data**.
     Tx Total Lost
-        Count of packets trasmitted by yeti to remote gateway and lost during delivering to remote gateway. Value calculated as difference between count of transmitted packets and count of received packets on remote side(reported by RTCP)
+        Count of packets transmitted by yeti to remote gateway and lost during delivering to remote gateway. Value calculated as difference between count of transmitted packets and count of received packets on remote side(reported by RTCP)
     Tx Payloads Transcoded
         RTP payloads that was transcoded before transmitting. Field is empty is transcoding was not used for RTP processing. **Local data**.
     Tx Payloads Relayed
@@ -134,4 +134,4 @@ Yeti calculates statistics for RTP streams processed by system. Such statistics 
         Mean RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on transmitted stream
     Tx RTCP Jitter Std
         Unit: **ms** |br|
-        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on trasmitted stream
+        `Standard deviation <https://en.wikipedia.org/wiki/Standard_deviation>`_ of RTP jitter calculated from RTCP reports (in case if remote side sent such reports) on transmitted stream

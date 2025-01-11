@@ -12,7 +12,7 @@ Yeti supports additional accounting of calls on external RADIUS server. RADIUS A
        Unique RADIUS Accounting Profile's id.
     Name
         Unique name of Accounting profile.
-        Uses for informational purposes and doesn't affect system behaviour.
+        Uses for informational purposes and doesn't affect system behavior.
     Server
         IP address or hostname of external RADIUS server.
     Port

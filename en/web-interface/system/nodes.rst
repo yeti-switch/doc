@@ -14,9 +14,9 @@ Every node represents independent installation of YETI-SEMS, which communicate t
     Name
        Node's name.
     Pop
-        Point of presence. Might be useful for logic grupping of nodes (different data-centers, as example).
+        Point of presence. Might be useful for logic grouping of nodes (different data-centers, as example).
     Rpc endpoint
-        IP address and port on which YETI-SEMS is waiting for RPC connections. Value of this field should have format IP:PORT, for example 127.0.0.1:7080. See :ref:`SEMS sems.conf <sems_conf_1.13>` for defails
+        IP address and port on which YETI-SEMS is waiting for RPC connections. Value of this field should have format IP:PORT, for example 127.0.0.1:7080. See :ref:`SEMS sems.conf <sems_conf_1.13>` for details
 
  
 In view mode user can use next tabs:

@@ -1,5 +1,7 @@
 .. :maxdepth: 2
 
+.. spelling:word-list::
+    postgresql
 
 ==========================
 CDR databases installation
@@ -17,7 +19,7 @@ CDRs databases require similar set of packages as routing database
     # apt update && apt install postgresql-16 postgresql-contrib-16 postgresql-16-prefix postgresql-16-pgq3 postgresql-16-pgq-ext postgresql-16-yeti postgresql-16-pllua pgqd
     
     
-.. warning:: It is important to install Postgresql from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details
+.. warning:: It is important to install PostgreSQL from  `PGDG <https://wiki.postgresql.org/wiki/Apt>`_ repository. See :doc:`repositories` for details
   
   
 

@@ -8,7 +8,7 @@ WEB interface installation
 Server requirements:
 
 - amd64 architecture
-- Debian 12 Bookworm distibution
+- Debian 12 Bookworm distribution
 - at least 4GB of RAM
 
 Packages installation

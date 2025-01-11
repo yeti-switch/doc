@@ -21,4 +21,4 @@ Log Partitions view allow to see details for partitioned tables in Routing datab
     Total Size
         Size of partition with indexes
     Approximate Row Count
-        Not pricese count row count based on internal Postgresql statistics
+        Row count estimation based on internal PostgreSQL statistics

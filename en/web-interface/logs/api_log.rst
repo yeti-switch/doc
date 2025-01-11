@@ -17,9 +17,9 @@ API Log contains records about all requests via Application Programming Interfac
     Path
         Relative path to requested procedure.
     DB Duration
-        Duration (im milliseconds) of processing request by Database.
+        Duration (in milliseconds) of processing request by Database.
     Page Duration
-        Total response time (im milliseconds).
+        Total response time (in milliseconds).
     Controller
         Controller that is contained procedure that was requested.
     Action

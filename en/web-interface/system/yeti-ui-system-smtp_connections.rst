@@ -12,7 +12,7 @@ It is necessary to have an SMTP connection in order to YETI can send invoices an
        SMTP connection's id.
     Name
         Unique name of SMTP connection.
-        Uses for informational purposes and doesn't affect system behaviour.
+        Uses for informational purposes and doesn't affect system behavior.
     Host
         IP address or hostname of SMTP server.
     Port

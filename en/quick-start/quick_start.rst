@@ -118,7 +118,7 @@ At the fourth step it is necessary to configure:
 
 
 
- - at least one :ref:`Dialpeer's <dialpeers>` record that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>` and :ref:`Vendor's Gateway <gateways>` that were configured above. In our example we use **380** (international code of Ukraine) as *Prefix* and we'll pay one monetary unit per minute to the Vendor after the initial interval (by default - 1 minute) and 2 monetary units during initial interval. This :ref:`Dialpeer <dialpeers>` will be used as a route for all traffic to ukrainian numbers;
+ - at least one :ref:`Dialpeer's <dialpeers>` record that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>` and :ref:`Vendor's Gateway <gateways>` that were configured above. In our example we use **380** (international code of Ukraine) as *Prefix* and we'll pay one monetary unit per minute to the Vendor after the initial interval (by default - 1 minute) and 2 monetary units during initial interval. This :ref:`Dialpeer <dialpeers>` will be used as a route for all traffic to Ukrainian numbers;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -213,7 +213,7 @@ At the last step it is necessary to create some :ref:`Payment's <payments>` reco
             Amount                        50
    ==============================  =====================
 
-Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+For the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -264,7 +264,7 @@ At the first step we'll configure one additional :ref:`Dialpeer's <dialpeers>` r
 
 **Step 2. Test the call**
 
-Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+For the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -278,7 +278,7 @@ Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_s
             Dst number                   380487050321
    ==============================  =====================
 
-As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile has Initial and Next Rates of Dealpeer that was newly created. Full log of call processing also will be shown under the resulting records. In our example we'll still receive 1.5 monetary units per minute from Customer after the initial interval and 3 monetary units during initial interval, but will pay less to the Vendor. So, in case of call with ten minutes length the profit will be (3-1)+(10-1)*(1.5-0.5) = 11 monetary units (16.5 will be received from the Customer and 5.5 will be paid to the Vendor).
+As a result two records will be shown, where the first record is an actual record of Call Profile that will be send to the Yeti/SEMS node for making call. This Call Profile has Initial and Next Rates of Dialpeer that was newly created. Full log of call processing also will be shown under the resulting records. In our example we'll still receive 1.5 monetary units per minute from Customer after the initial interval and 3 monetary units during initial interval, but will pay less to the Vendor. So, in case of call with ten minutes length the profit will be (3-1)+(10-1)*(1.5-0.5) = 11 monetary units (16.5 will be received from the Customer and 5.5 will be paid to the Vendor).
 
 .. note::
 
@@ -336,7 +336,7 @@ At the second step we'll configure one additional :ref:`Dialpeer's <dialpeers>` 
 
 **Step 3. Test the call**
 
-Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+For the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -457,7 +457,7 @@ At the fourth step we'll edit :ref:`Dialpeer's <dialpeers>` record that was conf
 
 **Step 5. Test the call**
 
-Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+For the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -541,7 +541,7 @@ At the third step we'll configure one additional :ref:`Dialpeer's <dialpeers>` r
 
 **Step 4. Test the call**
 
-Fot the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
+For the call testing it is necessary to fill :ref:`Routing Simulation <routing_simulation>` form and to press **Simulate routing** button.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto

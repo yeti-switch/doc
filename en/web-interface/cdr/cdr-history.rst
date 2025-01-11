@@ -18,9 +18,9 @@ Storage of Call Detail Records (CDR) for all calls (or call attempts) what are p
        Unique CDR's id.
     Time Start
        Date and time of call starting.
-    Time Contect
+    Time Connect
        Date and time of receiving 200OK response.
-    Time Contect
+    Time End
        Date and time of receiving Bye.
     Customer
         Value of the :ref:`*Name* <contractor_name>` attribute of the Customer Contractor for the call.
@@ -114,7 +114,7 @@ Storage of Call Detail Records (CDR) for all calls (or call attempts) what are p
     Customer Invoice
         :ref:`Invoice <invoices>` with billing information about changing balance of Customer's :ref:`Account <accounts>` (in case of success call).
     Routing Delay
-        Delay (in miliseconds) between receiving call by Yeti (from Originator) and starting of its termination (to Terminator).
+        Delay (in seconds) between receiving call by Yeti (from Originator) and sending it to termination gateway.
     PDD
         Post Dial Delay (PDD) for this call ( time between the start of the call and the moment the phone of the called party starts ringing) in seconds.
     RTT

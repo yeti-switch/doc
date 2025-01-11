@@ -4,7 +4,7 @@
 Networks
 ~~~~~~~~
 
-    Catalogue of carriers. It contains names of carriers and uses in **Network prefixes** then.
+    Catalog of carriers. It contains names of carriers and uses in **Network prefixes** then.
 
 
 **Network**'s attributes:

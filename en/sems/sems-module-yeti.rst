@@ -6,7 +6,7 @@ Module **yeti**
 ===============
 
 
-Module **yeti** implements SBC funtions for Yeti-switch project
+Module **yeti** implements SBC functions for Yeti-switch project
 
 .. code-block:: c
 

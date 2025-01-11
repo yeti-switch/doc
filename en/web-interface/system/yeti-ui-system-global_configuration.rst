@@ -27,7 +27,7 @@ Import Helpers Dir
 .. _system_global_configuration_active_calls_require_filter:
 
 Active Calls Require Filter
-    Requre any filter on the *RT data -> Active Calls* page.
+    Require any filter on the *RT data -> Active Calls* page.
 Registrations Require Filter
     Require any filter on the *RT data -> Outgoing Registrations* page.
 
@@ -46,7 +46,7 @@ Active Calls Autorefresh Enable
 Max Call Duration
     Global parameter of maximum call duration (seconds).
 Random Disconnect Enable
-    If **true** YETI will randomly disconnect calls whose duration more than **Random Disconnect Length** by sendind BYE message to parties.
+    If **true** YETI will randomly disconnect calls whose duration more than **Random Disconnect Length** by sending BYE request to parties.
 Random Disconnect Length
     Duration of calls (seconds) which YETI will disconnect if **Random Disconnect Enable** enabled.
 Drop Call If LNP Fail

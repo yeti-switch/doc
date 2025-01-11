@@ -30,7 +30,7 @@ Upgrading to 1.12.79
 
 In yeti-web version 1.12.79 asynchronous CDR statistics calculation was introduced. This new mechanism requires additional configuration after system upgrade.
 
-Enable CDR Stats add configutation for CDR stats process to **/opt/yeti-web/config/pgq_processors.yml**:
+Enable CDR Stats add configuration for CDR stats process to **/opt/yeti-web/config/pgq_processors.yml**:
 
 .. code-block:: yaml
 
