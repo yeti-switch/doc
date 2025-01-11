@@ -9,8 +9,42 @@
 Gateways
 ========
 
-Gateways are used for configuring parameters of sending VoIP traffic to the Vendor.
-For configure *Gateway* it is necessary to configure :ref:`Contractor's <contractors>` record. Also it is necessary to choose some :ref:`Codec group <codec_groups>`.
+Gateway object defines SIP and RTP stacks behavior for interaction with remote systems. Gateway that defines LegA behavior called origination gateway. Gateway that defines LegB behavior called termination gateway. 
+
+
+
+.. mermaid::
+
+    graph LR
+        gw1[Call originator]
+        gw2[Termination provider]
+               
+        
+        gw1 -->|legA SIP initial INVITE| sip-session1
+        sip-session2 -->|legB SIP initial INVITE| gw2
+        
+        gw1 <-->|RTP| media-session1
+        media-session2 <-->|RTP| gw2
+        
+        sip-session1 <--> sip-session2
+        media-session1 <--> media-session2
+        
+        subgraph yeti[Yeti SBC]
+            subgraph gw1-conf[Origination gateway]
+                sip-session1
+                media-session1
+            end
+            subgraph gw2-conf[Termination gateway]
+                sip-session2
+                media-session2
+            end
+        end
+        
+
+
+
+
+For configure gateway it is necessary to configure :ref:`Contractor's <contractors>` record. Also it is necessary to choose some :ref:`Codec group <codec_groups>`.
 
 General attributes
 ==================
@@ -212,7 +246,7 @@ Relay UPDATE
     Transparent relay of SIP UPDATE between call legs.
         
 Transit headers from origination
-    Filter of headers in SIP requests which applies to origited calls. Look at :ref:`headers filtering <headers_fitering>`.
+    Filter of headers in SIP requests which applies to originated calls. Look at :ref:`headers filtering <headers_fitering>`.
         
 Transit headers from termination
     Filter of headers in SIP requests which applies to terminated calls. Look at :ref:`headers filtering <headers_fitering>`.
@@ -543,7 +577,9 @@ DTMF data-path displayed on diagram:
         
       
         
-        media-session1 -->|RTPEvent fastpath<br>controlled by **gw1.force_dtmf_relay** | media-session2
+        media-session1 -->|RTPEvent| dtmf-relay1
+        dtmf-relay1 -->|RTPEvent| media-session2
+        
         media-session1 -->|RTP| dtmf-filter1
         
        
@@ -568,6 +604,7 @@ DTMF data-path displayed on diagram:
                 media-session1
                 dtmf-processor1[DTMF receiver<br>Controlled by **gw1.dtmf_receive_mode**]
                 dtmf-filter1[DTMF filter<br>Controlled by **gw1.RX_inband_dtmf_filtering_mode**]
+                dtmf-relay1[DTMF relay<br> fastpath controlled by **gw1.force_dtmf_relay**]
             end
             subgraph gw2-conf[Gateway 2 configuration]
                 sip-session2
@@ -588,7 +625,7 @@ DTMF data-path displayed on diagram:
         - Ensure **telephone-event** payload correctly negotiated with remote gateway after SDP offer/answer procedure.
 
 Force dtmf relay
-    Relay telephone-event (RFC2833) packets 'as is' to other leg. Not recommended.
+    Relay telephone-event (RFC2833) packets 'as is' to other leg. DTMF relay mechanism is deprecated and should not be used.
         
 Dtmf send mode
     The way to send dtmf to remote gateway. possible values:
