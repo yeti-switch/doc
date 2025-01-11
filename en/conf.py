@@ -309,4 +309,4 @@ html_context = {
 
 googleanalytics_id = "G-1YGEQV43K8"
 
-
+mermaid_version = "11.4.1"
