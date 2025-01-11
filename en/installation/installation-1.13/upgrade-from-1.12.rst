@@ -18,10 +18,10 @@ Upgrade OS
 Upgrade Debian GNU/Linux to version 12.
 
 
-Upgrade Postgresql instances
+Upgrade PostgreSQL instances
 ----------------------------
 
-Upgrade routing and CDR databases instances from Postgresql 13 to Postgresql 16.
+Upgrade routing and CDR databases instances from PostgreSQL 13 to PostgreSQL 16.
 
 
 Upgrade yeti-web package

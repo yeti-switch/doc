@@ -21,7 +21,7 @@ This part out of scope of this document. You have to complete next steps yoursel
 
     * Domain name for SBC address required. Domain name **A record** should point to Yeti load balancer IP address. **SRV** records not supported by MS Teams.
     
-    * Valid TLS certificate should be installed on Yeti load balancer. If you planning to using multitenacy on MS Teams side(multiple MS Teams accounts connected to same Yeti-Switch system) you have to use wildcard certificate. See https://learn.microsoft.com/en-us/microsoftteams/direct-routing-plan#public-trusted-certificate-for-the-sbc for details.
+    * Valid TLS certificate should be installed on Yeti load balancer. If you planning to using multi-tenancy on MS Teams side(multiple MS Teams accounts connected to same Yeti-Switch system) you have to use wildcard certificate. See https://learn.microsoft.com/en-us/microsoftteams/direct-routing-plan#public-trusted-certificate-for-the-sbc for details.
 
 
 #. Validate SBC domain name on Teams side using DNS TXT record according to MS Teams documentation.
@@ -73,7 +73,7 @@ Orig Append Headers Reply
     Should contain **Allow: INVITE, ACK, CANCEL, BYE, INFO, NOTIFY, PRACK, UPDATE, OPTIONS**. Redefining **Allow** header there affects transfer logic on MS Teams side when call originated by MS Teams. Without this settings MS Teams will send **REFER** requests to Yeti-Switch to handle call transfer and it will fail because Yeti-Switch is not processing such requests in this scenario.
     
 Term Append Headers Req
-    Should contain **Allow: INVITE, ACK, CANCEL, BYE, INFO, NOTIFY, PRACK, UPDATE, OPTIONS**. Redefining **Allow** header there affects transfer logic on teams side when call originated by Yeti to MS Teams. In case of multitenant configuration **term append headers req** should also contain **X-RR-Domain: subdomain.teams.example.com**.
+    Should contain **Allow: INVITE, ACK, CANCEL, BYE, INFO, NOTIFY, PRACK, UPDATE, OPTIONS**. Redefining **Allow** header there affects transfer logic on teams side when call originated by Yeti to MS Teams. In case of multi-tenant configuration **term append headers req** should also contain **X-RR-Domain: subdomain.teams.example.com**.
 
 Term Use Outbound Proxy
     Should be **YES**
@@ -82,7 +82,7 @@ Term Proxy Transport Protocol
     Should be **TLS**
     
 Term Outbound Proxy
-    Shoyld be **subdomain.teams.example.com**
+    Should be **subdomain.teams.example.com**
 
 Media Encryption Mode
     Should be **SRTP SDES**
@@ -122,7 +122,7 @@ Call routing
 =====================
 
 * Incoming call routing works as usual - call will be authenticated by customer auth matching logic, then routing will be done according to routing plan.
-* Outgount call routing works as usual - just create Dialpeer with MS Teams gateway and Yeti will send call to proper trunk.
+* Outgoing call routing works as usual - just create Dialpeer with MS Teams gateway and Yeti will send call to proper trunk.
     
 
 

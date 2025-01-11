@@ -44,7 +44,7 @@ Registration attributes
     Retry delay
 	    Set the delay before sending a new REGISTER request to a registrar, when received error code or timeout occurred.
     Max attempts
-	    Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occured. In order to re-enable attempts of registration, you should disable the registration and then enable again.
+	    Maximum amount of attempts for sending a REGISTER request, when an error code received from a registrar or timeout occurred. In order to re-enable attempts of registration, you should disable the registration and then enable again.
     Sip Interface Name
         Name of signalling interface from sems.conf that will be used to build outgoing REGISTER request.
 

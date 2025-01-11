@@ -46,7 +46,7 @@ Reports data
 .. figure:: custom_cdr_data.png
 
 
-Custom CDR report have two set of columns - Group By colums and Aggregated columns. Group by columns defined by system operator during report creation(using **Group by** attribute). Aggregated columns are predefined:
+Custom CDR report have two set of columns - Group By columns and Aggregated columns. Group by columns defined by system operator during report creation(using **Group by** attribute). Aggregated columns are predefined:
 
 Сalls
     Total calls count including rerouting attempts.
@@ -73,10 +73,10 @@ ACD
     Average call duration calculates as Calls Duration/Successful Calls count
     
 ASR Origination
-    Answer seizure ratio from call originator point of view. If call have multiple rerouting attempts and last attempt was successful, call will be threated as successful during ASR calculation.
+    Answer seizure ratio from call originator point of view. If call have multiple rerouting attempts and last attempt was successful, call will be counted as successful during ASR calculation.
     
 ASR Termination
-    Answer seizure ratio from termination side point of view. If call have multiple rerouting attempts each attemtp will be counted separately during ASR calculation.
+    Answer seizure ratio from termination side point of view. If call have multiple rerouting attempts each attempt will be counted separately during ASR calculation.
 
 Origination Cost
     Total price of calls for originator. This column represents sum of CDRs customer_price values

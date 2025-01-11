@@ -11,6 +11,9 @@ $(langs):
 linkcheck:
 	make -C $(langs) linkcheck
 
+spellcheck:
+	make -C $(langs) spelling
+
 clean: $(langs:=-clean)
 
 dep:

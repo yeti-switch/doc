@@ -13,7 +13,7 @@ Module **opus** implements OPUS codec for SEMS.
     module "opus"{}
         
   
-Module doesn't require onfiguration.
+Module doesn't require configuration.
 
 
 ==============
@@ -28,7 +28,7 @@ Module **gsm** implements GSM codec for SEMS.
     module "gsm"{}
         
   
-Module doesn't require onfiguration.
+Module doesn't require configuration.
 
 
 ===============
@@ -43,7 +43,7 @@ Module **ilbc** implements iLBC codec for SEMS.
     module "ilbc"{}
         
   
-Module doesn't require onfiguration.
+Module doesn't require configuration.
 
 
 
@@ -59,7 +59,7 @@ Module **l16** implements L16 codec for SEMS.
     module "l16"{}
         
   
-Module doesn't require onfiguration.
+Module doesn't require configuration.
 
 
 
@@ -75,7 +75,7 @@ Module **g722** implements L16 codec for SEMS.
     module "l16"{}
         
   
-Module doesn't require onfiguration.
+Module doesn't require configuration.
 
 
 
@@ -91,4 +91,4 @@ Module **g729bcg** implements g729 codec for SEMS.
     module "g729bcg"{}
         
   
-Module doesn't require onfiguration.
+Module doesn't require configuration.

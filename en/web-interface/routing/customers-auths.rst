@@ -148,7 +148,7 @@ On the third step of authentication algorithm Yeti sorts of *Customer Auth* reco
 
 After sorting of *Customer Auth* records routing procedure will be continued with using first record from the sorted list of *Customer Auth* records that was received.
 
-Customer Auth form is splitted to 3 tabs and each one is described below.
+Customer Auth form contains few tabs and each one is described below.
 
 General **Customers Auth**'s attributes:
 ````````````````````````````````````````
@@ -162,7 +162,7 @@ General **Customers Auth**'s attributes:
 
     Name
         Unique name of Accounting profile.
-        Uses for informational purposes and doesn't affect system behaviour.
+        Uses for informational purposes and doesn't affect system behavior.
     Enabled
         Disabled records will be ignored.
     Customer
@@ -208,7 +208,7 @@ General **Customers Auth**'s attributes:
         The capacity of the Customer Auth, i.e. how many calls it accepts at the moment.
     Allow Receive Rate Limit
         A Customer may send special SIP-header in which he sends the price for this call he wants to pay.
-        And YETI will rely on this price on the routing stage if we allow such a behaviour.
+        And YETI will rely on this price on the routing stage if we allow such a behavior.
     Send Billing Information
         If enabled, YETI adds the special SIP-header into 200 SIP-message, which contains
         current price for calls, in order to a Customer should be informed.

@@ -161,11 +161,11 @@ Termination subscriber CPS wsize
     
         
 Acd limit
-    ACD threshold. If ACD for gateway traffic is below the threshold, the Dialpires that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
+    ACD threshold. If ACD for gateway traffic is below the threshold, the Dialpeers that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
 Asr limit
-    ASR threshold. If ASR for gateway traffic is below the threshold, the Dialpires that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
+    ASR threshold. If ASR for gateway traffic is below the threshold, the Dialpeers that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
 Short Calls limit
-    Threshold percentage of Short Calls. If the current value is below the threshold, the Dialpires that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
+    Threshold percentage of Short Calls. If the current value is below the threshold, the Dialpeers that are used by this Gateway will be excluded from the routing in case of usage of routing plan with **ACD&ASR control**.
 
 
 SST attributes
@@ -219,7 +219,8 @@ Relay reinvite
         
 Relay hold
     Transparent relay of In-dialog re-INVITE with hold/unhold requests between call legs.
-Relay prack
+
+Relay PRACK
     Transparent relay of In-dialog PRACK between call legs.
         
 Rel100 mode
@@ -289,14 +290,14 @@ Orig disconnect policy
 .. _incoming_auth_params:
 
 Incoming auth username
-    Username for additional username/password authentification of incoming requests if required.
+    Username for additional username/password authentication of incoming requests if required.
         
 Incoming auth password
-    Password for additional username/password authentification of incoming requests.
+    Password for additional username/password authentication of incoming requests.
     
 .. warning:: It is **strongly** recommended to use build-in random generator for both username and password. You should not use usernames that looks like phone numbers.
 
-.. warning:: **Incoming auth username** and **Incoming auth password** will enable incoming INVITE and REGISTER requests username/password authentification procedure. INVITE request username/password authentification is additional step(after IP authentification) and it should be enabled in **Customer Auth**, see :ref:`Require incoming auth <require_incoming_auth>`. For REGISTER requests authentification applied automatically.
+.. warning:: **Incoming auth username** and **Incoming auth password** will enable incoming INVITE and REGISTER requests username/password authentication procedure. INVITE request username/password authentication is additional step(after IP authentication) and it should be enabled in **Customer Auth**, see :ref:`Require incoming auth <require_incoming_auth>`. For REGISTER requests authentication applied automatically.
         
         
 
@@ -316,13 +317,13 @@ Port
     Leave it empty to enable DNS SRV resolving of name in **Host**.
         
 Registered aor mode
-    Used for call termination to gateways with dynamic IP addresses. When enabled YETI sends call to R-URI received from remote UA(in Contact header) during registration procedure. For incoming REGISTER request authentification YETI uses credentials specified in :ref:`Incoming auth username <incoming_auth_params>` and :ref:`Incoming auth password <incoming_auth_params>` fields.
+    Used for call termination to gateways with dynamic IP addresses. When enabled YETI sends call to R-URI received from remote UA(in Contact header) during registration procedure. For incoming REGISTER request authentication YETI uses credentials specified in :ref:`Incoming auth username <incoming_auth_params>` and :ref:`Incoming auth password <incoming_auth_params>` fields.
         
     Supported modes:
         
         - **Do not use** - feature disabled. INVITE will be sent do static IP/DNS name defined in **Host**
         - **Use AOR as is** - INVITE R-URI will be set to Contact received during registration procedure.
-        - **Use AOR, replace userpart with dst number** - INVITE R-URI will be set to Contact, but userpart will be replaced with destination number. This mode is useful when remote system send maintain single registration but expect to receive call to multiple DST numbers(in R-URI).
+        - **Use AOR, replace userpart with dst number** - INVITE R-URI will be set to Contact, but user-part will be replaced with destination number. This mode is useful when remote system send maintain single registration but expect to receive call to multiple DST numbers(in R-URI).
         
 Resolve ruri
     Indicates necessity to rewrite R-URI domain part with resolved IP
@@ -382,7 +383,7 @@ Ringing timeout
     .. _gateway_fake_180_timer:
 
 Fake 180 timer
-    Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forsibly.
+    Allows to set up timer for 183 SIP messages with SDP. If there is no 183 message during this timer, SEMS would send 180 message forcibly.
 
 Allow 1xx without to tag
     Allows behavior, which violates RFC, when YETI will process 1xx responses without To-tag.
@@ -391,7 +392,7 @@ Max 30x redirects
     Amount of 301/302 SIP redirects that are allowed by Yeti for this Gateway (in case of using Gateway as Terminator of calls). Calls won't be redirected in case of filling this field by 0 (zero) value.
         
 Max transfers
-    Amount of SIP transfers(using REFER mechanism) that are allowed by Yeti for this Gateway (in case of using Gateway as Terminator of calls). Calls won't be transfered in case of filling this field by 0 (zero) value.
+    Amount of SIP transfers(using REFER mechanism) that are allowed by Yeti for this Gateway (in case of using Gateway as Terminator of calls). Calls won't be transferred in case of filling this field by 0 (zero) value.
         
 Sip timer B
     Overwrites the value of SIP timer B (transaction timeout). Call can be rerouted if this allowed by disconnect policy configuration.
@@ -518,6 +519,9 @@ Rtp ping
         
 Rtp timeout
     If set, call will be dropped with appropriate disconnect reason in CDR if no RTP arrived during this interval.
+
+.. spelling:word-list::
+    noaudio
         
 Filter noaudio streams
     Cut all streams except of 'audio' from SDP in INVITE to the termination gateway.
@@ -545,7 +549,7 @@ Media encryption mode
             
         - **Disable** - Plain RTP will be used(no encryption)
         - **SRTP SDES** - SRTP with `SDES <https://en.wikipedia.org/wiki/SDES>`_ key negotiation mechanism. In this mode SRTP keys will be sent in SIP SDP payload so it is important to secure SIP signalling by TLS or other secure transport.
-        - **SRTP DTLS** - SRTP with `DTLS <https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security>`_ key negotiation mechanism. DTLS is RTP inband mechanism and it doesn't requeire secured SIP signalling.
+        - **SRTP DTLS** - SRTP with `DTLS <https://en.wikipedia.org/wiki/Datagram_Transport_Layer_Security>`_ key negotiation mechanism. DTLS is RTP inband mechanism and it doesn't require secured SIP signalling.
         - **SRTP ZRTP** - SRTP with `ZRTP <https://en.wikipedia.org/wiki/ZRTP>`_ key negotiation mechanism. ZRTP is not standard but sill widely used.
         
     .. seealso:: SEMS should be properly configured to support SRTP, see :ref:`SEMS media interfaces configuration <sems_media_interfaces>`
@@ -619,7 +623,7 @@ DTMF data-path displayed on diagram:
 
 
 .. warning::
-    To receive/send DTMF using RTPEvent mechanist appropriate payload type should be negotiated first.
+    To receive/send DTMF using RTPEvent mechanism appropriate payload type should be negotiated first.
     
         - Ensure **telephone-event** payload present in codec group.
         - Ensure **telephone-event** payload correctly negotiated with remote gateway after SDP offer/answer procedure.

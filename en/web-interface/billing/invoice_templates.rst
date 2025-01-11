@@ -6,12 +6,12 @@ PDF document templates which will be used to generate invoice. Template - it is 
 Placeholders will be replaced with actual data during PDF document generation.
 System can store many different templates and you can choose desired template for each account independently.
 
-.. warning:: It is highly recommeded to use LibreOffice to create/edit invoice templates.
+.. warning:: It is highly recommended to use LibreOffice to create/edit invoice templates.
 
 Invoice Template attributes
 ```````````````````````````
     Id
-        Unique invoice temlpate id.
+        Unique invoice template id.
     Name
         Unique invoice template name.
     Filename 
@@ -99,14 +99,14 @@ It is possible to have table data inserted in invoice. Currently these tables su
 =============================== =====================================================================================
 Table name                      Description
 =============================== =====================================================================================
-INV_ORIG_DST_TABLE              Calls originated by account, groupped by destination prefix(from Destination object)
-INV_ORIG_DST_SUCC_TABLE         Successful calls originated by account, groupped by destination prefix
-INV_ORIG_NETWORKS_TABLE         Calls originated by account, groupped by destination Network
-INV_ORIG_NETWORKS_SUCC_TABLE    Successful calls originated by account, groupped by destination Network
-INV_TERM_DST_TABLE              Calls terminated to account, groupped by destination prefix(from Dialpeer object)
-INV_TERM_DST_SUCC_TABLE         Successful calls terminated to account, groupped by destination prefix
-INV_TERM_NETWORKS_TABLE         Calls terminated to account, groupped by destination network
-INV_TERM_NETWORKS_SUCC_TABLE    Successful calls terminated to account, groupped by destination network
+INV_ORIG_DST_TABLE              Calls originated by account, grouped by destination prefix(from Destination object)
+INV_ORIG_DST_SUCC_TABLE         Successful calls originated by account, grouped by destination prefix
+INV_ORIG_NETWORKS_TABLE         Calls originated by account, grouped by destination Network
+INV_ORIG_NETWORKS_SUCC_TABLE    Successful calls originated by account, grouped by destination Network
+INV_TERM_DST_TABLE              Calls terminated to account, grouped by destination prefix(from Dialpeer object)
+INV_TERM_DST_SUCC_TABLE         Successful calls terminated to account, grouped by destination prefix
+INV_TERM_NETWORKS_TABLE         Calls terminated to account, grouped by destination network
+INV_TERM_NETWORKS_SUCC_TABLE    Successful calls terminated to account, grouped by destination network
 INV_SRV_DATA_TABLE              Table of services related transactions
 =============================== =====================================================================================
 

@@ -96,8 +96,8 @@ log_events (default: false)
 log_sessions (default: false)
     Log new UAC/UAS sessions at the info level
 
-signalling/media
-^^^^^^^^^^^^^^^^
+signaling/media
+^^^^^^^^^^^^^^^
 
 force_outbound_if (default: false)
     Force interface index for outgoing SIP and RTP packets. Uses IPPROTO_IP/IP_PKTINFO.ipi_ifindex, IPPROTO_IPV6/IPV6_PKTINFO.ipi6_ifindex for sendmsg
@@ -106,25 +106,25 @@ use_raw_sockets (default: false)
     Global switch to use SOCK_RAW for outgoing SIP/UDP and RTP packets
 
 ssl_key_log_file (default: empty)
-    Write TLS and SRTP secrets to the specified file in SSLKEYLOG format. Useful to decrypt signalling and media in the traces collected by the external tools.
+    Write TLS and SRTP secrets to the specified file in SSLKEYLOG format. Useful to decrypt signaling and media in the traces collected by the external tools.
 
-signalling
-^^^^^^^^^^
+signaling
+^^^^^^^^^
 
 session_processor_threads (default: 10)
     Session processor threads count. Session processor threads handle events from the sessions events queues
 
 sip_udp_server_threads (default: 4)
-    SIP UDP transport workers threads count. UDP transport workers receive UDP signalling traffic
+    SIP UDP transport workers threads count. UDP transport workers receive UDP signaling traffic
 
 sip_tcp_server_threads (default: 4)
-    SIP TCP transport workers threads count. TCP transport workers handle TCP/TLS/WS/WSS signalling traffic
+    SIP TCP transport workers threads count. TCP transport workers handle TCP/TLS/WS/WSS signaling traffic
 
 sip_nat_handling (default: false)
     Force SIP dialog Next Hop to be remote ip/port/trsp on requests with single Via header
 
 proxy_sticky_auth (default: false)
-    Force **uac_auth** plugin to always send SIP request to the same endoint that sent auth challenge (avoid DNS and DNS SRV balancing/failover)
+    Force **uac_auth** plugin to always send SIP request to the same endpoint that sent auth challenge (avoid DNS and DNS SRV balancing/failover)
 
 ignore_notify_lower_cseq (default: false)
     Ignore lower CSeq value for NOTIFY requests. fixes subscription dialog usage for implementations which follow 3265 instead of 5057
@@ -163,7 +163,7 @@ outbound_proxy (default: empty)
     Use outbound proxy for all outgoing SIP requests
 
 force_outbound_proxy (default: false)
-    Whether to appply **outbound_proxy** for in-dialog requests. will put outbound proxy URI at the top of the existent Route Set
+    Whether to apply **outbound_proxy** for in-dialog requests. will put outbound proxy URI at the top of the existent Route Set
 
 force_cancel_route_set (default: false)
     Add SIP dialog Route Set to CANCEL requests if true
@@ -435,7 +435,7 @@ Section **media-interfaces**
 Section **modules**
 -------------------
 
-Section modules describles which modules should be loaded. Module can optionally accept configuration.
+Section modules describes which modules should be loaded. Module can optionally accept configuration.
 
 .. code-block:: c
    :caption: modules configuration example

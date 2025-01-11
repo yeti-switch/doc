@@ -1,5 +1,7 @@
 .. :maxdepth: 2
 
+.. spelling:word-list::
+    postgresql
 
 =============================
 Routing database installation
@@ -11,7 +13,7 @@ Routing database installation
 Supported versions
 ------------------
 
-The only supported postgresql version is 13.
+The only supported PostgreSQL version is 13.
 
 
 Packages installation

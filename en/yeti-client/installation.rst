@@ -4,7 +4,7 @@
 Installation
 ============
 
-Customer portal packed to debian package **yeti-cli** and available for Debian 9 and Debian 10 distribution. To install it run:
+Customer portal packed to Debian package **yeti-cli** and available for Debian 9 and Debian 10 distribution. To install it run:
 
 .. code-block:: console
 

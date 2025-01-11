@@ -4,7 +4,7 @@
 Configuration
 =============
 
-Customer portal has one configuration file located at **/opt/yeti-client/dist/config.js**. This file will be overwrited during **yeti-client** package upgrade by default values so be ready to restore configuration after upgrade.
+Customer portal has one configuration file located at **/opt/yeti-client/dist/config.js**. This file will be overwritten during **yeti-client** package upgrade by default values so be ready to restore configuration after upgrade.
 
 Config file example:
 

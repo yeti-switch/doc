@@ -40,7 +40,7 @@ Outgoing Registrations are used for monitoring of current status of :ref:`outgoi
     Last Request Time
         Timestamp of last sending REGISTER request for this *Outgoing Registration*.
     Last Succ Req Time
-        Timestamp of last sending sucess REGISTER request for this *Outgoing Registration*.
+        Timestamp of last sending successful REGISTER request for this *Outgoing Registration*.
     Attempt
         Current amount of attempts for sending REGISTER request for this *Outgoing Registration*.
     Max Attempts

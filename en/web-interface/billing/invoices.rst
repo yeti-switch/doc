@@ -16,7 +16,7 @@ Invoice provides possibility to summarize billing information for mutual settlem
         :ref:`Account <accounts>` that is related to this invoice.
     State
         Status of the invoice. New invoices are created with status *Pending*.
-        After changing status of invoice to *Approve*, it is considered confirmed and is sent to the contragent's email (configured in account settings).
+        After changing status of invoice to *Approve*, it is considered confirmed and is sent to the contractor's email (configured in account settings).
         If account has invoice template, system also will generate PDF document.
     Start date
         Date and time of beginning of the billing period in the invoice.
@@ -37,7 +37,7 @@ Invoice provides possibility to summarize billing information for mutual settlem
     Billing duration
 	Billed calls duration calculated based on call duration and billing intervals(initial and next interval length). Calculated as sum(customer_duration) from CDRs.
     Type
-        Generation of the invoice can be performed manually or automatically, if invoices autogeneration period for account was choosen.
+        Generation of the invoice can be performed manually or automatically, if invoices auto-generation period for account was chosen.
         Three types of invoices are available: Auto, Auto partial and Manual.
     Direction
         The invoice can have on the two possible directions: Vendor or Customer.

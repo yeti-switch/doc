@@ -16,8 +16,9 @@ Code's overriding scenarios that are used by :ref:`Disconnect policies <disconne
         If this checkbox is enabled re-routing won't be done in case of receiving this SIP Code.
     Pass reason to originator
         If this checkbox is enabled the Reason (text of Response Code) will be transferred to Originator without changing, even if Code was changed by scenario.
-    Rewrited code
+
+    :spelling:ignore:`Rewrited` code
         Response Code that will be transferred to Originator instead of original Code. If this field is empty - original Response Code will be transferred to Originator.
-    Rewrited reason
-        Response Reason that will be transferred to Originator instead of original (deafult) Reason. If this field is empty - original (default) Response Reason will be transferred to Originator, even if Code was changed by scenario.
+    :spelling:ignore:`Rewrited` reason
+        Response Reason that will be transferred to Originator instead of original (default) Reason. If this field is empty - original (default) Response Reason will be transferred to Originator, even if Code was changed by scenario.
 

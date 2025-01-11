@@ -26,12 +26,12 @@ To configure yeti-cli parameters edit /etc/yeti/yeti-cli.yml file.
     tree_clear_on_use: False
 
 
-* **nodes** - Array of nodes condifurations
+* **nodes** - Array of nodes configurations
 * **timeout** - result waiting timeout
 * **default_node** - default node, to which we connect on start
-* **prompt_system_name** - Promt string
+* **prompt_system_name** - Prompt string
 
-Config path can be overrided via enviroment variable YETI_CMD_CFG_PATH
+Config path can be overridden via environment variable YETI_CMD_CFG_PATH
 
 Now you can run yeti-cli from shell:
 

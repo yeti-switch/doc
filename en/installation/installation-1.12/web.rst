@@ -8,7 +8,7 @@ WEB interface installation
 Server requirements:
 
 - amd64 architecture
-- Debian 11 Bullseye distibution
+- Debian 11 Bullseye distribution
 - at least 4GB of RAM
 
 Packages installation

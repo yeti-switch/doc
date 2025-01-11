@@ -18,16 +18,16 @@ use <node-id>
     Switch connection to specific node. All command will be sent to this node.
     
 loadtree
-    Loads command tree from SEMS to local cache. yeti-cli use local cache for command autocompleteon
+    Loads command tree from SEMS to local cache. yeti-cli use local cache for command auto-completion
 
 showtree
     Displays content of command tree cache
 
 formatting disable
-    Disable output autoformatting mode
+    Disable output auto-formatting mode
 
 formatting enable
-    Enable output autoformatting mode
+    Enable output auto-formatting mode
 
 exit
     Exit from console
@@ -54,7 +54,7 @@ core.show.media.streams
 core.show.interfaces
     Displays current SEMS interfaces configuration. See **signaling-interfaces** and **media-interfaces** sections of **sems.conf**.
 core.show.log-level
-    Diplays current log-level for each log destination. Recommended values is 3 for **di_log** and 2 for **syslog**
+    Displays current log-level for each log destination. Recommended values is 3 for **di_log** and 2 for **syslog**
 core.show.connections
     Displays active connections on each SEMS interface.
 core.show.version
@@ -68,13 +68,13 @@ core.show.recorder.stats
 core.show.tr_blacklist
     Displays SIP transactions destinations blacklist.
 core.set.dump-level.signalling
-    Swith SEMS node to global signalling tracing mode. Signalling PCAP trace will be saved for each session independend on Customer Auth dump level parameters.
+    Switch SEMS node to global signaling tracing mode. Signaling PCAP trace will be saved for each session independent on Customer Auth dump level parameters.
 core.set.dump-level.none
     Disabling any global tracing
 core.set.dump-level.full
-    Switch SEMS node to full tracing mode. Signalling and RTP trace will be saved for each session independend on Customer Auth dump level parameters.
+    Switch SEMS node to full tracing mode. Signalling and RTP trace will be saved for each session independent on Customer Auth dump level parameters.
 core.set.dump-level.rtp
-    Switch SEMS node to RTP tracing mode. RTP trace will be saved for each session independend on Customer Auth dump level parameters. 
+    Switch SEMS node to RTP tracing mode. RTP trace will be saved for each session independent on Customer Auth dump level parameters. 
 core.set.log-level.di_log
     Allow to modify loglevel for **di_log** destination in runtime, without SEMS restart.
 core.set.log-level.syslog
@@ -117,7 +117,7 @@ yeti.show.resource.state <type>/-1 <id>/-1
     Show state of selected resource <type> for selected entity <id> (Entities such as 'Customer account', 'Customer Auth', 'Dialpeer' etc)
     *Example: show resource state 6 123*
 yeti.show.resource.state <type>/-1 <id>/-1 used
-    Show usage of selected resource (For debbuging purposes)
+    Show usage of selected resource (For debugging purposes)
 yeti.show.router.cdrwriter.opened-files
     Show opened files which used by router in order to write CDR
 yeti.show.sensors

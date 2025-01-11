@@ -14,11 +14,11 @@ YETI — class4 SIP softswitch with integrated billing and intelligent routing s
 Solution is intended to act as distributed SBC on the networks of the service providers which are working using protocol SIP.
 System supports a variety of intelligent routing algorithms.
 
-Softswitch handles SIP signalling and RTP traffic. Supports transcoding, detailed CDRs (more than 100 fields) allows to save all parameters which are needed for billing, debugging and analytic reports.
+Softswitch handles SIP signaling and RTP traffic. Supports transcoding, detailed CDRs (more than 100 fields) allows to save all parameters which are needed for billing, debugging and analytic reports.
 Yeti supports intelligent LCR/ASR/ACD routing by various criteria. Below is short list of supported features.
 
-Signalling and RTP processing
------------------------------
+Signaling and RTP processing
+----------------------------
 - SIP v.2.0 over UDP, TCP and TLS transports
 - IPv6 support. Flexible resolving configuration
 - SRTP with DTLS and SDES mechanisms
@@ -62,7 +62,7 @@ Authorization
 - DST, SRC prefixes
 - SIP R-URI domain
 - Custom SIP header
-- Geolocation of the signalling node
+- Geolocation of the signaling node
 - External RADIUS server
 
 Routing
@@ -71,7 +71,7 @@ Routing
 - Re-routing which is transparent for the client.
   Flexible configuration for the conditions when to use next route
 - Rewriting or transparent passing of the disconnect codes for the client
-- Flexible LCR configuration (quiality control, prices limit).
+- Flexible LCR configuration (quality control, prices limit).
   Possibility of the fast implementation of the any desired alternative algorithm
 - Capacity control for gateways, destinations, companies, accounts
 - Source and Destination number based Blacklisting and per number translation rules
@@ -88,18 +88,18 @@ Billing
 
 - Realtime CDR writing. Possibility to skip CDR write for specific disconnect codes
 - Realtime traffic blocking when balance limit reached
-- Flexible rateplanes configuration and routing policies to provide optimal profitability
+- Flexible rateplans configuration and routing policies to provide optimal profitability
 - Configurable billing intervals, support of the connect fee
 - Invoices and documents generation from templates
 - Dynamic price calculation for client from real termination price.
   This mode useful to   sell traffic for the trusted clients at the minimum cost price
 - Integration with external systems
-- Possibility to send CDRs to the external systems (e.g for antifraud analysis)
+- Possibility to send CDRs to the external systems (e.g for anti-fraud analysis)
 - REST API for data modification (in development)
 - Lawful interception sensors.
   Allows to configure traffic mirroring to the external equipment without affecting on system work.
   It's possible to configure different sensors for different call legs and gateways.
-  At this moment system supports IP-IP and IP over Ethernet incapsulation.
+  At this moment system supports IP-IP and IP over Ethernet encapsulation.
 - Support to receive information about upper limit for the rate for the each call from the custom SIP header from the client.
 - Ability to show information about real termination cost (supplier rates) to the trusted clients, and information about cost for the client ( useful in case of dynamic rate calculation)
 
@@ -122,7 +122,7 @@ Administration
   Such configuration is fault tolerant to the network and hardware issues, and provides correct CDR billing after reconnection between system parts.
 - Convenient web-interface with possibility to find simply any system entities. Interface operators modifications logging allows to provide a high level of security. Supported export and import for all system configuration base objects.
 - Time-consuming tasks are performed in background to prevent blocking of the web-interface.
-- All components are developed and packaged for single platform (Debian GNU/Linux) and can be setup/upgraded using standart package manager (apt).
+- All components are developed and packaged for single platform (Debian GNU/Linux) and can be setup/upgraded using system package manager (apt).
 - CLI interface for routing system. Allows to manage all routing nodes and use extended debugging tools.
 - Recording of the PCAP dumps for the calls to provide simple debugging. Recorded dumps are available through web-interface.
 - CDRs have big amount of the debugging info.
@@ -137,8 +137,8 @@ Yeti consists of the following components:
 
 - Switch server (SEMS + YETI module)
 - Incoming traffic balancer (Kamailio)
-- Routing database (Postgresql)
-- CDR database (Postgresql)
+- Routing database (PostgreSQL)
+- CDR database (PostgreSQL)
 - Realtime data storage(Redis)
 - Management Web-interface (RoR, ruby)
 - CLI interface (python) [optional]

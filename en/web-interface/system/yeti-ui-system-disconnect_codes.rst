@@ -24,9 +24,9 @@ Disconnect Codes are used for defining special actions for some SIP disconnect c
         In case of enabling of this field Yeti will not re-route call after receiving this *Disconnect Code*.
     Pass reason to originator
         In case of enabling of this field Yeti will transfer reason from termination :ref:`Gateway <gateways>` to origination.
-    Rewrited code
+    :spelling:ignore:`Rewrited` code
         If this field is not empty new numeric code from this field will be transfer to origination :ref:`Gateway <gateways>`.
-    Rewrited reason
+    :spelling:ignore:`Rewrited` reason
         If this field is not empty new textual reason from this field will be transfer to origination :ref:`Gateway <gateways>`.
     Store cdr
         In case of enabling of this field Yeti will store CDRs for calls that were terminated with this *Disconnect Code*.

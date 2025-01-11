@@ -120,7 +120,7 @@ Radius request error
 Invalid radius profile
     Invalid radius profile configured
 Invalid radius response
-    RADIUS responce has unexpected format
+    RADIUS response has unexpected format
 Radius reject
     RADIUS servers send Access-Reject
     

@@ -4,7 +4,7 @@
 Admin Users
 ~~~~~~~~~~~
 
-Users that have access to this YETI WEB interface. This section allow to control credetials for Yeti Admin interface and :ref:`Yeti Admin API <admin_api>`
+Users that have access to this YETI WEB interface. This section allow to control credentials for Yeti Admin interface and :ref:`Yeti Admin API <admin_api>`
 
 Attributes:
 ```````````
