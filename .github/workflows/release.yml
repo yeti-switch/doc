@@ -15,7 +15,7 @@ jobs:
         run: pip install sphinx sphinx_rtd_theme sphinxcontrib-mermaid sphinxcontrib.googleanalytics sphinxcontrib-video sphinxcontrib.spelling
       
       - name: install graphviz and rclone
-        run: sudo apt install graphviz rclone
+        run: sudo apt install graphviz rclone s4cmd
 
       - name: Run make
         run: make
@@ -31,4 +31,9 @@ jobs:
 
       - name: deploy
         run: "rclone -I sync _build my-remote:"
-
+        
+      - name: deploy2
+        env:
+          S3_ACCESS_KEY: ${{secrets.S3_ACCESS_KEY}}
+          S3_SECRET_KEY: ${{secrets.S3_SECRET_KEY}}
+        run: s4cmd --endpoint-url=${{secrets.S3_ENDPOINT_URL}} dsync -s -r --delete-removed _build/en/html/ s3://${{secrets.S3_BUCKET}}/
