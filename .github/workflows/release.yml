@@ -31,12 +31,9 @@ jobs:
 
       - name: deploy
         run: "rclone -I sync _build my-remote:"
-
-      - name: prepare directory structure
-        run: mkdir _build2 && cp -a _build/en/html _build2/en
-        
+       
       - name: deploy2
         env:
           S3_ACCESS_KEY: ${{secrets.S3_ACCESS_KEY}}
           S3_SECRET_KEY: ${{secrets.S3_SECRET_KEY}}
-        run: s4cmd --endpoint-url=${{secrets.S3_ENDPOINT_URL}} dsync -s -r --delete-removed _build2/ s3://${{secrets.S3_BUCKET}}/
+        run: s4cmd --endpoint-url=${{secrets.S3_ENDPOINT_URL}} dsync -s -r --delete-removed _build/en/html/ s3://${{secrets.S3_BUCKET}}/
