@@ -110,7 +110,7 @@ Routing Plan
 Routing Group
     :ref:`Routing Group <routing_group>` that was used for the call.
 Routing Tags
-    :ref:`Routing Tags <routing_tag>` associased with the call.
+    :ref:`Routing Tags <routing_tag>` associated with the call.
 Rateplan
     :ref:`Rateplan <rateplans>` that was used for the call.
 
@@ -148,10 +148,10 @@ LegA Originator address
 
 
 LegB Remote socket
-    Protocol, Destination IP address and Destinaion Port of initial INVITE request sent by Yeti on legB. This field may be empty if no responce received for initial INVITE.
+    Protocol, Destination IP address and Destination Port of initial INVITE request sent by Yeti on legB. This field may be empty if no response received for initial INVITE.
 
 LegB Local socket
-    Source IP address and Source Port of initial INVITE request sent by Yeti on legB. This field may be empty if no responce received for initial INVITE.
+    Source IP address and Source Port of initial INVITE request sent by Yeti on legB. This field may be empty if no response received for initial INVITE.
 
 LegB Ruri
     R-URI of initial INVITE request sent by Yeti on legB.
