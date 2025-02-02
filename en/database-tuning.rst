@@ -5,9 +5,15 @@
 
 .. _database_tuning:
 
-============================
-Databases performance tuning
-============================
+=====================
+Databases Maintenance
+=====================
+
+Yeti switch using two postgresql databases to store routing data and CDRs. This document describes some maintenance procedures.
+
+
+Performance tuning
+==================
 
 By default PostgreSQL RDBMS configured to consume minimal system resources. This approach allows PostgreSQL to start on any server after installation. YETI as well as any other system uses PostgreSQL requires changing default configuration in order to archive best performance.
 
@@ -30,8 +36,30 @@ When configuration changed you should restart your PostgreSQL instance using `se
 
 
 
+Dump and Restore
+================
 
-    
+.. TODO:  Explain why we need it
+
+See https://github.com/markokr/skytools/blob/master/doc/faq.txt#L50 for details
+
+To get know your cluster epoch, connect to database using **psql** and run:
+
+.. code-block:: psql
+
+	cdr=# SELECT (txid_current() >> 32) as epoch;
+	epoch
+	-------
+		0
+	(1 row)
 
 
+To change PostgreSQL cluster epoch - shutdown cluster and use **pg_resetwal** tool:
 
+.. code-block:: console
+
+	# su - postgres
+	$ /usr/lib/postgresql/16/bin/pg_resetwal -e 1 /var/lib/postgresql/16/cdr
+
+
+Where **1** is new epoch - it should be greater then epoch of old instance

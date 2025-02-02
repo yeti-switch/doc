@@ -252,7 +252,7 @@ Launch configured traffic switch instance:
 
 .. code-block:: console
 
-    # systemctl sems start
+    # systemctl start sems
 
 In case of errors it's useful to use **sems -E -D3** command
 which will launch daemon in foreground with debug logging level
