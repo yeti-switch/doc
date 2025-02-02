@@ -4,7 +4,7 @@
 Data retention
 ~~~~~~~~~~~~~~
 
-Data retention should be configured for heavy loaded production systems. Yeti has built-in tools to remove historical data from databases. Such tools can be configured via **/opt/yeti-web/config/yeti_web.yml** configuration file::
+Data retention should be configured for production systems. Yeti has built-in tools to remove historical data from databases. Such tools can be configured via **/opt/yeti-web/config/yeti_web.yml** configuration file::
 
     
     partition_remove_delay:
@@ -16,6 +16,12 @@ Data retention should be configured for heavy loaded production systems. Yeti ha
       
 
 This configuration defines how many historical **partitions** should be saved in database for each table.
+
+To apply configuration - restart **yeti-scheduler** service:
+
+.. code-block:: console
+
+    # systemctl restart yeti-scheduler
 
 
 Admin WEB interface views :ref:`CDR -> CDR Partitions <cdr_partitions>` and :ref:`Logs -> Log partitions <log_partitions>` allows to see existing partitions in CDRs and Routing databases.
