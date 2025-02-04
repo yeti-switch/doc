@@ -4,7 +4,7 @@
 Transactions
 ~~~~~~~~~~~~
 
-Transactions object represents account balance decrese caused by paid services consumption inside Yeti system.
+Transactions object represents account balance decrease caused by paid services consumption inside Yeti system.
 
 
 Id
