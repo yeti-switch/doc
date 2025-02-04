@@ -2,23 +2,51 @@
 CDR Writer Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-The page contains CDR writer configuration of YETI.
+The page contains settings related to CDR writing logic.
 
-**System Cdr Config**'s attributes:
-```````````````````````````````````
 
 Call duration round mode
-    This field is used to regulate round mode of call duration in Yeti. Following values are available: Always UP; Always DOWN; Math rules (up if >= 0.5).
+    Yeti store call duration as integer amount of seconds, real call duration may be not exact integer value, so rounding procedure required. Following modes are available:
+
+    Always Up:
+        - duration 1.41 seconds will be rounded to 2 seconds
+        - duration 1.5 seconds will be rounded to 2 seconds
+        - duration 1.6 seconds will be rounded to 2 seconds
+
+    Always Down:
+        - duration 1.41 seconds will be rounded to 1 seconds
+        - duration 1.5 seconds will be rounded to 1 seconds
+        - duration 1.6 seconds will be rounded to 1 seconds
+
+    Math rules
+        - duration 1.41 seconds will be rounded to 1 seconds
+        - duration 1.5 seconds will be rounded to 2 seconds
+        - duration 1.6 seconds will be rounded to 2 seconds
+
+
+After call duration rounding Yeti perform customer and vendor price calculations. Customer and vendor prices may be also rounded.
 
 Customer price round mode
-    This field is used to regulate round mode of :ref:`Customer's price <customer_price_calc_rules>`. Following values are available: Disable rounding; Always UP; Always DOWN;  Math rules (up if >= 0.5).
+    Round mode of :ref:`Customer's price <customer_price_calc_rules>`. Following values are available:
+
+        - Disable rounding
+        - Always UP
+        - Always DOWN
+        - Math rules (up if >= 0.5).
 
 Customer amount round precision
-    This field is used to regulate level of precision for the :ref:`Customer's price <customer_price_calc_rules>`. Number of digits after point (in the floating point numbers) is presented in this field.
+    Level of precision for the :ref:`Customer's price <customer_price_calc_rules>`. Number of digits after point (in the floating point numbers) for rounding.
 
 Vendor price round mode
-    This field is used to regulate round mode of :ref:`Vendors's price <vendor_price_calc_rules>`. Following values are available: Disable rounding; Always UP; Always DOWN;  Math rules (up if >= 0.5).
+    Round mode of :ref:`Vendors's price <vendor_price_calc_rules>`. Following values are available:
+
+        - Disable rounding
+        - Always UP
+        - Always DOWN
+        - Math rules (up if >= 0.5).
 
 Vendor amount round precision
-    This field is used to regulate level of precision for the :ref:`Vendors's price <vendor_price_calc_rules>`. Number of digits after point (in the floating point numbers) is presented in this field.
+    Level of precision for the :ref:`Vendors's price <vendor_price_calc_rules>`. Number of digits after point (in the floating point numbers) for rounding.
 
+Disable Realtime Statistics
+    This settings allow to disable calculation of statistics during CDR writing.

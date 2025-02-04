@@ -23,6 +23,9 @@ It is necessary to have an SMTP connection in order to YETI can send invoices an
         Username for Authorization procedure on external SMTP server.
     Auth password
         Password for Authorization procedure on external SMTP server.
+
+.. _global_smtp_connection:
+
     Global
         Set as global for all customers.
 
