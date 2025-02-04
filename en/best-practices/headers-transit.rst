@@ -91,7 +91,3 @@ The headers will be filtered twice (by the filter X-YETI-AUTH*, and then by the 
             sip-session2[Termination gateway<br>**Transit headers from termination** = X-YETI-AUTH*]
         end
         
-
-
-
-
