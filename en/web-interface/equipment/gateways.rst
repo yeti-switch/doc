@@ -443,9 +443,9 @@ PAI Send mode
     Mode of **P-Asserted-Identity** header transmission to termination gateway. Available options:
 
     - **Do not send** - Do not send **P-Asserted-Identity** header
-    - **Build TEL URI from Source Number** - Generate **P-Asserted-Identity** as `tel URI <https://datatracker.ietf.org/doc/html/rfc3966>`_ header using Source number as userpart
-    - **Build SIP URI from Source Number** - Generate **P-Asserted-Identity** as **sip URI** header using Source number as userpart. **PAI Domain** should be defined.
-    - **Build SIP URI from Source Number with user=phone** - Generate **P-Asserted-Identity** as `sip URI with user=phone paramerer <https://datatracker.ietf.org/doc/html/rfc3261#section-19.1.6>`_ using Source number as userpart. **PAI Domain** should be defined.
+    - **Build TEL URI from Source Number** - Generate **P-Asserted-Identity** as `tel URI <https://datatracker.ietf.org/doc/html/rfc3966>`_ header using Source number as use-rpart.
+    - **Build SIP URI from Source Number** - Generate **P-Asserted-Identity** as **sip URI** header using Source number as user-part. **PAI Domain** should be defined.
+    - **Build SIP URI from Source Number with user=phone** - Generate **P-Asserted-Identity** as `sip URI with user=phone paramerer <https://datatracker.ietf.org/doc/html/rfc3261#section-19.1.6>`_ using Source number as user-part. **PAI Domain** should be defined.
     - **Relay PAI/PPI as is** - Relay **P-Asserted-Identity** and **P-Preferred-Identity** headers from call legA.
     - Relay PAI/PPI as TEL uri
         Build **P-Asserted-Identity** and **P-Preferred-Identity** as `tel URI <https://datatracker.ietf.org/doc/html/rfc3966>`_  based on P-Asserted-Identity and P-Preferred-Identity received from call legA.
