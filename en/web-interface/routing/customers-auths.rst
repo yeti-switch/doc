@@ -310,7 +310,7 @@ Number translation options
         **P-Asserted-Identity** and **P-Preferred-Identity** values received from call originator will be saved in :ref:`CDR attributes PAI In and PPI In <cdr_pai>`
 
     PAI Rewrite rule/PAI Rewrite result
-        Rewrite rules for **P-Asserted-Identity** and **P-Preferred-Identity** URI userpart.
+        Rewrite rules for **P-Asserted-Identity** and **P-Preferred-Identity** URI user-part.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
 
         .. warning:: Experimental feature.  Disabled by default.
