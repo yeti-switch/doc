@@ -26,7 +26,14 @@ import shlex
 # If your documentation needs a minimal Sphinx version, state it here.
 # needs_sphinx = '1.0'
 
-extensions = ["sphinx.ext.graphviz", "sphinx.ext.mathjax", "sphinxcontrib.mermaid", "sphinxcontrib.googleanalytics", "sphinxcontrib.video", "sphinxcontrib.spelling"]
+extensions = [
+	"sphinx.ext.graphviz",
+	"sphinx.ext.mathjax",
+	"sphinxcontrib.mermaid",
+	"sphinxcontrib.googleanalytics",
+	"sphinxcontrib.video",
+	"sphinxcontrib.spelling"
+]
 
 spelling_lang = 'en_US'
 tokenizer_lang = 'en_US'
