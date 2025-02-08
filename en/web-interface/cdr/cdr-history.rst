@@ -159,6 +159,8 @@ LegB Ruri
 Is Redirected
     Will be true if call leg B was redirected using 3xx SIP response or REFER request.
 
+.. _cdr_pai:
+
 Pai In
     Value of **P-Asserted-Identity** header received from origination gateway in initial INVITE on legA.
 

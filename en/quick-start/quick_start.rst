@@ -3,7 +3,7 @@
 Routing quick start guide
 =========================
 
-This document explains how to configure Yeti to route your fist test call.
+This document explains how to configure Yeti to route your first test call.
 
 Yeti is user-friendly application and it very easy for configuration. You can see this by looking at the diagram of dependencies between objects :)
 
@@ -18,15 +18,15 @@ For configuration purposes :ref:`Yeti Web interface <web>` could be used.
 
 .. _quick_start_chapter1:
 
-Chapter 1.  Basic configuration
-===============================
+Basic configuration
+===================
 
 
 In this Chapter we'll configure Yeti for receiving calls on IP address **127.0.0.1** (any port, UDP) and switching them (in case if B-number starts from **380**) to the Gateway with IP address **128.0.0.1**.
 
 **Step 1. Creation of Contractors**
 
-At the first step it is necessary to configure two :ref:`Contractor's <contractors>` records: one with type :ref:`Customer <contractor_customer>` and second with type :ref:`Vendor <contractor_vendor>`. Both records should be *Enabled*.
+At the first step it is necessary to configure two :ref:`Contractors <contractors>`: one with type :ref:`Customer <contractor_customer>` and second with type :ref:`Vendor <contractor_vendor>`. Both contractors should be *Enabled*.
 
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
@@ -43,12 +43,12 @@ At the first step it is necessary to configure two :ref:`Contractor's <contracto
 
 .. note::
 
-   It is possible to use one record instead two by enabling both (:ref:`Customer <contractor_customer>` and :ref:`Vendor <contractor_vendor>`) flags.
+   It is possible to use one Contractor instead two by enabling both (:ref:`Customer <contractor_customer>` and :ref:`Vendor <contractor_vendor>`) flags.
 
 
 **Step 2. Creation of Accounts**
 
-At the second step it is necessary to configure two :ref:`Account's <accounts>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). You should also set *Max balance* parameter for the Vendor to the some value that allow to make a call (current balance will be less than *Max balance* value). In our example we'll set 100 monetary units.
+At the second step it is necessary to configure two :ref:`Accounts <accounts>`: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). You should also set *Max balance* parameter for the Vendor to the some value that allow to make a call (current balance will be less than *Max balance* value). In our example we'll set 100 monetary units.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -64,7 +64,7 @@ At the second step it is necessary to configure two :ref:`Account's <accounts>` 
 
 **Step 3. Creation of Gateways**
 
-At the third step it is necessary to configure two :ref:`Gateway's <gateways>` records: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). Both records should be *Enabled*. It is also important to allow origination at the *Gateway A* and termination to the *Gateway B*.
+At the third step it is necessary to configure two :ref:`Gateways <gateways>`: one will be linked to Contractor A (Customer) and second will be linked to Contractor B (Vendor). Both records should be *Enabled*. It is also important to allow origination at the *Gateway A* and termination to the *Gateway B*.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -91,7 +91,7 @@ At the third step it is necessary to configure two :ref:`Gateway's <gateways>` r
 
 At the fourth step it is necessary to configure:
 
- - at least one :ref:`Routing Group's <routing_group>` record;
+ - at least one :ref:`Routing Group <routing_group>`;
 
    .. table:: Example of records filling
       :widths: auto
@@ -104,7 +104,7 @@ At the fourth step it is necessary to configure:
 
 
 
- - at least one :ref:`Routing Plan's <routing_plan>` record that is associated with :ref:`Routing Group <routing_group>` above;
+ - at least one :ref:`Routing Plan <routing_plan>` that is associated with :ref:`Routing Group <routing_group>` above;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -118,7 +118,7 @@ At the fourth step it is necessary to configure:
 
 
 
- - at least one :ref:`Dialpeer's <dialpeers>` record that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>` and :ref:`Vendor's Gateway <gateways>` that were configured above. In our example we use **380** (international code of Ukraine) as *Prefix* and we'll pay one monetary unit per minute to the Vendor after the initial interval (by default - 1 minute) and 2 monetary units during initial interval. This :ref:`Dialpeer <dialpeers>` will be used as a route for all traffic to Ukrainian numbers;
+ - at least one :ref:`Dialpeer <dialpeers>` that should be associated with :ref:`Routing Group <routing_group>`, :ref:`Vendor <contractors>`, :ref:`Vendor's Account <accounts>` and :ref:`Vendor's Gateway <gateways>` that were configured above. In our example we use **380** (international code of Ukraine) as *Prefix* and we'll pay one monetary unit per minute to the Vendor after the initial interval (by default - 1 second) and 2 monetary units during initial interval. This :ref:`Dialpeer <dialpeers>` will be used as a route for all traffic to Ukrainian numbers;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -142,7 +142,7 @@ At the fourth step it is necessary to configure:
 
 At the fifth step it is necessary to configure:
 
- - at least one :ref:`Rateplan's <rateplans>` record;
+ - at least one :ref:`Rateplan <rateplans>`;
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -155,7 +155,7 @@ At the fifth step it is necessary to configure:
 
 
 
- - at least one :ref:`Destination's <destinations>` record that should be associated with with :ref:`Rateplan <rateplans>` above. In our example we also use **380** (international code of Ukraine) as *Prefix*  and we'll receive 1.5 monetary units per minute from Customer after the initial interval and 3 monetary units during initial interval. So, in case of call with ten minutes length the profit will be (3-2)+(10-1)*(1.5-1) = 5.5 monetary units (16.5 will be received from the Customer and 11 will be paid to the Vendor);
+ - at least one :ref:`Destination <destinations>` that should be associated with with :ref:`Rateplan <rateplans>` above. In our example we also use **380** (international code of Ukraine) as *Prefix*  and we'll receive 1.5 monetary units per minute from Customer after the initial interval and 3 monetary units during initial interval. So, in case of call with ten minutes length the profit will be (3-2)+(10-1)*(1.5-1) = 5.5 monetary units (16.5 will be received from the Customer and 11 will be paid to the Vendor);
 
    .. table:: Example of records filling (only fields that should be changed from default values are shown)
       :widths: auto
@@ -180,7 +180,7 @@ At the fifth step it is necessary to configure:
 
 **Step 6. Creation of Customer Auth**
 
-At the sixth step it is necessary to configure at least one :ref:`Customers Auth's <customer_auth>` record that should be associated with :ref:`Customer <contractors>`, :ref:`Customer's Account <accounts>` and :ref:`Customer's Gateway <gateways>`, :ref:`Rateplan <rateplans>` and :ref:`Routing Group <routing_group>` that were configured above.
+At the sixth step it is necessary to configure at least one :ref:`Customers Auth <customer_auth>` that should be associated with :ref:`Customer <contractors>`, :ref:`Customer's Account <accounts>` and :ref:`Customer's Gateway <gateways>`, :ref:`Rateplan <rateplans>` and :ref:`Routing Group <routing_group>` that were configured above.
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -201,7 +201,7 @@ At the sixth step it is necessary to configure at least one :ref:`Customers Auth
 
 **Step 7. Test the call**
 
-At the last step it is necessary to create some :ref:`Payment's <payments>` record for topping up the balance of Account A and test the call (Customer's balance should be greater than *Min balance* value).
+At the last step it is necessary to create some :ref:`Payment <payments>` for topping up the balance of Account A and test the call (Customer's balance should be greater than *Min balance* value).
 
 .. table:: Example of records filling (only fields that should be changed from default values are shown)
    :widths: auto
@@ -235,12 +235,12 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter2:
 
-Chapter 2.  Additional Dialpeer
-===============================
+Additional Dialpeer
+===================
 
 In this Chapter we'll improve basic configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding new :ref:`Dialpeers <dialpeers>` that will help to spend less money for calling to the alternative routes.
 
-In our new example the same :ref:`Vendor <contractors>` (Contractor B from basic configuration) proposed us special price for all calls that will be made to the numbers that start from **38048** (regional code of Odessa city in Ukraine).
+In our new example the same :ref:`Vendor <contractors>` (Contractor B from basic configuration) proposed us special price for all calls that will be made to the numbers that start from **38048** (code of Odesa region in Ukraine).
 
 **Step 1. Creation of additional Dialpeer**
 
@@ -286,8 +286,8 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter3:
 
-Chapter 3.  Alternative Gateway for calls to the specific numbers
-=================================================================
+Alternative Gateway for calls to the specific numbers
+=====================================================
 
 In this Chapter we'll improve configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding new :ref:`Vendor's Gateway <gateways>` that will be used for terminating calls that are sent to the specific numbers (to the numbers that start from **38048705**).
 
@@ -358,8 +358,8 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter4:
 
-Chapter 4.  Origin based billing
-================================
+Origin based billing
+====================
 
 In this Chapter we'll improve configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding origin based billing. In our example we'll configure lower price (0.25 monetary unit per minute after the initial interval and 0.5 monetary units during initial interval) for calling to Ukraine (to the numbers that start from **380**) from France (from the numbers that start from **33**).
 
@@ -479,8 +479,8 @@ As a result two records will be shown, where the first record is an actual recor
 
 .. _quick_start_chapter5:
 
-Chapter 5.  Emergency calls
-===========================
+Emergency calls
+===============
 
 In this Chapter we'll change configuration that is described in :ref:`Chapter 1 <quick_start_chapter1>` above by adding possibility to make free call to the emergency number (**112**) even in case of zero balance of Customer's account.
 

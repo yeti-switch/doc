@@ -150,8 +150,8 @@ After sorting of *Customer Auth* records routing procedure will be continued wit
 
 Customer Auth form contains few tabs and each one is described below.
 
-General **Customers Auth**'s attributes:
-````````````````````````````````````````
+General attributes
+``````````````````
 
     .. _customer_auth_id:
 
@@ -213,8 +213,8 @@ General **Customers Auth**'s attributes:
         If enabled, YETI adds the special SIP-header into 200 SIP-message, which contains
         current price for calls, in order to a Customer should be informed.
 
-Match condition **Customers Auth**'s options
-````````````````````````````````````````````
+Match condition options
+```````````````````````
     This part is crucial for authentication process of incoming calls. You should note that a one
     customer may have many of Customer Auth with almost the same parameters, so pay
     attention to parameters besides Ip address.
@@ -280,8 +280,8 @@ Match condition **Customers Auth**'s options
 
     .. _customers_auth_number_translation:
 
-Number translation **Customers Auth**'s options
-```````````````````````````````````````````````
+Number translation options
+``````````````````````````
 
     Diversion policy
         Defines what to do with Diversion header within SIP-signalization.
@@ -292,6 +292,29 @@ Number translation **Customers Auth**'s options
     Diversion rewrite result
         The result of changing a Diversion header, using the Rewrite Rule above.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+    .. _customers_auth_pai_policy:
+
+    PAI Policy
+        **P-Asserted-Identity** and **P-Preferred-Identity** headers processing logic. Available options:
+
+        - Do not accept
+            Do not accept incoming **P-Asserted-Identity** and **P-Preferred-Identity** data. It will not be possible to relay PAI and PPI to termination gateway
+
+        - Accept
+            Accept incoming **P-Asserted-Identity** and **P-Preferred-Identity** data. It will be possible to relay PAI and PPI to termination gateway
+
+        - Require
+            Yeti will reject call if no **P-Asserted-Identity** header received from call originator
+
+        **P-Asserted-Identity** and **P-Preferred-Identity** values received from call originator will be saved in :ref:`CDR attributes PAI In and PPI In <cdr_pai>`
+
+    PAI Rewrite rule/PAI Rewrite result
+        Rewrite rules for **P-Asserted-Identity** and **P-Preferred-Identity** URI userpart.
+        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+        .. warning:: Experimental feature.  Disabled by default.
+
     Src name rewrite rule
         This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization.
         See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
@@ -313,8 +336,8 @@ Number translation **Customers Auth**'s options
 
     .. _radius_options:
 
-Radius **Customers Auth**'s options
-```````````````````````````````````
+Radius options
+``````````````
 
     Radius auth profile
         Must be specified if the additional radius authentication is required.
@@ -335,8 +358,8 @@ Radius **Customers Auth**'s options
 
     .. _routing_tags_options:
 
-Routing Tags **Customers Auth**'s options
-`````````````````````````````````````````
+Routing Tags options
+````````````````````
     Tag action
         Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. Usually *Authentication* it is first step where :ref:`Routing Tags <routing_tag>` can be added to the call. Following actions can be selected in this field:
 
