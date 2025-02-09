@@ -152,7 +152,7 @@ Destination                     * Prefix: 38048705
 4. Adding Dialpeer
 ==================
 
-At the fourth step we'll add :ref:`Dialpeer <dialpeers>` to properly calculate price we have to pay to vendor for traffice from France
+At the fourth step we'll add :ref:`Dialpeer <dialpeers>` to properly calculate price we have to pay to vendor for traffic from France
 
 
 =============================== =====================================
