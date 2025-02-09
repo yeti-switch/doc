@@ -140,6 +140,7 @@ YETI WEB interface - Routing menu description.
 
    customers-auths
    yeti-ui-routing-rateplans
+   rate_groups
    yeti-ui-routing-destinations
    yeti-ui-routing-routing_groups
    yeti-ui-routing-dialpeers
