@@ -283,95 +283,109 @@ Match condition options
 Number translation options
 ``````````````````````````
 
-    Diversion policy
-        Defines what to do with Diversion header within SIP-signalization.
-        Default value is "Clear header", so this header will be deleted.
-    Diversion rewrite rule
-        This option should contain a regular expression for changing a Diversion header.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Diversion rewrite result
-        The result of changing a Diversion header, using the Rewrite Rule above.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+Privacy mode
+    Processing mode for :ref:`Private calls <sip_headers_privacy`. Available options:
 
-    .. _customers_auth_pai_policy:
+    - Allow any calls
+    - Reject private calls - Private calls will be rejected
+    - Reject critical private calls - Critial private calls will be rejected
+    - Reject anonymous calls(no CLI/PAI/PPI) - Private calls with anonymized From, PAI, PPI headers will be rejected
 
-    PAI Policy
-        **P-Asserted-Identity** and **P-Preferred-Identity** headers processing logic. Available options:
+Diversion policy
+    Defines what to do with :ref:`Diversion <sip_headers_diversion>` header received in initial INVITE from call origiantor. Avaliable options:
 
-        - Do not accept
-            Do not accept incoming **P-Asserted-Identity** and **P-Preferred-Identity** data. It will not be possible to relay PAI and PPI to termination gateway
+    - Do not accept - Yeti will not process incoming **Diversion** header
+    - Accept - Yeti will accept Diversion header. It will be possible to relay it to termination gateway according to :ref:`Diversion Send Mode <gateways_diversion_send_mode>`
 
-        - Accept
-            Accept incoming **P-Asserted-Identity** and **P-Preferred-Identity** data. It will be possible to relay PAI and PPI to termination gateway
+Diversion rewrite rule/Diversion rewrite result
+    Rewrite rules for **Diversion** URI user-part. See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
 
-        - Require
-            Yeti will reject call if no **P-Asserted-Identity** header received from call originator
+.. _customers_auth_pai_policy:
 
-        **P-Asserted-Identity** and **P-Preferred-Identity** values received from call originator will be saved in :ref:`CDR attributes PAI In and PPI In <cdr_pai>`
+PAI Policy
+    **P-Asserted-Identity** and **P-Preferred-Identity** headers processing logic. Available options:
 
-    PAI Rewrite rule/PAI Rewrite result
-        Rewrite rules for **P-Asserted-Identity** and **P-Preferred-Identity** URI user-part.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+    - Do not accept
+        Do not accept incoming **P-Asserted-Identity** and **P-Preferred-Identity** data. It will not be possible to relay PAI and PPI to termination gateway
 
-        .. warning:: Experimental feature.  Disabled by default.
+    - Accept
+        Accept incoming **P-Asserted-Identity** and **P-Preferred-Identity** data. It will be possible to relay PAI and PPI to termination gateway
 
-    Src name rewrite rule
-        This field should contain a regular expression for changing the Name field in the Source-number within SIP-signalization.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Src name rewrite result
-        The result of changing the Name field in the Source-number, using the Src name rewrite rule above.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Src rewrite rule
-        This field should contain a regular expression for changing the Source-number within SIP-signalization.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Src rewrite result
-        The result of changing the Source-number, using the Src rewrite rule above.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Dst rewrite rule
-        This field should contain a regular expression for changing the Destination-number within SIP-signalization.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Dst rewrite result
-        The result of changing the Name field in the Destination-number, using the Dst rewrite rule above.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+    - Require
+        Yeti will reject call if no **P-Asserted-Identity** header received from call originator
 
-    .. _radius_options:
+    **P-Asserted-Identity** and **P-Preferred-Identity** values received from call originator will be saved in :ref:`CDR attributes PAI In and PPI In <cdr_pai>`
+
+PAI Rewrite rule/PAI Rewrite result
+    Rewrite rules for **P-Asserted-Identity** and **P-Preferred-Identity** URI user-part.
+    See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+    .. warning:: Experimental feature.  Disabled by default.
+
+Src name Field
+    Src name Field setting defined where yeti reading Src Name from. Available options:
+
+    - From URI Display name - use From header display name as Src Name
+    - From URI userpart - use From header userpart as Src Name
+
+Src name rewrite rule/Src name rewrite result
+    Rewrite rules for SRC Name. See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+Src number Field
+    Src number Field setting defined where yeti reading Src Number from. Available options:
+
+    - From URI userpart - use From header userpart as Src Name
+    - From URI Display name - use From header display name as Src Name
+
+Src rewrite rule/Src rewrite result
+    Rewrite rules for SRC Number. See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+Dst number field
+    TODO
+    - R-URI userpart
+    - To URI userpart
+    - Top Diversion header userpart
+
+Dst rewrite rule/Dst rewrite result
+    Rewrite rules for Destination number.
+    See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+Cnam Database
+    TODO
+
+.. _radius_options:
 
 Radius options
 ``````````````
 
-    Radius auth profile
-        Must be specified if the additional radius authentication is required.
-    Src number radius rewrite rule
-        Should contain regular expression for changing Source-number which will be send to Radius-server if it's required.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Src number radius rewrite result
-        The result of applying the Src number radius rewrite rule to Source-number.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Dst number radius rewrite rule
-        Should contain regular expression for changing Destination-number which will be send to Radius-server if it's required.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Dst number radius rewrite result
-        The result of applying the Dst number radius rewrite rule to Destination-number.
-        See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
-    Radius accounting profile
-        Must be specified if the radius accounting is required.
+Radius auth profile
+    Must be specified if the additional radius authentication is required.
+
+Src number radius rewrite rule/Src number radius rewrite result
+    Rewrite rules for changing Source-number which will be send to Radius-server if it's required.
+    See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+
+Dst number radius rewrite rule/Dst number radius rewrite result
+    Rewrite rules for changing Destinaion-number which will be send to Radius-server if it's required.
+    See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
+
+Radius accounting profile
+    Must be specified if the radius accounting is required.
 
     .. _routing_tags_options:
 
 Routing Tags options
 ````````````````````
-    Tag action
-        Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. Usually *Authentication* it is first step where :ref:`Routing Tags <routing_tag>` can be added to the call. Following actions can be selected in this field:
 
-            -   **Clear tags**. Removes all :ref:`Routing Tags <routing_tag>` from the call (if any were added early);
+Tag action
+    Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. Usually *Authentication* it is first step where :ref:`Routing Tags <routing_tag>` can be added to the call. Following actions can be selected in this field:
 
-            -   **Remove selected tags**. Removes only :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) from the call;
+    - **Clear tags**. Removes all :ref:`Routing Tags <routing_tag>` from the call (if any were added early);
+    - **Remove selected tags**. Removes only :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) from the call;
+    - **Append selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call;
+    - **Intersection with selected tags**. Yeti leaves as is :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) in the call in case of their presence in the current set of :ref:`Routing Tags <routing_tag>` and removes any other :ref:`Routing Tags <routing_tag>` from the call.
 
-            -   **Append selected tags**. Appends :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) to the call;
-
-            -   **Intersection with selected tags**. Yeti leaves as is :ref:`Routing Tags <routing_tag>` that were chosen in the *Tag action value* field bellow (if any were chosen) in the call in case of their presence in the current set of :ref:`Routing Tags <routing_tag>` and removes any other :ref:`Routing Tags <routing_tag>` from the call.
-
-
-    Tag action value
-        In this field :ref:`Routing Tags <routing_tag>` for making some *Tag action* above could be chosen.
+Tag action value
+    In this field :ref:`Routing Tags <routing_tag>` for making some *Tag action* above could be chosen.
 
