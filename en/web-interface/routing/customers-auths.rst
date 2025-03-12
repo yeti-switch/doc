@@ -284,7 +284,7 @@ Number translation options
 ``````````````````````````
 
 Privacy mode
-    Processing mode for :ref:`Private calls <sip_headers_privacy`. Available options:
+    Processing mode for :ref:`Private calls <sip_headers_privacy>`. Available options:
 
     - Allow any calls
     - Reject private calls - Private calls will be rejected

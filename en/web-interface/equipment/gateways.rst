@@ -432,6 +432,7 @@ Termination DST Numberlist
     TODO
 
 .. _gateways_diversion_send_mode:
+
 Diversion send mode
     TODO
     - Do not send
