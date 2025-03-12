@@ -422,7 +422,7 @@ Privacy mode
     - **Skip for private calls** - gateway will be excluded from routeset during private call routing.
     - **Skip for critical private calls** - gateway will be excluded from routeset during private **critical** call routing.
     - **Not trusted gw. Apply** - Private call will be anonymized before sending call to gateway in order to hide private information.
-    - **Trusted gw. Forward** - Private call will be sent to termination gw without PAI, PPI and From header anonymization.
+    - **Trusted gw. Forward** - Private call will be sent to termination gw. PAI, PPI and From headers will ne not anonymized.
     - **Trusted gw. Forward. Anonymize From** - Private call will be sent to termination gw, From header will be anonymized.
 
 Termination SRC Numberlist
