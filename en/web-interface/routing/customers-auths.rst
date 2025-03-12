@@ -326,7 +326,7 @@ Src name Field
     Src name Field setting defined where yeti reading Src Name from. Available options:
 
     - From URI Display name - use From header display name as Src Name
-    - From URI userpart - use From header user part as Src Name
+    - From URI :spelling:ignore:`:spelling:ignore:`userpart`` - use From header user part as Src Name
 
 Src name rewrite rule/Src name rewrite result
     Rewrite rules for SRC Name. See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
@@ -334,7 +334,7 @@ Src name rewrite rule/Src name rewrite result
 Src number Field
     Src number Field setting defined where yeti reading Src Number from. Available options:
 
-    - From URI userpart - use From header user part as Src Name
+    - From URI :spelling:ignore:`userpart` - use From header user part as Src Name
     - From URI Display name - use From header display name as Src Name
 
 Src rewrite rule/Src rewrite result
@@ -342,9 +342,9 @@ Src rewrite rule/Src rewrite result
 
 Dst number field
     TODO
-    - R-URI userpart
-    - To URI userpart
-    - Top Diversion header userpart
+    - R-URI :spelling:ignore:`userpart`
+    - To URI :spelling:ignore:`userpart`
+    - Top Diversion header :spelling:ignore:`userpart`
 
 Dst rewrite rule/Dst rewrite result
     Rewrite rules for Destination number.
