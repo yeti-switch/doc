@@ -288,11 +288,11 @@ Privacy mode
 
     - Allow any calls
     - Reject private calls - Private calls will be rejected
-    - Reject critical private calls - Critial private calls will be rejected
-    - Reject anonymous calls(no CLI/PAI/PPI) - Private calls with anonymized From, PAI, PPI headers will be rejected
+    - Reject critical private calls - Critical private calls will be rejected
+    - Reject anonymous calls(no CLI/PAI/PPI) - Private calls with anonymous From, PAI, PPI headers will be rejected
 
 Diversion policy
-    Defines what to do with :ref:`Diversion <sip_headers_diversion>` header received in initial INVITE from call origiantor. Avaliable options:
+    Defines what to do with :ref:`Diversion <sip_headers_diversion>` header received in initial INVITE from call originator. Available options:
 
     - Do not accept - Yeti will not process incoming **Diversion** header
     - Accept - Yeti will accept Diversion header. It will be possible to relay it to termination gateway according to :ref:`Diversion Send Mode <gateways_diversion_send_mode>`
@@ -326,7 +326,7 @@ Src name Field
     Src name Field setting defined where yeti reading Src Name from. Available options:
 
     - From URI Display name - use From header display name as Src Name
-    - From URI userpart - use From header userpart as Src Name
+    - From URI userpart - use From header user part as Src Name
 
 Src name rewrite rule/Src name rewrite result
     Rewrite rules for SRC Name. See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
@@ -334,7 +334,7 @@ Src name rewrite rule/Src name rewrite result
 Src number Field
     Src number Field setting defined where yeti reading Src Number from. Available options:
 
-    - From URI userpart - use From header userpart as Src Name
+    - From URI userpart - use From header user part as Src Name
     - From URI Display name - use From header display name as Src Name
 
 Src rewrite rule/Src rewrite result
@@ -367,7 +367,7 @@ Src number radius rewrite rule/Src number radius rewrite result
 
 
 Dst number radius rewrite rule/Dst number radius rewrite result
-    Rewrite rules for changing Destinaion-number which will be send to Radius-server if it's required.
+    Rewrite rules for changing Destination-number which will be send to Radius-server if it's required.
     See :ref:`how to use POSIX Regular Expressions in Yeti <posix_regular_expressions2>`.
 
 Radius accounting profile

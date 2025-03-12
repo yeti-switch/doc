@@ -18,12 +18,15 @@ Auth
 auth
 Auths
 Autorefresh
+anonymized
+
 backend
 Balancer
 balancer
 Balancers
 blockedPages
 blocklist
+
 callee
 callid
 cdr
@@ -43,6 +46,8 @@ crt
 CSeq
 cseq
 Csv
+Cnam
+
 Datagram
 decrypt
 di
