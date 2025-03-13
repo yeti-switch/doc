@@ -299,7 +299,7 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 # texinfo_no_detailmenu = False
 
-linkcheck_ignore = ["sip:sip-proxy.example.com"]
+linkcheck_ignore = ["sip:sip-proxy.example.com", "http://www.z9hg4bk.org/sip/hf/p-asserted-identity.html"]
 linkcheck_anchors_ignore = ["L50"]
 
 html_context = {

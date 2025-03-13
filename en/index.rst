@@ -32,6 +32,7 @@ Welcome to Yeti's documentation!
 
    quick-start/quick_start.rst
    disconnect-codes
+   best-practices/sip-headers.rst
    best-practices/headers-transit.rst
    best-practices/numbers-translations.rst
    best-practices/teams-direct-routing.rst
