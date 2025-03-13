@@ -12,13 +12,6 @@ This document explains some common SIP message headers
 Headers formats. URI
 ====================
 
-Lot of header values in SIP protocol has URI format. This format described in RFC
-
-In most cases SIP Uri used
-
-Sometimes SIP may use TEL Uri format for headers like From, To, R-URI
-
-
  * `RFC2806 <https://datatracker.ietf.org/doc/html/rfc2806>`_- Standard - URLs for Telephone Calls
  * `RFC5630 <https://datatracker.ietf.org/doc/html/rfc5630>`_ - Standard - The Use of the SIPS URI Scheme in the Session Initiation Protocol (SIP)
  * `RFC3966 <https://datatracker.ietf.org/doc/html/rfc3966>`_ - Standard - The tel URI for Telephone Numbers
@@ -28,16 +21,6 @@ sip uri with **user=phone** parameter:
 
  `RFC3398 <https://datatracker.ietf.org/doc/html/rfc3398>`_ - Standard - Integrated Services Digital Network (ISDN) User Part (ISUP) to Session Initiation Protocol (SIP) Mapping
  `RFC3261 Section-19.1.6 <https://datatracker.ietf.org/doc/html/rfc3261#section-19.1.6>`_ - Relating SIP URIs and tel URLs
-
-R-URI
-=====
-
-From header
-===========
-
-
-To header
-=========
 
 
 P-Asserted-Identity
@@ -56,6 +39,8 @@ Source: `z9hg4bk.org <http://www.z9hg4bk.org/sip/hf/p-asserted-identity.html>`_
 
 P-Preferred-Identity
 ====================
+
+
 
 .. _sip_headers_privacy:
 
