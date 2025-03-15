@@ -37,6 +37,7 @@ Welcome to Yeti's documentation!
    best-practices/numbers-translations.rst
    best-practices/teams-direct-routing.rst
    best-practices/using-routing-tags.rst
+   best-practices/troubleshooting.rst
 
 .. toctree::
    :maxdepth: 2
