@@ -95,11 +95,7 @@ Is Last CDR
     This field should be "yes" ("true") for last routing attempt for the call ("no"("false") otherwise).
 
 Dump Level
-    Level of capturing of call to PCAP (Packet Capture) files that was chosen in the :ref:`Dump Level <customer_auth_dump_level>` attribute of :ref:`Customers Auth <customer_auth>` that is related to this call: |br|
-    **Capture nothing** - Information didn't capture to pcap-file for this call. |br|
-    **Capture signaling traffic** - Only signaling information had been captured to pcap-file for this call. |br|
-    **Capture rtp traffic** - Only RTP traffic had been captured to pcap-file for this call. |br|
-    **Capture all traffic** - Only signaling information & RTP traffic had been captured to pcap-file for this call. |br|
+    Tracing level applied to this call. Read more in :ref:`Call tracing feature documentation <troubleshooting_tracing>`.
 
 Orig GW
     Value of the :ref:`*Name* <gateway_name>` attribute of Gateway that was used as Originator for the call.

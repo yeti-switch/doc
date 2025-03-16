@@ -195,12 +195,9 @@ General attributes
         You may apply Src Numberlist (Source) and check B-numbers, by prefix or
         full-match, then reject it or allow.
 
-    .. _customer_auth_dump_level:
-
     Dump Level
-        It is possible to capture calls to PCAP files, using this option.
-        You may choose what kind of information should be captured.
-        Possible values are: Capture nothing, Capture signalling traffic, Capture RTP traffic, Capture all traffic.
+        Dump Level for call tracing mechanism. Read more in :ref:`Call tracing feature documentation <troubleshooting_tracing>`.
+
     Enable Audio Recording
         If checked, the media for calls passing through this Customer Auth will be stored
         in WAV files.

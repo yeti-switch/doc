@@ -306,6 +306,12 @@ Incoming auth password
 Signaling (Termination) attributes
 ==================================
 
+Settings in this sections only works when gateways acts as termination gateway for call.
+
+
+Dump Level
+    Dump Level for call tracing mechanism. Read more in :ref:`Call tracing feature documentation <troubleshooting_tracing>`.
+
 Transport protocol
     Transport protocol that is used
        
