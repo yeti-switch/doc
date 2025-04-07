@@ -9,12 +9,12 @@ Troubleshooting
 Routing simulation
 ==================
 
-In case of unexpected routing behavior - when yeti choosing unexpected Customer auths, Destinations, Dialpeers or Gateways Routing Simulation tools allow to collect routing logs.
+In case of unexpected routing behavior - when yeti choosing unexpected Customer auth, Destinations, Dialpeers or Gateways Routing Simulation tools allow to collect routing logs.
 
 There are two ways how to use Routing Simulation tool:
 
     - Manually from Routing -> Routing Simulation menu - In this case operator have to enter all call attributes manually.
-    - From CDR. When you want to reproduce call routing of specicif call - you can click on "Routing Simulation" button on CDR Show page. In this call all call atributes will be copied from CDR automatically.
+    - From CDR. When you want to reproduce call routing of specific call - you can click on "Routing Simulation" button on CDR Show page. In this call all call attributes will be copied from CDR automatically.
 
 
 .. _troubleshooting_tracing:
@@ -48,7 +48,7 @@ In case of enabled trace CDR for call will contain link to pcap file on CDR->CDR
 
 |
 
-Alternativly it is possible to download trace by clicking trace button on CDR Show page:
+Alternatively it is possible to download trace by clicking trace button on CDR Show page:
 
 ..  figure:: images/troubleshooting_cdr_page_trace_link.png
     :width: 940
@@ -57,7 +57,7 @@ Alternativly it is possible to download trace by clicking trace button on CDR Sh
 
 |
 
-It is recommended to use wireshark to analyze pcap traces.
+It is recommended to use `Wireshark <https://www.wireshark.org/>`_ to analyze pcap traces.
 
 .. note:: Traces are not captured by sniffer on network level but written by SEMS SIP stack by mirroring data sent and received to/from sockets.
 
