@@ -17,9 +17,6 @@ There are two ways how to use Routing Simulation tool:
     - From CDR. When you want to reproduce call routing of specicif call - you can click on "Routing Simulation" button on CDR Show page. In this call all call atributes will be copied from CDR automatically.
 
 
-Results and last internal code
-
-
 .. _troubleshooting_tracing:
 
 Trace capturing
