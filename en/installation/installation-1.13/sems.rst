@@ -195,7 +195,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                 function = writecdr
                 master {
                     host = 127.0.0.1
-                    port = 5433
+                    port = 5432
                     name = cdr
                     user = cdr
                     pass = somepassword
@@ -203,7 +203,7 @@ Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
                 failover_to_slave = false
                 slave {
                     host = 127.0.0.1
-                    port = 5433
+                    port = 5432
                     name = cdr
                     user = cdr
                     pass = somepassword
@@ -286,7 +286,7 @@ Check logs using for possible errors:
 
 .. code-block:: console
 
-    # journalctls -u sems
+    # journalctl -u sems
 
 
 

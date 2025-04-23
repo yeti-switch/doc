@@ -43,7 +43,7 @@ To configure databases connection parameters create /opt/yeti-web/config/databas
         adapter: postgresql
         encoding: unicode
         database: cdr
-        username: yeti
+        username: cdr
         password: somepassword
         host: 127.0.0.1
         port: 5432
