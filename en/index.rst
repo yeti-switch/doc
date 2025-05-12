@@ -32,19 +32,13 @@ Welcome to Yeti's documentation!
 
    quick-start/quick_start.rst
    disconnect-codes
+   api/index.rst
    best-practices/sip-headers.rst
    best-practices/headers-transit.rst
    best-practices/numbers-translations.rst
    best-practices/teams-direct-routing.rst
    best-practices/using-routing-tags.rst
    best-practices/troubleshooting.rst
-
-.. toctree::
-   :maxdepth: 2
-   :caption: API Documentation
-
-   customer-api/index.rst
-   admin-api/index.rst
 
 .. toctree::
    :maxdepth: 2
