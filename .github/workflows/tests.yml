@@ -22,6 +22,15 @@ jobs:
       - name: Run linkcheck
         run: make linkcheck
 
+      - name: Run Spell Check
+        uses: infraspecdev/spellcheck-action@<version>
+        with:
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          pr_number: ${{ github.event.number }}
+          files: 'en/*'
+          openai_model: 'gpt-4o-mini'
+
       - name: Run build
         env: 
           SPHINXOPTS: "-W --keep-going -n"
