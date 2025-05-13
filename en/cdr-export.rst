@@ -12,13 +12,13 @@ CDR export feature allows operator to unload CDR from database to CSV file. Yeti
     CDR export download link
     
 Yeti Web interface uses Nginx `X-Accel-Redirect <https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/>`_ mechanism to provide file download.
-Web interface responds on download request with 200Ok with header **X-Accel-Redirect: /x-redirect/cdr_export/4.csv**. Nginx should be configured to handle this redirection properly.
+Web interface responds on download request with 200Ok with header ``X-Accel-Redirect: /x-redirect/cdr_export/4.csv``. Nginx should be configured to handle this redirection properly.
 
 
 CDR database and yeti-web on the same server
 --------------------------------------------
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and replace **/x-redirect/cdr_export** with the following content:
+Edit ``/etc/nginx/sites-enabled/yeti-web`` and replace ``/x-redirect/cdr_export`` with the following content:
     
 .. code-block:: nginx
 
@@ -27,14 +27,14 @@ Edit **/etc/nginx/sites-enabled/yeti-web** and replace **/x-redirect/cdr_export*
         alias /tmp;
     }
     
-Where **/tmp** is the storage directory defined in **/opt/yeti-web/config/yeti_web.yml**:
+Where ``/tmp`` is the storage directory defined in ``/opt/yeti-web/config/yeti_web.yml``:
 
 .. code-block:: yaml
 
     cdr_export:
         dir_path: "/tmp"
        
-.. warning:: You can use any directory as **cdr_export dir_path** but this directory should be writable by **postgres** system user and readable by **www-data** system user.
+.. warning:: You can use any directory as ``cdr_export dir_path`` but this directory should be writable by ``postgres`` system user and readable by ``www-data`` system user.
 
 Restart nginx service:
 
@@ -48,7 +48,7 @@ CDR database and yeti-web located on different servers
 Configure nginx on WEB interface server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and replace **/x-redirect/cdr_export** with the following content:
+Edit ``/etc/nginx/sites-enabled/yeti-web`` and replace ``/x-redirect/cdr_export`` with the following content:
 
 .. code-block:: nginx
 
@@ -62,7 +62,7 @@ Where **<CDR SERVER ADDRESS>** is IP address of remote CDR database server.
 Configure nginx on CDR database server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Install **nginx** package and add the next server block to **/etc/nginx/nginx.conf**:
+Install ``nginx`` package and add the next server block to ``/etc/nginx/nginx.conf``:
 
 .. code-block:: nginx
 
@@ -79,9 +79,9 @@ Install **nginx** package and add the next server block to **/etc/nginx/nginx.co
                 }
         }
 
-Where **/tmp** is **cdr_export dir_path** from **/opt/yeti-web/config/yeti_web.yml** config file and **<WEB INTERFACE SERVER ADDRESS>** is IP address of your web interface server.
+Where ``/tmp`` is ``cdr_export dir_path`` from ``/opt/yeti-web/config/yeti_web.yml`` config file and ``<WEB INTERFACE SERVER ADDRESS>`` is IP address of your web interface server.
 
-.. warning:: Make sure you configure **allow/deny** ACL properly. Wrong nginx configuration will cause data leak especially if CDR server uses public IP address(we recommend using private IP for CDR db server).
+.. warning:: Make sure you configure ``allow/deny`` ACL properly. Wrong nginx configuration will cause data leak especially if CDR server uses public IP address(we recommend using private IP for CDR db server).
 
 Restart nginx service:
     

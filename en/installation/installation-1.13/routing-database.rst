@@ -62,7 +62,7 @@ Check if databases were successfully created and are accessible::
     root@evial:/#
 
 
-Don't forget to make changes in /etc/postgresql/16/main/pg_hba.conf
+Don't forget to make changes in ``/etc/postgresql/16/main/pg_hba.conf``
 and apply them if you plan to access this databases from other hosts and/or set up database replication
 
 .. seealso:: :ref:`Database tuning <database_tuning>`

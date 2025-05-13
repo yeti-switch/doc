@@ -15,7 +15,7 @@ Most of servers may use same repositories set::
     deb https://deb.yeti-switch.org/debian/1.13 bookworm main
     deb https://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main
     
-System repositories can be changed in **/etc/apt/sources.list**. Since we use our own package repository you have add our key to trusted. 
+System repositories can be changed in ``/etc/apt/sources.list``. Since we use our own package repository you have add our key to trusted.
 
 .. code-block:: console
 
