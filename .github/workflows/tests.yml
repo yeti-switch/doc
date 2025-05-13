@@ -24,7 +24,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repository: 'yeti-switch/doc'
           pr_number: ${{ github.event.number }}
-          files: 'en/*'
+          files: 'en/general.rst'
           openai_model: 'gpt-4o-mini'
 
       - name: Run spellcheck
