@@ -18,6 +18,9 @@ Automatically generated API documentation included to yeti-web distribution and 
 API documentation on demo instance `<https://demo.yeti-switch.org/doc/api/admin/index.html>`_
 
 
+.. warning:: Accesss to admin API endpoint **/api/rest/admin/** is blocked by default in supplied NGINX configuration file **yeti-web.dist.nginx**
+
+
 .. _customer_api:
 
 Customer API
@@ -29,3 +32,14 @@ Automatically generated API documentation included to yeti-web distribution and 
 
 API documentation on demo instance `<https://demo.yeti-switch.org/doc/api/customer/v1/index.html>`_
 
+
+Logging
+=======
+
+All API requests logged. Logs located in Admin Web interface :ref:`Logs->Api Log <api_logs>`
+
+
+Debug mode
+==========
+
+By default API log doesn't contain request payload(body) and response. To enable verbose debug mode - create record in :ref:`System->Api Log Configs <api_log_configs>`
