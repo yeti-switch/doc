@@ -22,6 +22,7 @@ jobs:
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repository: 'yeti-switch/doc'
           pr_number: ${{ github.event.number }}
           files: 'en/*'
           openai_model: 'gpt-4o-mini'
