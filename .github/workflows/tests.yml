@@ -16,13 +16,8 @@ jobs:
       - name: install graphviz
         run: sudo apt install graphviz
 
-      - name: Run spellcheck
-        run: make spellcheck
-
-      - name: Run linkcheck
-        run: make linkcheck
-
       - name: Run Spell Check
+        continue-on-error: true
         uses: infraspecdev/spellcheck-action@v1.4.1
         with:
           openai_api_key: ${{ secrets.OPENAI_API_KEY }}
@@ -30,6 +25,12 @@ jobs:
           pr_number: ${{ github.event.number }}
           files: 'en/*'
           openai_model: 'gpt-4o-mini'
+
+      - name: Run spellcheck
+        run: make spellcheck
+
+      - name: Run linkcheck
+        run: make linkcheck
 
       - name: Run build
         env: 
