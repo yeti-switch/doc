@@ -18,7 +18,7 @@ Automatically generated API documentation included to yeti-web distribution and 
 API documentation on demo instance `<https://demo.yeti-switch.org/doc/api/admin/index.html>`_
 
 
-.. warning:: Accesss to admin API endpoint **/api/rest/admin/** is blocked by default in supplied NGINX configuration file **yeti-web.dist.nginx**
+.. warning:: Access to admin API endpoint **/api/rest/admin/** is blocked by default in supplied NGINX configuration file **yeti-web.dist.nginx**
 
 
 .. _customer_api:
