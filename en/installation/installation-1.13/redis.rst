@@ -23,7 +23,7 @@ Add
 
     notify-keyspace-events "Egx"
     
-to your **/etc/redis/redis.conf** to enable notifications. This configuration required for incoming registrations functionality.
+to your ``/etc/redis/redis.conf`` to enable notifications. This configuration required for incoming registrations functionality.
 
 Checks
 ======

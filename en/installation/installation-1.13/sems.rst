@@ -20,11 +20,11 @@ Configuration files
 /etc/sems/sems.conf
 ~~~~~~~~~~~~~~~~~~~
 
-Add new :ref:`Point of Presensce <pops>` using web interface. Use id of newly created PoP as value for **pop_id** parameter.
+Add new :ref:`Point of Presensce <pops>` using web interface. Use id of newly created PoP as value for ``pop_id`` parameter.
 
-Add new :ref:`Node <nodes>` using web interface. Use id of newly created Node as value for **node_id** parameter.
+Add new :ref:`Node <nodes>` using web interface. Use id of newly created Node as value for ``node_id`` parameter.
 
-Replace <SIGNALLING_IP>, <MEDIA_IP> with correct values for your server :
+Replace ``<SIGNALLING_IP>``, ``<MEDIA_IP>`` with correct values for your server :
 
 .. code-block::
 
@@ -254,13 +254,13 @@ Launch configured traffic switch instance:
 
     # systemctl start sems
 
-In case of errors it's useful to use **sems -E -D3** command
+In case of errors it's useful to use ``sems -E -D3`` command
 which will launch daemon in foreground with debug logging level
 
 Checks
 ------
 
-Check if **sems** process exists and signaling/media/rpc sockets are opened:
+Check if ``sems`` process exists and signaling/media/rpc sockets are opened:
 
 .. code-block:: console
 

@@ -5,12 +5,6 @@
 WEB interface installation
 ==========================
 
-Server requirements:
-
-- amd64 architecture
-- Debian 12 Bookworm distribution
-- at least 4GB of RAM
-
 Packages installation
 ---------------------
 
@@ -22,7 +16,7 @@ Packages installation
 Yeti-web configuration
 ----------------------
 
-To configure databases connection parameters create /opt/yeti-web/config/database.yml file with the following content:
+To configure databases connection parameters create ``/opt/yeti-web/config/database.yml`` file with the following content:
 
 .. code-block:: yaml
 
@@ -55,17 +49,17 @@ To configure databases connection parameters create /opt/yeti-web/config/databas
 .. warning:: You should specify correct addresses and credentials that were used in previous section
 
 
-Configure security keys seed by creating /opt/yeti-web/config/secrets.yml with the following content:
+Configure security keys seed by creating ``/opt/yeti-web/config/secrets.yml`` with the following content:
 
 .. code-block:: yaml
 
     production:
       secret_key_base: <RANDOM_STRING>
 
-.. warning:: Replace **<RANDOM_STRING>** with randomly generated value. You can use **pwgen -s 128** to generate it.
+.. warning:: Replace **<RANDOM_STRING>** with randomly generated value. You can use ``pwgen -s 128`` to generate it.
 
 
-Copy configuration file example **/opt/yeti-web/config/yeti_web.yml.distr** to **/opt/yeti-web/config/yeti_web.yml**
+Copy configuration file example ``/opt/yeti-web/config/yeti_web.yml.distr`` to ``/opt/yeti-web/config/yeti_web.yml``
 
 
 Databases data initialization
@@ -110,7 +104,7 @@ For basic configuration remove default config and copy yeti-web.dist.nginx:
     # nginx -t
     nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
     nginx: configuration file /etc/nginx/nginx.conf test is successful
-    # service nginx restart
+    # systemctl restart nginx
     
 
 Launch
@@ -120,11 +114,7 @@ After successful configuration of databases you finally can run software using f
 
 .. code-block:: console
 
-    # service yeti-web start 
-    # service yeti-cdr-billing@cdr_billing start
-    # service yeti-cdr-billing@cdr_stats
-    # service yeti-delayed-job start
-    # service yeti-scheduler start
+    # systemctl start yeti-web yeti-delayed-job yeti-scheduler yeti-cdr-billing@cdr_billing yeti-cdr-billing@cdr_stats
 
 This will run web-interface, schedulers, background tasks processors and CDR processing workers
 
@@ -146,7 +136,7 @@ check if nginx listens on correct TCP/IP addresses and ports:
     tcp 0 0 0.0.0.0:80 0.0.0.0:* LISTEN 23627/nginx
     tcp 0 0 127.0.0.1:6666 0.0.0.0:* LISTEN 23627/nginx
 
-Log files to check for possible warnings/errors using systemctl and journalctl:
+Log files to check for possible warnings/errors using ``systemctl`` and ``journalctl``:
 
 .. code-block:: console
     

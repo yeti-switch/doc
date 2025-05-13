@@ -52,7 +52,7 @@ PGQd ticker
 
 After initialization of CDR database you should run pgq ticker daemon(**pgqd**) on server with CDR database.
 
-Create configuration file /etc/pgqd.ini 
+Create configuration file ``/etc/pgqd.ini``:
 
 .. code-block:: ini
     
@@ -85,8 +85,7 @@ Check if databases were successfully created and are accessible:
     cdr=# \q
     root@cdr-server:/#
 
-Don't forget to make changes in /etc/postgresql/16/main/pg_hba.conf
-and apply them if you plan to access this databases from other hosts and/or set up database replication
+Don't forget to make changes in ``/etc/postgresql/16/main/pg_hba.conf`` and apply them if you plan to access this databases from other hosts and/or set up database replication
 
 
 .. seealso:: :ref:`Database tuning <database_tuning>`

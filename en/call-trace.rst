@@ -10,7 +10,7 @@ Call trace storage configuration
 SEMS and Web are running on same server
 ---------------------------------------
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$** with following content:
+Edit ``/etc/nginx/sites-enabled/yeti-web`` and replace ``location ~ ^/dump/(.*)$`` with following content:
     
 .. code-block:: nginx
 
@@ -34,9 +34,9 @@ SEMS and Web located on different servers
 Configure nginx on WEB interface server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Create directory **/var/www/dump** with owner **www-data** to store PCAP files.
+Create directory ``/var/www/dump`` with owner ``www-data`` to store PCAP files.
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and add such server block:
+Edit ``/etc/nginx/sites-enabled/yeti-web`` and add such server block:
 
 .. code-block:: nginx
 
@@ -61,7 +61,7 @@ Edit **/etc/nginx/sites-enabled/yeti-web** and add such server block:
     }
     
 
-Edit **/etc/nginx/sites-enabled/yeti-web** and replace **location ~ ^/dump/(.*)$** with following content:
+Edit ``/etc/nginx/sites-enabled/yeti-web`` and replace ``location ~ ^/dump/(.*)$`` with following content:
 
 .. code-block:: nginx
     
@@ -82,19 +82,19 @@ Restart nginx service:
 Configure SEMS to upload traces to WEB interface server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Add **http_client** module configuration to **modules** section of **/etc/sems/sems.conf**::
+Add ``http_client`` module configuration to ``modules`` section of ``/etc/sems/sems.conf``::
 
     modules {
         path = /usr/lib/sems/plug-in
-        config_path=/etc/sems/etc/
+        config_path = /etc/sems/etc/
     ...
         module "http_client" {
-            resend_interval=5000
-            resend_queue_max=10000
+            resend_interval = 5000
+            resend_queue_max = 10000
         
             destination "pcap" {
-                mode=put
-                urls={ http://<WEB INTERFACE IP>:8081/upload }
+                mode = put
+                urls = { http://<WEB INTERFACE IP>:8081/upload }
                 on_success { 
                     action = remove
                 }
@@ -106,11 +106,11 @@ Add **http_client** module configuration to **modules** section of **/etc/sems/s
     ...
     }
     
-Add **pcap_upload_queue=pcap** directive to section **general** of **/etc/sems/sems.conf**::
+Add ``pcap_upload_queue = pcap`` directive to section ``general`` of ``/etc/sems/sems.conf``::
 
     general {
         ...
-        pcap_upload_queue=pcap
+        pcap_upload_queue = pcap
         ...
     }
 
