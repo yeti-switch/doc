@@ -11,7 +11,7 @@ CDR export feature allows operator to unload CDR from database to CSV file. Yeti
 
     CDR export download link
     
-Yeti Web interface uses Nginx `X-Accel-Redirect <https://www.nginx.com/resources/wiki/start/topics/examples/x-accel/>`_ mechanism to provide file download.
+Yeti Web interface uses Nginx `X-Accel-Redirect <https://nginx.org/en/docs/http/ngx_http_proxy_module.html>`_ mechanism to provide file download.
 Web interface responds on download request with 200Ok with header ``X-Accel-Redirect: /x-redirect/cdr_export/4.csv``. Nginx should be configured to handle this redirection properly.
 
 
