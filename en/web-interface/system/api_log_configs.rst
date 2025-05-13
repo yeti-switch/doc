@@ -2,7 +2,7 @@
 .. _api_log_configs:
 
 Api Log Configs
-~~~~~~~~~~~~~~~
+===============
 
 Api Log Configs are used for setting (where necessary) Debug mode for storing additional info to the :ref:`API Log <api_logs>`.
 You can create specific API Log Configs or delete them from Admin UI.
@@ -17,5 +17,6 @@ It defines how API requests and responses are logged and whether debugging infor
 
 Best Practices:
 ```````````````
+
 Use API log configurations rationally to capture logs only for controllers that require detailed logging.
 Regularly review and update API log configurations as your application evolves to maintain an accurate log management strategy.
