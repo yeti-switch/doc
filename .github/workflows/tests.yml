@@ -20,12 +20,13 @@ jobs:
         continue-on-error: true
         uses: infraspecdev/spellcheck-action@v1.4.1
         with:
-          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           github_repository: 'yeti-switch/doc'
           pr_number: ${{ github.event.number }}
           files: 'en/general.rst'
-          openai_model: 'gpt-4o-mini'
+          openai_api_key: ${{ secrets.OPENAI_API_KEY }}
+          openai_model: 'gpt-4o'
+          model_max_token: 16000
 
       - name: Run spellcheck
         run: make spellcheck
