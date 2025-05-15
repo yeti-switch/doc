@@ -21,6 +21,7 @@ Autorefresh
 anonymized
 
 backend
+backends
 Balancer
 balancer
 Balancers
@@ -33,10 +34,12 @@ cdr
 cdrwriter
 cfg
 cli
+clickhouse
 Clusterization
 Codec
 codec
 Codecs
+codecs
 comparation
 conf
 config
@@ -71,6 +74,7 @@ gsm
 gw
 hba
 hostname
+http
 iLBC
 inband
 ini
@@ -82,12 +86,14 @@ Jitter
 jitter
 journalctl
 jsonrpc
+jsonRPC
 Kamailio
 Lcr
 LebB
 LegA
 Lega
 legA
+lega
 LegB
 Legb
 legB
@@ -100,6 +106,7 @@ logfile
 loglevel
 Lrn
 lrn
+msg
 multirate
 Namespace
 namespace
@@ -119,17 +126,20 @@ Pai
 pai
 param
 Params
+params
 pcap
 pcap
 pgq
 pgqd
 phonenumber
+postgresql
 PoP
 Ppi
 ppi
 pre
 preload
 preloaded
+preloading
 presetuped
 Prober
 prober
@@ -176,10 +186,12 @@ showtree
 shutted
 Signalling
 signalling
+smallint
 Smtp
 Softswitch
 softswitch
 speex
+sql
 Src
 src
 srtp
@@ -214,6 +226,8 @@ Uptime
 Uri
 uri
 usr
+varchar
+writecdr
 wsize
 yml
 zrtp
