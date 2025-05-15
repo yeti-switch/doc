@@ -4,7 +4,7 @@
 General information
 ===================
 
-:Site: https://yeti-switch.org
+:Site: https://yeti-switch.org/
 
 
 Features and technical characteristics
