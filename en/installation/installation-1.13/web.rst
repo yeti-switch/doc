@@ -141,7 +141,7 @@ Log files to check for possible warnings/errors using ``systemctl`` and ``journa
 .. code-block:: console
     
     # systemctl status yeti-web
-    # jounrnalctl -u yeti-web
+    # journalctl -u yeti-web
 
 Try to open management interface in your favorite browser and login with default credentials:
 
