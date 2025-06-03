@@ -1,12 +1,12 @@
 .. :maxdepth: 2
 
-
 ===============
 Module **yeti**
 ===============
 
-
 Module **yeti** implements SBC functions for Yeti-switch project
+
+.. note:: module version 1.14.x
 
 .. code-block::
 
@@ -38,12 +38,13 @@ Module **yeti** implements SBC functions for Yeti-switch project
 
         /*
         routing {
-            # schema = switch21
+            # schema = switch22
             # function = route_release
-            # init =
+            # init = init
 
             # new_codec_groups = true
-            # pass_input_interface_name = false
+            # pass_input_interface_name = true
+            # throttling_gateway_key =
             # connection_lifetime = 0
 
             /*
@@ -110,7 +111,7 @@ Module **yeti** implements SBC functions for Yeti-switch project
             }
             */
 
-            # failover_to_slave = true
+            # failover_to_slave = false
 
             /*
             slave {
@@ -259,13 +260,13 @@ allowed_methods (default: {INVITE, ACK, BYE, CANCEL, OPTIONS, NOTIFY, INFO, UPDA
 Section **routing**
 -------------------
 
-schema (default: switch21)
+schema (default: switch22)
     Database schema to be added to the search_path in addition to the *public* for the routing connections
 
 function (default: route_release)
     Database function to be called to get call profile
 
-init (default: empty)
+init (default: init)
     Function to run for routing connection initialization. Usually is used to initialize yeti pg extension to process LNP requests
 
 new_codecs_groups (default: true)
@@ -274,8 +275,11 @@ new_codecs_groups (default: true)
     * true. use ``load_codec_groups()``
     * false. use ``load_codecs()``
 
-pass_input_interface_name (default: false)
+pass_input_interface_name (default: true)
     Add input interface name to the DB routing requests
+
+throttling_gateway_key (default: *empty*)
+    Set call profile key to be used as termination gateway id for lookup in gateways cache for throttling. Gateways cache loading and throttling will be disabled if not set
 
 connection_lifetime (default: 0)
     Force reconnect each `connection_lifetime` seconds for *routing* connections. Used as workaround on memory leaks in PG backends
