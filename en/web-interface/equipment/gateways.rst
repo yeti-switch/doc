@@ -381,6 +381,35 @@ Sdp alines filter type
 Sdp alines filter list
     SDP alines comma-separated list.
 
+A-lines filtering mechanism allows to filter SDP A-lines received sent to gateway.
+
+.. mermaid::
+
+    flowchart LR
+
+        gw1[Call originator]
+
+        subgraph yeti[Yeti SBC]
+            direction BT
+            subgraph gw1-conf[Origination gateway]
+                filter1
+            end
+            subgraph gw2-conf[Termination gateway]
+                filter2
+            end
+            gw1-conf ~~~ gw2-conf
+        end
+
+        gw2[Termination provider]
+
+        gw1 -->|legA SDP Offer| filter2
+        filter2 -->|legB SDP Offer| gw2
+
+        gw2 -->|legB SDP Answer| filter1
+        filter1 -->|legA SDP Answer| gw1
+
+
+
 .. _gateway_ringing_timeout:
 
 Ringing timeout

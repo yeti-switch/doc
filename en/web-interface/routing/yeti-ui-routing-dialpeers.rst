@@ -65,7 +65,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_initial_rate:
 
     Initial Rate
-        Rate (in currency units per second) for tariffication of :ref:`Initial Interval <dialpeer_initial_interval>` for this *Dialpeer*.
+        Rate (in currency units per minute) for tariffication of :ref:`Initial Interval <dialpeer_initial_interval>` for this *Dialpeer*.
 
     .. _dialpeer_next_interval:
 
@@ -75,7 +75,7 @@ Dialpeers identify call destination endpoint and define the billing characterist
     .. _dialpeer_next_rate:
 
     Next Rate
-        Rate (in currency units per second) for tariffication of :ref:`Next Interval <dialpeer_next_interval>` for this *Dialpeer*.
+        Rate (in currency units per minute) for tariffication of :ref:`Next Interval <dialpeer_next_interval>` for this *Dialpeer*.
     Lcr Rate Multiplier
         Value of this field (numeric) is used during building of Dialpeers rating (sorting of Dialpeers) for routing call on the basis of least-cost routing (LCR). This value is used for multiplying :ref:`Next Rate <dialpeer_next_rate>` value only during building of Dialpeers rating and doesn't effect on final cost of call.
 
