@@ -389,39 +389,43 @@ Tag action value
     In this field :ref:`Routing Tags <routing_tag>` for making some *Tag action* above could be chosen.
 
 
-
-STIR/SHAKEN attributes
+STIR/SHAKEN Attributes
 ======================
 
 .. _customer_auth_stir_shaken:
 
 SS Mode
-    STIR/SHAKEN mode. Possible values:
+    Defines the STIR/SHAKEN operating mode. Possible values:
 
         Disable STIR/SHAKEN processing
-            do nothing
+            No validation or signing is performed.
 
         Validate identity
-            Perform stir/shaken validation
+            Perform STIR/SHAKEN signature validation.
 
         Force rewrite attestation level
-            Override attention level. It is not possible to change attestation level withing existing signature. It means this option will replace existing signature with new one
+            Override the attestation level.
+            Since it is not possible to change the attestation level within an existing signature, this option replaces the existing signature with a new one.
 
-SS Invalid Identify Action
-    Stir/Shaken Invalid Identify Action defines system behavior in case of receiving invalid signature
+SS Invalid Identity Action
+    Defines system behavior when an invalid STIR/SHAKEN signature is received.
 
-SS No Indentity Action
-    Stir/Shaken No Indentity Action defines system behavior in case of receiving call without Identify header
+SS No Identity Action
+    Defines system behavior when a call is received without an Identity header.
 
 Rewrite SS Status
-    Attestation level
+    Allows overriding the original attestation level.
+    During the Identity signing procedure, this value determines the attestation level of the outgoing call.
 
-SS Src Rewrite rule/result
-SS Dst Rewrite rule/result
+    Additionally, the attestation level can be overridden in :ref:`Numberlist Item configuration <numberlist_items>`, which enables logic where the attestation level depends on the call’s Source/Destination number or prefix.
 
+SS Src Rewrite Rule/Result
+    A regular expression applied to the original Source Number (``Src Number In``) from SIP signaling before comparing it with the ``orig.tn`` attribute in the signature.
 
-STIR/SHAKEN Crt
-    STIR/SHAKEN certificate to use for Identify signing.
+SS Dst Rewrite Rule/Result
+    A regular expression applied to the original Destination Number (``Dst Number In``) from SIP signaling before comparing it with the ``dest.tn`` attribute in the signature.
 
+STIR/SHAKEN Certificate
+    The STIR/SHAKEN certificate to be used for the :ref:`Identity Signing procedure <stir_shaken_signing>`.
 
-.. warning:: **STIR/SHAKEN** mechanisms are experimental features and not enabled by default.
+.. warning:: **STIR/SHAKEN** mechanisms are disabled by default.

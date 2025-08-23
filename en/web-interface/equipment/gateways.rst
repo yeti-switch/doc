@@ -816,4 +816,4 @@ STIR/SHAKEN crt
     STIR/SHAKEN certificate to use for Identify signing.
 
     
-.. warning:: **STIR/SHAKEN** mechanisms are experimental features and not enabled by default.
+.. warning:: **STIR/SHAKEN** mechanisms are disabled by default.
