@@ -803,6 +803,8 @@ Radius accounting profile
 STIR/SHAKEN attributes
 ======================
 
+.. _gateway_stir_shaken:
+
 STIR/SHAKEN mode
     STIR/SHAKEN behavior when gateway used for call termination. Possible values:
     
@@ -814,4 +816,4 @@ STIR/SHAKEN crt
     STIR/SHAKEN certificate to use for Identify signing.
 
     
-.. warning:: **STIR/SHAKEN** mechanisms are experimental features and not enabled by default.
+.. warning:: **STIR/SHAKEN** mechanisms are disabled by default.

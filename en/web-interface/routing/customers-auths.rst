@@ -1,8 +1,9 @@
 
 .. _customer_auth:
 
+===============
 Customers Auths
-~~~~~~~~~~~~~~~
+===============
 
 This entity authenticates calls from customers or gateways, applies them to
 routing table and has some useful filters and options.
@@ -151,7 +152,7 @@ After sorting of *Customer Auth* records routing procedure will be continued wit
 Customer Auth form contains few tabs and each one is described below.
 
 General attributes
-``````````````````
+==================
 
     .. _customer_auth_id:
 
@@ -211,7 +212,8 @@ General attributes
         current price for calls, in order to a Customer should be informed.
 
 Match condition options
-```````````````````````
+=======================
+
     This part is crucial for authentication process of incoming calls. You should note that a one
     customer may have many of Customer Auth with almost the same parameters, so pay
     attention to parameters besides Ip address.
@@ -278,7 +280,7 @@ Match condition options
     .. _customers_auth_number_translation:
 
 Number translation options
-``````````````````````````
+==========================
 
 Privacy mode
     Processing mode for :ref:`Private calls <sip_headers_privacy>`. Available options:
@@ -353,7 +355,7 @@ Cnam Database
 .. _radius_options:
 
 Radius options
-``````````````
+==============
 
 Radius auth profile
     Must be specified if the additional radius authentication is required.
@@ -373,7 +375,7 @@ Radius accounting profile
     .. _routing_tags_options:
 
 Routing Tags options
-````````````````````
+====================
 
 Tag action
     Describes one of the possible actions that could be applied to the current set of :ref:`Routing Tags <routing_tag>` that are applied for the call with using *Tag action value* below. Usually *Authentication* it is first step where :ref:`Routing Tags <routing_tag>` can be added to the call. Following actions can be selected in this field:
@@ -386,3 +388,44 @@ Tag action
 Tag action value
     In this field :ref:`Routing Tags <routing_tag>` for making some *Tag action* above could be chosen.
 
+
+STIR/SHAKEN Attributes
+======================
+
+.. _customer_auth_stir_shaken:
+
+SS Mode
+    Defines the STIR/SHAKEN operating mode. Possible values:
+
+        Disable STIR/SHAKEN processing
+            No validation or signing is performed.
+
+        Validate identity
+            Perform STIR/SHAKEN signature validation.
+
+        Force rewrite attestation level
+            Override the attestation level.
+            Since it is not possible to change the attestation level within an existing signature, this option replaces the existing signature with a new one.
+
+SS Invalid Identity Action
+    Defines system behavior when an invalid STIR/SHAKEN signature is received.
+
+SS No Identity Action
+    Defines system behavior when a call is received without an Identity header.
+
+Rewrite SS Status
+    Allows overriding the original attestation level.
+    During the Identity signing procedure, this value determines the attestation level of the outgoing call.
+
+    Additionally, the attestation level can be overridden in :ref:`Numberlist Item configuration <numberlist_items>`, which enables logic where the attestation level depends on the call’s Source/Destination number or prefix.
+
+SS Src Rewrite Rule/Result
+    A regular expression applied to the original Source Number (``Src Number In``) from SIP signaling before comparing it with the ``orig.tn`` attribute in the signature.
+
+SS Dst Rewrite Rule/Result
+    A regular expression applied to the original Destination Number (``Dst Number In``) from SIP signaling before comparing it with the ``dest.tn`` attribute in the signature.
+
+STIR/SHAKEN Certificate
+    The STIR/SHAKEN certificate to be used for the :ref:`Identity Signing procedure <stir_shaken_signing>`.
+
+.. warning:: **STIR/SHAKEN** mechanisms are disabled by default.
