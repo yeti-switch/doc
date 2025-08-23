@@ -37,6 +37,7 @@ Welcome to Yeti's documentation!
    best-practices/headers-transit.rst
    best-practices/numbers-translations.rst
    best-practices/teams-direct-routing.rst
+   best-practices/stir-shaken.rst
    best-practices/using-routing-tags.rst
    best-practices/troubleshooting.rst
 

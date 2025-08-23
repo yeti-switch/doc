@@ -803,6 +803,8 @@ Radius accounting profile
 STIR/SHAKEN attributes
 ======================
 
+.. _gateway_stir_shaken:
+
 STIR/SHAKEN mode
     STIR/SHAKEN behavior when gateway used for call termination. Possible values:
     

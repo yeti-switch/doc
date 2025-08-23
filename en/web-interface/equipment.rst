@@ -17,3 +17,6 @@ YETI WEB interface - Equipment menu description. This section describes Equipmen
    equipment/lnp_databases
    equipment/radius_auth_profiles
    equipment/radius_accounting_profiles
+   equipment/stir_shaken_trusted_repositories
+   equipment/stir_shaken_trusted_certificates
+   equipment/stir_shaken_signing_certificates
