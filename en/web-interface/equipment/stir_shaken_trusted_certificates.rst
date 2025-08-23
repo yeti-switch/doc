@@ -31,4 +31,4 @@ Notes
   https://authenticatereg.iconectiv.com/download-lists
 
 - In France, trusted root certificates can be fetched from:
-  https://api.man-bpco.fr/ca/certs/
+  https://www.man-plateforme.fr
