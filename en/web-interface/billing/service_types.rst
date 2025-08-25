@@ -4,7 +4,7 @@
 Service Types
 =============
 
-A **Service Type** object is a template for a service. It defines how a service behaves during its lifecycle.
+A **Service Type** object is a template for a service. It defines how a service behaves during its life-cycle.
 
 Id
     Unique identifier of the Service Type.
@@ -17,8 +17,12 @@ Force Renew
     balance is insufficient (``balance <= min_balance``).
     In this case, the service is renewed and the corresponding price is still charged.
 
+.. spelling:word-list::
+    FreeMinutes
+    PhoneSystems
+
 Provisioning Class
-    Specifies system behavior during the service lifecycle (Creation, Renewal, Deletion).
+    Specifies system behavior during the service life-cycle (Creation, Renewal, Deletion).
 
     Billing::Provisioning::Logging
         This provisioning class requires no configuration variables and performs no actions.
