@@ -20,6 +20,7 @@ Yeti billing is simple and based on processing different types of billing events
    accounts
    payments
    services
+   service_types
    transactions
    invoices
    invoice_templates
