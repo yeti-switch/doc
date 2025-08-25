@@ -5,52 +5,59 @@
 Services
 ========
 
-Service object represents additional paid service not related to per-second call billing. Service may charge customer account one time or multiple times during **renew** procedure
+A **Service** object represents an additional paid service that is not related to per-second call billing.
+A service may charge the customer’s account once or multiple times during the **renew** procedure.
 
 Id
-    Unique payment id.
+    Unique identifier of the Service.
 
 UUID
-    Unique payment id.
+    Globally unique identifier (UUID) of the Service.
 
 Name
-    Name of service.
+    Name of the Service.
 
 Account
-    Account related to payment.
+    Account to which payments are applied.
 
 Type
-    Service Type.
+    :ref:`Service Type <service_type>` of the Service.
 
 Variables
-    Service variables. Data format depends on configured Service Type.
+    Service-specific variables.
+    The data format depends on the configured Service Type.
 
 State
-    Current state of service.
+    Current state of the Service.
 
 Initial price
-    Price that will bill be charged immediately after service creation.
+    Price charged immediately after the Service is created.
 
 Renew price
-    Price of renew.
+    Price charged during each renewal.
 
 Created At
-    Timestamp of service creation.
+    Timestamp of when the Service was created.
 
 Renew At
-    Timestamp when service will be renewed.
+    Timestamp of the next renewal.
 
 Renew Period
-    Daily or Monthly.
+    Defines how the next **Renew At** date is calculated during the renewal process.
+    Possible values:
 
+    - **Daily** – Renew At is set to 00:00 of the next day.
+    - **Monthly** – Renew At is set to 1st day of the next month, at 00:00.
 
-Creation of service with non-zero **Initial price** value will cause creation of :ref:`Transaction <transaction>` object and it will cause Account balance modification.
+Creating a Service with a non-zero **Initial price** will automatically create a
+:ref:`Transaction <transaction>` object, which modifies the Account balance.
 
 Renew procedure
 ===============
 
-Renew time controlled by **Renew At** value. Initially this value defined during service creation. During renew next **Renew At** will be set according to **Renew Period** configuration.
-
+The renewal time is controlled by the **Renew At** value.
+This value is set during Service creation.
+During each renewal, the next **Renew At** timestamp is updated according to the **Renew Period** configuration.
 
 
 .. mermaid::
