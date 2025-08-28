@@ -16,7 +16,7 @@ The Yeti system does not require any external components to perform these operat
         gw2[Termination provider]
 
 
-        gw1 -->|legA SIP initial INVITE<br>**Identity:.....;x5u=https:\/\/example.com/certs/pub.pem**| validation-logic
+        gw1 -->|legA SIP initial INVITE<br>**Identity:.....;info=https:\/\/example.com/certs/pub.pem**| validation-logic
         validation-logic --> call-routing
         validation-logic --> call-reject
         call-routing --> signing-logic
@@ -52,11 +52,12 @@ Signature validation logic is controlled by :ref:`Customers Auth STIR/SHAKEN set
 Depending on the configuration, Yeti may take different actions if the signature is missing or invalid.
 
 The validation procedure requires a public key certificate to perform the cryptographic signature check.
-This certificate is retrieved from a public repository according to the **X5U** parameter of the incoming Identity header.
+This certificate is retrieved from a public repository according to the ``info`` parameter of the incoming Identity header.
 
 During signature validation, Yeti performs the following steps:
 
-    - Check if the public certificate repository URL from the **X5U** parameter is allowed by :ref:`Trusted repository configuration <stir_shaken_trusted_repositories>`
+    - Check if Identity header patameter ``info`` is same as Identity payload claim ``x5u``
+    - Check if the public certificate repository URL from the ``info`` parameter and ``x5u`` claim is allowed by :ref:`Trusted repository configuration <stir_shaken_trusted_repositories>`
     - Retrieve the public certificate from the repository URL or from the internal cache
     - Verify that the public certificate is valid and not expired
     - Ensure that the certificate chain is linked to a trusted root certificate defined in :ref:`Trusted certificates configuration <stir_shaken_trusted_certificates>`
