@@ -6,7 +6,7 @@ Module **yeti**
 
 Module **yeti** implements SBC functions for Yeti-switch project
 
-.. note:: module version 1.14.x
+.. note:: module version >= 1.14.8
 
 .. code-block::
 
@@ -128,7 +128,6 @@ Module **yeti** implements SBC functions for Yeti-switch project
         /*
         resources {
             # reject_on_error = false
-            # reduce_operations = false
             # scripts_dir = /usr/lib/sems/scripts/yeti
             /*
             write {
@@ -400,10 +399,6 @@ Section **resources**
 
 reject_on_error (default: false)
     Whether to reject calls on resources accounting errors (e.g redis availability)
-
-reduce_operations (default: false)
-    Merge increments/decrements for the same resources to decrease requests count to redis.
-    Recommended value: true. Default is false historically because of testing
 
 scripts_dir (default: /usr/lib/sems/scripts/yeti)
     Directory to lookup for resources management redis LUA scripts
