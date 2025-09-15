@@ -137,6 +137,7 @@ Module **yeti** implements SBC functions for Yeti-switch project
         resources {
             # reject_on_error = false
             # scripts_dir = /usr/lib/sems/scripts/yeti
+            # initialization_max_delay = 0
             /*
             write {
                 # hosts = 127.0.0.1:6379
@@ -420,6 +421,8 @@ reject_on_error (default: false)
 scripts_dir (default: /usr/lib/sems/scripts/yeti)
     Directory to lookup for resources management redis LUA scripts
 
+initialization_max_delay (default: 0)
+    Resources initialization will be delayed by random value from the [0, initialization_max_delay] range in seconds if set.
 
 Sub-sections **resources.read**, **resources.write**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
