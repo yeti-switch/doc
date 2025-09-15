@@ -57,6 +57,7 @@ Module **yeti** implements SBC functions for Yeti-switch project
 
                 # size = 10
                 # check_interval = 25
+                # keepalives_interval = 10
                 # statement_timeout = 5
             }
             */
@@ -72,6 +73,7 @@ Module **yeti** implements SBC functions for Yeti-switch project
 
                 # size = 10
                 # check_interval = 25
+                # keepalives_interval = 10
                 # statement_timeout = 5
             }
             */
@@ -108,6 +110,8 @@ Module **yeti** implements SBC functions for Yeti-switch project
                 # name = cdr
                 # user = cdr
                 # pass = cdr
+
+                # keepalives_interval = 10
             }
             */
 
@@ -120,6 +124,8 @@ Module **yeti** implements SBC functions for Yeti-switch project
                 # name = cdr
                 # user = cdr
                 # pass = cdr
+
+                # keepalives_interval = 10
             }
             */
         }
@@ -335,6 +341,9 @@ size (default: 10)
 check_interval (default: 25)
     Reconnect delay on connection errors in seconds
 
+keepalives_interval (default: 10)
+    TCP keepalive interval in seconds
+
 statement_timeout (default: 5)
     Routing transaction timeout in seconds
 
@@ -393,6 +402,9 @@ user (default: cdr)
 
 pass (default: cdr)
     Database password
+
+keepalives_interval (default: 10)
+    TCP keepalive interval in seconds
 
 Section **resources**
 ---------------------
