@@ -36,6 +36,8 @@ Module **yeti** implements SBC functions for Yeti-switch project
         # supported_tags = {}
         # allowed_methods = {INVITE, ACK, BYE, CANCEL, OPTIONS, NOTIFY, INFO, UPDATE, PRACK}
 
+        # max_forwards_decrement = 1
+
         /*
         routing {
             # schema = switch22
@@ -261,6 +263,9 @@ supported_tags (default: {})
 
 allowed_methods (default: {INVITE, ACK, BYE, CANCEL, OPTIONS, NOTIFY, INFO, UPDATE, PRACK})
     Methods list to declare in the `Allowed` header
+
+max_forwards_decrement (default: 1)
+    Value to substract from incoming Max-Forwards header
 
 Section **routing**
 -------------------
