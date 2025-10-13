@@ -56,7 +56,7 @@ This certificate is retrieved from a public repository according to the ``info``
 
 During signature validation, Yeti performs the following steps:
 
-    - Check if Identity header patameter ``info`` is same as Identity JWT header ``x5u``
+    - Check if Identity header parameter ``info`` is same as Identity JWT header ``x5u``
     - Check if the public certificate repository URL from the ``info`` parameter and ``x5u`` JWT header is allowed by :ref:`Trusted repository configuration <stir_shaken_trusted_repositories>`
     - Retrieve the public certificate from the repository URL or from the internal cache
     - Verify that the public certificate is valid and not expired
