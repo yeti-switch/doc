@@ -76,7 +76,7 @@ Routing
 - Capacity control for gateways, destinations, companies, accounts
 - Source and Destination number based Blacklisting and per number translation rules
 - Possibility to rewrite/modify caller-id, DNIS at the any routing stage
-- Time-based routing
+- :ref:`Time-based routing <schedulers>`
 - Statistic and quality control for the each destination
 - Gateways grouping and load-balancing for cases when supplier provides several gateways for the termination
 - Possibility to silently reject unauthorized SIP INVITEs

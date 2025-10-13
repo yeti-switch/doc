@@ -314,6 +314,22 @@ Dump Level
 
 Transport protocol
     Transport protocol that is used
+
+
+SIP Schema
+    Specifies the URI schema used in the **Request-URI**, **From**, and **To** headers.
+
+    **Possible values:**
+
+        - **sip** — URI is built as ``sip:number@domain``
+        - **sips** — URI is built as ``sips:number@domain``
+        - **sip with user=phone** — URI is built as ``sip:number@domain;user=phone``
+
+
+    .. seealso:: `RFC3966 <https://datatracker.ietf.org/doc/html/rfc3966>`_, `RFC4967 <https://datatracker.ietf.org/doc/html/rfc4967>`_
+
+    .. warning:: In Yeti, using the **sips** schema does **not** automatically enable any encryption mechanisms. It only affects the URI generation logic.
+
        
 Host
     IP address or DNS name of remote gateway to send SIP signaling (only for termination).

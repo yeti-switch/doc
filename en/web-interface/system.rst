@@ -26,5 +26,6 @@ YETI WEB interface - System menu description. This section describes general con
    system/networks_prefixes
    system/sensors
    system/smtp_connections
+   system/schedulers
 
 
